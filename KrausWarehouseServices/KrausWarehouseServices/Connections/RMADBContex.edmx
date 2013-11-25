@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RMASYSTEMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RMASYSTEMModelStoreContainer">
+          <EntitySet Name="Audit" EntityType="RMASYSTEMModel.Store.Audit" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="Reasons" EntityType="RMASYSTEMModel.Store.Reasons" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="Return" EntityType="RMASYSTEMModel.Store.Return" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="ReturnDetail" EntityType="RMASYSTEMModel.Store.ReturnDetail" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="ReturnImages" EntityType="RMASYSTEMModel.Store.ReturnImages" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="Roles" EntityType="RMASYSTEMModel.Store.Roles" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="User" EntityType="RMASYSTEMModel.Store.User" store:Type="Tables" Schema="DEVELOPER" />
+          <AssociationSet Name="FK_ReturnDetail_Return" Association="RMASYSTEMModel.Store.FK_ReturnDetail_Return">
+            <End Role="Return" EntitySet="Return" />
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="RMASYSTEMModel.Store.FK_ReturnImages_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+            <End Role="ReturnImages" EntitySet="ReturnImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Roles" Association="RMASYSTEMModel.Store.FK_User_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogs_User" Association="RMASYSTEMModel.Store.FK_UserLogs_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Audit" EntitySet="Audit" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActionType" Type="varchar(max)" />
+          <Property Name="ActionTime" Type="datetime" />
+          <Property Name="ActionValue" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Return">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Name="ReturnID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RMANumber" Type="varchar(max)" />
+          <Property Name="ShipmentNumber" Type="varchar(max)" />
+          <Property Name="OrderNumber" Type="varchar(max)" />
+          <Property Name="PONumber" Type="varchar(max)" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="VendorNumber" Type="varchar(max)" />
+          <Property Name="VendoeName" Type="varchar(max)" />
+          <Property Name="CustomerName1" Type="varchar(max)" />
+          <Property Name="CustomerName2" Type="varchar(max)" />
+          <Property Name="Address1" Type="varchar(max)" />
+          <Property Name="Address2" Type="varchar(max)" />
+          <Property Name="Address3" Type="varchar(max)" />
+          <Property Name="ZipCode" Type="varchar(max)" />
+          <Property Name="City" Type="varchar(max)" />
+          <Property Name="State" Type="varchar(max)" />
+          <Property Name="Country" Type="varchar(max)" />
+          <Property Name="ReturnReason" Type="nvarchar(max)" />
+          <Property Name="RMAStatus" Type="tinyint" />
+          <Property Name="Decision" Type="tinyint" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReturnDetail">
+          <Key>
+            <PropertyRef Name="ReturnDetailID" />
+          </Key>
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SKUNumber" Type="varchar(max)" />
+          <Property Name="ProductName" Type="varchar(max)" />
+          <Property Name="DeliveredQty" Type="int" />
+          <Property Name="ExpectedQty" Type="int" />
+          <Property Name="ReturnQty" Type="int" />
+          <Property Name="ProductStatus" Type="int" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpadatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReturnImages">
+          <Key>
+            <PropertyRef Name="ReturnImageID" />
+          </Key>
+          <Property Name="ReturnImageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SKUImagePath" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpadatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpadatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="Updatedby" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserFullName" Type="varchar(max)" />
+          <Property Name="UserName" Type="varchar(max)" />
+          <Property Name="UserAddress" Type="varchar(max)" />
+          <Property Name="UserJoiningDate" Type="datetime" />
+          <Property Name="UserPassword" Type="varchar(max)" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="Updatedby" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_ReturnDetail_Return">
+          <End Role="Return" Type="RMASYSTEMModel.Store.Return" Multiplicity="1" />
+          <End Role="ReturnDetail" Type="RMASYSTEMModel.Store.ReturnDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Return">
+              <PropertyRef Name="ReturnID" />
+            </Principal>
+            <Dependent Role="ReturnDetail">
+              <PropertyRef Name="ReturnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnImages_ReturnDetail">
+          <End Role="ReturnDetail" Type="RMASYSTEMModel.Store.ReturnDetail" Multiplicity="1" />
+          <End Role="ReturnImages" Type="RMASYSTEMModel.Store.ReturnImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnImages">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Roles">
+          <End Role="Roles" Type="RMASYSTEMModel.Store.Roles" Multiplicity="1" />
+          <End Role="User" Type="RMASYSTEMModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogs_User">
+          <End Role="User" Type="RMASYSTEMModel.Store.User" Multiplicity="1" />
+          <End Role="Audit" Type="RMASYSTEMModel.Store.Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Audit">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RMASYSTEMModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RMASYSTEMEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Audits" EntityType="RMASYSTEMModel.Audit" />
+          <EntitySet Name="Reasons" EntityType="RMASYSTEMModel.Reason" />
+          <EntitySet Name="Returns" EntityType="RMASYSTEMModel.Return" />
+          <EntitySet Name="ReturnDetails" EntityType="RMASYSTEMModel.ReturnDetail" />
+          <EntitySet Name="ReturnImages" EntityType="RMASYSTEMModel.ReturnImage" />
+          <EntitySet Name="Roles" EntityType="RMASYSTEMModel.Role" />
+          <EntitySet Name="Users" EntityType="RMASYSTEMModel.User" />
+          <AssociationSet Name="FK_UserLogs_User" Association="RMASYSTEMModel.FK_UserLogs_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Audit" EntitySet="Audits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnDetail_Return" Association="RMASYSTEMModel.FK_ReturnDetail_Return">
+            <End Role="Return" EntitySet="Returns" />
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="RMASYSTEMModel.FK_ReturnImages_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+            <End Role="ReturnImages" EntitySet="ReturnImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Roles" Association="RMASYSTEMModel.FK_User_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="ActionType" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ActionTime" Type="DateTime" Precision="3" />
+          <Property Name="ActionValue" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="RMASYSTEMModel.FK_UserLogs_User" FromRole="Audit" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Reason">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Return">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Name="ReturnID" Type="Guid" Nullable="false" />
+          <Property Name="RMANumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ShipmentNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="PONumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="VendorNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="VendoeName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CustomerName1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CustomerName2" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Address3" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ReturnReason" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RMAStatus" Type="Byte" />
+          <Property Name="Decision" Type="Byte" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="UpdatedBy" Type="Guid" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ReturnDetails" Relationship="RMASYSTEMModel.FK_ReturnDetail_Return" FromRole="Return" ToRole="ReturnDetail" />
+        </EntityType>
+        <EntityType Name="ReturnDetail">
+          <Key>
+            <PropertyRef Name="ReturnDetailID" />
+          </Key>
+          <Property Name="ReturnDetailID" Type="Guid" Nullable="false" />
+          <Property Name="ReturnID" Type="Guid" Nullable="false" />
+          <Property Name="SKUNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DeliveredQty" Type="Int32" />
+          <Property Name="ExpectedQty" Type="Int32" />
+          <Property Name="ReturnQty" Type="Int32" />
+          <Property Name="ProductStatus" Type="Int32" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="UpdatedBy" Type="Guid" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpadatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Return" Relationship="RMASYSTEMModel.FK_ReturnDetail_Return" FromRole="ReturnDetail" ToRole="Return" />
+          <NavigationProperty Name="ReturnImages" Relationship="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" FromRole="ReturnDetail" ToRole="ReturnImages" />
+        </EntityType>
+        <EntityType Name="ReturnImage">
+          <Key>
+            <PropertyRef Name="ReturnImageID" />
+          </Key>
+          <Property Name="ReturnImageID" Type="Guid" Nullable="false" />
+          <Property Name="ReturnDetailID" Type="Guid" Nullable="false" />
+          <Property Name="SKUImagePath" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="UpadatedBy" Type="Guid" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpadatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ReturnDetail" Relationship="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" FromRole="ReturnImages" ToRole="ReturnDetail" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Action" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="Updatedby" Type="Guid" />
+          <NavigationProperty Name="Users" Relationship="RMASYSTEMModel.FK_User_Roles" FromRole="Roles" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="UserFullName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="UserAddress" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="UserJoiningDate" Type="DateTime" Precision="3" />
+          <Property Name="UserPassword" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="Updatedby" Type="Guid" />
+          <NavigationProperty Name="Audits" Relationship="RMASYSTEMModel.FK_UserLogs_User" FromRole="User" ToRole="Audit" />
+          <NavigationProperty Name="Role" Relationship="RMASYSTEMModel.FK_User_Roles" FromRole="User" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_UserLogs_User">
+          <End Role="User" Type="RMASYSTEMModel.User" Multiplicity="1" />
+          <End Role="Audit" Type="RMASYSTEMModel.Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Audit">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnDetail_Return">
+          <End Role="Return" Type="RMASYSTEMModel.Return" Multiplicity="1" />
+          <End Role="ReturnDetail" Type="RMASYSTEMModel.ReturnDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Return">
+              <PropertyRef Name="ReturnID" />
+            </Principal>
+            <Dependent Role="ReturnDetail">
+              <PropertyRef Name="ReturnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnImages_ReturnDetail">
+          <End Role="ReturnDetail" Type="RMASYSTEMModel.ReturnDetail" Multiplicity="1" />
+          <End Role="ReturnImages" Type="RMASYSTEMModel.ReturnImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnImages">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Roles">
+          <End Role="Roles" Type="RMASYSTEMModel.Role" Multiplicity="1" />
+          <End Role="User" Type="RMASYSTEMModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RMASYSTEMModelStoreContainer" CdmEntityContainer="RMASYSTEMEntities">
+          <EntitySetMapping Name="Audits">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.Audit">
+              <MappingFragment StoreEntitySet="Audit">
+                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+                <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reasons">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.Reason">
+              <MappingFragment StoreEntitySet="Reasons">
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="Reason1" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Returns">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.Return">
+              <MappingFragment StoreEntitySet="Return">
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+                <ScalarProperty Name="RMANumber" ColumnName="RMANumber" />
+                <ScalarProperty Name="ShipmentNumber" ColumnName="ShipmentNumber" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="VendorNumber" ColumnName="VendorNumber" />
+                <ScalarProperty Name="VendoeName" ColumnName="VendoeName" />
+                <ScalarProperty Name="CustomerName1" ColumnName="CustomerName1" />
+                <ScalarProperty Name="CustomerName2" ColumnName="CustomerName2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ReturnReason" ColumnName="ReturnReason" />
+                <ScalarProperty Name="RMAStatus" ColumnName="RMAStatus" />
+                <ScalarProperty Name="Decision" ColumnName="Decision" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnDetails">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.ReturnDetail">
+              <MappingFragment StoreEntitySet="ReturnDetail">
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+                <ScalarProperty Name="SKUNumber" ColumnName="SKUNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="DeliveredQty" ColumnName="DeliveredQty" />
+                <ScalarProperty Name="ExpectedQty" ColumnName="ExpectedQty" />
+                <ScalarProperty Name="ReturnQty" ColumnName="ReturnQty" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpadatedDate" ColumnName="UpadatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnImages">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.ReturnImage">
+              <MappingFragment StoreEntitySet="ReturnImages">
+                <ScalarProperty Name="ReturnImageID" ColumnName="ReturnImageID" />
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="SKUImagePath" ColumnName="SKUImagePath" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpadatedBy" ColumnName="UpadatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpadatedDate" ColumnName="UpadatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+                <ScalarProperty Name="UserJoiningDate" ColumnName="UserJoiningDate" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

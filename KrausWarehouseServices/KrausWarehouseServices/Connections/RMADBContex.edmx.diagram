@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4309fb1bbc84a7c87f011d9cec864c0" Name="Diagram1">
+        <EntityTypeShape EntityType="RMASYSTEMModel.Audit" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.Reason" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.Return" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.ReturnDetail" Width="1.5" PointX="2.875" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.ReturnImage" Width="1.5" PointX="5.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.Role" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="RMASYSTEMModel.FK_UserLogs_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RMASYSTEMModel.FK_ReturnDetail_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="RMASYSTEMModel.FK_User_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
