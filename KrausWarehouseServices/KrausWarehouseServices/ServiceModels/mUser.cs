@@ -34,7 +34,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// <returns>
         /// User table object with user information else null.
         /// </returns>
-        public UserDTO Get(Guid UserID)
+        public UserDTO GetByUserID(Guid UserID)
         {
             return _user.GetUserTbl(UserID);
         }
@@ -48,7 +48,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// <returns>
         /// user table object. else null object.
         /// </returns>
-        public UserDTO Get(string LogingUserName)
+        public UserDTO GetByLoginName(string LogingUserName)
         {
             return _user.GetUserTbl(LogingUserName);  
         }
@@ -65,7 +65,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// <returns>
         /// list of user table information by same RoleID. else Rowcount is 0.
         /// </returns>
-        public List<UserDTO> Get(Guid RoleID, bool IsThisRoleID)
+        public List<UserDTO> GetByRoleID(Guid RoleID)
         {
             return _user.GetUserByRoleID(RoleID);
         }
@@ -98,5 +98,6 @@ namespace KrausWarehouseServices.ServiceModels
         {
             return true;
         }
+
     }
 }

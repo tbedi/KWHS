@@ -22,7 +22,44 @@ namespace KrausWarehouseServices.ServiceModels
         [OperationContract]
         List<UserDTO> Get();
 
+        /// <summary>
+        /// Get all user information for perticular user ID.
+        /// </summary>
+        /// <param name="UserID">
+        /// Guid UserID
+        /// </param>
+        /// <returns>
+        /// User table object with user information else null.
+        /// </returns>
+        [OperationContract]
+        UserDTO GetByUserID(Guid UserID);
 
+        /// <summary>
+        /// Get all Logging  name information from user table.
+        /// </summary>
+        /// <param name="LogingUserName">
+        /// String name used for loggin.
+        /// </param>
+        /// <returns>
+        /// user table object. else null object.
+        /// </returns>
+        [OperationContract]
+        UserDTO GetByLoginName(String LogingUserName);
+
+        /// <summary>
+        /// Get user table information filtered by RoleID
+        /// </summary>
+        /// <param name="RoleID">
+        /// Guid RoleID .
+        /// </param>
+        /// <param name="IsThisRoleID">
+        /// Boolean value to confirm entered ID is RoleID
+        /// </param>
+        /// <returns>
+        /// list of user table information by same RoleID. else Rowcount is 0.
+        /// </returns>
+        [OperationContract]
+        List<UserDTO> GetByRoleID(Guid RoleID);
         /// <summary>
         /// This is upset operation if any id present in database that record is updated 
         /// otherwise its inserted.

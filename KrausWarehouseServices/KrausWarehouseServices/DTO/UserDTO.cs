@@ -20,10 +20,10 @@ namespace KrausWarehouseServices.DTO
             this.UserAddress = _user.UserAddress;
             this.UserJoiningDate = (DateTime)_user.UserJoiningDate;
             this.UserPassword = _user.UserPassword;
-            this.CreatedDateTime = (DateTime)_user.CreatedDateTime;
-            this.UpdatedDateTime = (DateTime)_user.UpdatedDateTime;
-            this.CreatedBy = (Guid)_user.CreatedBy;
-            this.Updatedby = (Guid)_user.Updatedby;
+            if (_user.CreatedDateTime != null) this.CreatedDateTime = (DateTime)_user.CreatedDateTime;
+            if (_user.UpdatedDateTime != null) this.UpdatedDateTime = (DateTime)_user.UpdatedDateTime;
+            if (_user.CreatedBy != null) this.CreatedBy = (Guid)_user.CreatedBy;
+            if (_user.Updatedby != null) this.Updatedby = (Guid)_user.Updatedby;
         }
 
         public UserDTO() { }

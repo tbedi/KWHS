@@ -70,7 +70,8 @@ namespace KrausWarehouseServices.DBLogics
             try
             {
                var _lsUserReturn1 = entRMADB.Users.FirstOrDefault(i => i.UserID == Userid);
-               _lsUserReturn = new UserDTO(_lsUserReturn1);
+             _lsUserReturn =new  UserDTO(_lsUserReturn1);
+
             }
             catch (Exception)
             { }
