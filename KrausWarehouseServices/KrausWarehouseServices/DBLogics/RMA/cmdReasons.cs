@@ -63,5 +63,28 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _reasoncatname;
         
         }
+
+        /// <summary>
+        /// this function is for Insert the reasons in to the Reason Table and Update 
+        /// the Records of Reason Table.....
+        /// </summary>
+        /// <param name="reasonID">
+        /// </param>
+        /// <returns>
+        /// 
+        /// </returns>
+        public Boolean InsertReasons(Reason reasonID)
+        {
+            Boolean status = false;
+            try
+            {
+                entRMA.AddToReasons(reasonID);
+                entRMA.SaveChanges();
+                status = true;
+            }
+            catch (Exception)
+            { }
+            return status;
+        }
     }
 }
