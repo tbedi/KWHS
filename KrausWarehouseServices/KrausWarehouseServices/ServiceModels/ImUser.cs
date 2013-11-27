@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using KrausWarehouseServices.DTO;
+using System.ServiceModel.Web;
 
 namespace KrausWarehouseServices.ServiceModels
 {
@@ -20,6 +21,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// List of user table object. else list count is zero.
         /// </returns>
         [OperationContract]
+        [WebGet(UriTemplate = "/Get", ResponseFormat = WebMessageFormat.Xml)]
         List<UserDTO> Get();
 
         /// <summary>
@@ -32,8 +34,13 @@ namespace KrausWarehouseServices.ServiceModels
         /// User table object with user information else null.
         /// </returns>
         [OperationContract]
-        UserDTO GetByUserID(Guid UserID);
+        [WebInvoke(UriTemplate = "/Get1?UserID={UserID}", ResponseFormat = WebMessageFormat.Xml, Method = "GET")]
+        List<UserDTO> GetByUserID(Guid UserID);
 
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/Get2?name={name}", ResponseFormat = WebMessageFormat.Xml, Method = "GET")]
+        string GetName(String name);
         /// <summary>
         /// Get all Logging  name information from user table.
         /// </summary>

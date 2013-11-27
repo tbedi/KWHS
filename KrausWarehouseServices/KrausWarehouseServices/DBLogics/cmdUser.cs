@@ -64,13 +64,13 @@ namespace KrausWarehouseServices.DBLogics
         /// <returns>
         /// UserDTO class with user informatipn its null if information not found about user.
         /// </returns>
-        public UserDTO GetUserTbl(Guid Userid)
+        public List<UserDTO> GetUserTbl1(Guid Userid)
         {
-            UserDTO _lsUserReturn = new UserDTO();
+            List<UserDTO> _lsUserReturn = new List<UserDTO>();
             try
             {
-               var _lsUserReturn1 = entRMADB.Users.FirstOrDefault(i => i.UserID == Userid);
-             _lsUserReturn =new  UserDTO(_lsUserReturn1);
+                var _lsUserReturn1 = entRMADB.Users.FirstOrDefault(i => i.UserID == Userid);
+                _lsUserReturn.Add(new UserDTO(_lsUserReturn1));
 
             }
             catch (Exception)

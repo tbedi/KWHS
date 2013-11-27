@@ -8,9 +8,18 @@ using KrausWarehouseServices.Connections;
 
 namespace KrausWarehouseServices.DTO
 {
+    /// <summary>
+    /// DTO of user table.
+    /// </summary>
     [DataContract]
-    public class UserDTO
+    public class UserDTO 
     {
+        /// <summary>
+        /// Paremeterised constructor for class.
+        /// </summary>
+        /// <param name="_user">
+        /// User Object of entity class.
+        /// </param>
         public UserDTO(User _user)
         {
           if(_user.UserID!=null)  this.UserID = _user.UserID;
@@ -26,6 +35,9 @@ namespace KrausWarehouseServices.DTO
           if (_user.Updatedby != null) this.Updatedby = (Guid)_user.Updatedby;
         }
 
+        /// <summary>
+        /// Blank constructor.
+        /// </summary>
         public UserDTO() { }
 
         [DataMember]

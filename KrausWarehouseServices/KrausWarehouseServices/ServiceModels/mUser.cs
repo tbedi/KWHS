@@ -34,9 +34,9 @@ namespace KrausWarehouseServices.ServiceModels
         /// <returns>
         /// User table object with user information else null.
         /// </returns>
-        public UserDTO GetByUserID(Guid UserID)
+        public List <UserDTO> GetByUserID(Guid UserID)
         {
-            return _user.GetUserTbl(UserID);
+            return _user.GetUserTbl1(UserID);
         }
 
         /// <summary>
@@ -99,5 +99,11 @@ namespace KrausWarehouseServices.ServiceModels
             return true;
         }
 
+
+
+        public string GetName(string name)
+        {
+            return "Name= " + name;
+        }
     }
 }
