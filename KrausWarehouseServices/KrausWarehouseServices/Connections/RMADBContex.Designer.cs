@@ -20,9 +20,12 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_UserLogs_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.User), "Audit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.Audit), true)]
+[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReasonCatagory_Reasons", "Reason", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Reason), "ReasonCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReasonCategory), true)]
+[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_Transaction_Reasons", "Reason", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KrausWarehouseServices.Connections.Reason), "SKUReason", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.SKUReason), true)]
 [assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReturnDetail_Return", "Return", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Return), "ReturnDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReturnDetail), true)]
-[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReturnImages_ReturnDetail", "ReturnDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.ReturnDetail), "ReturnImages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReturnImage), true)]
-[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_User_Roles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Role), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.User), true)]
+[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReturnImages_ReturnDetail", "ReturnDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.ReturnDetail), "ReturnImage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReturnImage), true)]
+[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_Transaction_ReturnDetail", "ReturnDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KrausWarehouseServices.Connections.ReturnDetail), "SKUReason", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.SKUReason), true)]
+[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_User_Roles", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Role), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.User), true)]
 
 #endregion
 
@@ -89,6 +92,22 @@ namespace KrausWarehouseServices.Connections
             }
         }
         private ObjectSet<Audit> _Audits;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ReasonCategory> ReasonCategories
+        {
+            get
+            {
+                if ((_ReasonCategories == null))
+                {
+                    _ReasonCategories = base.CreateObjectSet<ReasonCategory>("ReasonCategories");
+                }
+                return _ReasonCategories;
+            }
+        }
+        private ObjectSet<ReasonCategory> _ReasonCategories;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -173,6 +192,22 @@ namespace KrausWarehouseServices.Connections
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<SKUReason> SKUReasons
+        {
+            get
+            {
+                if ((_SKUReasons == null))
+                {
+                    _SKUReasons = base.CreateObjectSet<SKUReason>("SKUReasons");
+                }
+                return _SKUReasons;
+            }
+        }
+        private ObjectSet<SKUReason> _SKUReasons;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<User> Users
         {
             get
@@ -196,6 +231,14 @@ namespace KrausWarehouseServices.Connections
         public void AddToAudits(Audit audit)
         {
             base.AddObject("Audits", audit);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ReasonCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToReasonCategories(ReasonCategory reasonCategory)
+        {
+            base.AddObject("ReasonCategories", reasonCategory);
         }
     
         /// <summary>
@@ -236,6 +279,14 @@ namespace KrausWarehouseServices.Connections
         public void AddToRoles(Role role)
         {
             base.AddObject("Roles", role);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SKUReasons EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSKUReasons(SKUReason sKUReason)
+        {
+            base.AddObject("SKUReasons", sKUReason);
         }
     
         /// <summary>
@@ -464,7 +515,7 @@ namespace KrausWarehouseServices.Connections
         /// Create a new Reason object.
         /// </summary>
         /// <param name="reasonID">Initial value of the ReasonID property.</param>
-        public static Reason CreateReason(global::System.Int32 reasonID)
+        public static Reason CreateReason(global::System.Guid reasonID)
         {
             Reason reason = new Reason();
             reason.ReasonID = reasonID;
@@ -480,7 +531,7 @@ namespace KrausWarehouseServices.Connections
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ReasonID
+        public global::System.Guid ReasonID
         {
             get
             {
@@ -498,8 +549,8 @@ namespace KrausWarehouseServices.Connections
                 }
             }
         }
-        private global::System.Int32 _ReasonID;
-        partial void OnReasonIDChanging(global::System.Int32 value);
+        private global::System.Guid _ReasonID;
+        partial void OnReasonIDChanging(global::System.Guid value);
         partial void OnReasonIDChanged();
     
         /// <summary>
@@ -525,6 +576,202 @@ namespace KrausWarehouseServices.Connections
         private global::System.String _Reason1;
         partial void OnReason1Changing(global::System.String value);
         partial void OnReason1Changed();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_ReasonCatagory_Reasons", "ReasonCategory")]
+        public EntityCollection<ReasonCategory> ReasonCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ReasonCategory>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "ReasonCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ReasonCategory>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "ReasonCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_Transaction_Reasons", "SKUReason")]
+        public EntityCollection<SKUReason> SKUReasons
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SKUReason>("RMASYSTEMModel.FK_Transaction_Reasons", "SKUReason");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SKUReason>("RMASYSTEMModel.FK_Transaction_Reasons", "SKUReason", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="ReasonCategory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ReasonCategory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ReasonCategory object.
+        /// </summary>
+        /// <param name="reasonCatID">Initial value of the ReasonCatID property.</param>
+        /// <param name="reasonID">Initial value of the ReasonID property.</param>
+        public static ReasonCategory CreateReasonCategory(global::System.Guid reasonCatID, global::System.Guid reasonID)
+        {
+            ReasonCategory reasonCategory = new ReasonCategory();
+            reasonCategory.ReasonCatID = reasonCatID;
+            reasonCategory.ReasonID = reasonID;
+            return reasonCategory;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ReasonCatID
+        {
+            get
+            {
+                return _ReasonCatID;
+            }
+            set
+            {
+                if (_ReasonCatID != value)
+                {
+                    OnReasonCatIDChanging(value);
+                    ReportPropertyChanging("ReasonCatID");
+                    _ReasonCatID = StructuralObject.SetValidValue(value, "ReasonCatID");
+                    ReportPropertyChanged("ReasonCatID");
+                    OnReasonCatIDChanged();
+                }
+            }
+        }
+        private global::System.Guid _ReasonCatID;
+        partial void OnReasonCatIDChanging(global::System.Guid value);
+        partial void OnReasonCatIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ReasonID
+        {
+            get
+            {
+                return _ReasonID;
+            }
+            set
+            {
+                OnReasonIDChanging(value);
+                ReportPropertyChanging("ReasonID");
+                _ReasonID = StructuralObject.SetValidValue(value, "ReasonID");
+                ReportPropertyChanged("ReasonID");
+                OnReasonIDChanged();
+            }
+        }
+        private global::System.Guid _ReasonID;
+        partial void OnReasonIDChanging(global::System.Guid value);
+        partial void OnReasonIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CategoryName
+        {
+            get
+            {
+                return _CategoryName;
+            }
+            set
+            {
+                OnCategoryNameChanging(value);
+                ReportPropertyChanging("CategoryName");
+                _CategoryName = StructuralObject.SetValidValue(value, true, "CategoryName");
+                ReportPropertyChanged("CategoryName");
+                OnCategoryNameChanged();
+            }
+        }
+        private global::System.String _CategoryName;
+        partial void OnCategoryNameChanging(global::System.String value);
+        partial void OnCategoryNameChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_ReasonCatagory_Reasons", "Reason")]
+        public Reason Reason
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "Reason").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "Reason").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Reason> ReasonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "Reason");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Reason>("RMASYSTEMModel.FK_ReasonCatagory_Reasons", "Reason", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1343,6 +1590,30 @@ namespace KrausWarehouseServices.Connections
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String TCLCOD_0
+        {
+            get
+            {
+                return _TCLCOD_0;
+            }
+            set
+            {
+                OnTCLCOD_0Changing(value);
+                ReportPropertyChanging("TCLCOD_0");
+                _TCLCOD_0 = StructuralObject.SetValidValue(value, true, "TCLCOD_0");
+                ReportPropertyChanged("TCLCOD_0");
+                OnTCLCOD_0Changed();
+            }
+        }
+        private global::System.String _TCLCOD_0;
+        partial void OnTCLCOD_0Changing(global::System.String value);
+        partial void OnTCLCOD_0Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public Nullable<global::System.Int32> DeliveredQty
         {
             get
@@ -1578,18 +1849,40 @@ namespace KrausWarehouseServices.Connections
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_ReturnImages_ReturnDetail", "ReturnImages")]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_ReturnImages_ReturnDetail", "ReturnImage")]
         public EntityCollection<ReturnImage> ReturnImages
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ReturnImage>("RMASYSTEMModel.FK_ReturnImages_ReturnDetail", "ReturnImages");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ReturnImage>("RMASYSTEMModel.FK_ReturnImages_ReturnDetail", "ReturnImage");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ReturnImage>("RMASYSTEMModel.FK_ReturnImages_ReturnDetail", "ReturnImages", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ReturnImage>("RMASYSTEMModel.FK_ReturnImages_ReturnDetail", "ReturnImage", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_Transaction_ReturnDetail", "SKUReason")]
+        public EntityCollection<SKUReason> SKUReasons
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SKUReason>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "SKUReason");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SKUReason>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "SKUReason", value);
                 }
             }
         }
@@ -2071,6 +2364,190 @@ namespace KrausWarehouseServices.Connections
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="SKUReason")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SKUReason : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SKUReason object.
+        /// </summary>
+        /// <param name="sKUReasonID">Initial value of the SKUReasonID property.</param>
+        public static SKUReason CreateSKUReason(global::System.Guid sKUReasonID)
+        {
+            SKUReason sKUReason = new SKUReason();
+            sKUReason.SKUReasonID = sKUReasonID;
+            return sKUReason;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid SKUReasonID
+        {
+            get
+            {
+                return _SKUReasonID;
+            }
+            set
+            {
+                if (_SKUReasonID != value)
+                {
+                    OnSKUReasonIDChanging(value);
+                    ReportPropertyChanging("SKUReasonID");
+                    _SKUReasonID = StructuralObject.SetValidValue(value, "SKUReasonID");
+                    ReportPropertyChanged("SKUReasonID");
+                    OnSKUReasonIDChanged();
+                }
+            }
+        }
+        private global::System.Guid _SKUReasonID;
+        partial void OnSKUReasonIDChanging(global::System.Guid value);
+        partial void OnSKUReasonIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> ReasonID
+        {
+            get
+            {
+                return _ReasonID;
+            }
+            set
+            {
+                OnReasonIDChanging(value);
+                ReportPropertyChanging("ReasonID");
+                _ReasonID = StructuralObject.SetValidValue(value, "ReasonID");
+                ReportPropertyChanged("ReasonID");
+                OnReasonIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _ReasonID;
+        partial void OnReasonIDChanging(Nullable<global::System.Guid> value);
+        partial void OnReasonIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> ReturnDetailID
+        {
+            get
+            {
+                return _ReturnDetailID;
+            }
+            set
+            {
+                OnReturnDetailIDChanging(value);
+                ReportPropertyChanging("ReturnDetailID");
+                _ReturnDetailID = StructuralObject.SetValidValue(value, "ReturnDetailID");
+                ReportPropertyChanged("ReturnDetailID");
+                OnReturnDetailIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _ReturnDetailID;
+        partial void OnReturnDetailIDChanging(Nullable<global::System.Guid> value);
+        partial void OnReturnDetailIDChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_Transaction_Reasons", "Reason")]
+        public Reason Reason
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_Transaction_Reasons", "Reason").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_Transaction_Reasons", "Reason").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Reason> ReasonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Reason>("RMASYSTEMModel.FK_Transaction_Reasons", "Reason");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Reason>("RMASYSTEMModel.FK_Transaction_Reasons", "Reason", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_Transaction_ReturnDetail", "ReturnDetail")]
+        public ReturnDetail ReturnDetail
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ReturnDetail>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "ReturnDetail").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ReturnDetail>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "ReturnDetail").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ReturnDetail> ReturnDetailReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ReturnDetail>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "ReturnDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ReturnDetail>("RMASYSTEMModel.FK_Transaction_ReturnDetail", "ReturnDetail", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2394,16 +2871,16 @@ namespace KrausWarehouseServices.Connections
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_User_Roles", "Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_User_Roles", "Role")]
         public Role Role
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Roles").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Role").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Roles").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Role").Value = value;
             }
         }
         /// <summary>
@@ -2415,13 +2892,13 @@ namespace KrausWarehouseServices.Connections
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Role");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Role>("RMASYSTEMModel.FK_User_Roles", "Role", value);
                 }
             }
         }

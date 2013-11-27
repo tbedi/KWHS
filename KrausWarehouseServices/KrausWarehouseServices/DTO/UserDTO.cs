@@ -13,17 +13,17 @@ namespace KrausWarehouseServices.DTO
     {
         public UserDTO(User _user)
         {
-            this.UserID = _user.UserID;
-            this.RoleId = _user.RoleId;
-            this.UserFullName = _user.UserFullName;
-            this.UserName = _user.UserName;
-            this.UserAddress = _user.UserAddress;
-            this.UserJoiningDate = (DateTime)_user.UserJoiningDate;
-            this.UserPassword = _user.UserPassword;
-            if (_user.CreatedDateTime != null) this.CreatedDateTime = (DateTime)_user.CreatedDateTime;
-            if (_user.UpdatedDateTime != null) this.UpdatedDateTime = (DateTime)_user.UpdatedDateTime;
-            if (_user.CreatedBy != null) this.CreatedBy = (Guid)_user.CreatedBy;
-            if (_user.Updatedby != null) this.Updatedby = (Guid)_user.Updatedby;
+          if(_user.UserID!=null)  this.UserID = _user.UserID;
+          if(_user.RoleId!=null)  this.RoleId = _user.RoleId;
+          if(_user.UserFullName!=null)  this.UserFullName = _user.UserFullName;
+          if(_user.UserName!=null)  this.UserName = _user.UserName;
+          if(_user.UserAddress!=null)  this.UserAddress = _user.UserAddress;
+          if(_user.UserJoiningDate!=null)  this.UserJoiningDate = (DateTime)_user.UserJoiningDate;
+          if(_user.UserPassword!=null)  this.UserPassword = _user.UserPassword;
+          if (_user.CreatedDateTime != null) this.CreatedDateTime = (DateTime)_user.CreatedDateTime;
+          if (_user.UpdatedDateTime != null) this.UpdatedDateTime = (DateTime)_user.UpdatedDateTime;
+          if (_user.CreatedBy != null) this.CreatedBy = (Guid)_user.CreatedBy;
+          if (_user.Updatedby != null) this.Updatedby = (Guid)_user.Updatedby;
         }
 
         public UserDTO() { }

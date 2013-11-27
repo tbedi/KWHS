@@ -4,15 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RMASYSTEMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RMASYSTEMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="RMASYSTEMModelStoreContainer">
           <EntitySet Name="Audit" EntityType="RMASYSTEMModel.Store.Audit" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="ReasonCategory" EntityType="RMASYSTEMModel.Store.ReasonCategory" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Reasons" EntityType="RMASYSTEMModel.Store.Reasons" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Return" EntityType="RMASYSTEMModel.Store.Return" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="ReturnDetail" EntityType="RMASYSTEMModel.Store.ReturnDetail" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="ReturnImages" EntityType="RMASYSTEMModel.Store.ReturnImages" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Roles" EntityType="RMASYSTEMModel.Store.Roles" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="SKUReasons" EntityType="RMASYSTEMModel.Store.SKUReasons" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="User" EntityType="RMASYSTEMModel.Store.User" store:Type="Tables" Schema="DEVELOPER" />
+          <AssociationSet Name="FK_ReasonCatagory_Reasons" Association="RMASYSTEMModel.Store.FK_ReasonCatagory_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="ReasonCategory" EntitySet="ReasonCategory" />
+          </AssociationSet>
           <AssociationSet Name="FK_ReturnDetail_Return" Association="RMASYSTEMModel.Store.FK_ReturnDetail_Return">
             <End Role="Return" EntitySet="Return" />
             <End Role="ReturnDetail" EntitySet="ReturnDetail" />
@@ -20,6 +26,14 @@
           <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="RMASYSTEMModel.Store.FK_ReturnImages_ReturnDetail">
             <End Role="ReturnDetail" EntitySet="ReturnDetail" />
             <End Role="ReturnImages" EntitySet="ReturnImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Reasons" Association="RMASYSTEMModel.Store.FK_Transaction_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="SKUReasons" EntitySet="SKUReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ReturnDetail" Association="RMASYSTEMModel.Store.FK_Transaction_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+            <End Role="SKUReasons" EntitySet="SKUReasons" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Roles" Association="RMASYSTEMModel.Store.FK_User_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -40,11 +54,19 @@
           <Property Name="ActionTime" Type="datetime" />
           <Property Name="ActionValue" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ReasonCategory">
+          <Key>
+            <PropertyRef Name="ReasonCatID" />
+          </Key>
+          <Property Name="ReasonCatID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="5" />
+        </EntityType>
         <EntityType Name="Reasons">
           <Key>
             <PropertyRef Name="ReasonID" />
           </Key>
-          <Property Name="ReasonID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Reason" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Return">
@@ -86,6 +108,7 @@
           <Property Name="ReturnID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SKUNumber" Type="varchar(max)" />
           <Property Name="ProductName" Type="varchar(max)" />
+          <Property Name="TCLCOD_0" Type="nvarchar" MaxLength="5" />
           <Property Name="DeliveredQty" Type="int" />
           <Property Name="ExpectedQty" Type="int" />
           <Property Name="ReturnQty" Type="int" />
@@ -119,6 +142,14 @@
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="Updatedby" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="SKUReasons">
+          <Key>
+            <PropertyRef Name="SKUReasonID" />
+          </Key>
+          <Property Name="SKUReasonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReasonID" Type="uniqueidentifier" />
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserID" />
@@ -135,6 +166,18 @@
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="Updatedby" Type="uniqueidentifier" />
         </EntityType>
+        <Association Name="FK_ReasonCatagory_Reasons">
+          <End Role="Reasons" Type="RMASYSTEMModel.Store.Reasons" Multiplicity="1" />
+          <End Role="ReasonCategory" Type="RMASYSTEMModel.Store.ReasonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="ReasonCategory">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ReturnDetail_Return">
           <End Role="Return" Type="RMASYSTEMModel.Store.Return" Multiplicity="1" />
           <End Role="ReturnDetail" Type="RMASYSTEMModel.Store.ReturnDetail" Multiplicity="*" />
@@ -155,6 +198,30 @@
               <PropertyRef Name="ReturnDetailID" />
             </Principal>
             <Dependent Role="ReturnImages">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Reasons">
+          <End Role="Reasons" Type="RMASYSTEMModel.Store.Reasons" Multiplicity="0..1" />
+          <End Role="SKUReasons" Type="RMASYSTEMModel.Store.SKUReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="SKUReasons">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ReturnDetail">
+          <End Role="ReturnDetail" Type="RMASYSTEMModel.Store.ReturnDetail" Multiplicity="0..1" />
+          <End Role="SKUReasons" Type="RMASYSTEMModel.Store.SKUReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="SKUReasons">
               <PropertyRef Name="ReturnDetailID" />
             </Dependent>
           </ReferentialConstraint>
@@ -183,8 +250,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RMASYSTEMModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -212,6 +278,20 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="ReasonCategories" EntityType="RMASYSTEMModel.ReasonCategory" />
+          <EntitySet Name="SKUReasons" EntityType="RMASYSTEMModel.SKUReason" />
+          <AssociationSet Name="FK_ReasonCatagory_Reasons" Association="RMASYSTEMModel.FK_ReasonCatagory_Reasons">
+            <End Role="Reason" EntitySet="Reasons" />
+            <End Role="ReasonCategory" EntitySet="ReasonCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Reasons" Association="RMASYSTEMModel.FK_Transaction_Reasons">
+            <End Role="Reason" EntitySet="Reasons" />
+            <End Role="SKUReason" EntitySet="SKUReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ReturnDetail" Association="RMASYSTEMModel.FK_Transaction_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+            <End Role="SKUReason" EntitySet="SKUReasons" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Audit">
           <Key>
@@ -230,6 +310,8 @@
           </Key>
           <Property Name="ReasonID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Reason1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ReasonCategories" Relationship="RMASYSTEMModel.FK_ReasonCatagory_Reasons" FromRole="Reason" ToRole="ReasonCategory" />
+          <NavigationProperty Name="SKUReasons" Relationship="RMASYSTEMModel.FK_Transaction_Reasons" FromRole="Reason" ToRole="SKUReason" />
         </EntityType>
         <EntityType Name="Return">
           <Key>
@@ -281,6 +363,8 @@
           <Property Name="UpadatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Return" Relationship="RMASYSTEMModel.FK_ReturnDetail_Return" FromRole="ReturnDetail" ToRole="Return" />
           <NavigationProperty Name="ReturnImages" Relationship="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" FromRole="ReturnDetail" ToRole="ReturnImages" />
+          <Property Type="String" Name="TCLCOD_0" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SKUReasons" Relationship="RMASYSTEMModel.FK_Transaction_ReturnDetail" FromRole="ReturnDetail" ToRole="SKUReason" />
         </EntityType>
         <EntityType Name="ReturnImage">
           <Key>
@@ -374,6 +458,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ReasonCategory">
+          <Key>
+            <PropertyRef Name="ReasonCatID" />
+          </Key>
+          <Property Type="Guid" Name="ReasonCatID" Nullable="false" />
+          <Property Type="Guid" Name="ReasonID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reason" Relationship="RMASYSTEMModel.FK_ReasonCatagory_Reasons" FromRole="ReasonCategory" ToRole="Reason" />
+        </EntityType>
+        <EntityType Name="SKUReason">
+          <Key>
+            <PropertyRef Name="SKUReasonID" />
+          </Key>
+          <Property Type="Guid" Name="SKUReasonID" Nullable="false" />
+          <Property Type="Guid" Name="ReasonID" />
+          <Property Type="Guid" Name="ReturnDetailID" />
+          <NavigationProperty Name="Reason" Relationship="RMASYSTEMModel.FK_Transaction_Reasons" FromRole="SKUReason" ToRole="Reason" />
+          <NavigationProperty Name="ReturnDetail" Relationship="RMASYSTEMModel.FK_Transaction_ReturnDetail" FromRole="SKUReason" ToRole="ReturnDetail" />
+        </EntityType>
+        <Association Name="FK_ReasonCatagory_Reasons">
+          <End Type="RMASYSTEMModel.Reason" Role="Reason" Multiplicity="1" />
+          <End Type="RMASYSTEMModel.ReasonCategory" Role="ReasonCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="ReasonCategory">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Reasons">
+          <End Type="RMASYSTEMModel.Reason" Role="Reason" Multiplicity="0..1" />
+          <End Type="RMASYSTEMModel.SKUReason" Role="SKUReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="SKUReason">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ReturnDetail">
+          <End Type="RMASYSTEMModel.ReturnDetail" Role="ReturnDetail" Multiplicity="0..1" />
+          <End Type="RMASYSTEMModel.SKUReason" Role="SKUReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="SKUReason">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -434,6 +573,7 @@
           <EntitySetMapping Name="ReturnDetails">
             <EntityTypeMapping TypeName="RMASYSTEMModel.ReturnDetail">
               <MappingFragment StoreEntitySet="ReturnDetail">
+                <ScalarProperty Name="TCLCOD_0" ColumnName="TCLCOD_0" />
                 <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
                 <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
                 <ScalarProperty Name="SKUNumber" ColumnName="SKUNumber" />
@@ -489,6 +629,24 @@
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReasonCategories">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.ReasonCategory">
+              <MappingFragment StoreEntitySet="ReasonCategory">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="ReasonCatID" ColumnName="ReasonCatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKUReasons">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.SKUReason">
+              <MappingFragment StoreEntitySet="SKUReasons">
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="SKUReasonID" ColumnName="SKUReasonID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
