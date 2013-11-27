@@ -17,7 +17,7 @@ namespace KrausWarehouseServices.DTO
         if (_reason.Reason1 != null) this.Reason = _reason.Reason1;
       }
         [DataMember]
-      public int ReasonID { get; set; }
+      public Guid ReasonID { get; set; }
 
         [DataMember]
       public string Reason { get; set; }

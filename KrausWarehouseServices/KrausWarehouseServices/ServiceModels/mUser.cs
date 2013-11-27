@@ -11,7 +11,7 @@ namespace KrausWarehouseServices.ServiceModels
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "mUser" in both code and config file together.
     public class mUser :ImUser
     {
-        protected DBLogics.cmdUser _user = new DBLogics.cmdUser();
+        protected DBLogics.RMA.cmdUser _user = new DBLogics.RMA.cmdUser();
        
         /// <summary>
         /// Get all user Table information with all rows.

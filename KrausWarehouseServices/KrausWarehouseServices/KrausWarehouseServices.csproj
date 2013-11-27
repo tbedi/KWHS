@@ -60,7 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RMADBContex.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBLogics\cmdUser.cs" />
+    <Compile Include="DBLogics\RMA\cmdUser.cs" />
     <Compile Include="DBLogics\RMA\cmdReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdReturn.cs" />
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />

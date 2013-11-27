@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 using KrausWarehouseServices.DTO;
 
-namespace KrausWarehouseServices.DBLogics
+namespace KrausWarehouseServices.DBLogics.RMA
 {
      /// <summary>
     /// Avinash : 25Nov2013 : KWS
