@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 using System.Runtime.Serialization;
 
-namespace KrausWarehouseServices.DTO
+namespace KrausWarehouseServices.DTO.RMA
 {
     [DataContract]
    public class RoleDTO

@@ -4,15 +4,16 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using KrausWarehouseServices.DTO;
+using KrausWarehouseServices.DTO.RMA;
 using System.ServiceModel.Web;
 
 namespace KrausWarehouseServices.ServiceModels
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ImUser" in both code and config file together.
     [ServiceContract]
-    public interface ImUser
+    public interface ImUser 
     {
+
         /// <summary>
         /// Get all user Table information with all rows.
         /// Withaout any filter.

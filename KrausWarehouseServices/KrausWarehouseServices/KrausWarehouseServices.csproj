@@ -64,11 +64,11 @@
     <Compile Include="DBLogics\RMA\cmdReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdReturn.cs" />
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />
-    <Compile Include="DTO\AuditDTO.cs" />
-    <Compile Include="DTO\ReasonsDTO.cs" />
-    <Compile Include="DTO\ReturnDTO.cs" />
-    <Compile Include="DTO\RoleDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\RMA\AuditDTO.cs" />
+    <Compile Include="DTO\RMA\ReasonsDTO.cs" />
+    <Compile Include="DTO\RMA\ReturnDTO.cs" />
+    <Compile Include="DTO\RMA\RoleDTO.cs" />
+    <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceModels\ImUser.cs" />
     <Compile Include="ServiceModels\mUser.cs" />

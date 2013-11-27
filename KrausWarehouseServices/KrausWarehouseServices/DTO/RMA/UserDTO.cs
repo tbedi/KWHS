@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 
-namespace KrausWarehouseServices.DTO
+namespace KrausWarehouseServices.DTO.RMA
 {
     /// <summary>
     /// DTO of user table.
