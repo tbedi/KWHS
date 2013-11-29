@@ -12,7 +12,30 @@ namespace KrausWarehouseServices.Service.RMA
     {
 
         #region Declaration
+        //create User Object
         DBLogics.RMA.cmdUser _user = new DBLogics.RMA.cmdUser();
+
+        //create Return object
+        DBLogics.RMA.cmdReturn _return = new DBLogics.RMA.cmdReturn();
+
+        //create ReturnDetail object
+        DBLogics.RMA.cmdReturnDetail _returnDetail = new DBLogics.RMA.cmdReturnDetail();
+
+        //create Reason object
+        DBLogics.RMA.cmdReasons _reason = new DBLogics.RMA.cmdReasons();
+
+        //create ReasonCategory object
+        DBLogics.RMA.cmdReasonCategory _reasonCat = new DBLogics.RMA.cmdReasonCategory();
+
+        //create Role object
+        DBLogics.RMA.cmdRoles _role = new DBLogics.RMA.cmdRoles();
+
+        //create SKUNumber object
+        DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
+
+        //create SKUNumber object
+        DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
+
         #endregion
 
         #region User
