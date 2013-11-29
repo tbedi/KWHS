@@ -33,9 +33,6 @@ namespace KrausWarehouseServices.Service.RMA
         //create SKUNumber object
         DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
 
-        //create SKUNumber object
-        DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
-
         #endregion
 
         #region User
@@ -94,6 +91,46 @@ namespace KrausWarehouseServices.Service.RMA
             return _user.GetUserTbl(UserName);
         } 
 
+        #endregion
+
+
+        #region Return
+        
+        public List<DTO.RMA.ReturnDTO> ReturnAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DTO.RMA.ReturnDTO ReturnByReturnID(Guid ReturnID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.RMA.ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DTO.RMA.ReturnDTO ReturnByRMANumber(string RMANumber)
+        {
+            throw new NotImplementedException();
+        }
+ 
+        #endregion
+
+
+        #region Reason
+       
+        public List<DTO.RMA.ReasonsDTO> ReasonsAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.RMA.ReasonsDTO> ReasonByCategoryName(string CategoryName)
+        {
+            throw new NotImplementedException();
+        }
+ 
         #endregion
     }
 }
