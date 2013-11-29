@@ -9,14 +9,13 @@ using System.Text;
 
 namespace KrausWarehouseServices.Service.RMA
 {
-    /// <summary>
-    /// User model that calls all user funcations.
-    /// SOA and XML functions.
-    /// note: 'x' prefixed function only belongs to the XML transfer.
-    /// </summary>
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IGet" in both code and config file together.
     [ServiceContract]
-    public interface IUser
+    public interface IGet
     {
+
+        #region User 
+
         /// <summary>
         /// XML return user information.
         /// </summary>
@@ -31,7 +30,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// list of UserDTO table information.
         /// </returns>
         [OperationContract]
-        [WebInvoke(UriTemplate = "/Get?ID={EnumGetTypeString}&value={Parameters}", Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)] 
+        [WebInvoke(UriTemplate = "/User?ID={EnumGetTypeString}&value={Parameters}", Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
         List<UserDTO> xGet(String EnumGetTypeString, String Parameters);
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// list of UserDTO table information.
         /// </returns>
         [OperationContract]
-        List<UserDTO> Get();
+        List<UserDTO> UserAll();
 
 
         /// <summary>
@@ -54,7 +53,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// UserDTO Information.
         /// </returns>
         [OperationContract]
-        UserDTO GetByUserID(Guid UserID);
+        UserDTO UserByUserID(Guid UserID);
 
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// List of userDTO information matched to the Role.
         /// </returns>
         [OperationContract]
-        List<UserDTO> GetByRoleID(Guid RoleID);
+        List<UserDTO> UserByRoleID(Guid RoleID);
 
         /// <summary>
         /// Search user information matched to the User Name and password.
@@ -82,33 +81,10 @@ namespace KrausWarehouseServices.Service.RMA
         /// UserDTO with information.
         /// </returns>
         [OperationContract]
-        UserDTO GetByUserName(String UserName);
+        UserDTO UserByUserName(String UserName);
 
 
-        /// <summary>
-        /// Upsert operation for the User Table.
-        /// </summary>
-        /// <param name="UserInformation">
-        /// userDTO object with information.
-        /// </param>
-        /// <returns>
-        /// Guid wich is inserted or updated.
-        /// </returns>
-        [OperationContract]
-        Guid Save(UserDTO UserInformation);
 
-
-        /// <summary>
-        /// Delete the record from user table by UserID.
-        /// </summary>
-        /// <param name="UserID">
-        /// Guid UserID.
-        /// </param>
-        /// <returns>
-        /// Boolean value with information.
-        /// </returns>
-        [OperationContract]
-        Boolean Delete(Guid UserID);
-
+        #endregion
     }
 }

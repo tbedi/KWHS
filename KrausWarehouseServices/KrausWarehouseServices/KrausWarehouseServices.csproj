@@ -80,8 +80,10 @@
     <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\RMA\IUser.cs" />
-    <Compile Include="Service\RMA\User.cs" />
+    <Compile Include="Service\RMA\Get.cs" />
+    <Compile Include="Service\RMA\IGet.cs" />
+    <Compile Include="Service\RMA\ISave.cs" />
+    <Compile Include="Service\RMA\Save.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
