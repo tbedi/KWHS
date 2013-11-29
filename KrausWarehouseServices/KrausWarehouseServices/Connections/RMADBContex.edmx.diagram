@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e4309fb1bbc84a7c87f011d9cec864c0" Name="Diagram1" ZoomLevel="18">
+      <Diagram DiagramId="e4309fb1bbc84a7c87f011d9cec864c0" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="RMASYSTEMModel.Audit" Width="1.5" PointX="5.05852696907638" PointY="27.677226735128659" />
         <EntityTypeShape EntityType="RMASYSTEMModel.ReasonCategory" Width="1.5" PointX="6.8525827186426991" PointY="29.091433151202011" />
         <EntityTypeShape EntityType="RMASYSTEMModel.Reason" Width="1.5" PointX="3.0455465647604063" PointY="6.5591909617926882" />
-        <EntityTypeShape EntityType="RMASYSTEMModel.Return" Width="1.5" PointX="6.0367779052056267" PointY="23.984249707304059" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.Return" Width="1.5" PointX="13" PointY="23.625" />
         <EntityTypeShape EntityType="RMASYSTEMModel.ReturnDetail" Width="1.5" PointX="10.75981146598226" PointY="24.619724508663513" />
         <EntityTypeShape EntityType="RMASYSTEMModel.ReturnImage" Width="1.5" PointX="3.4275584628002527" PointY="25.038240474200919" />
         <EntityTypeShape EntityType="RMASYSTEMModel.Role" Width="1.5" PointX="0.49589455895866008" PointY="21.709979067421507" />
-        <EntityTypeShape EntityType="RMASYSTEMModel.SKUReason" Width="1.5" PointX="9.1906831214161056" PointY="13.189832499804828" />
-        <EntityTypeShape EntityType="RMASYSTEMModel.User" Width="1.5" PointX="5.9919556220955945" PointY="18.899799370625896" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.SKUReason" Width="1.5" PointX="8.125" PointY="7.25" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.User" Width="1.5" PointX="8.125" PointY="15.625" />
         <AssociationConnector Association="RMASYSTEMModel.FK_UserLogs_User" />
         <AssociationConnector Association="RMASYSTEMModel.FK_ReasonCatagory_Reasons" />
         <AssociationConnector Association="RMASYSTEMModel.FK_Transaction_Reasons" />
