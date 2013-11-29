@@ -86,5 +86,36 @@ namespace KrausWarehouseServices.Service.RMA
 
 
         #endregion
+
+        #region Return
+
+        [OperationContract]
+        List<ReturnDTO> ReturnAll();
+
+        [OperationContract]
+        ReturnDTO ReturnByReturnID(Guid ReturnID);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID);
+
+        [OperationContract]
+        ReturnDTO ReturnByRMANumber(String RMANumber);
+
+        #endregion
+
+        #region Return Details.
+
+
+        #endregion
+
+        #region Reason
+
+        [OperationContract]
+        List<ReasonsDTO> ReasonsAll();
+
+        [OperationContract]
+        List<ReasonsDTO> ReasonByCategoryName(String CategoryName);
+
+        #endregion
     }
 }
