@@ -309,6 +309,31 @@ namespace KrausWarehouseServices.Connections
         {
             throw new NotImplementedException();
         }
+
+        internal void AddToReturnDetails(DTO.RMA.ReturnDetailsDTO ReturnsDetail)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddToReturnImages(DTO.RMA.ReturnImagesDTO Returnimage)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddToSKUReasons(DTO.RMA.SKUReasonsDTO skureason)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddToAudits(DTO.RMA.AuditDTO userlog)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddToReasonCategories(DTO.RMA.ReasonCategoryDTO reas)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     #endregion

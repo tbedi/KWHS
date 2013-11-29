@@ -60,11 +60,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RMADBContex.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DBLogics\RMA\cmdAudit.cs" />
+    <Compile Include="DBLogics\RMA\cmdReasonCategory.cs" />
+    <Compile Include="DBLogics\RMA\cmdReturnDetail.cs" />
+    <Compile Include="DBLogics\RMA\cmdReturnImages.cs" />
+    <Compile Include="DBLogics\RMA\cmdSKUReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdUser.cs" />
     <Compile Include="DBLogics\RMA\cmdReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdReturn.cs" />
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
+    <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
     <Compile Include="DTO\RMA\ReturnDetailsDTO.cs" />
     <Compile Include="DTO\RMA\ReturnDTO.cs" />
