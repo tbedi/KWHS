@@ -9,10 +9,10 @@ using KrausWarehouseServices.DTO.RMA;
 namespace KrausWarehouseServices.ServiceModels
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "mUser" in both code and config file together.
-    public class mUser :ImUser
+    public class mUser : ImUser
     {
         protected DBLogics.RMA.cmdUser _user = new DBLogics.RMA.cmdUser();
-       
+
         /// <summary>
         /// Get all user Table information with all rows.
         /// Withaout any filter.
@@ -34,7 +34,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// <returns>
         /// User table object with user information else null.
         /// </returns>
-        public List <UserDTO> GetByUserID(Guid UserID)
+        public List<UserDTO> GetByUserID(Guid UserID)
         {
             return _user.GetUserTbl1(UserID);
         }
@@ -50,7 +50,7 @@ namespace KrausWarehouseServices.ServiceModels
         /// </returns>
         public UserDTO GetByLoginName(string LogingUserName)
         {
-            return _user.GetUserTbl(LogingUserName);  
+            return _user.GetUserTbl(LogingUserName);
         }
 
         /// <summary>
@@ -98,7 +98,6 @@ namespace KrausWarehouseServices.ServiceModels
         {
             return true;
         }
-
 
 
         public string GetName(string name)

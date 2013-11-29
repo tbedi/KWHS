@@ -12,8 +12,8 @@ namespace KrausWarehouseServices.DTO.RMA
     {
        public AuditDTO(Audit _audit)
        {
-          if (_audit.UserLogID != null) this.UserLogID = (Guid)_audit.UserLogID;
-          if(_audit.UserID!=null) this.UserID=(Guid)_audit.UserID;
+          if (_audit.UserLogID != Guid.Empty) this.UserLogID = (Guid)_audit.UserLogID;
+          if(_audit.UserID!=Guid.Empty) this.UserID=(Guid)_audit.UserID;
           if(_audit.ActionType!=null) this.ActionType=_audit.ActionType;
           if(_audit.ActionTime!=null) this.ActionTime=_audit.ActionTime;
           if(_audit.ActionValue!=null) this.ActionValue=_audit.ActionValue;

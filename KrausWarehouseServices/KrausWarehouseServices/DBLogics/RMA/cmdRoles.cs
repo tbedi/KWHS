@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 using KrausWarehouseServices.DTO;
+using KrausWarehouseServices.DTO.RMA;
 
 
 namespace KrausWarehouseServices.DBLogics.RMA
@@ -19,40 +20,45 @@ namespace KrausWarehouseServices.DBLogics.RMA
        RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
 
        /// <summary>
-       /// Get all information from the Role Table.
+       /// Get all information from the RoleDTO Table.
        /// </summary>
        /// <returns>
-       /// Return the List of Role Table Object.
+       /// Return the List of RoleDTO Table Object.
        /// </returns>
-       public List<Role> GetRoles()
+       public List<RoleDTO> GetRoles()
        {
-           List<Role> _RoleList = new List<Role>();
+           List<RoleDTO> _roleList = new List<RoleDTO>();
            try
            {
-               _RoleList = (from GetRoleTbl in entRMA.Roles
+               var Roles= (from GetRoleTbl in entRMA.Roles
                             select GetRoleTbl).ToList();
+               foreach (var Ritem in Roles)
+               {
+                   RoleDTO rol = new RoleDTO(Ritem);
+                   _roleList.Add(rol);
+               }
            }
            catch (Exception)
            {
            }
-           return _RoleList;
+           return _roleList;
        }
 
        /// <summary>
        /// Gives the role Information by roleID
        /// </summary>
-       /// <param name="roleID">
+       /// <param name="RoleID">
        /// string roleID
        /// </param>
        /// <returns>
        /// return the role object.
        /// </returns>
-       public Role GetRoleTblByRoleID(Guid roleID)
+       public RoleDTO GetRoleTblByRoleID(Guid RoleID)
        {
-           Role _role = new Role();
+           RoleDTO _role = new RoleDTO();
            try
            {
-               _role = entRMA.Roles.FirstOrDefault(ret => ret.RoleId == roleID);
+               _role = new RoleDTO(entRMA.Roles.FirstOrDefault(ret => ret.RoleId == RoleID));
            }
            catch (Exception)
            {
