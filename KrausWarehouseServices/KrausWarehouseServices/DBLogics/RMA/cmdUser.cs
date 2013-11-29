@@ -64,13 +64,12 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <returns>
         /// UserDTO class with user informatipn its null if information not found about user.
         /// </returns>
-        public List<UserDTO> GetUserTbl1(Guid Userid)
+        public UserDTO GetUserTbl1(Guid Userid)
         {
-            List<UserDTO> _lsUserReturn = new List<UserDTO>();
+            UserDTO _lsUserReturn = new UserDTO();
             try
             {
-                var _lsUserReturn1 = entRMADB.Users.FirstOrDefault(i => i.UserID == Userid);
-                _lsUserReturn.Add(new UserDTO(_lsUserReturn1));
+                _lsUserReturn = new UserDTO(entRMADB.Users.FirstOrDefault(i => i.UserID == Userid));
 
             }
             catch (Exception)
@@ -163,6 +162,8 @@ namespace KrausWarehouseServices.DBLogics.RMA
         }
 
         #endregion
+
+
 
 
 
