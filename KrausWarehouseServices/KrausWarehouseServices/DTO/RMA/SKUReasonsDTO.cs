@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace KrausWarehouseServices.DTO.RMA
 {
-    class SKUReasonsDTO
+    [DataContract]
+   public class SKUReasonsDTO
     {
         public SKUReasonsDTO(SKUReason SKUReasons)
         {

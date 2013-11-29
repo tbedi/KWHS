@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace KrausWarehouseServices.DTO.RMA
 {
     [DataContract]
-    class ReturnDetailsDTO
+   public class ReturnDetailsDTO
     {
         public ReturnDetailsDTO(ReturnDetail ReturnDetails)
         {
