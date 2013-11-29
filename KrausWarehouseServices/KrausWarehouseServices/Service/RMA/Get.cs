@@ -98,22 +98,22 @@ namespace KrausWarehouseServices.Service.RMA
         
         public List<DTO.RMA.ReturnDTO> ReturnAll()
         {
-            throw new NotImplementedException();
+           return _return.GetReturnTbl();
         }
 
         public DTO.RMA.ReturnDTO ReturnByReturnID(Guid ReturnID)
         {
-            throw new NotImplementedException();
+            return _return.GetReturnTblByReturnID(ReturnID);
         }
 
         public List<DTO.RMA.ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public DTO.RMA.ReturnDTO ReturnByRMANumber(string RMANumber)
         {
-            throw new NotImplementedException();
+            return _return.GetReturnTblByRMANumber(RMANumber);
         }
  
         #endregion
@@ -123,12 +123,12 @@ namespace KrausWarehouseServices.Service.RMA
        
         public List<DTO.RMA.ReasonsDTO> ReasonsAll()
         {
-            throw new NotImplementedException();
+            return _reason.GetReasons();
         }
 
         public List<DTO.RMA.ReasonsDTO> ReasonByCategoryName(string CategoryName)
         {
-            throw new NotImplementedException();
+            return _reason.GetReasonByCategoryName(CategoryName);
         }
  
         #endregion
