@@ -161,6 +161,40 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _userReturn;
         }
 
+        /// <summary>
+        /// save only
+        /// </summary>
+        /// <param name="_User"></param>
+        /// <returns></returns>
+        public Guid save(UserDTO _User)
+        {
+            Guid _return = new Guid();
+            try
+            {
+                User user = new User();
+                user.UserID = _User.UserID;
+                user.RoleId = _User.RoleId;
+                user.UserFullName = _User.UserFullName;
+                user.UserAddress = _User.UserAddress;
+                user.UserName = _User.UserName;
+                user.UserPassword = _User.UserPassword;
+                user.UserJoiningDate = _User.UserJoiningDate;
+                user.CreatedBy = _User.CreatedBy;
+                user.Updatedby = null;
+                user.CreatedDateTime = DateTime.Now;
+                user.UpdatedDateTime = null;
+                entRMADB.AddToUsers(user);
+                entRMADB.SaveChanges();
+                _return = _User.UserID;
+
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+ 
+        }
+
         #endregion
 
 

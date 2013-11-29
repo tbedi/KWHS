@@ -11,5 +11,7 @@ namespace KrausWarehouseServices.Business_Logic
    public  class bUser
     {
        cmdUser _user = new cmdUser();
+
+      
     }
 }

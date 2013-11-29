@@ -14,29 +14,46 @@ namespace KrausWarehouseServices.Service.RMA
     {
         DBLogics.RMA.cmdUser _user = new DBLogics.RMA.cmdUser();
 
-        public List<DTO.RMA.UserDTO> xGet(string ID, string Parameters)
+        /// <summary>
+        /// XML return user information.
+        /// </summary>
+        /// <param name="EnumGetType">
+        /// Function call ID
+        /// ID examples: USERID/ROLEID/LOGINNAME/GETALL.
+        /// </param>
+        /// <param name="Parameters">
+        /// parametes to respective ID passed. in string.
+        /// </param>
+        /// <returns>
+        /// list of UserDTO table information.
+        /// </returns>
+        public List<DTO.RMA.UserDTO> xGet(string EnumGetType, string Parameters)
         {
-            switch (ID.ToUpper())
-            {
-                case "USERID":
+            //Convert to the Get Enum type.
+            Globle_Classes.get Getid;
+            Enum.TryParse(EnumGetType, true, out Getid);
+
+            switch ((int) Getid)
+            { 
+                case 0:
+                    return this.Get();
+
+                case 1:
                     Guid UserID;
                     Guid.TryParse(Parameters, out UserID);
                     List<DTO.RMA.UserDTO> _lsReturnDTO = new List<DTO.RMA.UserDTO>();
                     _lsReturnDTO.Add(this.GetByUserID(UserID));
                     return _lsReturnDTO;
 
-                case "ROLEID":
+                case 2:
                     Guid RoleID;
                     Guid.TryParse(Parameters, out RoleID);
                     return this.GetByRoleID(RoleID);
 
-                case "LOGINNAME":
+                case 3:
                     List<DTO.RMA.UserDTO> _lsReturnDTO2 = new List<DTO.RMA.UserDTO>();
                     _lsReturnDTO2.Add(this.GetByUserName(Parameters));
                     return _lsReturnDTO2;
-
-                case "GETALL":
-                    return this.Get();
 
                 default:
                     List<DTO.RMA.UserDTO> userDTO = new List<DTO.RMA.UserDTO>();

@@ -20,7 +20,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// <summary>
         /// XML return user information.
         /// </summary>
-        /// <param name="ID">
+        /// <param name="EnumGetTypeString">
         /// Function call ID
         /// ID examples: USERID/ROLEID/LOGINNAME/GETALL.
         /// </param>
@@ -31,8 +31,8 @@ namespace KrausWarehouseServices.Service.RMA
         /// list of UserDTO table information.
         /// </returns>
         [OperationContract]
-        [WebInvoke(UriTemplate="/Get?ID={ID}&value={Parameters}", Method="GET",ResponseFormat=WebMessageFormat.Xml,BodyStyle= WebMessageBodyStyle.Bare)] 
-        List<UserDTO> xGet(String ID, String Parameters);
+        [WebInvoke(UriTemplate = "/Get?ID={EnumGetTypeString}&value={Parameters}", Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)] 
+        List<UserDTO> xGet(String EnumGetTypeString, String Parameters);
 
         /// <summary>
         /// SOA function return all user table.
