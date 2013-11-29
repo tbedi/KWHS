@@ -4,89 +4,105 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
-using KrausWarehouseServices.DTO;
+using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
     /// <summary>
-    /// Shriram Rajaram 27 nov 2013 
-    /// get and set opereation on audit table
+    /// shriram rajaram 29/11/2013 
+    /// create get,set operation on Audit table
     /// </summary>
    public  class cmdAudit
     {
-        #region declaration
-        //RMAsystem Database object
-        RMASYSTEMEntities RMA = new RMASYSTEMEntities();
+       /// <summary>
+       /// Create Entity Object RMAEntity.
+       /// </summary>
+       RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
 
-        #endregion
+       /// <summary>
+       /// Get records From the Audit table.
+       /// </summary>
+       /// <returns>
+       /// Return the List of Audit.
+       /// </returns>
+       public List<AuditDTO> GetAudit()
+       {
+           List<AuditDTO> _auditlist = new List<AuditDTO>();
+           try
+           {
+               var aud = (from t in entRMA.Audits
+                          select t).ToList();
+               foreach (var item in aud)
+               {
+                   AuditDTO au = new AuditDTO(item);
+                   _auditlist.Add(au);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _auditlist;
+       }
 
-        /// <summary>
-        /// get All data from the audit Table
-        /// </summary>
-        /// <returns></returns>
-        public List<Audit> GetAudit()
-        {
-            List<Audit> _audit = new List<Audit>();
-            try
-            {
-                _audit = (from auditdetail in RMA.Audits
-                          select auditdetail).ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return _audit;
-        }
+       /// <summary>
+       /// Get Records from the audit table by UserID 
+       /// </summary>
+       /// <param name="UserID">
+       /// pass UserID As Parameter.
+       /// </param>
+       /// <returns>
+       /// return the audit list.
+       /// </returns>
+       public AuditDTO GetdatafromauditbyUserid(Guid UserID)
+       {
+           AuditDTO auduserid = new AuditDTO();
+           try
+           {
+               var audit = entRMA.Audits.SingleOrDefault(au => au.UserID == UserID);
+               auduserid = new AuditDTO(audit);
+           }
+           catch (Exception)
+           {
+           }
+           return auduserid;
+       }
 
-        /// <summary>
-        /// This Fuction for get detail of audit by UserID  
-        /// </summary>
-        /// <param name="UserID"></param>
-        /// <returns></returns>
-        public Audit GetdatafromauditbyUserid(Guid UserID)
-        {
-            Audit AuditUser = new Audit();
-            try
-            {
-                AuditUser = RMA.Audits.SingleOrDefault(aud => aud.UserID == UserID);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return AuditUser;
-        }
-        /// <summary>
-        /// insert and update the records in audit table
-        /// if data already exist then it will update or insert
-        /// </summary>
-        /// <param name="userlog"></param>
-        /// <returns></returns>
-        public Boolean UsertofAudit(Audit userlog)
-        {
-            Boolean _returnflag = false;
-            try
-            {
-                Audit aud = new Audit();
-                aud = RMA.Audits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID);
-                //insert the new record if not present
-                if (aud == null)
-                {
-                    RMA.AddToAudits(userlog);
-                }
-                else //updating Existing Record
-                {
-                    aud = userlog;
-                }
-                RMA.SaveChanges();
-                _returnflag = true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return _returnflag;
-        }
+       /// <summary>
+       /// insert and update the records in audit table
+       /// if data already exist then it will update.
+       /// </summary>
+       /// <param name="userlog">
+       /// pass the userlog as parameter.
+       /// </param>
+       /// <returns>
+       /// Return boolean Value when Transaction is Success.
+       /// </returns>
+       public Boolean UsertofAudit(AuditDTO userlog)
+       {
+           Boolean _returnflag = false;
+           try
+           {
+               AuditDTO aud = new AuditDTO(entRMA.Audits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID));
+               //insert the new record if not present
+               if (aud == null)
+               {
+                   entRMA.AddToAudits(userlog);
+               }
+               else //updating Existing Record
+               {
+                   aud = userlog;
+               }
+               entRMA.SaveChanges();
+               _returnflag = true;
+           }
+           catch (Exception)
+           {
+
+           }
+           return _returnflag;
+       }
+
+
+
     }
 }
