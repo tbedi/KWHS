@@ -299,6 +299,16 @@ namespace KrausWarehouseServices.Connections
 
         #endregion
 
+
+        internal void AddToReasons(DTO.RMA.ReasonsDTO ReasonID)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddToReturns(DTO.RMA.ReturnDTO _returnbj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     #endregion

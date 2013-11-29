@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 using KrausWarehouseServices.DTO;
+using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
@@ -27,14 +28,20 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// return List of Return Table Object.
         /// If record not Found Then Return Null.
         /// </returns>
-        public List<Return> GetReturnTbl()
+        public List<ReturnDTO> GetReturnTbl()
         {
-            List<Return> _return = new List<Return>();
+            List<ReturnDTO> _return = new List<ReturnDTO>();
 
             try
             {
-                _return = (from ReturnTable in entRMA.Returns
+                var re = (from ReturnTable in entRMA.Returns
                            select ReturnTable).ToList();
+
+                foreach (var item in re)
+                {
+                    ReturnDTO redto = new ReturnDTO();
+                    _return.Add(redto);
+                }
             }
             catch (Exception)
             {
@@ -51,12 +58,13 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <returns>
         /// Return Returntable Object
         /// </returns>
-        public Return GetReturnTblByReturnID(Guid ReturnID)
+        public ReturnDTO GetReturnTblByReturnID(Guid ReturnID)
         {
-            Return _returnObj = new Return();
+            ReturnDTO _returnObj = new ReturnDTO();
             try
             {
-                _returnObj = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == ReturnID);
+                var _ret = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == ReturnID);
+                _returnObj = new ReturnDTO(_ret);
             }
             catch (Exception)
             {
@@ -74,12 +82,13 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <returns>
         /// Return return table Object.
         /// </returns>
-        public Return GetReturnTblByRMANumber(string RMANumber)
+        public ReturnDTO GetReturnTblByRMANumber(string RMANumber)
         {
-            Return _returnOb = new Return();
+            ReturnDTO _returnOb = new ReturnDTO();
             try
             {
-                _returnOb = entRMA.Returns.SingleOrDefault(ret => ret.RMANumber == RMANumber);
+              var _return = entRMA.Returns.SingleOrDefault(ret => ret.RMANumber == RMANumber);
+              _returnOb = new ReturnDTO(_return);
             }
             catch (Exception)
             {
@@ -99,14 +108,15 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// boolean value return according to transaction 
         /// true when success other wise false.
         /// </returns>
-        public Boolean SetReturnTbl(Return returnID)
+        public Boolean SetReturnTbl(ReturnDTO returnID)
         {
             Boolean _status = false;
 
             try
             {
-                Return _returnbj = new Return();
-                _returnbj = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == returnID.ReturnID);
+                ReturnDTO _returnbj = new ReturnDTO();
+                var _re = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == returnID.ReturnID);
+                _returnbj = new ReturnDTO(_re);
                 //If return object is null then Save records
                 if (_returnbj == null)
                 {

@@ -14,7 +14,7 @@ namespace KrausWarehouseServices.DTO.RMA
        
        public RoleDTO(Role _role)
        {
-         if(_role.RoleId!=null) this.RoleID = _role.RoleId;
+         if(_role.RoleId!=Guid.Empty) this.RoleID =(Guid) _role.RoleId;
          if(_role.Name!=null) this.Name=_role.Name;
          if(_role.Action!=null) this.Action=_role.Action;
          if(_role.CreatedDateTime!=null) this.CreatedDateTime=(DateTime)_role.CreatedDateTime;

@@ -15,7 +15,7 @@ namespace KrausWarehouseServices.DTO.RMA
 
         public ReturnDTO(Return _return)
         {
-            if (_return.ReturnID != null) this.ReturnID = _return.ReturnID;
+            if (_return.ReturnID != Guid.Empty) this.ReturnID =(Guid) _return.ReturnID;
             if (_return.RMANumber != null) this.RMANumber = _return.RMANumber;
             if (_return.ShipmentNumber != null) this.ShipmentNumber = _return.ShipmentNumber;
             if (_return.OrderNumber != null) this.OrderNumber = _return.OrderNumber;

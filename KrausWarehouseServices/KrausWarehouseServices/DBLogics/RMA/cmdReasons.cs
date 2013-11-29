@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.DTO;
 using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
@@ -22,13 +22,18 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// get all reasons from the reason table.
         /// </summary>
         /// <returns></returns>
-        public List<Reason> GetReasons()
+        public List<ReasonsDTO> GetReasons()
         {
-            List<Reason> _reasonlist = new List<Reason>();
+            List<ReasonsDTO> _reasonlist = new List<ReasonsDTO>();
             try
             {
-                _reasonlist = (from reason in entRMA.Reasons
+                var reasons = (from reason in entRMA.Reasons
                                select reason).ToList();
+                foreach (var item in reasons)
+                {
+                    ReasonsDTO Reason = new ReasonsDTO(item);
+                    _reasonlist.Add(Reason);
+                }
             }
             catch (Exception)
             {
@@ -43,19 +48,23 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// get reason from reason table by categoryName.  
         /// </param>
         /// <returns></returns>
-        public List<Reason> GetReasonByCategoryName(string CategoryName)
+        public List<ReasonsDTO> GetReasonByCategoryName(string CategoryName)
         {
-            List<Reason> _reasoncatname = new List<Reason>();
+            List<ReasonsDTO> _reasoncatname = new List<ReasonsDTO>();
             try
             {
                 string _categorynm = CategoryName.ToUpper();
 
-                _reasoncatname = (from catname in entRMA.ReasonCategories
+                var cateReason = (from catname in entRMA.ReasonCategories
                                   join resons in entRMA.Reasons
                                   on catname.ReasonID equals resons.ReasonID
                                   where catname.CategoryName == _categorynm
                                   select resons).ToList();
-                                  
+                foreach (var item in cateReason)
+                {
+                    ReasonsDTO catre = new ReasonsDTO(item);
+                    _reasoncatname.Add(catre);
+                }
             }
             catch (Exception)
             {
@@ -73,12 +82,12 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <returns>
         /// 
         /// </returns>
-        public Boolean InsertReasons(Reason reasonID)
+        public Boolean InsertReasons(ReasonsDTO ReasonID)
         {
             Boolean status = false;
             try
             {
-                entRMA.AddToReasons(reasonID);
+                entRMA.AddToReasons(ReasonID);
                 entRMA.SaveChanges();
                 status = true;
             }
