@@ -13,9 +13,9 @@ namespace KrausWarehouseServices.DTO.RMA
     {
         public ReasonCategoryDTO(ReasonCategory _reason)
         {
-            if (_reason.ReasonCatID != Guid.Empty) ReasonCatID =(Guid) _reason.ReasonCatID;
-            if (_reason.ReasonID != Guid.Empty) ReasonID = (Guid)_reason.ReasonID;
-            if(_reason.CategoryName!=null) CategoryName=(string)_reason.CategoryName;
+            if (_reason.ReasonCatID != Guid.Empty) this.ReasonCatID =(Guid) _reason.ReasonCatID;
+            if (_reason.ReasonID != Guid.Empty) this.ReasonID = (Guid)_reason.ReasonID;
+            if(_reason.CategoryName!=null) this.CategoryName=(string)_reason.CategoryName;
         }
 
         [DataMember]
