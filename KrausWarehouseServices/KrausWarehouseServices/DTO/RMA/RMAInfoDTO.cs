@@ -18,7 +18,7 @@ namespace KrausWarehouseServices.DTO.RMA
             if(_sage.OrderNumber!=null) this.OrderNumber=(string)_sage.OrderNumber;
             if (_sage.PONumber != null) this.PONumber = (string)_sage.PONumber;
             if (_sage.OrderDate != null) this.OrderDate = (DateTime)_sage.OrderDate;
-            if (_sage.DeliveredQty != null) this.DeliveryDate = (DateTime)_sage.DeliveryDate;
+            if (_sage.DeliveryDate != null) this.DeliveryDate = (DateTime)_sage.DeliveryDate;
             if (_sage.ReturnDate != null) this.ReturnDate = (DateTime)_sage.ReturnDate;
             if (_sage.VendorNumber != null) this.VendorNumber = (string)_sage.VendorNumber;
             if (_sage.VendorName != null) this.VendorName = (string)_sage.VendorName;
