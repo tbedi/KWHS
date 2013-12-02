@@ -60,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RMADBContex.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Connections\SageX3V6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SageX3V6.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DBLogics\RMA\cmdAudit.cs" />
     <Compile Include="DBLogics\RMA\cmdReasonCategory.cs" />
     <Compile Include="DBLogics\RMA\cmdReturnDetail.cs" />
@@ -93,6 +98,13 @@
     </EntityDeploy>
     <None Include="Connections\RMADBContex.edmx.diagram">
       <DependentUpon>RMADBContex.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Connections\SageX3V6.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SageX3V6.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Connections\SageX3V6.edmx.diagram">
+      <DependentUpon>SageX3V6.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
