@@ -24,7 +24,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// Retrun Boolean Value is transaction is success
         /// </returns>
         [OperationContract]
-        Boolean SaveReasonCat(ReasonCategoryDTO reasonCat);
+        Boolean ReasonCategory(ReasonCategoryDTO reasonCat);
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// Return boolean Value.
         /// </returns>
         [OperationContract]
-        Boolean SaveReasons(ReasonsDTO reasons);
+        Boolean Reasons(ReasonsDTO reasons);
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// Return boolean value.
         /// </returns>
         [OperationContract]
-        Boolean SaveReturn(ReturnDTO _return);
+        Boolean Return(ReturnDTO _return);
 
         #endregion
 
@@ -72,7 +72,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// return boolean value.
         /// </returns>
         [OperationContract]
-        Boolean SaveReturnDetails(ReturnDetailsDTO returndetail);
+        Boolean ReturnDetails(ReturnDetailsDTO returndetail);
         
         #endregion
 
@@ -88,7 +88,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// return Boolean Value.
         /// </returns>
         [OperationContract]
-        Boolean SaveReturnImages(ReturnImagesDTO returnimages);
+        Boolean ReturnImages(ReturnImagesDTO returnimages);
 
         #endregion
 
@@ -104,10 +104,11 @@ namespace KrausWarehouseServices.Service.RMA
         /// return Boolean Value.
         /// </returns>
         [OperationContract]
-        Boolean SaveSKUReasons(SKUReasonsDTO SKU);
+        Boolean SKUReasons(SKUReasonsDTO SKU);
 
         #endregion
-
+   
+        #region Users
         /// <summary>
         /// save and update operation on userDTO.
         /// </summary>
@@ -117,9 +118,8 @@ namespace KrausWarehouseServices.Service.RMA
         /// <returns>
         /// return Boolean Value.
         /// </returns>
-        #region Users
         [OperationContract]
-        void SaveUser(UserDTO user);
+        void User(UserDTO user);
         #endregion
 
 

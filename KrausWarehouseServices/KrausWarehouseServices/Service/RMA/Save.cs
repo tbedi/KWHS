@@ -37,42 +37,37 @@ namespace KrausWarehouseServices.Service.RMA
 
         #endregion
 
-        public void DoWork()
+        public bool ReasonCategory(DTO.RMA.ReasonCategoryDTO reasonCat)
         {
-            throw new NotImplementedException();
+            return _reasonCat.UpsertReasonCategory(reasonCat);
         }
 
-        public bool SaveReasonCat(DTO.RMA.ReasonCategoryDTO reasonCat)
+        public bool Reasons(DTO.RMA.ReasonsDTO reasons)
         {
-            return _reasonCat.SetReasonCategory(reasonCat);
+            return _reason.UpsertReasons(reasons);
         }
 
-        public bool SaveReasons(DTO.RMA.ReasonsDTO reasons)
+        public bool Return(DTO.RMA.ReturnDTO _return)
         {
-            return _reason.InsertReasons(reasons);
+            return _returnobj.UpsertReturnTbl(_return);
         }
 
-        public bool SaveReturn(DTO.RMA.ReturnDTO _return)
-        {
-            return _returnobj.SetReturnTbl(_return);
-        }
-
-        public bool SaveReturnDetails(DTO.RMA.ReturnDetailsDTO returndetail)
+        public bool ReturnDetails(DTO.RMA.ReturnDetailsDTO returndetail)
         {
             return _returnDetailobj.UpsertReturnDetail(returndetail);
         }
 
-        public bool SaveReturnImages(DTO.RMA.ReturnImagesDTO returnimages)
+        public bool ReturnImages(DTO.RMA.ReturnImagesDTO returnimages)
         {
             return _returnImg.UpsertRerurnImages(returnimages);
         }
 
-        public bool SaveSKUReasons(DTO.RMA.SKUReasonsDTO SKU)
+        public bool SKUReasons(DTO.RMA.SKUReasonsDTO SKU)
         {
-            return _SKUnumber.SetTransaction(SKU);
+            return _SKUnumber.UpsertSKUReasons(SKU);
         }
 
-        public void SaveUser(DTO.RMA.UserDTO user)
+        public void User(DTO.RMA.UserDTO user)
         {
              _user.save(user);
         }
