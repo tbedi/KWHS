@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.Service.RMA
 {
@@ -11,7 +12,116 @@ namespace KrausWarehouseServices.Service.RMA
     [ServiceContract]
     public interface ISave
     {
+        #region  ReasonCategory
+
+        /// <summary>
+        /// Save the Reason Category in reason Category Table
+        /// </summary>
+        /// <param name="reasonCat">
+        /// Create object of reason CategoryDTO. 
+        /// </param>
+        /// <returns>
+        /// Retrun Boolean Value is transaction is success
+        /// </returns>
         [OperationContract]
-        void DoWork();
+        Boolean SaveReasonCat(ReasonCategoryDTO reasonCat);
+
+        #endregion
+
+        #region  ReasonsTable
+
+        /// <summary>
+        /// Save And Update the Reasons in Reasons Table
+        /// </summary>
+        /// <param name="reasons">
+        /// pass Object of ReasonsDTO
+        /// </param>
+        /// <returns>
+        /// Return boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean SaveReasons(ReasonsDTO reasons);
+
+        #endregion
+
+        #region Return
+
+        /// <summary>
+        /// Save and update operation in Return Table.
+        /// </summary>
+        /// <param name="_return">
+        /// pass the returnDTO object.
+        /// </param>
+        /// <returns>
+        /// Return boolean value.
+        /// </returns>
+        [OperationContract]
+        Boolean SaveReturn(ReturnDTO _return);
+
+        #endregion
+
+        #region ReturnDetail 
+
+        /// <summary>
+        /// save and update operation on Return detail table
+        /// </summary>
+        /// <param name="returndetail">
+        /// pass object of returndetailDTO 
+        /// </param>
+        /// <returns>
+        /// return boolean value.
+        /// </returns>
+        [OperationContract]
+        Boolean SaveReturnDetails(ReturnDetailsDTO returndetail);
+        
+        #endregion
+
+        #region ReturnImages
+
+        /// <summary>
+        /// save and update operation on ReturnImageDTO.
+        /// </summary>
+        /// <param name="returnimages">
+        /// pass obect of returnImageDTO.
+        /// </param>
+        /// <returns>
+        /// return Boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean SaveReturnImages(ReturnImagesDTO returnimages);
+
+        #endregion
+
+        #region SKUReasons
+
+        /// <summary>
+        /// save and update operation on SKUreasonDTO.
+        /// </summary>
+        /// <param name="returnimages">
+        /// pass obect of SKUreasonDTO.
+        /// </param>
+        /// <returns>
+        /// return Boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean SaveSKUReasons(SKUReasonsDTO SKU);
+
+        #endregion
+
+        /// <summary>
+        /// save and update operation on userDTO.
+        /// </summary>
+        /// <param name="user">
+        /// pass obect of userDTO.
+        /// </param>
+        /// <returns>
+        /// return Boolean Value.
+        /// </returns>
+        #region Users
+        [OperationContract]
+        void SaveUser(UserDTO user);
+        #endregion
+
+
     }
 }
