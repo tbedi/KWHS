@@ -31,15 +31,41 @@ namespace KrausWarehouseServices.DBLogics.RMA
            Boolean _flag = false;
            try
            {
-               ReturnDetailsDTO redto = new ReturnDetailsDTO(entRMA.ReturnDetails.SingleOrDefault(ret => ret.ReturnDetailID == ReturnsDetail.ReturnDetailID));
+               ReturnDetail _ReturnDetail = new ReturnDetail();
+               _ReturnDetail = entRMA.ReturnDetails.SingleOrDefault(ret => ret.ReturnDetailID == ReturnsDetail.ReturnDetailID);
+
                //if redto is null then insert
-               if (redto==null)
+               if (_ReturnDetail == null)
                {
-                   entRMA.AddToReturnDetails(ReturnsDetail);
-               }//other wise update.
-               else
+                   _ReturnDetail.ReturnDetailID = ReturnsDetail.ReturnDetailID;
+                   _ReturnDetail.ReturnID = ReturnsDetail.ReturnID;
+                   _ReturnDetail.SKUNumber = ReturnsDetail.SKUNumber;
+                   _ReturnDetail.ProductName = ReturnsDetail.ProductName;
+                   _ReturnDetail.TCLCOD_0 = ReturnsDetail.TCLCOD_0;
+                   _ReturnDetail.DeliveredQty = ReturnsDetail.DeliveredQty;
+                   _ReturnDetail.ExpectedQty = ReturnsDetail.ExpectedQty;
+                   _ReturnDetail.ReturnQty = ReturnsDetail.ReturnQty;
+                   _ReturnDetail.ProductStatus = ReturnsDetail.ProductStatus;
+                   _ReturnDetail.CreatedBy = ReturnsDetail.CreatedBy;
+                   _ReturnDetail.UpdatedBy = ReturnsDetail.UpdatedBy;
+                   _ReturnDetail.CreatedDate = ReturnsDetail.CreatedDate;
+                   _ReturnDetail.UpadatedDate = ReturnsDetail.UpadatedDate;
+                   entRMA.AddToReturnDetails(_ReturnDetail);
+               }
+               else//otherwise update.
                {
-                   redto = ReturnsDetail;
+                   _ReturnDetail.ReturnID = ReturnsDetail.ReturnID;
+                   _ReturnDetail.SKUNumber = ReturnsDetail.SKUNumber;
+                   _ReturnDetail.ProductName = ReturnsDetail.ProductName;
+                   _ReturnDetail.TCLCOD_0 = ReturnsDetail.TCLCOD_0;
+                   _ReturnDetail.DeliveredQty = ReturnsDetail.DeliveredQty;
+                   _ReturnDetail.ExpectedQty = ReturnsDetail.ExpectedQty;
+                   _ReturnDetail.ReturnQty = ReturnsDetail.ReturnQty;
+                   _ReturnDetail.ProductStatus = ReturnsDetail.ProductStatus;
+                   _ReturnDetail.CreatedBy = ReturnsDetail.CreatedBy;
+                   _ReturnDetail.UpdatedBy = ReturnsDetail.UpdatedBy;
+                   _ReturnDetail.CreatedDate = ReturnsDetail.CreatedDate;
+                   _ReturnDetail.UpadatedDate = ReturnsDetail.UpadatedDate;
                }
                entRMA.SaveChanges();
                _flag = true;

@@ -53,7 +53,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <returns>
        /// return the audit list.
        /// </returns>
-       public AuditDTO GetdatafromauditbyUserid(Guid UserID)
+       public AuditDTO GetbyUserid(Guid UserID)
        {
            AuditDTO auduserid = new AuditDTO();
            try
@@ -77,20 +77,29 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <returns>
        /// Return boolean Value when Transaction is Success.
        /// </returns>
-       public Boolean UsertofAudit(AuditDTO userlog)
+       public Boolean UpsertAudit(AuditDTO userlog)
        {
            Boolean _returnflag = false;
            try
            {
-               AuditDTO aud = new AuditDTO(entRMA.Audits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID));
+               Audit aud = new Audit();
+               aud = entRMA.Audits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID);
                //insert the new record if not present
                if (aud == null)
                {
-                   entRMA.AddToAudits(userlog);
+                   aud.UserLogID = userlog.UserLogID;
+                   aud.UserID = userlog.UserID;
+                   aud.ActionType = userlog.ActionType;
+                   aud.ActionTime = userlog.ActionTime;
+                   aud.ActionValue = userlog.ActionValue;
+                   entRMA.AddToAudits(aud);
                }
                else //updating Existing Record
                {
-                   aud = userlog;
+                   aud.UserID = userlog.UserID;
+                   aud.ActionType = userlog.ActionType;
+                   aud.ActionTime = userlog.ActionTime;
+                   aud.ActionValue = userlog.ActionValue;
                }
                entRMA.SaveChanges();
                _returnflag = true;
@@ -101,8 +110,5 @@ namespace KrausWarehouseServices.DBLogics.RMA
            }
            return _returnflag;
        }
-
-
-
     }
 }

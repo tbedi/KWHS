@@ -27,12 +27,27 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <returns>
        /// Return Boolean value when Transaction is success. 
        /// </returns>
-       public Boolean SetTransaction(SKUReasonsDTO skureason)
+       public Boolean UpsertSKUReasons (SKUReasonsDTO skureason)
        {
            Boolean _flag = false;
            try
            {
-               entRMA.AddToSKUReasons(skureason);
+               SKUReason _SKUReason = new SKUReason();
+               _SKUReason = entRMA.SKUReasons.FirstOrDefault(i => i.SKUReasonID == skureason.SKUReasonID);
+
+               if (_SKUReason == null)
+               {
+                   _SKUReason.SKUReasonID = skureason.SKUReasonID;
+                   _SKUReason.ReasonID = skureason.ReasonID;
+                   _SKUReason.ReturnDetailID = skureason.ReturnDetailID;
+
+                   entRMA.AddToSKUReasons(_SKUReason);
+               }
+               else
+               {
+                   _SKUReason.ReasonID = skureason.ReasonID;
+                   _SKUReason.ReturnDetailID = skureason.ReturnDetailID;
+               }
                entRMA.SaveChanges();
                _flag = true;
 

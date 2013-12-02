@@ -108,23 +108,73 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// boolean value return according to transaction 
         /// true when success other wise false.
         /// </returns>
-        public Boolean SetReturnTbl(ReturnDTO returnID)
+        public Boolean UpsertReturnTbl(ReturnDTO returnDTO)
         {
             Boolean _status = false;
 
             try
             {
-                ReturnDTO _returnbj = new ReturnDTO();
-                var _re = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == returnID.ReturnID);
-                _returnbj = new ReturnDTO(_re);
+                Return _returnObj = new Return();
+                _returnObj = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == returnDTO.ReturnID);
+
                 //If return object is null then Save records
-                if (_returnbj == null)
+                if (_returnObj == null)
                 {
-                    entRMA.AddToReturns(_returnbj);
+                    _returnObj.ReturnID = returnDTO.ReturnID;
+                    _returnObj.RMANumber = returnDTO.RMANumber;
+                    _returnObj.ShipmentNumber = returnDTO.ShipmentNumber;
+                    _returnObj.OrderNumber = returnDTO.OrderNumber;
+                    _returnObj.PONumber = returnDTO.PONumber;
+                    _returnObj.OrderDate = returnDTO.OrderDate;
+                    _returnObj.DeliveryDate = returnDTO.DeliveryDat;
+                    _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.VendorNumber = returnDTO.VendorNumber;
+                    _returnObj.VendoeName = returnDTO.VendoeName;
+                    _returnObj.CustomerName1 = returnDTO.CustomerName1;
+                    _returnObj.CustomerName2 = returnDTO.CustomerName2;
+                    _returnObj.Address1 = returnDTO.Address1;
+                    _returnObj.Address2 = returnDTO.Address2;
+                    _returnObj.Address3 = returnDTO.Address3;
+                    _returnObj.ZipCode = returnDTO.ZipCode;
+                    _returnObj.City = returnDTO.City;
+                    _returnObj.State = returnDTO.State;
+                    _returnObj.Country = returnDTO.Country;
+                    _returnObj.ReturnReason = returnDTO.ReturnReason;
+                    _returnObj.RMAStatus = returnDTO.RMAStatus;
+                    _returnObj.Decision = returnDTO.Decision;
+                    _returnObj.CreatedBy = returnDTO.CreatedBy;
+                    _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+                    _returnObj.CreatedDate = returnDTO.CreatesDate;
+                    _returnObj.UpdatedDate = returnDTO.UpdatedDate;
+                    entRMA.AddToReturns(_returnObj);
                 }
                 else//update Return table
                 {
-                    _returnbj = returnID;
+                    _returnObj.RMANumber = returnDTO.RMANumber;
+                    _returnObj.ShipmentNumber = returnDTO.ShipmentNumber;
+                    _returnObj.OrderNumber = returnDTO.OrderNumber;
+                    _returnObj.PONumber = returnDTO.PONumber;
+                    _returnObj.OrderDate = returnDTO.OrderDate;
+                    _returnObj.DeliveryDate = returnDTO.DeliveryDat;
+                    _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.VendorNumber = returnDTO.VendorNumber;
+                    _returnObj.VendoeName = returnDTO.VendoeName;
+                    _returnObj.CustomerName1 = returnDTO.CustomerName1;
+                    _returnObj.CustomerName2 = returnDTO.CustomerName2;
+                    _returnObj.Address1 = returnDTO.Address1;
+                    _returnObj.Address2 = returnDTO.Address2;
+                    _returnObj.Address3 = returnDTO.Address3;
+                    _returnObj.ZipCode = returnDTO.ZipCode;
+                    _returnObj.City = returnDTO.City;
+                    _returnObj.State = returnDTO.State;
+                    _returnObj.Country = returnDTO.Country;
+                    _returnObj.ReturnReason = returnDTO.ReturnReason;
+                    _returnObj.RMAStatus = returnDTO.RMAStatus;
+                    _returnObj.Decision = returnDTO.Decision;
+                    _returnObj.CreatedBy = returnDTO.CreatedBy;
+                    _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+                    _returnObj.CreatedDate = returnDTO.CreatesDate;
+                    _returnObj.UpdatedDate = returnDTO.UpdatedDate;
                 }
                 entRMA.SaveChanges();
                 _status = true;

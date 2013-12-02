@@ -22,12 +22,28 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// Set opartion on Reason Category Table. 
         /// </summary>
         /// <returns></returns>
-        public Boolean SetReasonCategory(ReasonCategoryDTO reas)
+        public Boolean UpsertReasonCategory(ReasonCategoryDTO reas)
         {
             Boolean _flag = false;
             try
             {
-                entRMA.AddToReasonCategories(reas);
+                ReasonCategory ResonCat = new ReasonCategory();
+                ResonCat = entRMA.ReasonCategories.FirstOrDefault(i => i.ReasonCatID == reas.ReasonCatID);
+                if (ResonCat == null)
+                {
+                    ResonCat.ReasonCatID = reas.ReasonCatID;
+                    ResonCat.ReasonID = reas.ReasonID;
+                    ResonCat.CategoryName = reas.CategoryName;
+                    entRMA.AddToReasonCategories(ResonCat);
+                }
+                else
+                {
+                    ResonCat.ReasonID = reas.ReasonID;
+                    ResonCat.CategoryName = reas.CategoryName;
+                }
+                entRMA.SaveChanges();
+
+             //   entRMA.AddToReasonCategories(reas);
                 entRMA.SaveChanges();
                 _flag = true;
             }

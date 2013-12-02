@@ -82,12 +82,23 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <returns>
         /// 
         /// </returns>
-        public Boolean InsertReasons(ReasonsDTO ReasonID)
+        public Boolean UpsertReasons(ReasonsDTO DTOReason)
         {
             Boolean status = false;
             try
             {
-                entRMA.AddToReasons(ReasonID);
+                Reason _Reasons = new Reason();
+                _Reasons = entRMA.Reasons.FirstOrDefault(i => i.ReasonID == DTOReason.ReasonID);
+                if (_Reasons ==null)
+                {
+                    _Reasons.ReasonID = DTOReason.ReasonID;
+                    _Reasons.Reason1 = DTOReason.Reason;
+                    entRMA.AddToReasons(_Reasons);
+                }
+                else
+                {
+                    _Reasons.Reason1 = DTOReason.Reason;
+                }
                 entRMA.SaveChanges();
                 status = true;
             }

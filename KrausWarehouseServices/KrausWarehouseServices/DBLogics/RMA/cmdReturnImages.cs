@@ -33,14 +33,29 @@ namespace KrausWarehouseServices.DBLogics.RMA
            Boolean _flag = false;
            try
            {
-               ReturnImagesDTO Image=new ReturnImagesDTO(entRMA.ReturnImages.SingleOrDefault(ret=>ret.ReturnImageID==Returnimage.ReturnDetailID));
-               if (Image == null)
+               ReturnImage _RImages = new ReturnImage();
+               _RImages = entRMA.ReturnImages.SingleOrDefault(ret => ret.ReturnImageID == Returnimage.ReturnDetailID);
+               if (_RImages == null)
                {
-                   entRMA.AddToReturnImages(Returnimage);
+
+                   _RImages.ReturnImageID = Returnimage.ReturnImageID;
+                   _RImages.ReturnDetailID = Returnimage.ReturnDetailID;
+                   _RImages.SKUImagePath = Returnimage.SKUImagePath;
+                   _RImages.CreatedBy = Returnimage.CreatedBy;
+                   _RImages.UpadatedBy = Returnimage.UpadatedBy;
+                   _RImages.CreatedDate = Returnimage.CreatedDate;
+                   _RImages.UpadatedDate = Returnimage.UpadatedDate;
+
+                   entRMA.AddToReturnImages(_RImages);
                }
                else
                {
-                   Image = Returnimage;
+                   _RImages.ReturnDetailID = Returnimage.ReturnDetailID;
+                   _RImages.SKUImagePath = Returnimage.SKUImagePath;
+                   _RImages.CreatedBy = Returnimage.CreatedBy;
+                   _RImages.UpadatedBy = Returnimage.UpadatedBy;
+                   _RImages.CreatedDate = Returnimage.CreatedDate;
+                   _RImages.UpadatedDate = Returnimage.UpadatedDate;
                }
                entRMA.SaveChanges();
                _flag = true;
