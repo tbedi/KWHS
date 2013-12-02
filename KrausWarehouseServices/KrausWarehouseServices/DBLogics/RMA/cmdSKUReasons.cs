@@ -37,6 +37,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
 
                if (_SKUReason == null)
                {
+                   _SKUReason = new SKUReason();
                    _SKUReason.SKUReasonID = skureason.SKUReasonID;
                    _SKUReason.ReasonID = skureason.ReasonID;
                    _SKUReason.ReturnDetailID = skureason.ReturnDetailID;

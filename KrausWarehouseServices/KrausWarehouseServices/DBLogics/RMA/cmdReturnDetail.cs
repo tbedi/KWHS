@@ -37,6 +37,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                //if redto is null then insert
                if (_ReturnDetail == null)
                {
+                   _ReturnDetail = new ReturnDetail();
                    _ReturnDetail.ReturnDetailID = ReturnsDetail.ReturnDetailID;
                    _ReturnDetail.ReturnID = ReturnsDetail.ReturnID;
                    _ReturnDetail.SKUNumber = ReturnsDetail.SKUNumber;

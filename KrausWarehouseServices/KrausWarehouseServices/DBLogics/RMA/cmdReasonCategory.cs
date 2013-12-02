@@ -31,6 +31,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 ResonCat = entRMA.ReasonCategories.FirstOrDefault(i => i.ReasonCatID == reas.ReasonCatID);
                 if (ResonCat == null)
                 {
+                    ResonCat = new ReasonCategory();
                     ResonCat.ReasonCatID = reas.ReasonCatID;
                     ResonCat.ReasonID = reas.ReasonID;
                     ResonCat.CategoryName = reas.CategoryName;

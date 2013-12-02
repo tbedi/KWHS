@@ -91,6 +91,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 _Reasons = entRMA.Reasons.FirstOrDefault(i => i.ReasonID == DTOReason.ReasonID);
                 if (_Reasons ==null)
                 {
+                    _Reasons = new Reason();
                     _Reasons.ReasonID = DTOReason.ReasonID;
                     _Reasons.Reason1 = DTOReason.Reason;
                     entRMA.AddToReasons(_Reasons);

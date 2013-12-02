@@ -37,7 +37,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                _RImages = entRMA.ReturnImages.SingleOrDefault(ret => ret.ReturnImageID == Returnimage.ReturnDetailID);
                if (_RImages == null)
                {
-
+                   _RImages = new ReturnImage();
                    _RImages.ReturnImageID = Returnimage.ReturnImageID;
                    _RImages.ReturnDetailID = Returnimage.ReturnDetailID;
                    _RImages.SKUImagePath = Returnimage.SKUImagePath;

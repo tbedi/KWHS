@@ -87,6 +87,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                //insert the new record if not present
                if (aud == null)
                {
+                   aud = new Audit();
                    aud.UserLogID = userlog.UserLogID;
                    aud.UserID = userlog.UserID;
                    aud.ActionType = userlog.ActionType;

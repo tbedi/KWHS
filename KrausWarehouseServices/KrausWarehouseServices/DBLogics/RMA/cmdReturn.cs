@@ -120,6 +120,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 //If return object is null then Save records
                 if (_returnObj == null)
                 {
+                    _returnObj = new Return();
                     _returnObj.ReturnID = returnDTO.ReturnID;
                     _returnObj.RMANumber = returnDTO.RMANumber;
                     _returnObj.ShipmentNumber = returnDTO.ShipmentNumber;
