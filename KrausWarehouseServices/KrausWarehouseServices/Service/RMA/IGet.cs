@@ -124,5 +124,21 @@ namespace KrausWarehouseServices.Service.RMA
         List<AuditDTO> AuditAll();
 
         #endregion
+
+        #region Sage Operations     
+
+        [OperationContract]
+        List<RMAInfoDTO> RMAInfoByShippingNumber(String ShippingNumber);
+
+        [OperationContract]
+        List<RMAInfoDTO> RMAInfoBySONumber(String SONumber);
+
+        [OperationContract]
+        List<RMAInfoDTO> RMAInfoByPONumber(String PONumber);
+
+        [OperationContract]
+        List<RMAInfoDTO> RMAInfoBySRNumber(String SRNumber);
+
+        #endregion
     }
 }
