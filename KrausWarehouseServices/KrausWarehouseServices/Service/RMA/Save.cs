@@ -35,6 +35,8 @@ namespace KrausWarehouseServices.Service.RMA
         //create ReturnImage object
         DBLogics.RMA.cmdReturnImages _returnImg = new DBLogics.RMA.cmdReturnImages();
 
+        DBLogics.RMA.cmdAudit _audit = new DBLogics.RMA.cmdAudit();
+
         #endregion
 
         public bool ReasonCategory(DTO.RMA.ReasonCategoryDTO reasonCat)
@@ -70,6 +72,11 @@ namespace KrausWarehouseServices.Service.RMA
         public void User(DTO.RMA.UserDTO user)
         {
              _user.save(user);
+        }
+
+        public bool UpsertAudit(DTO.RMA.AuditDTO audit)
+        {
+            return _audit.UpsertAudit(audit);
         }
     }
 }

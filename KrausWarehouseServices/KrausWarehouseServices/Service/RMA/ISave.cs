@@ -122,6 +122,11 @@ namespace KrausWarehouseServices.Service.RMA
         void User(UserDTO user);
         #endregion
 
+        #region Audit
+        [OperationContract]
+        Boolean UpsertAudit(AuditDTO audit);
+
+        #endregion
 
     }
 }
