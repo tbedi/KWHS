@@ -33,6 +33,9 @@ namespace KrausWarehouseServices.Service.RMA
         //create SKUNumber object
         DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
 
+        //Audit commands .
+        DBLogics.RMA.cmdAudit _audit = new DBLogics.RMA.cmdAudit();
+
         #endregion
 
         #region User
@@ -89,16 +92,15 @@ namespace KrausWarehouseServices.Service.RMA
         public DTO.RMA.UserDTO UserByUserName(string UserName)
         {
             return _user.GetUserTbl(UserName);
-        } 
+        }
 
         #endregion
 
-
         #region Return
-        
+
         public List<DTO.RMA.ReturnDTO> ReturnAll()
         {
-           return _return.GetReturnTbl();
+            return _return.GetReturnTbl();
         }
 
         public DTO.RMA.ReturnDTO ReturnByReturnID(Guid ReturnID)
@@ -115,12 +117,11 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _return.GetReturnTblByRMANumber(RMANumber);
         }
- 
+
         #endregion
 
-
         #region Reason
-       
+
         public List<DTO.RMA.ReasonsDTO> ReasonsAll()
         {
             return _reason.GetReasons();
@@ -130,7 +131,17 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _reason.GetReasonByCategoryName(CategoryName);
         }
- 
+
         #endregion
+
+        #region Audit
+        public List<DTO.RMA.AuditDTO> AuditAll()
+        {
+            return _audit.GetAudit();
+        }
+        #endregion
+
+
+
     }
 }

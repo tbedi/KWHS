@@ -117,5 +117,12 @@ namespace KrausWarehouseServices.Service.RMA
         List<ReasonsDTO> ReasonByCategoryName(String CategoryName);
 
         #endregion
+
+        #region Audit
+
+        [OperationContract]
+        List<AuditDTO> AuditAll();
+
+        #endregion
     }
 }
