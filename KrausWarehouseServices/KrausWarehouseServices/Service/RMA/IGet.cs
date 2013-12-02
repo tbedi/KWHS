@@ -1,20 +1,4 @@
 ﻿using KrausWarehouseServices.DTO.RMA;
-
-        #region Role
-        [OperationContract]
-        List<RoleDTO> RoleAll();
-
-        [OperationContract]
-        RoleDTO RoleByRoleID(Guid RoleID);
-
-        #endregion
-
-
-
-
-
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -156,6 +140,16 @@ namespace KrausWarehouseServices.Service.RMA
         List<RMAInfoDTO> RMAInfoBySRNumber(String SRNumber);
 
         #endregion
+
+        #region Role
+        [OperationContract]
+        List<RoleDTO> RoleAll();
+
+        [OperationContract]
+        RoleDTO RoleByRoleID(Guid RoleID);
+
+        #endregion
+
 
     }
 }
