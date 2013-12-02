@@ -69,6 +69,7 @@
     <Compile Include="DBLogics\RMA\cmdReasonCategory.cs" />
     <Compile Include="DBLogics\RMA\cmdReturnDetail.cs" />
     <Compile Include="DBLogics\RMA\cmdReturnImages.cs" />
+    <Compile Include="DBLogics\RMA\cmdSage.cs" />
     <Compile Include="DBLogics\RMA\cmdSKUReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdUser.cs" />
     <Compile Include="DBLogics\RMA\cmdReasons.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="DTO\RMA\ReturnDTO.cs" />
     <Compile Include="DTO\RMA\ReturnImagesDTO.cs" />
     <Compile Include="DTO\RMA\RoleDTO.cs" />
+    <Compile Include="DTO\RMA\RMAInfoDTO.cs" />
     <Compile Include="DTO\RMA\SKUReasonsDTO.cs" />
     <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />
