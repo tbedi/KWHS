@@ -15,7 +15,7 @@ namespace KrausWarehouseServices.DTO.RMA
         {
             if (_sage.RMANumber != null) this.RMANumber = (string)_sage.RMANumber;
             if (_sage.ShipmentNumber != null) this.ShipmentNumber = (string)_sage.ShipmentNumber;
-            if(_sage.OrderNumber!=null) this.OrderNumber=(string)_sage.OrderNumber;
+            if (_sage.OrderNumber != null) this.OrderNumber = (string)_sage.OrderNumber;
             if (_sage.PONumber != null) this.PONumber = (string)_sage.PONumber;
             if (_sage.OrderDate != null) this.OrderDate = (DateTime)_sage.OrderDate;
             if (_sage.DeliveryDate != null) this.DeliveryDate = (DateTime)_sage.DeliveryDate;
@@ -24,9 +24,9 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_sage.VendorName != null) this.VendorName = (string)_sage.VendorName;
             if (_sage.SKUNumber != null) this.SKUNumber = (string)_sage.SKUNumber;
             if (_sage.ProductName != null) this.ProductName = (string)_sage.ProductName;
-            if (_sage.DeliveredQty != null) this.DeliveredQty = (int)_sage.DeliveredQty;
-            if (_sage.ExpectedQty != null) this.ExpectedQty = (int)_sage.ExpectedQty;
-            if (_sage.ReturnedQty != null) this.ReturnedQty = (int)_sage.ReturnedQty;
+            this.DeliveredQty = (int)_sage.DeliveredQty;
+            this.ExpectedQty = (int)_sage.ExpectedQty;
+            this.ReturnedQty = (int)_sage.ReturnedQty;
             if (_sage.CustomerName1 != null) this.CustomerName1 = (string)_sage.CustomerName1;
             if (_sage.CustomerName2 != null) this.CustomerName2 = (string)_sage.CustomerName2;
             if (_sage.Address1 != null) this.Address1 = (string)_sage.Address1;
@@ -37,8 +37,6 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_sage.State != null) this.State = (string)_sage.State;
             if (_sage.Country != null) this.Country = (string)_sage.Country;
             if (_sage.TCLCOD_0 != null) this.TCLCOD_0 = (string)_sage.TCLCOD_0;
-
-
         }
 
         public RMAInfoDTO()

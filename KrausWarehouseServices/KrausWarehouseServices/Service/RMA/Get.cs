@@ -141,7 +141,20 @@ namespace KrausWarehouseServices.Service.RMA
         }
         #endregion
 
+        #region Role
+         public List<DTO.RMA.RoleDTO> RoleAll()
+        {
+            return _role.GetRoles();
+        }
+
+        public DTO.RMA.RoleDTO RoleByRoleID(Guid RoleID)
+        {
+            return _role.GetRoleTblByRoleID(RoleID);
+        }
+        #endregion
 
 
+
+      
     }
 }

@@ -124,5 +124,14 @@ namespace KrausWarehouseServices.Service.RMA
         List<AuditDTO> AuditAll();
 
         #endregion
+
+        #region Role
+        [OperationContract]
+        List<RoleDTO> RoleAll();
+
+        [OperationContract]
+        RoleDTO RoleByRoleID(Guid RoleID);
+
+        #endregion
     }
 }
