@@ -36,6 +36,8 @@ namespace KrausWarehouseServices.Service.RMA
         //Audit commands .
         DBLogics.RMA.cmdAudit _audit = new DBLogics.RMA.cmdAudit();
 
+        //sage Operations Object.
+        DBLogics.RMA.cmdSage _sageOperations = new DBLogics.RMA.cmdSage();
         #endregion
 
         #region User
@@ -154,6 +156,37 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
 
+        #region Sage Operations
+
+
+
+
+
+
+        public List<DTO.RMA.RMAInfoDTO> RMAInfoByShippingNumber(string ShippingNumber)
+        {
+            return _sageOperations.GetRMAInfoByShipmentNumber(ShippingNumber);
+        }
+
+
+        public List<DTO.RMA.RMAInfoDTO> RMAInfoBySONumber(string SONumber)
+        {
+            return _sageOperations.GetRMAInfoBySONumber(SONumber);
+        }
+
+        public List<DTO.RMA.RMAInfoDTO> RMAInfoByPONumber(string PONumber)
+        {
+            return _sageOperations.GetRMAInfoByPONumber(PONumber);
+        }
+
+        public List<DTO.RMA.RMAInfoDTO> RMAInfoBySRNumber(string SRNumber)
+        {
+            return _sageOperations.GetRMAInfoBySRNumber(SRNumber);
+        }
+
+        #endregion
+    
+ 
 
       
     }
