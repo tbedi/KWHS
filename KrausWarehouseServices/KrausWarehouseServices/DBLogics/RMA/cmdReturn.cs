@@ -39,7 +39,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
 
                 foreach (var item in re)
                 {
-                    ReturnDTO redto = new ReturnDTO();
+                    ReturnDTO redto = new ReturnDTO(item);
                     _return.Add(redto);
                 }
             }

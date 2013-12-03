@@ -42,7 +42,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region User
 
-        public List<DTO.RMA.UserDTO> xGet(string EnumGetType, string Parameters)
+        public List<DTO.RMA.UserDTO> XMLUserGet(string EnumGetType, string Parameters)
         {
             //Convert to the Get Enum type.
             Globle_Classes.get Getid;
@@ -99,6 +99,40 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
         #region Return
+
+        public List<DTO.RMA.ReturnDTO> XMLReturnGet(string ID, string Value)
+        {
+            //Convert to the Get Enum type.
+            Globle_Classes.get Getid;
+            Enum.TryParse(ID, true, out Getid);
+
+            switch ((int)Getid)
+            {
+                case 0:
+                    return this.ReturnAll();
+
+                case 4:
+                    Guid ReturnID;
+                    Guid.TryParse(Value, out ReturnID);
+                    List<DTO.RMA.ReturnDTO> _lsReturnDTO = new List<DTO.RMA.ReturnDTO>();
+                    _lsReturnDTO.Add(this.ReturnByReturnID(ReturnID));
+                    return _lsReturnDTO;
+
+                case 5:
+                    Guid ReturnDetailID;
+                    Guid.TryParse(Value, out ReturnDetailID);
+                    return this.ReturnByReturnDetailID(ReturnDetailID);
+
+                case 6:
+                    List<DTO.RMA.ReturnDTO> _lsReturnDTO2 = new List<DTO.RMA.ReturnDTO>();
+                    _lsReturnDTO2.Add(this.ReturnByRMANumber(Value));
+                    return _lsReturnDTO2;
+
+                default:
+
+                    return this.ReturnAll();
+            }
+        }
 
         public List<DTO.RMA.ReturnDTO> ReturnAll()
         {
@@ -185,9 +219,7 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
         #endregion
-    
- 
 
-      
+
     }
 }

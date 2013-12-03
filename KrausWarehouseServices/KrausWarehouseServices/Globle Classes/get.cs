@@ -8,21 +8,13 @@ namespace KrausWarehouseServices.Globle_Classes
 {
     public enum get
     {
-        #region User Service.
         
         All = 0,
         UserID,
         RoleID,
         UserName,
-
-        #endregion
-
-        #region Return Service
-
         ReturnID =4,
         ReturnDetailID,
-
-
-        #endregion
+        RMANumber=6
     }
 }

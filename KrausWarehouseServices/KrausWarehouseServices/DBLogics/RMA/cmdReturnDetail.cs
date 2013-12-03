@@ -73,8 +73,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
        
            }
            catch (Exception)
-           {
-           }
+           {}
            return _flag;
        }
 

@@ -31,7 +31,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// </returns>
         [OperationContract]
         [WebInvoke(UriTemplate = "/User?ID={EnumGetTypeString}&value={Parameters}", Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
-        List<UserDTO> xGet(String EnumGetTypeString, String Parameters);
+        List<UserDTO> XMLUserGet(String EnumGetTypeString, String Parameters);
 
         /// <summary>
         /// SOA function return all user table.
@@ -88,6 +88,10 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
         #region Return
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/Return?ID={ID}&value={value}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        List<ReturnDTO> XMLReturnGet(String ID, String value);
 
         [OperationContract]
         List<ReturnDTO> ReturnAll();
