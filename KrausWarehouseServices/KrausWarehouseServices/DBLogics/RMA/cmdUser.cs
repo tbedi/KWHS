@@ -47,7 +47,6 @@ namespace KrausWarehouseServices.DBLogics.RMA
                    // user = (UserDTO)Useritem;
                     _lsUserReturn.Add(user);
                 }
-
             }
             catch (Exception)
             { }
@@ -75,7 +74,6 @@ namespace KrausWarehouseServices.DBLogics.RMA
             catch (Exception)
             { }
             return _lsUserReturn;
-
         }
 
         /// <summary>
@@ -149,7 +147,6 @@ namespace KrausWarehouseServices.DBLogics.RMA
         public UserDTO GetUserByUserNamePassword(String UserName, String Password)
         {
             UserDTO _userReturn = new UserDTO();
-
             try
             {
               var  _userReturn1 = entRMADB.Users.FirstOrDefault(user => user.UserName == UserName && user.UserPassword == Password);
@@ -157,7 +154,6 @@ namespace KrausWarehouseServices.DBLogics.RMA
             }
             catch (Exception)
             { }
-
             return _userReturn;
         }
 
@@ -166,40 +162,51 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// </summary>
         /// <param name="_User"></param>
         /// <returns></returns>
-        public Guid save(UserDTO _User)
+        public Boolean  UpsertUser(UserDTO _User)
         {
-            Guid _return = new Guid();
+            Boolean _status = false;
             try
             {
                 User user = new User();
-                user.UserID = _User.UserID;
-                user.RoleId = _User.RoleId;
-                user.UserFullName = _User.UserFullName;
-                user.UserAddress = _User.UserAddress;
-                user.UserName = _User.UserName;
-                user.UserPassword = _User.UserPassword;
-                user.UserJoiningDate = _User.UserJoiningDate;
-                user.CreatedBy = _User.CreatedBy;
-                user.Updatedby = null;
-                user.CreatedDateTime = DateTime.Now;
-                user.UpdatedDateTime = null;
-                entRMADB.AddToUsers(user);
+                user = entRMADB.Users.SingleOrDefault(us => us.UserID == _User.UserID);
+                //insert the new record if not present
+                if (user == null)
+                {
+                    user = new User();
+                    user.UserID = _User.UserID;
+                    user.RoleId = _User.RoleId;
+                    user.UserFullName = _User.UserFullName;
+                    user.UserAddress = _User.UserAddress;
+                    user.UserName = _User.UserName;
+                    user.UserPassword = _User.UserPassword;
+                    user.UserJoiningDate = _User.UserJoiningDate;
+                    user.CreatedBy = _User.CreatedBy;
+                    user.Updatedby = null;
+                    user.CreatedDateTime = DateTime.Now;
+                    user.UpdatedDateTime = null;
+                    entRMADB.AddToUsers(user);
+                }
+                else //updating Existing Record
+                {
+                    user.RoleId = _User.RoleId;
+                    user.UserFullName = _User.UserFullName;
+                    user.UserAddress = _User.UserAddress;
+                    user.UserName = _User.UserName;
+                    user.UserPassword = _User.UserPassword;
+                    user.UserJoiningDate = _User.UserJoiningDate;
+                    user.CreatedBy = _User.CreatedBy;
+                    user.Updatedby = null;
+                    user.CreatedDateTime = DateTime.Now;
+                    user.UpdatedDateTime = null;
+                }
                 entRMADB.SaveChanges();
-                _return = _User.UserID;
-
+                _status = true;
             }
             catch (Exception)
             {
             }
-            return _return;
- 
+            return _status;
         }
-
         #endregion
-
-
-
-
-
     }
 }

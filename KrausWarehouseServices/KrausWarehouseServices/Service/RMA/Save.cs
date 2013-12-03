@@ -69,9 +69,9 @@ namespace KrausWarehouseServices.Service.RMA
             return _SKUnumber.UpsertSKUReasons(SKU);
         }
 
-        public void User(DTO.RMA.UserDTO user)
+        public bool User(DTO.RMA.UserDTO user)
         {
-             _user.save(user);
+            return _user.UpsertUser(user);
         }
 
         public bool UpsertAudit(DTO.RMA.AuditDTO audit)

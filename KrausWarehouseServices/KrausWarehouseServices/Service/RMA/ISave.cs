@@ -119,7 +119,7 @@ namespace KrausWarehouseServices.Service.RMA
         /// return Boolean Value.
         /// </returns>
         [OperationContract]
-        void User(UserDTO user);
+        Boolean User(UserDTO user);
         #endregion
 
         #region Audit
