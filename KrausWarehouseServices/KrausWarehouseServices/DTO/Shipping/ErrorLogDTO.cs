@@ -45,7 +45,7 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_errorlog.UserID != null) this.UserID = (Guid)_errorlog.UserID;
             if (_errorlog.ErrorLocation != null) this.ErrorLocation = (string)_errorlog.ErrorLocation;
             if (_errorlog.ErrorDesc != null) this.ErrorDesc = (string)_errorlog.ErrorDesc;
-            if (_errorlog.ErrorTime != Convert.ToDateTime("01/01/0001")) this.ErrorTime = (string)_errorlog.ErrorTime;
+            if (_errorlog.ErrorTime != Convert.ToDateTime("01/01/0001")) this.ErrorTime = (DateTime)_errorlog.ErrorTime;
         }
     }
 }
