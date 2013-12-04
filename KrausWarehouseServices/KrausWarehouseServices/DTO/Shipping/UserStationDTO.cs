@@ -9,7 +9,7 @@ using KrausWarehouseServices.Connections;
 namespace KrausWarehouseServices.DTO.Shipping
 {
     [DataContract]
-    public class UserStation 
+    public class UserStationDTO 
     {
         [DataMember]
         public Guid UserStationID { get; set; }
@@ -23,12 +23,12 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
         public DateTime LoginDateTime { get; set; }
 
-        public UserStation()
+        public UserStationDTO()
         {
             //Black Constructor;
         }
 
-        public UserStation(Shipping.UserStation userStation)
+        public UserStationDTO(Shipping.UserStationDTO userStation)
         {
             if (userStation.UserStationID != null) this.UserStationID = userStation.UserStationID;
             if (userStation.StationID != null) this.StationID = userStation.StationID;
