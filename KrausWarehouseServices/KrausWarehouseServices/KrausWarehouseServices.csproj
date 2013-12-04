@@ -90,6 +90,8 @@
     <Compile Include="DTO\RMA\SKUReasonsDTO.cs" />
     <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="DTO\Shipping\Class1.cs" />
+    <Compile Include="DTO\Shipping\UserStation.cs" />
+    <Compile Include="DTO\Shipping\ViewExtraColumnsDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\RMA\Get.cs" />
