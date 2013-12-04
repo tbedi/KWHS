@@ -53,8 +53,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business Logic\bReturn.cs" />
-    <Compile Include="Business Logic\bUser.cs" />
     <Compile Include="Connections\RMADBContex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,7 +78,6 @@
     <Compile Include="DBLogics\RMA\cmdReasons.cs" />
     <Compile Include="DBLogics\RMA\cmdReturn.cs" />
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />
-    <Compile Include="DBLogics\Shipping\cndstart.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
@@ -91,7 +88,6 @@
     <Compile Include="DTO\RMA\RMAInfoDTO.cs" />
     <Compile Include="DTO\RMA\SKUReasonsDTO.cs" />
     <Compile Include="DTO\RMA\UserDTO.cs" />
-    <Compile Include="DTO\Shipping\Class1.cs" />
     <Compile Include="Globle Classes\get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\RMA\Get.cs" />
@@ -124,9 +120,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\Shipping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
