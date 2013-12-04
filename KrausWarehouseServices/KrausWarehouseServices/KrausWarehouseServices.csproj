@@ -91,6 +91,7 @@
     <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="DTO\Shipping\AutditDTO.cs" />
     <Compile Include="DTO\Shipping\BoxPackageDTO.cs" />
+    <Compile Include="DTO\Shipping\UserDTO.cs" />
     <Compile Include="DTO\Shipping\UserStationDTO.cs" />
     <Compile Include="DTO\Shipping\ViewExtraColumnsDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />

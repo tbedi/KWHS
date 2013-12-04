@@ -28,12 +28,19 @@ namespace KrausWarehouseServices.DTO.Shipping
             //Black Constructor;
         }
 
-        public UserStationDTO(Shipping.UserStationDTO userStation)
+        public UserStationDTO(Connections.Shipping.UserStation userStation)
         {
             if (userStation.UserStationID != null) this.UserStationID = userStation.UserStationID;
             if (userStation.StationID != null) this.StationID = userStation.StationID;
             if (userStation.UserID != null) this.UserID = userStation.UserID;
             if (userStation.LoginDateTime != Convert.ToDateTime("01/01/0001")) this.LoginDateTime = userStation.LoginDateTime;
         }
+
+        public UserStationDTO GetShallowCopy()
+        {
+            return (UserStationDTO)this.MemberwiseClone();
+        }
+
+
     }
 }
