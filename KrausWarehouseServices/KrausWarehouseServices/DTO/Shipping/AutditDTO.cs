@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.Connections.Shipping;
+using KrausWarehouseServices.Connections;
 using System.Runtime.Serialization;
 
 namespace KrausWarehouseServices.DTO.Shipping
@@ -25,7 +25,7 @@ namespace KrausWarehouseServices.DTO.Shipping
         /// <param name="_audit">
         /// pass The Audit table object
         /// </param>
-        public AutditDTO(Audit _audit)
+        public AutditDTO(Connections.Shipping.Audit _audit)
         {
             if (_audit.UserLogID != null) this.UserLogID =(Guid) _audit.UserLogID;
             if (_audit.UserID != null) this.UserID =(Guid) _audit.UserID;
