@@ -60,7 +60,6 @@ namespace KrausWarehouseServices.DTO.Shipping
        /// </param>
        public BoxPackageDTO(Connections.Shipping.BoxPackage _boxpackage)
        {
-
            if (_boxpackage.BoxID != null) this.BoxID = (Guid)_boxpackage.BoxID;
            if (_boxpackage.PackingID != null) this.PackingID = (Guid)_boxpackage.PackingID;
            if (_boxpackage.BoxWeight != null) this.BoxWeight = (Double)_boxpackage.BoxWeight;
@@ -70,10 +69,7 @@ namespace KrausWarehouseServices.DTO.Shipping
            if(_boxpackage.BoxCreatedTime!=Convert.ToDateTime("01/01/0001"))this.BoxCreatedTime=(DateTime)_boxpackage.BoxCreatedTime;
            if (_boxpackage.BoxMeasurementTime != Convert.ToDateTime("01/01/0001")) this.BoxMeasurementTime = (DateTime)_boxpackage.BoxMeasurementTime;
            this.ROWID = _boxpackage.ROWID;
-           if (_boxpackage.BOXNUM != null) this.ROWID = (String)_boxpackage.BOXNUM;
-
-
-      
+           if (_boxpackage.BOXNUM != null) this.BOXNUM = (String)_boxpackage.BOXNUM;
 
        }
 
