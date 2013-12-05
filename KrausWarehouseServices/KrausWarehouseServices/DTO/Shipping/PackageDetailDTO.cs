@@ -57,6 +57,21 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
         public String TarrifCode { get; set; }
 
+
+        [DataMember]
+        public Guid CreatedBy { get; set; }
+
+        [DataMember]
+        public Guid UpdatedBy { get; set; }
+
+        [DataMember]
+        public DateTime UpdatedDateTime { get; set; }
+
+        [DataMember]
+        public DateTime CreatedDateTime { get; set; }
+
+        [DataMember]
+        public DateTime SKUScanDateTime { get; set; }
         /// <summary>
         /// Paramiterised Constructor.
         /// </summary>
@@ -79,7 +94,16 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_packagedetail.MAP_Price != null) this.MAP_Price = (decimal)_packagedetail.MAP_Price;
             if (_packagedetail.TCLCOD_0 != null) this.TCLCOD_0 = (string)_packagedetail.TCLCOD_0;
             if (_packagedetail.TarrifCode != null) this.TarrifCode = (string)_packagedetail.TarrifCode;
+            if (_packagedetail.CreatedBy != null) this.CreatedBy = (Guid)_packagedetail.CreatedBy;
+            if (_packagedetail.Updatedby != null) this.UpdatedBy = (Guid)_packagedetail.Updatedby;
+            if (_packagedetail.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = (DateTime)_packagedetail.CreatedDateTime;
+            if (_packagedetail.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = (DateTime)_packagedetail.UpdatedDateTime;
+            if (_packagedetail.SKUScanDateTime != Convert.ToDateTime("01/01/0001")) this.SKUScanDateTime = (DateTime)_packagedetail.SKUScanDateTime;
         }
+
+
+
+
 
 
 
