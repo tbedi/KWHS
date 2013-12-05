@@ -11,13 +11,6 @@ namespace KrausWarehouseServices.DTO.Shipping
     [DataContract]
     public class ErrorLogDTO
     {
-        /// <summary>
-        /// blank Constructor
-        /// </summary>
-        public ErrorLogDTO()
-        {
-
-        }
 
         [DataMember]
         public Guid ErrorlogID { get; set; }
@@ -33,15 +26,21 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public DateTime ErrorTime { get; set; }
-        
 
+        /// <summary>
+        /// blank Constructor
+        /// </summary>
+        public ErrorLogDTO()
+        {
+
+        }
         /// <summary>
         /// Paramiterised Constructor.
         /// </summary>
         /// <param name="_errorlog"></param>
         public ErrorLogDTO(Connections.Shipping.ErrorLog _errorlog)
         {
-            if (_errorlog.ErrorLogID != null) this.ErrorlogID =(Guid) _errorlog.ErrorLogID;
+            if (_errorlog.ErrorLogID != null) this.ErrorlogID = (Guid)_errorlog.ErrorLogID;
             if (_errorlog.UserID != null) this.UserID = (Guid)_errorlog.UserID;
             if (_errorlog.ErrorLocation != null) this.ErrorLocation = (string)_errorlog.ErrorLocation;
             if (_errorlog.ErrorDesc != null) this.ErrorDesc = (string)_errorlog.ErrorDesc;

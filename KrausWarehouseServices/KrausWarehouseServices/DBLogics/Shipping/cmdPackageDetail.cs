@@ -33,7 +33,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                   _Packing.PackingId = _PakingDetails.PackingId;
                   _Packing.SKUNumber = _PakingDetails.SKUNumber;
                   _Packing.SKUQuantity = _PakingDetails.SKUQuantity;
-                  _Packing.SKUScanDateTime = Convert.ToDateTime(_PakingDetails.PackingDetailStartDateTime);
+              //    _Packing.SKUScanDateTime = Convert.ToDateTime(_PakingDetails.PackingDetailStartDateTime);
                   _Packing.BoxNumber = _PakingDetails.BoxNumber;
                   _Packing.ShipmentLocation = _PakingDetails.ShipmentLocation;
 
@@ -47,15 +47,14 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                   _Packing.TarrifCode = _PakingDetails.TarrifCode;
                   //created Time set
                   _Packing.CreatedDateTime = DateTime.UtcNow;
-                  _Packing.CreatedBy = GlobalClasses.ClGlobal.UserID;
+               //   _Packing.CreatedBy = GlobalClasses.ClGlobal.UserID;
                   entshipping.AddToPackageDetails(_Packing);
               }
               entshipping.SaveChanges();
               Retuen = "Success";
           }
-          catch (Exception Ex)
+          catch (Exception )
           {
-              Error_Loger.elAction.save("SetPakingDetailsCommand.Execute()", Ex.Message.ToString());
           }
           return Retuen;
       }
