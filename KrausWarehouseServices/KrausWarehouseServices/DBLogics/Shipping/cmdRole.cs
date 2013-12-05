@@ -8,6 +8,9 @@ using KrausWarehouseServices.Connections.Shipping;
 
 namespace KrausWarehouseServices.DBLogics.Shipping
 {
+    /// <summary>
+    /// Get and upsert operation on Role Table. 
+    /// </summary>
    public  class cmdRole
     {
        /// <summary>
@@ -15,17 +18,24 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// </summary>
        Shipping_ManagerEntities1 entshipping = new Shipping_ManagerEntities1();
 
+       /// <summary>
+       /// This method is for Upsert operation on Role Table.
+       /// </summary>
+       /// <param name="_role"></param>
+       /// <returns>
+       /// return boolean value.
+       /// </returns>
        public Boolean UpsertRole(List<RoleDTO> _role)
        {
            Boolean _flag = false;
            try
            {
                Role role = new Role();
-               var _roleID = entshipping.Roles.SingleOrDefault(r => r.RoleId == role.RoleId);
-
                foreach (var item in _role)
-               {
-                   if (_roleID == null)
+               { 
+                   var _roleID = entshipping.Roles.FirstOrDefault(r => r.RoleId == item.RoleID);
+
+                   if (_roleID.RoleId == Guid.Empty)
                    {
                        _roleID = new Role();
                        _roleID.RoleId = item.RoleID;
@@ -37,7 +47,6 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                        _roleID.UpdatedDateTime = item.UpdatedDateTime;
                        entshipping.AddToRoles(_roleID);
                    }
-
                    else
                    {
                        _roleID.Name = item.Name;
@@ -56,5 +65,50 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                return _flag;
        }
 
+       /// <summary>
+       /// Get All Records from Role Table. 
+       /// </summary>
+       /// <returns></returns>
+       public List<RoleDTO> GetAll()
+       {
+           List<RoleDTO> _lsReturn = new List<RoleDTO>();
+           try
+           {
+               var role = (from all in entshipping.Roles
+                           select all).ToList();
+                   foreach (var Roleitem in role)
+                   {
+                       _lsReturn.Add(new RoleDTO(Roleitem));
+                   } 
+           }
+           catch (Exception)
+           {
+           }
+
+           return _lsReturn;
+       
+       }
+
+       /// <summary>
+       /// Get Role BY Role ID.
+       /// </summary>
+       /// <param name="_RoleID">
+       /// pass RoleID as Parameter. 
+       /// </param>
+       /// <returns>
+       /// Return list.
+       /// </returns>
+       public List<RoleDTO> GetRoleByRoleID(Role _RoleID)
+       {
+           List<RoleDTO> _lsReturn = new List<RoleDTO>();
+           try
+           {
+               _lsReturn.Add(new RoleDTO(entshipping.Roles.SingleOrDefault(re => re.RoleId == _RoleID.RoleId)));
+           }
+           catch (Exception)
+           {
+           }
+           return _lsReturn;
+       }
     }
 }
