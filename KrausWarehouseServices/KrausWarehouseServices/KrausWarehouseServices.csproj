@@ -91,6 +91,10 @@
     <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="DTO\Shipping\AutditDTO.cs" />
     <Compile Include="DTO\Shipping\BoxPackageDTO.cs" />
+    <Compile Include="DTO\Shipping\PackageDetailDTO.cs" />
+    <Compile Include="DTO\Shipping\PackageDTO.cs" />
+    <Compile Include="DTO\Shipping\RoleDTO.cs" />
+    <Compile Include="DTO\Shipping\ShippingDTO.cs" />
     <Compile Include="DTO\Shipping\UserDTO.cs" />
     <Compile Include="DTO\Shipping\ErrorLogDTO.cs" />
     <Compile Include="DTO\Shipping\UserStationDTO.cs" />
