@@ -83,7 +83,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                     _return = true;
                 }
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
             }
             return _return;
@@ -110,7 +110,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                     _lsReturn.Add(_UserCustom);                    
                 }
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
             }
             return _lsReturn;
@@ -143,7 +143,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                     _lsReturn.Add(_UserCustom);
                 }
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
             }
             return _lsReturn;
@@ -170,7 +170,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                                    };
             _returnDateTime =Convert.ToDateTime( DatetimeLast.FirstOrDefault().Lastdate.ToString());
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
             }
 
