@@ -80,7 +80,6 @@
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdAudit.cs" />
-    <Compile Include="DBLogics\Shipping\cndstart.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
@@ -91,6 +90,7 @@
     <Compile Include="DTO\RMA\RMAInfoDTO.cs" />
     <Compile Include="DTO\RMA\SKUReasonsDTO.cs" />
     <Compile Include="DTO\RMA\UserDTO.cs" />
+    <Compile Include="DTO\Shipping\ActionType.cs" />
     <Compile Include="DTO\Shipping\AutditDTO.cs" />
     <Compile Include="DTO\Shipping\BoxPackageDTO.cs" />
     <Compile Include="DTO\Shipping\PackageDetailDTO.cs" />
