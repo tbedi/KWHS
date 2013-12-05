@@ -27,16 +27,33 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
         public String Action { get; set; }
 
+        [DataMember]
+        public Guid CreatedBy { get; set; }
+
+        [DataMember]
+        public Guid Updatedby { get; set; }
+
+        [DataMember]
+        public DateTime? CreatedDateTime { get; set; }
+
+        [DataMember]
+        public DateTime? UpdatedDateTime { get; set; }
 
         public RoleDTO(Role _role)
         {
             if (_role.RoleId != null) this.RoleID = (Guid)_role.RoleId;
             if (_role.Name != null) this.Name = (String)_role.Name;
             if (_role.Action != null) this.Action = (string)_role.Action;
+            if (_role.CreatedBy != null) this.CreatedBy = (Guid)_role.CreatedBy;
+            if (_role.Updatedby != null) this.Updatedby = (Guid)_role.Updatedby;
+            if (_role.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _role.CreatedDateTime;
+            if (_role.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _role.UpdatedDateTime;
         }
 
-      
 
 
+
+
+        
     }
 }
