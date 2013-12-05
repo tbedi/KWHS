@@ -101,13 +101,8 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 var UserLogsinfo = from Userl in entshipping.Audits select Userl;
                 foreach (var _UserLogitem in UserLogsinfo)
                 {
-                    AutditDTO _UserCustom = new AutditDTO();
-                    _UserCustom.UserLogID = _UserLogitem.UserLogID;
-                    _UserCustom.UserID = _UserLogitem.UserID;
-                    _UserCustom.ActionType = _UserLogitem.ActionType;
-                    _UserCustom.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
-                    _UserCustom.ActionValue = _UserLogitem.ActionValue;
-                    _lsReturn.Add(_UserCustom);                    
+                    _lsReturn.Add(new AutditDTO(_UserLogitem));
+                          
                 }
             }
             catch (Exception )
@@ -134,13 +129,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                                   select userl;
                 foreach (var _UserLogitem in UserLoginfo)
                 {
-                    AutditDTO _UserCustom = new AutditDTO();
-                    _UserCustom.UserLogID = _UserLogitem.UserLogID;
-                    _UserCustom.UserID = _UserLogitem.UserID;
-                    _UserCustom.ActionType = _UserLogitem.ActionType;
-                    _UserCustom.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
-                    _UserCustom.ActionValue = _UserLogitem.ActionValue;
-                    _lsReturn.Add(_UserCustom);
+                    _lsReturn.Add(new AutditDTO(_UserLogitem));
                 }
             }
             catch (Exception )

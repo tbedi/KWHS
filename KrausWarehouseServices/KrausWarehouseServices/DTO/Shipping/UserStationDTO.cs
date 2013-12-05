@@ -9,11 +9,11 @@ using KrausWarehouseServices.Connections;
 namespace KrausWarehouseServices.DTO.Shipping
 {
     [DataContract]
-    public class UserStationDTO 
+    public class UserStationDTO
     {
         [DataMember]
         public Guid UserStationID { get; set; }
-        
+
         [DataMember]
         public Guid StationID { get; set; }
 
@@ -22,6 +22,18 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public DateTime LoginDateTime { get; set; }
+
+        [DataMember]
+        public DateTime CreatedDateTime { get; set; }
+       
+        [DataMember]
+        public DateTime UpdatedDateTime { get; set; }
+        
+        [DataMember]
+        public Guid CreatedBy { get; set; }
+        
+        [DataMember]
+        public Guid Updatedby { get; set; }
 
         public UserStationDTO()
         {
@@ -34,13 +46,15 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (userStation.StationID != null) this.StationID = userStation.StationID;
             if (userStation.UserID != null) this.UserID = userStation.UserID;
             if (userStation.LoginDateTime != Convert.ToDateTime("01/01/0001")) this.LoginDateTime = userStation.LoginDateTime;
+            if (userStation.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = (DateTime)userStation.CreatedDateTime;
+            if (userStation.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = (DateTime)userStation.UpdatedDateTime;
+            if (userStation.Updatedby != null) this.Updatedby = (Guid)userStation.Updatedby;
+            if (userStation.CreatedBy != null) this.CreatedBy = (Guid)userStation.CreatedBy;
         }
 
         public UserStationDTO GetShallowCopy()
         {
             return (UserStationDTO)this.MemberwiseClone();
         }
-
-
     }
 }
