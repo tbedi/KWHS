@@ -129,7 +129,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                    _boxPackage.BoxHeight = _boxitem.BoxHeight;
                    _boxPackage.BoxWidth = _boxitem.BoxWidth;
                    _boxPackage.BoxCreatedTime = _boxitem.BoxCreatedTime;
-                   if (_boxitem.BoxMeasurementTime.Date != Convert.ToDateTime("01/01/0001").Date) _boxPackage.BoxMeasurementTime = _boxitem.BoxMeasurementTime;
+                  _boxPackage.BoxMeasurementTime = _boxitem.BoxMeasurementTime;
                    entShipping.AddToBoxPackages(_boxPackage);
                    _return = _boxPackage.BoxID;
                }
