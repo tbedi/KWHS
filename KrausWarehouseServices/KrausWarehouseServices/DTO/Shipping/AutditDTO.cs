@@ -49,5 +49,7 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_audit.ActionTime != Convert.ToDateTime("01/01/0001")) this.ActionTime = (DateTime)_audit.ActionTime;
             if (_audit.ActionValue != null) this.ActionValue = (string)_audit.ActionValue;
         }
+
+
     }
 }

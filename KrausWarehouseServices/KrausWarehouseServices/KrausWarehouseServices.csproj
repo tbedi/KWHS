@@ -79,6 +79,8 @@
     <Compile Include="DBLogics\RMA\cmdReturn.cs" />
     <Compile Include="DBLogics\RMA\cmdRoles.cs" />
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
+    <Compile Include="DBLogics\Shipping\cmdAudit.cs" />
+    <Compile Include="DBLogics\Shipping\cndstart.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="DTO\Shipping\RoleDTO.cs" />
     <Compile Include="DTO\Shipping\ShippingDTO.cs" />
     <Compile Include="DTO\Shipping\StationMasterDTO.cs" />
+    <Compile Include="DTO\Shipping\TrackingDTO.cs" />
     <Compile Include="DTO\Shipping\UserDTO.cs" />
     <Compile Include="DTO\Shipping\ErrorLogDTO.cs" />
     <Compile Include="DTO\Shipping\UserStationDTO.cs" />
