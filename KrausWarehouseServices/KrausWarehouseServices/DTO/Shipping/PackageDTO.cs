@@ -18,6 +18,39 @@ namespace KrausWarehouseServices.DTO.Shipping
        {
        }
 
+       [DataMember]
+       public Guid PackingId { get; set; }
+
+       [DataMember]
+       public Guid UserID { get; set; }
+
+       [DataMember]
+       public Guid StationID { get; set; }
+
+       [DataMember]
+       public String ShippingNum { get; set; }
+
+       [DataMember]
+       public DateTime StartTime { get; set; }
+
+       [DataMember]
+       public DateTime EndTime { get; set; }
+
+       [DataMember]
+       public int PackingStatus { get; set; }
+
+       [DataMember]
+       public String ShipmentLocation { get; set; }
+
+       [DataMember]
+       public Guid ShippingID { get; set; }
+
+       [DataMember]
+       public int MangerOverride { get; set; }
+
+       [DataMember]
+       public string PCKROWID { get; set; }
+
         /// <summary>
         /// Parameterised Constructor.
         /// </summary>
@@ -37,37 +70,6 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (_package.PCKROWID != null) this.PCKROWID = (String)_package.PCKROWID;
        }
 
-       [DataMember]
-       public Guid PackingId { get; set; }
-
-        [DataMember]
-       public Guid UserID { get; set; }
-
-        [DataMember]
-       public Guid StationID { get; set; }
-
-        [DataMember]
-       public String ShippingNum { get; set; }
-
-        [DataMember]
-       public DateTime StartTime { get; set; }
-
-        [DataMember]
-       public DateTime EndTime { get; set; }
-
-        [DataMember]
-       public int PackingStatus { get; set; }
-
-        [DataMember]
-       public String ShipmentLocation { get; set; }
-
-        [DataMember]
-       public Guid ShippingID { get; set; }
-
-        [DataMember]
-       public int MangerOverride { get; set; }
-
-        [DataMember]
-       public string PCKROWID { get; set; }
+    
     }
 }

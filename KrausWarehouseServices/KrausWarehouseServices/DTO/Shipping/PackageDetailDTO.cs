@@ -18,29 +18,10 @@ namespace KrausWarehouseServices.DTO.Shipping
         {
         }
 
-        public PackageDetailDTO(Connections.Shipping.PackageDetail _packagedetail)
-        {
-            if (_packagedetail.PackingDetailID != null) this.PackagedetailID = (Guid)_packagedetail.PackingDetailID;
-            if (_packagedetail.PackingId != null) this.PackingId = (Guid)_packagedetail.PackingId;
-            if (_packagedetail.SKUNumber != null) this.SKUNumber = (String)_packagedetail.SKUNumber;
-            this.SKUQuantity = (int)_packagedetail.SKUQuantity;
-            if (_packagedetail.BoxNumber != null) this.BoxNumber = (String)_packagedetail.BoxNumber;
-            if (_packagedetail.ShipmentLocation != null) this.ShipmentLocation = (String)_packagedetail.ShipmentLocation;
-            if (_packagedetail.ItemName != null) this.ItemName = (String)_packagedetail.ItemName;
-            if (_packagedetail.ProductName != null) this.ProductName = (String)_packagedetail.ProductName;
-            if (_packagedetail.UnitOfMeasure != null) this.UnitOfMeasure = (String)_packagedetail.UnitOfMeasure;
-            if (_packagedetail.CountryOfOrigin != null) this.CountryOfOrigin = (String)_packagedetail.CountryOfOrigin;
-            if (_packagedetail.MAP_Price != null) this.MAP_Price = (decimal)_packagedetail.MAP_Price;
-            if (_packagedetail.TCLCOD_0 != null) this.TCLCOD_0 = (string)_packagedetail.TCLCOD_0;
-            if (_packagedetail.TarrifCode != null) this.TarrifCode = (string)_packagedetail.TarrifCode;
-        }
-
-
-
         [DataMember]
         public Guid PackagedetailID { get; set; }
 
-       [DataMember]
+        [DataMember]
         public Guid PackingId { get; set; }
 
         [DataMember]
@@ -48,7 +29,7 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public int SKUQuantity { get; set; }
-        
+
         [DataMember]
         public String BoxNumber { get; set; }
 
@@ -75,5 +56,33 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public String TarrifCode { get; set; }
+
+        /// <summary>
+        /// Paramiterised Constructor.
+        /// </summary>
+        /// <param name="_packagedetail">
+        /// Pass Object of PackageDetial.
+        /// </param>
+        
+        public PackageDetailDTO(Connections.Shipping.PackageDetail _packagedetail)
+        {
+            if (_packagedetail.PackingDetailID != null) this.PackagedetailID = (Guid)_packagedetail.PackingDetailID;
+            if (_packagedetail.PackingId != null) this.PackingId = (Guid)_packagedetail.PackingId;
+            if (_packagedetail.SKUNumber != null) this.SKUNumber = (String)_packagedetail.SKUNumber;
+            this.SKUQuantity = (int)_packagedetail.SKUQuantity;
+            if (_packagedetail.BoxNumber != null) this.BoxNumber = (String)_packagedetail.BoxNumber;
+            if (_packagedetail.ShipmentLocation != null) this.ShipmentLocation = (String)_packagedetail.ShipmentLocation;
+            if (_packagedetail.ItemName != null) this.ItemName = (String)_packagedetail.ItemName;
+            if (_packagedetail.ProductName != null) this.ProductName = (String)_packagedetail.ProductName;
+            if (_packagedetail.UnitOfMeasure != null) this.UnitOfMeasure = (String)_packagedetail.UnitOfMeasure;
+            if (_packagedetail.CountryOfOrigin != null) this.CountryOfOrigin = (String)_packagedetail.CountryOfOrigin;
+            if (_packagedetail.MAP_Price != null) this.MAP_Price = (decimal)_packagedetail.MAP_Price;
+            if (_packagedetail.TCLCOD_0 != null) this.TCLCOD_0 = (string)_packagedetail.TCLCOD_0;
+            if (_packagedetail.TarrifCode != null) this.TarrifCode = (string)_packagedetail.TarrifCode;
+        }
+
+
+
+       
     }
 }

@@ -19,6 +19,160 @@ namespace KrausWarehouseServices.DTO.Shipping
        {
        }
 
+        [DataMember]
+       public Guid ShippingID { get; set; }
+
+        [DataMember]
+       public String ShippingNum { get; set; }
+
+        [DataMember]
+       public DateTime ShippingStartTime { get; set; }
+
+        [DataMember]
+       public DateTime ShippingEndTime { get; set; }
+
+        [DataMember]
+       public String DeliveryProvider { get; set; }
+
+        [DataMember]
+       public String DeliveryMode { get; set; }
+
+        [DataMember]
+       public String FromAddressLine1 { get; set; }
+
+        [DataMember]
+       public String FromAddressLine2 { get; set; }
+
+        [DataMember]
+       public String FromAddressLine3 { get; set; }
+
+        [DataMember]
+       public String FromAddressCity { get; set; }
+
+        [DataMember]
+       public String FromAddressState { get; set; }
+
+        [DataMember]
+       public string FromAddressCountry { get; set; }
+
+        [DataMember]
+       public String FromAddressZipCode { get; set; }
+
+        [DataMember]
+       public String ToAddressLine1 { get; set; }
+
+        [DataMember]
+       public String ToAddressLine2 { get; set; }
+
+        [DataMember]
+       public String ToAddressLine3 { get; set; }
+
+        [DataMember]
+       public String ToAddressCity { get; set; }
+
+        [DataMember]
+       public String ToAddressState { get; set; }
+
+        [DataMember]
+       public String ToAddressCountry { get; set; }
+
+        [DataMember]
+       public String ToAddressZipCode { get; set; }
+
+        [DataMember]
+       public String ShipmentStatus { get; set; }
+
+        [DataMember]
+       public String OrderID { get; set; }
+
+        [DataMember]
+       public String CustomerPO { get; set; }
+
+        [DataMember]
+       public String ShipToAddress { get; set; }
+
+        [DataMember]
+       public String OurSupplierNo { get; set; }
+
+        [DataMember]
+       public String CustomerName1 { get; set; }
+
+        [DataMember]
+       public String CustomerName2 { get; set; }
+
+        [DataMember]
+       public String WebAddress { get; set; }
+
+        [DataMember]
+       public String FreightTerms { get; set; }
+
+        [DataMember]
+       public String Carrier { get; set; }
+
+        [DataMember]
+       public String DeliveryContact { get; set; }
+
+        [DataMember]
+       public Int16 Indexcode { get; set; }
+
+        [DataMember]
+       public String Contact { get; set; }
+
+        [DataMember]
+       public String PaymentTerms { get; set; }
+
+        [DataMember]
+       public int TotalPackages { get; set; }
+
+        [DataMember]
+       public String Fax { get; set; }
+
+        [DataMember]
+       public String VendorName { get; set; }
+
+        [DataMember]
+       public string MDL_0 { get; set; }
+
+        [DataMember]
+       public String YCARSRV_0 { get; set; }
+
+        [DataMember]
+       public Byte XB_RESFLG_0 { get; set; }
+
+        [DataMember]
+       public String CODCHG_0 { get; set; }
+
+        [DataMember]
+       public Decimal INSVAL_0 { get; set; }
+
+        [DataMember]
+       public Byte ADDCODFRT_0 { get; set; }
+
+        [DataMember]
+       public String BILLOPT_0 { get; set; }
+
+        [DataMember]
+       public String HDLCHG_0 { get; set; }
+
+        [DataMember]
+       public Byte DOWNFLG_0 { get; set; }
+
+        [DataMember]
+       public String BACCT_0 { get; set; }
+
+        [DataMember]
+       public Byte TPBILL_0 { get; set; }
+
+        [DataMember]
+       public Byte CUSTBILL_0 { get; set; }
+
+        [DataMember]
+       public String CNTFULNAM_0 { get; set; }
+
+        [DataMember]
+       public String SHIPPINGROWID { get; set; }
+
+
         /// <summary>
         /// Paramiterised Constructor.
         /// </summary>
@@ -82,57 +236,7 @@ namespace KrausWarehouseServices.DTO.Shipping
            
        }
 
-       public Guid ShippingID { get; set; }
-       public String ShippingNum { get; set; }
-       public DateTime ShippingStartTime { get; set; }
-       public DateTime ShippingEndTime { get; set; }
-       public String DeliveryProvider { get; set; }
-       public String DeliveryMode { get; set; }
-       public String FromAddressLine1 { get; set; }
-       public String FromAddressLine2 { get; set; }
-       public String FromAddressLine3 { get; set; }
-       public String FromAddressCity { get; set; }
-       public String FromAddressState { get; set; }
-       public string FromAddressCountry { get; set; }
-       public String FromAddressZipCode { get; set; }
-       public String ToAddressLine1 { get; set; }
-       public String ToAddressLine2 { get; set; }
-       public String ToAddressLine3 { get; set; }
-       public String ToAddressCity { get; set; }
-       public String ToAddressState { get; set; }
-       public String ToAddressCountry { get; set; }
-       public String ToAddressZipCode { get; set; }
-       public String ShipmentStatus { get; set; }
-       public String OrderID { get; set; }
-       public String CustomerPO { get; set; }
-       public String ShipToAddress { get; set; }
-       public String OurSupplierNo { get; set; }
-       public String CustomerName1 { get; set; }
-       public String CustomerName2 { get; set; }
-       public String WebAddress { get; set; }
-       public String FreightTerms { get; set; }
-       public String Carrier { get; set; }
-       public String DeliveryContact { get; set; }
-       public Int16 Indexcode { get; set; }
-       public String Contact { get; set; }
-       public String PaymentTerms { get; set; }
-       public int TotalPackages { get; set; }
-       public String Fax { get; set; }
-       public String VendorName { get; set; }
-       public string MDL_0 { get; set; }
-       public String YCARSRV_0 { get; set; }
-       public Byte XB_RESFLG_0 { get; set; }
-       public String CODCHG_0 { get; set; }
-       public Decimal INSVAL_0 { get; set; }
-       public Byte ADDCODFRT_0 { get; set; }
-       public String BILLOPT_0 { get; set; }
-       public String HDLCHG_0 { get; set; }
-       public Byte DOWNFLG_0 { get; set; }
-       public String BACCT_0 { get; set; }
-       public Byte TPBILL_0 { get; set; }
-       public Byte CUSTBILL_0 { get; set; }
-       public String CNTFULNAM_0 { get; set; }
-       public String SHIPPINGROWID { get; set; }
+      
 
 
     }
