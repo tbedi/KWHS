@@ -10,6 +10,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
 {
     public class cmdPackageDetail
     {
+<<<<<<< HEAD
         /// <summary>
         /// Create Entity Object.
         /// </summary>
@@ -175,5 +176,81 @@ namespace KrausWarehouseServices.DBLogics.Shipping
         }
 
         #endregion
+=======
+      /// <summary>
+      /// Create Entity Object.
+      /// </summary>
+      Shipping_ManagerEntities1 entshipping = new Shipping_ManagerEntities1();
+
+      #region Set Package Details Functions.
+      /// <summary>
+      /// Save the list values to the packing Detail table.
+      /// </summary>
+      /// <param name="lsPackingOb">list of values of packing Detail </param>
+      /// <returns>Success if transaction Success else Fail.</returns>
+      public Boolean savePackageDetails(List<PackageDetailDTO> lsPackingOb)
+      {
+          Boolean _Retuen = true;
+          try
+          {
+              foreach (var _PakingDetails in lsPackingOb)
+              {
+                  PackageDetail _Packing = entshipping.PackageDetails.FirstOrDefault(i => i.PackingDetailID == _PakingDetails.PackagedetailID);
+                  if (_Packing.SKUNumber == null)
+                  {
+                      _Packing = new PackageDetail();
+                      _Packing.PackingDetailID = _PakingDetails.PackagedetailID;
+                      _Packing.PackingId = _PakingDetails.PackingId;
+                      _Packing.SKUNumber = _PakingDetails.SKUNumber;
+                      _Packing.SKUQuantity = _PakingDetails.SKUQuantity;
+                      _Packing.BoxNumber = _PakingDetails.BoxNumber;
+                      _Packing.ShipmentLocation = _PakingDetails.ShipmentLocation;
+
+                      //view added extra
+                      _Packing.ItemName = _PakingDetails.ItemName;
+                      _Packing.ProductName = _PakingDetails.ProductName;
+                      _Packing.UnitOfMeasure = _PakingDetails.UnitOfMeasure;
+                      _Packing.CountryOfOrigin = _PakingDetails.CountryOfOrigin;
+                      _Packing.MAP_Price = _PakingDetails.MAP_Price;
+                      _Packing.TCLCOD_0 = _PakingDetails.TCLCOD_0;
+                      _Packing.TarrifCode = _PakingDetails.TarrifCode;
+
+                      //created Time set
+                      _Packing.CreatedDateTime = _PakingDetails.CreatedDateTime;
+                      _Packing.CreatedBy = _PakingDetails.CreatedBy;
+                      entshipping.AddToPackageDetails(_Packing);
+                  }
+                  else
+                  {
+                      _Packing.PackingId = _PakingDetails.PackingId;
+                      _Packing.SKUNumber = _PakingDetails.SKUNumber;
+                      _Packing.SKUQuantity = _PakingDetails.SKUQuantity;
+                      _Packing.BoxNumber = _PakingDetails.BoxNumber;
+                      _Packing.ShipmentLocation = _PakingDetails.ShipmentLocation;
+
+                      //view added extra
+                      _Packing.ItemName = _PakingDetails.ItemName;
+                      _Packing.ProductName = _PakingDetails.ProductName;
+                      _Packing.UnitOfMeasure = _PakingDetails.UnitOfMeasure;
+                      _Packing.CountryOfOrigin = _PakingDetails.CountryOfOrigin;
+                      _Packing.MAP_Price = _PakingDetails.MAP_Price;
+                      _Packing.TCLCOD_0 = _PakingDetails.TCLCOD_0;
+                      _Packing.TarrifCode = _PakingDetails.TarrifCode;
+
+                      //created Time set
+                      _Packing.CreatedDateTime = _PakingDetails.CreatedDateTime;
+                      _Packing.CreatedBy = _PakingDetails.CreatedBy;
+                  }
+              }
+              entshipping.SaveChanges();
+              _Retuen = true;
+          }
+          catch (Exception )
+          {
+          }
+          return _Retuen;
+      }
+      #endregion
+>>>>>>> f6d0ba480d950348fd376f9b901475241af497de
     }
 }

@@ -39,7 +39,7 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
         public DateTime? UpdatedDateTime { get; set; }
 
-        public RoleDTO(Role _role)
+        public RoleDTO(Connections.Shipping.Role _role)
         {
             if (_role.RoleId != null) this.RoleID = (Guid)_role.RoleId;
             if (_role.Name != null) this.Name = (String)_role.Name;
