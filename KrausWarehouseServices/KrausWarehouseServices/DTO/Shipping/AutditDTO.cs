@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace KrausWarehouseServices.DTO.Shipping
 {
     [DataContract]
-    class AutditDTO
+   public  class AutditDTO
     {
 
         [DataMember]

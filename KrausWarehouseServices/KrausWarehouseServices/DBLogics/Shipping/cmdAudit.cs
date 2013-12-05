@@ -18,7 +18,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <summary>
        /// Create the ShippingEntity Object.
        /// </summary>
-     Connections.Shipping.Shipping_ManagerEntities1  entshipping = new Connections.Shipping.Shipping_ManagerEntities1;
+       Connections.Shipping.Shipping_ManagerEntities1 entshipping = new Connections.Shipping.Shipping_ManagerEntities1();
 
        /// <summary>
        /// Save the UserLog in Audit table.
