@@ -45,6 +45,7 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (user.UserID != null) this.UserID = user.UserID;
            if (user.UserName != null) this.UserName = user.UserName;
            if (user.UserAddress != null) this.UserAddress = user.UserAddress;
+           if (user.UserJoiningDate != null) this.JoiningDate = (DateTime)user.UserJoiningDate;
        }
     }
 }
