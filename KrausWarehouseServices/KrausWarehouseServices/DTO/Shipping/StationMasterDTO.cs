@@ -39,6 +39,17 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
         public DateTime RegistrationDate { get; set; }
 
+        [DataMember]
+        public Guid Updatedby { get; set; }
+
+        [DataMember]
+        public Guid CreatedBy { get; set; }
+
+        [DataMember]
+        public DateTime? CreatedDateTime { get; set; }
+
+        [DataMember]
+        public DateTime? UpdatedDateTime { get; set; }
         /// <summary>
         /// Paramiterised Conctructor. 
         /// </summary>
@@ -54,6 +65,12 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_station.DeviceNumber != null) this.DeviceNumber = (String)_station.DeviceNumber;
             if (_station.StationLocation != null) this.StaionLocation = (String)_station.StationLocation;
             if (_station.RegistrationDate != Convert.ToDateTime("01/01/0001")) this.RegistrationDate = (DateTime)_station.RegistrationDate;
+            if (_station.CreatedBy != null) this.CreatedBy = (Guid)_station.CreatedBy;
+            if (_station.Updatedby != null) this.Updatedby = (Guid)_station.Updatedby;
+            if (_station.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _station.CreatedDateTime;
+            if (_station.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _station.UpdatedDateTime;
+
+
         }
     }
 }

@@ -172,7 +172,20 @@ namespace KrausWarehouseServices.DTO.Shipping
         [DataMember]
        public String SHIPPINGROWID { get; set; }
 
+        [DataMember]
+        public Guid CreatedBy { get; set; }
 
+        [DataMember]
+        public Guid Updatedby { get; set; }
+
+        [DataMember]
+        public DateTime? CreatedDateTime { get; set; }
+
+        [DataMember]
+        public DateTime? UpdatedDateTime { get; set; }
+
+        [DataMember]
+        public int ROWID { get; set; }
         /// <summary>
         /// Paramiterised Constructor.
         /// </summary>
@@ -232,12 +245,19 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (_shipping.CUSTBILL_0 != null) this.CUSTBILL_0 = (Byte)_shipping.CUSTBILL_0;
            if (_shipping.CNTFULNAM_0 != null) this.CNTFULNAM_0 = (String)_shipping.CNTFULNAM_0;
            if (_shipping.SHIPPINGROWID != null) this.SHIPPINGROWID = (String)_shipping.SHIPPINGROWID;
-
-           
+           this.ROWID = (int)_shipping.ROWID;
+           if (_shipping.CreatedBy != null) this.CreatedBy = (Guid)_shipping.CreatedBy;
+           if (_shipping.Updatedby != null) this.Updatedby = (Guid)_shipping.Updatedby;
+           if (_shipping.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _shipping.CreatedDateTime;
+           if (_shipping.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _shipping.UpdatedDateTime;
        }
 
+
+
+
+
+
+
       
-
-
     }
 }

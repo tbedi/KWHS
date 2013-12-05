@@ -82,7 +82,7 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (_package.ShippingID != null) this.ShippingID = (Guid)_package.ShippingID;
            this.MangerOverride = (int)_package.ManagerOverride;
            if (_package.PCKROWID != null) this.PCKROWID = (String)_package.PCKROWID;
-           if (_package.ROWID != null) this.ROWID = (int)_package.ROWID;
+           this.ROWID = (int)_package.ROWID;
            if(_package.CreatedBy!=null)this.CreatedBy=(Guid)_package.CreatedBy;
            if(_package.Updatedby!=null)this.Updatedby=(Guid)_package.Updatedby;
            if(_package.CreatedDateTime!=Convert.ToDateTime("01/01/0001")) this.CreatedDateTime=_package.CreatedDateTime;
