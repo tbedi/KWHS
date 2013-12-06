@@ -120,6 +120,10 @@
     <Compile Include="Service\RMA\IGet.cs" />
     <Compile Include="Service\RMA\ISave.cs" />
     <Compile Include="Service\RMA\Save.cs" />
+    <Compile Include="Service\Shipping\Get.cs" />
+    <Compile Include="Service\Shipping\IGet.cs" />
+    <Compile Include="Service\Shipping\ISave.cs" />
+    <Compile Include="Service\Shipping\Save.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -146,9 +150,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\Shipping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
