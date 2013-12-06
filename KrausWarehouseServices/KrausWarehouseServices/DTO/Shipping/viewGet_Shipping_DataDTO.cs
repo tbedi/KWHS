@@ -11,7 +11,7 @@ namespace KrausWarehouseServices.DTO.Shipping
     public class viewGet_Shipping_DataDTO
     {
         [DataMember]
-        public String Row_Number { get; set; }
+        public int Row_Number { get; set; }
 
         [DataMember]
         public String ShipmentID { get; set; }
@@ -69,6 +69,27 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         }
 
+        public viewGet_Shipping_DataDTO(Connections.Shipping.Get_Shipping_Data GetShippingData)
+        {
+            if (GetShippingData.Row_Number != null) this.Row_Number = (int)GetShippingData.Row_Number;
+            if (GetShippingData.ShipmentID != null) this.ShipmentID = GetShippingData.ShipmentID;
+            if (GetShippingData.SKU != null) this.SKU = GetShippingData.SKU;
+            if (GetShippingData.ItemName != null) this.ItemName = GetShippingData.ItemName;
+            if (GetShippingData.ProductName != null) this.ProductName = GetShippingData.ProductName;
+            if (GetShippingData.Quantity != null) this.Quantity = (int)GetShippingData.Quantity;
+            this.ItemWeight = GetShippingData.ItemWeight;
+            if (GetShippingData.UnitOfMeasure != null) this.UnitOfMeasure = GetShippingData.UnitOfMeasure;
+            if (GetShippingData.LineType != null) this.LineType = (Byte)GetShippingData.LineType;
+            if (GetShippingData.UPCCode != null) this.UPCCode = GetShippingData.UPCCode;
+            if (GetShippingData.CountryOfOrigin != null) this.CountryOfOrigin = GetShippingData.CountryOfOrigin;
+            if (GetShippingData.MAP_Price != null) this.MAP_Price = (Decimal)GetShippingData.MAP_Price;
+            if (GetShippingData.TCLCOD_0 != null) this.TCLCOD_0 = GetShippingData.TCLCOD_0;
+            if (GetShippingData.TarrifCode != null) this.TarrifCode = GetShippingData.TarrifCode;
+            this.ValidationFLG = GetShippingData.ValidationFLG;
+            if (GetShippingData.AllocationLocation != null) this.AllocationLocation = GetShippingData.AllocationLocation;
+            if (GetShippingData.ShippingLocation != null) this.ShippingLocation = GetShippingData.ShippingLocation;
+            if (GetShippingData.LocationCombined != null) this.LocationCombined = GetShippingData.LocationCombined;
+        }
        
     }
 }
