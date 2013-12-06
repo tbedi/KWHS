@@ -44,19 +44,19 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <summary>
        /// Get Shipping Details By ShipmentNum.
        /// </summary>
-       /// <param name="ShipmentNum">
+       /// <param name="ShipmentNumber">
        /// pass Shipment Num.
        /// </param>
        /// <returns>
        /// return list.
        /// </returns>
-       public List<viewgetShippingDetails> GetByShipmentNum(String ShipmentNum)
+       public List<viewgetShippingDetails> GetByShipmentNum(String ShipmentNumber)
        {
            List<viewgetShippingDetails> _lsviewShipmentDetail = new List<viewgetShippingDetails>();
            try
            {
                var ship = (from viewdetail in entshipping.getShippingDetails
-                           where viewdetail.ShippingNum == ShipmentNum
+                           where viewdetail.ShippingNum == ShipmentNumber
                            select viewdetail).ToList();
 
                foreach (var shippingitem in ship)
@@ -98,19 +98,19 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <summary>
        /// Get Shipping Details By ponum
        /// </summary>
-       /// <param name="_ponumber">
+       /// <param name="_POnumber">
        /// pass Ponum as parameter.
        /// </param>
        /// <returns>
        /// return List.
        /// </returns>
-       public List<viewgetShippingDetails> GetByOrderID(String _ponumber)
+       public List<viewgetShippingDetails> GetByPoNumber(String _POnumber)
        {
            List<viewgetShippingDetails> _lsviewShipmentDetail = new List<viewgetShippingDetails>();
            try
            {
                var ship = (from viewdetail in entshipping.getShippingDetails
-                           where viewdetail.CustomerPO == _ponumber
+                           where viewdetail.CustomerPO == _POnumber
                            select viewdetail).ToList();
 
                foreach (var shippingitem in ship)
@@ -128,19 +128,19 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <summary>
        /// Get Shipping Details By supplierNo.
        /// </summary>
-       /// <param name="_suppilerNo">
+       /// <param name="_supplirNumber">
        /// pass suppilerNo as parameter.
        /// </param>
        /// <returns>
        /// return List.
        /// </returns>
-       public List<viewgetShippingDetails> GetByOrderID(String _suppilerNo)
+       public List<viewgetShippingDetails> GetBySupplierNumber(String _supplirNumber)
        {
            List<viewgetShippingDetails> _lsviewShipmentDetail = new List<viewgetShippingDetails>();
            try
            {
                var ship = (from viewdetail in entshipping.getShippingDetails
-                           where viewdetail.OurSupplierNo == _suppilerNo
+                           where viewdetail.OurSupplierNo == _supplirNumber
                            select viewdetail).ToList();
 
                foreach (var shippingitem in ship)
@@ -157,19 +157,19 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <summary>
        /// Get Shipping Details By vendername.
        /// </summary>
-       /// <param name="_vendername">
+       /// <param name="_venderName">
        /// pass vendername as parameter.
        /// </param>
        /// <returns>
        /// return List.
        /// </returns>
-       public List<viewgetShippingDetails> GetByOrderID(String _vendername)
+       public List<viewgetShippingDetails> GetByVendorName(String _venderName)
        {
            List<viewgetShippingDetails> _lsviewShipmentDetail = new List<viewgetShippingDetails>();
            try
            {
                var ship = (from viewdetail in entshipping.getShippingDetails
-                           where viewdetail.VendorName == _vendername
+                           where viewdetail.VendorName == _venderName
                            select viewdetail).ToList();
 
                foreach (var shippingitem in ship)

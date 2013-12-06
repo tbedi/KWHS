@@ -47,6 +47,8 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
@@ -82,10 +84,12 @@
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdErrorLog.cs" />
     <Compile Include="DBLogics\Shipping\cmdGetShippingData.cs" />
+    <Compile Include="DBLogics\Shipping\cmdGetViewShippingDetail.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackageDetail.cs" />
     <Compile Include="DBLogics\Shipping\cmdRole.cs" />
     <Compile Include="DBLogics\Shipping\cmdShipping.cs" />
+    <Compile Include="DBLogics\Shipping\cmdStationMaster.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
@@ -142,7 +146,9 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\Shipping\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

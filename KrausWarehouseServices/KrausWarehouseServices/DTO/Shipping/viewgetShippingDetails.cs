@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace KrausWarehouseServices.DTO.Shipping
 {
     [DataContract]
-    class viewgetShippingDetails
+   public class viewgetShippingDetails
     {
         [DataMember]
         public String ShippingNum { get; set; }
@@ -158,55 +158,54 @@ namespace KrausWarehouseServices.DTO.Shipping
         }
 
         public viewgetShippingDetails(Connections.Shipping.getShippingDetail _viewgetshippingdetial)
-        { 
-        
-          if(_viewgetshippingdetial.ShippingNum!=null)this.ShippingNum= _viewgetshippingdetial.ShippingNum; 
-           if(_viewgetshippingdetial.DeliveryProvider!=null)this.DeliveryProvider= _viewgetshippingdetial.DeliveryProvider; 
-          if(_viewgetshippingdetial.DeliveryMode!=null)this.DeliveryMode= _viewgetshippingdetial.DeliveryMode; 
-             if(_viewgetshippingdetial.FromAddressLine1!=null)this.FromAddressLine1= _viewgetshippingdetial.FromAddressLine1; 
-             if(_viewgetshippingdetial.FromAddressLine2!=null)this.FromAddressLine2= _viewgetshippingdetial.FromAddressLine2; 
-             if(_viewgetshippingdetial.FromAddressLine3!=null)this.FromAddressLine3= _viewgetshippingdetial.FromAddressLine3;
-             if(_viewgetshippingdetial.FromAddressCity!=null)this.FromAddressCity= _viewgetshippingdetial.FromAddressCity; 
-             if(_viewgetshippingdetial.FromAddressState!=null)this.FromAddressState= _viewgetshippingdetial.FromAddressState; 
-             if(_viewgetshippingdetial.FromAddressCountry!=null)this.FromAddressCountry= _viewgetshippingdetial.FromAddressCountry; 
-             if(_viewgetshippingdetial.FromAddressZipCode!=null)this.FromAddressZipCode= _viewgetshippingdetial.FromAddressZipCode ;
-             if(_viewgetshippingdetial.ToAddressLine1!=null)this.ToAddressLine1= _viewgetshippingdetial.ToAddressLine1; 
-             if(_viewgetshippingdetial.ToAddressLine2!=null)this.ToAddressLine2= _viewgetshippingdetial.ToAddressLine2; 
-             if(_viewgetshippingdetial.ToAddressLine3!=null)this.ToAddressLine3= _viewgetshippingdetial.ToAddressLine3; 
-             if(_viewgetshippingdetial.ToAddressCity!=null)this.ToAddressCity= _viewgetshippingdetial.ToAddressCity; 
-             if(_viewgetshippingdetial.ToAddressState!=null)this.ToAddressState= _viewgetshippingdetial.ToAddressState; 
-             if(_viewgetshippingdetial.ToAddressCountry!=null)this.ToAddressCountry= _viewgetshippingdetial.ToAddressCountry; 
-             if(_viewgetshippingdetial.ToAddressZipCode!=null)this.ToAddressZipCode= _viewgetshippingdetial.ToAddressZipCode; 
-             if(_viewgetshippingdetial.ShipmentStatus!=null)this.ShipmentStatus= _viewgetshippingdetial.ShipmentStatus; 
-             if(_viewgetshippingdetial.OrderID!=null)this.OrderID= _viewgetshippingdetial.OrderID; 
-             if(_viewgetshippingdetial.CustomerPO!=null)this.CustomerPO= _viewgetshippingdetial.CustomerPO; 
-             if(_viewgetshippingdetial.ShipToAddress!=null)this.ShipToAddress= _viewgetshippingdetial.ShipToAddress; 
-             if(_viewgetshippingdetial.OurSupplierNo!=null)this.OurSupplierNo= _viewgetshippingdetial.OurSupplierNo; 
-             if(_viewgetshippingdetial.CustomerName1!=null)this.CustomerName1= _viewgetshippingdetial.CustomerName1; 
-             if(_viewgetshippingdetial.CustomerName2!=null)this.CustomerName2= _viewgetshippingdetial.CustomerName2; 
-             if(_viewgetshippingdetial.WebAddress!=null)this.WebAddress= _viewgetshippingdetial.WebAddress; 
-             if(_viewgetshippingdetial.FreightTerms!=null)this.FreightTerms= _viewgetshippingdetial.FreightTerms; 
-             if(_viewgetshippingdetial.Carrier!=null)this.Carrier= _viewgetshippingdetial.Carrier; 
-             if(_viewgetshippingdetial.DeliveryContact!=null)this.DeliveryContact= _viewgetshippingdetial.DeliveryContact; 
-             if(_viewgetshippingdetial.Indexcode!=null)this.Indexcode= _viewgetshippingdetial.Indexcode; 
-             if(_viewgetshippingdetial.Contact!=null)this.Contact= _viewgetshippingdetial.Contact; 
-             if(_viewgetshippingdetial.PaymentTerms!=null)this.PaymentTerms= _viewgetshippingdetial.PaymentTerms; 
-             if(_viewgetshippingdetial.TotalPackages!=null)this.TotalPackages= _viewgetshippingdetial.TotalPackages; 
-             if(_viewgetshippingdetial.Fax!=null)this.Fax= _viewgetshippingdetial.Fax;
-             if(_viewgetshippingdetial.VendorName!=null)this.VendorName= _viewgetshippingdetial.VendorName; 
-             if(_viewgetshippingdetial.ShippingMode!=null)this.ShippingMode= _viewgetshippingdetial.ShippingMode; 
-             if(_viewgetshippingdetial.XB_RESFLG_0!=null)this.XB_RESFLG_0= _viewgetshippingdetial.XB_RESFLG_0; 
-             if(_viewgetshippingdetial.CODCHG_0!=null)this.CODCHG_0= _viewgetshippingdetial.CODCHG_0; 
-             if(_viewgetshippingdetial.INSVAL_0!=null)this.INSVAL_0= _viewgetshippingdetial.INSVAL_0; 
-             if(_viewgetshippingdetial.ADDCODFRT_0!=null)this.ADDCODFRT_0= _viewgetshippingdetial.ADDCODFRT_0; 
-             if(_viewgetshippingdetial.BILLOPT_0!=null)this.BILLOPT_0= _viewgetshippingdetial.BILLOPT_0; 
-             if(_viewgetshippingdetial.HDLCHG_0!=null)this.HDLCHG_0= _viewgetshippingdetial.HDLCHG_0; 
-             if(_viewgetshippingdetial.DOWNFLG_0!=null)this.DOWNFLG_0= _viewgetshippingdetial.DOWNFLG_0; 
-             if(_viewgetshippingdetial.BACCT_0!=null)this.BACCT_0= _viewgetshippingdetial.BACCT_0; 
-             if(_viewgetshippingdetial.TPBILL_0!=null)this.TPBILL_0= _viewgetshippingdetial.TPBILL_0; 
-             if(_viewgetshippingdetial.CUSTBILL_0!=null)this.CUSTBILL_0= _viewgetshippingdetial.CUSTBILL_0;
-             if (_viewgetshippingdetial.CNTFULNAM_0 != null) this.CNTFULNAM_0 = _viewgetshippingdetial.CNTFULNAM_0;
-        
+        {
+
+            if (_viewgetshippingdetial.ShippingNum != null) this.ShippingNum = _viewgetshippingdetial.ShippingNum;
+            if (_viewgetshippingdetial.DeliveryProvider != null) this.DeliveryProvider = _viewgetshippingdetial.DeliveryProvider;
+            if (_viewgetshippingdetial.DeliveryMode != null) this.DeliveryMode = _viewgetshippingdetial.DeliveryMode;
+            if (_viewgetshippingdetial.FromAddressLine1 != null) this.FromAddressLine1 = _viewgetshippingdetial.FromAddressLine1;
+            if (_viewgetshippingdetial.FromAddressLine2 != null) this.FromAddressLine2 = _viewgetshippingdetial.FromAddressLine2;
+            if (_viewgetshippingdetial.FromAddressLine3 != null) this.FromAddressLine3 = _viewgetshippingdetial.FromAddressLine3;
+            if (_viewgetshippingdetial.FromAddressCity != null) this.FromAddressCity = _viewgetshippingdetial.FromAddressCity;
+            if (_viewgetshippingdetial.FromAddressState != null) this.FromAddressState = _viewgetshippingdetial.FromAddressState;
+            if (_viewgetshippingdetial.FromAddressCountry != null) this.FromAddressCountry = _viewgetshippingdetial.FromAddressCountry;
+            if (_viewgetshippingdetial.FromAddressZipCode != null) this.FromAddressZipCode = _viewgetshippingdetial.FromAddressZipCode;
+            if (_viewgetshippingdetial.ToAddressLine1 != null) this.ToAddressLine1 = _viewgetshippingdetial.ToAddressLine1;
+            if (_viewgetshippingdetial.ToAddressLine2 != null) this.ToAddressLine2 = _viewgetshippingdetial.ToAddressLine2;
+            if (_viewgetshippingdetial.ToAddressLine3 != null) this.ToAddressLine3 = _viewgetshippingdetial.ToAddressLine3;
+            if (_viewgetshippingdetial.ToAddressCity != null) this.ToAddressCity = _viewgetshippingdetial.ToAddressCity;
+            if (_viewgetshippingdetial.ToAddressState != null) this.ToAddressState = _viewgetshippingdetial.ToAddressState;
+            if (_viewgetshippingdetial.ToAddressCountry != null) this.ToAddressCountry = _viewgetshippingdetial.ToAddressCountry;
+            if (_viewgetshippingdetial.ToAddressZipCode != null) this.ToAddressZipCode = _viewgetshippingdetial.ToAddressZipCode;
+            if (_viewgetshippingdetial.ShipmentStatus != null) this.ShipmentStatus = _viewgetshippingdetial.ShipmentStatus;
+            if (_viewgetshippingdetial.OrderID != null) this.OrderID = _viewgetshippingdetial.OrderID;
+            if (_viewgetshippingdetial.CustomerPO != null) this.CustomerPO = _viewgetshippingdetial.CustomerPO;
+            if (_viewgetshippingdetial.ShipToAddress != null) this.ShipToAddress = _viewgetshippingdetial.ShipToAddress;
+            if (_viewgetshippingdetial.OurSupplierNo != null) this.OurSupplierNo = _viewgetshippingdetial.OurSupplierNo;
+            if (_viewgetshippingdetial.CustomerName1 != null) this.CustomerName1 = _viewgetshippingdetial.CustomerName1;
+            if (_viewgetshippingdetial.CustomerName2 != null) this.CustomerName2 = _viewgetshippingdetial.CustomerName2;
+            if (_viewgetshippingdetial.WebAddress != null) this.WebAddress = _viewgetshippingdetial.WebAddress;
+            if (_viewgetshippingdetial.FreightTerms != null) this.FreightTerms = _viewgetshippingdetial.FreightTerms;
+            if (_viewgetshippingdetial.Carrier != null) this.Carrier = _viewgetshippingdetial.Carrier;
+            if (_viewgetshippingdetial.DeliveryContact != null) this.DeliveryContact = _viewgetshippingdetial.DeliveryContact;
+            this.Indexcode = _viewgetshippingdetial.Indexcode;
+            if (_viewgetshippingdetial.Contact != null) this.Contact = _viewgetshippingdetial.Contact;
+            if (_viewgetshippingdetial.PaymentTerms != null) this.PaymentTerms = _viewgetshippingdetial.PaymentTerms;
+            this.TotalPackages = _viewgetshippingdetial.TotalPackages;
+            if (_viewgetshippingdetial.Fax != null) this.Fax = _viewgetshippingdetial.Fax;
+            if (_viewgetshippingdetial.VendorName != null) this.VendorName = _viewgetshippingdetial.VendorName;
+            if (_viewgetshippingdetial.ShippingMode != null) this.ShippingMode = _viewgetshippingdetial.ShippingMode;
+            this.XB_RESFLG_0 = _viewgetshippingdetial.XB_RESFLG_0;
+            if (_viewgetshippingdetial.CODCHG_0 != null) this.CODCHG_0 = _viewgetshippingdetial.CODCHG_0;
+            this.INSVAL_0 = _viewgetshippingdetial.INSVAL_0;
+            this.ADDCODFRT_0 = _viewgetshippingdetial.ADDCODFRT_0;
+            if (_viewgetshippingdetial.BILLOPT_0 != null) this.BILLOPT_0 = _viewgetshippingdetial.BILLOPT_0;
+            if (_viewgetshippingdetial.HDLCHG_0 != null) this.HDLCHG_0 = _viewgetshippingdetial.HDLCHG_0;
+            this.DOWNFLG_0 = _viewgetshippingdetial.DOWNFLG_0;
+            if (_viewgetshippingdetial.BACCT_0 != null) this.BACCT_0 = _viewgetshippingdetial.BACCT_0;
+            this.TPBILL_0 = _viewgetshippingdetial.TPBILL_0;
+            this.CUSTBILL_0 = _viewgetshippingdetial.CUSTBILL_0;
+            if (_viewgetshippingdetial.CNTFULNAM_0 != null) this.CNTFULNAM_0 = _viewgetshippingdetial.CNTFULNAM_0;
         }
     }
 
