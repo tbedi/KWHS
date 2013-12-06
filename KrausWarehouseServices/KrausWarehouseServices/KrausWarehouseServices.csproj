@@ -90,6 +90,7 @@
     <Compile Include="DBLogics\Shipping\cmdRole.cs" />
     <Compile Include="DBLogics\Shipping\cmdShipping.cs" />
     <Compile Include="DBLogics\Shipping\cmdStationMaster.cs" />
+    <Compile Include="DBLogics\Shipping\cmdTracking.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
