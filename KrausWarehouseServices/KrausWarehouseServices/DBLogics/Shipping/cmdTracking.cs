@@ -1,0 +1,166 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using KrausWarehouseServices.DTO.Shipping;
+using KrausWarehouseServices.Connections.Shipping;
+
+namespace KrausWarehouseServices.DBLogics.Shipping
+{
+    /// <summary>
+    /// all get methods of tracking Table
+    /// </summary>
+    public  class cmdTracking
+    {
+        /// <summary>
+        /// create Entity Object
+        /// </summary>
+        Shipping_ManagerEntities1 entshipping = new Shipping_ManagerEntities1();
+
+
+        /// <summary>
+        /// Get all records from tracking Table.
+        /// </summary>
+        /// <returns>
+        /// return list of tracking data.
+        /// </returns>
+        public List<TrackingDTO> GetAll()
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+            try
+            {
+                var tracking = (from tra in entshipping.Trackings
+                                select tra).ToList();
+
+                foreach (var trackingitem in tracking)
+                {
+                    _lstracking.Add(new TrackingDTO(trackingitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        }
+
+        /// <summary>
+        /// Get records from the tracking table by trackingId
+        /// </summary>
+        /// <param name="_TrackingID">
+        /// pass Tracking iD to the function as parameter.
+        /// </param>
+        /// <returns>
+        /// return the List.
+        /// </returns>
+        public List<TrackingDTO> GetByTrackingID(Guid _TrackingID)
+        {
+            List<TrackingDTO> _lsTracking = new List<TrackingDTO>();
+            try
+            {
+                var track = (from tra in entshipping.Trackings
+                             where tra.TrackingID==_TrackingID
+                             select tra).ToList();
+                foreach (var trackitem in track)
+                {
+                    _lsTracking.Add(new TrackingDTO (trackitem));
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+            return _lsTracking;
+        }
+
+        /// <summary>
+        /// Get Tracking By PackingID.
+        /// </summary>
+        /// <param name="PackingID">
+        /// pass PAckingID as parameter.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<TrackingDTO> GetByPackingID(Guid PackingID)
+        {
+            List<TrackingDTO> _lstrack = new List<TrackingDTO>();
+            try
+            {
+                var tracking = (from track in entshipping.Trackings
+                                where track.PackingID == PackingID
+                                select track).ToList();
+
+                foreach (var trackitem in tracking)
+                {
+                    _lstrack.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstrack;
+        }
+
+        /// <summary>
+        /// get tracking records By ShippingID.
+        /// </summary>
+        /// <param name="_shippingID">
+        /// pass shippingID as Parameter.
+        /// </param>
+        /// <returns>
+        /// return list.
+        /// </returns>
+        public List<TrackingDTO> GetByShippingID(Guid _shippingID)
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+
+            try
+            {
+                var tra = (from tracking in entshipping.Trackings
+                           where tracking.ShippingID == _shippingID
+                           select tracking).ToList();
+
+                foreach (var trackitem in tra)
+                {
+                    _lstracking.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        
+        }
+
+        /// <summary>
+        /// get tracking records By BoxID.
+        /// </summary>
+        /// <param name="_BoxID">
+        /// pass BoxID as Parameter.
+        /// </param>
+        /// <returns>
+        /// return list.
+        /// </returns>
+        public List<TrackingDTO> GetByBoxID(Guid _BoxID)
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+
+            try
+            {
+                var tra = (from tracking in entshipping.Trackings
+                           where tracking.BoxID == _BoxID
+                           select tracking).ToList();
+
+                foreach (var trackitem in tra)
+                {
+                    _lstracking.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        }
+    }
+}
