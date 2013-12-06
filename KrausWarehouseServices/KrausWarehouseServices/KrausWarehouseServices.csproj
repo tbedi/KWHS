@@ -107,7 +107,8 @@
     <Compile Include="DTO\Shipping\UserDTO.cs" />
     <Compile Include="DTO\Shipping\ErrorLogDTO.cs" />
     <Compile Include="DTO\Shipping\UserStationDTO.cs" />
-    <Compile Include="DTO\Shipping\ViewExtraColumnsDTO.cs" />
+    <Compile Include="DTO\Shipping\viewgetShippingDetails.cs" />
+    <Compile Include="DTO\Shipping\viewGet_Shipping_DataDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\RMA\Get.cs" />
