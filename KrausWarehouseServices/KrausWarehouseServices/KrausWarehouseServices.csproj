@@ -81,6 +81,7 @@
     <Compile Include="DBLogics\Shipping\cmdAudit.cs" />
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdErrorLog.cs" />
+    <Compile Include="DBLogics\Shipping\cmdGetShippingData.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackageDetail.cs" />
     <Compile Include="DBLogics\Shipping\cmdRole.cs" />
