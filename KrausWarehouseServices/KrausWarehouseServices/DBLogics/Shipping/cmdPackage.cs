@@ -189,5 +189,66 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             }
             return _lspackage;
         }
+
+
+        #region Upsert Method
+        public Boolean UpsertPackage(List<PackageDTO> package)
+        {
+            Boolean _flag = false;
+            try
+            {
+                foreach (var packgeitem in package)
+                {
+
+                    Package pack = entShippling.Packages.SingleOrDefault(re=>re.PackingId==packgeitem.PackingId);
+                    if (pack.PackingId == Guid.Empty)
+                    {
+                        pack.PackingId = packgeitem.PackingId;
+                        pack.UserId = packgeitem.UserID;
+                        pack.StationID = packgeitem.StationID;
+                        pack.ShippingNum = packgeitem.ShippingNum;
+                        pack.StartTime = packgeitem.StartTime;
+                        pack.EndTime = packgeitem.EndTime;
+                        pack.PackingStatus = packgeitem.PackingStatus;
+                        pack.ShippingID = packgeitem.ShippingID;
+                        pack.ShipmentLocation = packgeitem.ShipmentLocation;
+                        //pack.MangerOverride=packgeitem.MangerOverride;
+                        pack.PCKROWID = packgeitem.PCKROWID;
+                        pack.ROWID = packgeitem.ROWID;
+                        pack.CreatedBy = packgeitem.CreatedBy;
+                        pack.Updatedby = packgeitem.Updatedby;
+                        pack.UpdatedDateTime = packgeitem.UpdatedDateTime;
+                        pack.CreatedDateTime = packgeitem.CreatedDateTime;
+                        entShippling.AddToPackages(pack);
+                    }
+                    else
+                    {
+                        pack.UserId = packgeitem.UserID;
+                        pack.StationID = packgeitem.StationID;
+                        pack.ShippingNum = packgeitem.ShippingNum;
+                        pack.StartTime = packgeitem.StartTime;
+                        pack.EndTime = packgeitem.EndTime;
+                        pack.PackingStatus = packgeitem.PackingStatus;
+                        pack.ShippingID = packgeitem.ShippingID;
+                        pack.ShipmentLocation = packgeitem.ShipmentLocation;
+                        //pack.MangerOverride=packgeitem.MangerOverride;
+                        pack.PCKROWID = packgeitem.PCKROWID;
+                        pack.ROWID = packgeitem.ROWID;
+                        pack.CreatedBy = packgeitem.CreatedBy;
+                        pack.Updatedby = packgeitem.Updatedby;
+                        pack.UpdatedDateTime = packgeitem.UpdatedDateTime;
+                        pack.CreatedDateTime = packgeitem.CreatedDateTime;
+                    }
+                }
+                entShippling.SaveChanges();
+               _flag=true;
+              }
+            catch (Exception)
+            {
+            }
+            return _flag;
+        }
+        #endregion
+
     }
 }
