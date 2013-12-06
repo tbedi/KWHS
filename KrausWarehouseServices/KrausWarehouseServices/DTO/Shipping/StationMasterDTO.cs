@@ -72,8 +72,6 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_station.Updatedby != null) this.Updatedby = (Guid)_station.Updatedby;
             if (_station.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _station.CreatedDateTime;
             if (_station.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _station.UpdatedDateTime;
-
-
         }
     }
 }

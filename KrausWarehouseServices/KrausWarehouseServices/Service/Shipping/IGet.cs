@@ -11,7 +11,17 @@ namespace KrausWarehouseServices.Service.Shipping
     [ServiceContract]
     public interface IGet
     {
+        #region Get_Shipping_Data
+
         [OperationContract]
-        void DoWork();
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataAll();
+
+        [OperationContract]
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByShippingNumber(String ShippingNumber);
+
+        [OperationContract]
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByLocation(String Location); 
+
+        #endregion
     }
 }
