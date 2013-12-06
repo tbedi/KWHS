@@ -200,9 +200,12 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 foreach (var packgeitem in package)
                 {
 
-                    Package pack = entShippling.Packages.SingleOrDefault(re=>re.PackingId==packgeitem.PackingId);
+                    Package pack ;
+                    pack = entShippling.Packages.SingleOrDefault(re => re.PackingId == packgeitem.PackingId);
+                    
                     if (pack.PackingId == Guid.Empty)
                     {
+                        pack = new Package();
                         pack.PackingId = packgeitem.PackingId;
                         pack.UserId = packgeitem.UserID;
                         pack.StationID = packgeitem.StationID;
@@ -212,7 +215,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                         pack.PackingStatus = packgeitem.PackingStatus;
                         pack.ShippingID = packgeitem.ShippingID;
                         pack.ShipmentLocation = packgeitem.ShipmentLocation;
-                        //pack.MangerOverride=packgeitem.MangerOverride;
+                        pack.ManagerOverride=packgeitem.MangerOverride;
                         pack.PCKROWID = packgeitem.PCKROWID;
                         pack.ROWID = packgeitem.ROWID;
                         pack.CreatedBy = packgeitem.CreatedBy;
@@ -231,7 +234,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                         pack.PackingStatus = packgeitem.PackingStatus;
                         pack.ShippingID = packgeitem.ShippingID;
                         pack.ShipmentLocation = packgeitem.ShipmentLocation;
-                        //pack.MangerOverride=packgeitem.MangerOverride;
+                        pack.ManagerOverride=packgeitem.MangerOverride;
                         pack.PCKROWID = packgeitem.PCKROWID;
                         pack.ROWID = packgeitem.ROWID;
                         pack.CreatedBy = packgeitem.CreatedBy;

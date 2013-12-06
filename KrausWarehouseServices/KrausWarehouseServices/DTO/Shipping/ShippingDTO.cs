@@ -12,13 +12,6 @@ namespace KrausWarehouseServices.DTO.Shipping
     [DataContract]
    public class ShippingDTO
     {
-       /// <summary>
-       /// Blank Constructor.
-       /// </summary>
-       public ShippingDTO()
-       {
-       }
-
         [DataMember]
        public Guid ShippingID { get; set; }
 
@@ -185,7 +178,14 @@ namespace KrausWarehouseServices.DTO.Shipping
         public DateTime? UpdatedDateTime { get; set; }
 
         [DataMember]
-        public int ROWID { get; set; }
+        public int ROWID { get; set; } 
+        
+        /// <summary>
+       /// Blank Constructor.
+       /// </summary>
+       public ShippingDTO()
+       {
+       }
         /// <summary>
         /// Paramiterised Constructor.
         /// </summary>

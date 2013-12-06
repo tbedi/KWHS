@@ -46,7 +46,7 @@ namespace KrausWarehouseServices.DTO.Shipping
        public Guid ShippingID { get; set; }
 
        [DataMember]
-       public int MangerOverride { get; set; }
+       public Int32 MangerOverride { get; set; }
 
        [DataMember]
        public string PCKROWID { get; set; }

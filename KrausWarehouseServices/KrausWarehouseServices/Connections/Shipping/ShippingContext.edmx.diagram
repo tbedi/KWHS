@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="106">
+      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="Model.Audit" Width="1.5" PointX="24.375" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BoxPackage" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ErrorLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />

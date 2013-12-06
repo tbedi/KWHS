@@ -81,8 +81,10 @@
     <Compile Include="DBLogics\Shipping\cmdAudit.cs" />
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdErrorLog.cs" />
+    <Compile Include="DBLogics\Shipping\cmdPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackageDetail.cs" />
     <Compile Include="DBLogics\Shipping\cmdRole.cs" />
+    <Compile Include="DBLogics\Shipping\cmdShipping.cs" />
     <Compile Include="DTO\RMA\AuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />
