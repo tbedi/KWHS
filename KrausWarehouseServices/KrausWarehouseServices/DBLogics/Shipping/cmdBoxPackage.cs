@@ -112,26 +112,42 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// </summary>
        /// <param name="lsBoxpackage">list of information of box</param>
        /// <returns>Guid of New Box Id</returns>
-       public Guid SaveBoxPackage(List<DTO.Shipping.BoxPackageDTO> lsBoxpackage)
+       public Boolean UpsertBoxPackage(List<DTO.Shipping.BoxPackageDTO> lsBoxpackage)
        {
-           Guid _return = Guid.Empty;
-
+           Boolean _return = false;
            try
            {
                foreach (var _boxitem in lsBoxpackage)
                {
-                   Connections.Shipping.BoxPackage _boxPackage = new Connections.Shipping.BoxPackage();
-                   _boxPackage.BoxID = Guid.NewGuid();
-                   _boxPackage.PackingID = _boxitem.PackingID;
-                   _boxPackage.BoxType = _boxitem.BoxType;
-                   _boxPackage.BoxWeight = _boxitem.BoxWeight;
-                   _boxPackage.BoxLength = _boxitem.BoxLength;
-                   _boxPackage.BoxHeight = _boxitem.BoxHeight;
-                   _boxPackage.BoxWidth = _boxitem.BoxWidth;
-                   _boxPackage.BoxCreatedTime = _boxitem.BoxCreatedTime;
-                  _boxPackage.BoxMeasurementTime = _boxitem.BoxMeasurementTime;
-                   entShipping.AddToBoxPackages(_boxPackage);
-                   _return = _boxPackage.BoxID;
+                   Connections.Shipping.BoxPackage _boxPackage;
+                   _boxPackage = entShipping.BoxPackages.SingleOrDefault(i => i.BoxID == _boxitem.BoxID);
+                   if (_boxPackage.BOXNUM == null)
+                   {
+                       _boxPackage = new Connections.Shipping.BoxPackage();
+                       _boxPackage.BoxID = _boxitem.BoxID;
+                       _boxPackage.PackingID = _boxitem.PackingID;
+                       _boxPackage.BoxType = _boxitem.BoxType;
+                       _boxPackage.BoxWeight = _boxitem.BoxWeight;
+                       _boxPackage.BoxLength = _boxitem.BoxLength;
+                       _boxPackage.BoxHeight = _boxitem.BoxHeight;
+                       _boxPackage.BoxWidth = _boxitem.BoxWidth;
+                       _boxPackage.BoxCreatedTime = _boxitem.BoxCreatedTime;
+                       _boxPackage.BoxMeasurementTime = _boxitem.BoxMeasurementTime;
+                       entShipping.AddToBoxPackages(_boxPackage);
+                   }
+                   else
+                   {
+                       _boxPackage.PackingID = _boxitem.PackingID;
+                       _boxPackage.BoxType = _boxitem.BoxType;
+                       _boxPackage.BoxWeight = _boxitem.BoxWeight;
+                       _boxPackage.BoxLength = _boxitem.BoxLength;
+                       _boxPackage.BoxHeight = _boxitem.BoxHeight;
+                       _boxPackage.BoxWidth = _boxitem.BoxWidth;
+                       _boxPackage.BoxCreatedTime = _boxitem.BoxCreatedTime;
+                       _boxPackage.BoxMeasurementTime = _boxitem.BoxMeasurementTime;
+                       
+                   }
+                   _return = true;
                }
                entShipping.SaveChanges();
            }
