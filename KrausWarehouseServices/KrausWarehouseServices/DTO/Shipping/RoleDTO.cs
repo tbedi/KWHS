@@ -11,12 +11,7 @@ namespace KrausWarehouseServices.DTO.Shipping
     [DataContract]
     public class RoleDTO
     {
-        /// <summary>
-        /// Blank Constructor.
-        /// </summary>
-        public RoleDTO()
-        {
-        }
+
 
         [DataMember]
         public Guid RoleID { get; set; }
@@ -38,6 +33,13 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public DateTime? UpdatedDateTime { get; set; }
+       
+        /// <summary>
+        /// Blank Constructor.
+        /// </summary>
+        public RoleDTO()
+        {
+        }
 
         public RoleDTO(Connections.Shipping.Role _role)
         {
@@ -49,11 +51,5 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_role.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _role.CreatedDateTime;
             if (_role.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _role.UpdatedDateTime;
         }
-
-
-
-
-
-        
     }
 }

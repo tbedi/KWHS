@@ -232,7 +232,7 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (_shipping.Fax != null) this.Fax = _shipping.Fax;
            if (_shipping.VendorName != null) this.VendorName = _shipping.VendorName;
            if (_shipping.MDL_0 != null) this.MDL_0 = (String)_shipping.MDL_0;
-           //if (_shipping.yca != null) this.YCARSRV_0 = (String)_shipping.YCARSRV_0;
+          // if (_shipping.YCA != null) this.YCARSRV_0 = (String)_shipping.YCARSRV_0;
            if (_shipping.XB_RESFLG_0 != null) this.XB_RESFLG_0 = (Byte)_shipping.XB_RESFLG_0;
            if (_shipping.CODCHG_0 != null) this.CODCHG_0 = (String)_shipping.CODCHG_0;
            if (_shipping.INSVAL_0 != null) this.INSVAL_0 = (Decimal)_shipping.INSVAL_0;
