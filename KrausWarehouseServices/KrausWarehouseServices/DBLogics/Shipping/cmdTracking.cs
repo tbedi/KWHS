@@ -162,5 +162,96 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             }
             return _lstracking;
         }
+
+        /// <summary>
+        /// get tracking records By TrackingNUmber.
+        /// </summary>
+        /// <param name="_TrackingNUmber">
+        /// pass TrackingNUmber as Parameter.
+        /// </param>
+        /// <returns>
+        /// return list.
+        /// </returns>
+        public List<TrackingDTO> GetByTrackingNUmber(String _TrackingNUmber)
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+
+            try
+            {
+                var tra = (from tracking in entshipping.Trackings
+                           where tracking.TrackingNum == _TrackingNUmber
+                           select tracking).ToList();
+
+                foreach (var trackitem in tra)
+                {
+                    _lstracking.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        }
+
+        /// <summary>
+        /// get tracking records By VenderID.
+        /// </summary>
+        /// <param name="_VenderID">
+        /// pass VenderID as Parameter.
+        /// </param>
+        /// <returns>
+        /// return list.
+        /// </returns>
+        public List<TrackingDTO> GetByVenderID(String _VenderID)
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+
+            try
+            {
+                var tra = (from tracking in entshipping.Trackings
+                           where tracking.VOIIND == _VenderID
+                           select tracking).ToList();
+
+                foreach (var trackitem in tra)
+                {
+                    _lstracking.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        }
+
+        /// <summary>
+        /// get tracking records By BoxNum.
+        /// </summary>
+        /// <param name="_BoxNum">
+        /// pass BoxNum as Parameter.
+        /// </param>
+        /// <returns>
+        /// return list.
+        /// </returns>
+        public List<TrackingDTO> GetByBoxNum(String _BoxNum)
+        {
+            List<TrackingDTO> _lstracking = new List<TrackingDTO>();
+
+            try
+            {
+                var tra = (from tracking in entshipping.Trackings
+                           where tracking.BOXNUM == _BoxNum
+                           select tracking).ToList();
+
+                foreach (var trackitem in tra)
+                {
+                    _lstracking.Add(new TrackingDTO(trackitem));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lstracking;
+        }
+
     }
 }
