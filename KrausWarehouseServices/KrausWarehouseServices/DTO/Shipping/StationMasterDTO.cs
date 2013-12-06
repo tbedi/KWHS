@@ -11,12 +11,7 @@ namespace KrausWarehouseServices.DTO.Shipping
     [DataContract]
     public class StationMasterDTO
     {
-        /// <summary>
-        /// Blank Constructor.
-        /// </summary>
-        public StationMasterDTO()
-        {
-        }
+       
 
         [DataMember]
         public Guid StationID { get; set; }
@@ -50,6 +45,14 @@ namespace KrausWarehouseServices.DTO.Shipping
 
         [DataMember]
         public DateTime? UpdatedDateTime { get; set; }
+
+        /// <summary>
+        /// Blank Constructor.
+        /// </summary>
+        public StationMasterDTO()
+        {
+        }
+
         /// <summary>
         /// Paramiterised Conctructor. 
         /// </summary>
