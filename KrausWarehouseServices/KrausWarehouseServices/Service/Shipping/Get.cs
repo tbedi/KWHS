@@ -17,7 +17,7 @@ namespace KrausWarehouseServices.Service.Shipping
         /// view Get_Shipping_Data new Object.
         /// </summary>
         DBLogics.Shipping.cmdGetShippingData _GetShippingData = new DBLogics.Shipping.cmdGetShippingData();
-        
+
         #endregion
 
         #region View Get_Shipping_Data

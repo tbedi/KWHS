@@ -16,9 +16,6 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        Shipping_ManagerEntities1 entShipping = new Shipping_ManagerEntities1();
 
        #region Get Methods for UserStation Table.
-       
-       
-
 
        /// <summary>
        /// Get all Users;

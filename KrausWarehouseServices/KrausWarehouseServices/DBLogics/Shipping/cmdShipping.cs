@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.DTO.Shipping;
 using KrausWarehouseServices.Connections.Shipping;
+using System.Data.Objects;
 
 namespace KrausWarehouseServices.DBLogics.Shipping
 {
@@ -71,6 +72,246 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            }
            return _lsShipping;
        
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By ShippingNum.
+       /// </summary>
+       /// <param name="ShippingNum">
+       /// pass ShippingNum Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByShippingNum(String ShippingNum)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.ShippingNum == ShippingNum
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By OrderID.
+       /// </summary>
+       /// <param name="OrderID">
+       /// pass OrderID Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByOrderID(String OrderID)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.OrderID == OrderID
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By CustomerPO.
+       /// </summary>
+       /// <param name="CustomerPO">
+       /// pass CustomerPO Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByCustomerPO(String CustomerPO)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.CustomerPO == CustomerPO
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+       /// <summary>
+       /// get Record From the Shipping By VenderName.
+       /// </summary>
+       /// <param name="VenderName">
+       /// pass VenderName Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByVenderName(String VenderName)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.VendorName == VenderName
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By VenderNum.
+       /// </summary>
+       /// <param name="VenderNum">
+       /// pass VenderNum Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByVenderNum(String VenderNum)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.DeliveryProvider == VenderNum
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By Carrier.
+       /// </summary>
+       /// <param name="Carrier">
+       /// pass Carrier Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByCarrier(String Carrier)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.Carrier == Carrier
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By ShippingROWID.
+       /// </summary>
+       /// <param name="ShippingROWID">
+       /// pass ShippingROWID as Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByShippingROWID(String ShippingROWID)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where ship.SHIPPINGROWID == ShippingROWID
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
+       }
+
+       /// <summary>
+       /// get Record From the Shipping By FromDateToDate.
+       /// </summary>
+       /// <param name="FromDateToDate">
+       /// pass FromDateToDate as Parameter
+       /// </param>
+       /// <returns>
+       /// Return List OF Shipping.
+       /// </returns>
+       public List<ShippingDTO> GetByFromDateToDate(DateTime fromDate,DateTime ToDate)
+       {
+           List<ShippingDTO> _lsShipping = new List<ShippingDTO>();
+           try
+           {
+               var _shipping = (from ship in entShipping.Shippings
+                                where EntityFunctions.TruncateTime(ship.CreatedDateTime.Value) >= EntityFunctions.TruncateTime(fromDate)
+                                && EntityFunctions.TruncateTime(ship.CreatedDateTime) <= EntityFunctions.TruncateTime(ToDate)
+                                select ship).ToList();
+
+               foreach (var shippingitem in _shipping)
+               {
+                   _lsShipping.Add(new ShippingDTO(shippingitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsShipping;
+
        }
        #endregion
 
