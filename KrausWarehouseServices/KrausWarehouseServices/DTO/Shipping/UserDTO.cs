@@ -60,8 +60,8 @@ namespace KrausWarehouseServices.DTO.Shipping
            if (user.Role != null) this.RoleID = (Guid)user.RoleId;
            if (user.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = (DateTime)user.CreatedDateTime;
            if (user.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = (DateTime)user.UpdatedDateTime;
-           if (user.Updatedby != null) this.Updatedby = (Guid)user.Updatedby;
-           if (user.CreatedBy != null) this.CreatedBy = (Guid)user.CreatedBy;
+           if (user.Updatedby != Guid.Empty) this.Updatedby = (Guid)user.Updatedby;
+           if (user.CreatedBy != Guid.Empty) this.CreatedBy = (Guid)user.CreatedBy;
        }
     }
 }
