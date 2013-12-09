@@ -98,12 +98,12 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <returns>
        /// Return list.
        /// </returns>
-       public List<RoleDTO> GetRoleByRoleID(Role _RoleID)
+       public List<RoleDTO> GetRoleByRoleID(Guid _RoleID)
        {
            List<RoleDTO> _lsReturn = new List<RoleDTO>();
            try
            {
-               _lsReturn.Add(new RoleDTO(entshipping.Roles.SingleOrDefault(re => re.RoleId == _RoleID.RoleId)));
+               _lsReturn.Add(new RoleDTO(entshipping.Roles.SingleOrDefault(re => re.RoleId == _RoleID)));
            }
            catch (Exception)
            {
