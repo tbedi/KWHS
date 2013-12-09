@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace KrausWarehouseServices.Service.Shipping
@@ -109,6 +110,7 @@ namespace KrausWarehouseServices.Service.Shipping
         List<DTO.Shipping.ShippingDTO> ShippingByShippingROWID(String ShippingROWID);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/ShippingByGetByFromDateToDate?ID={FromDate}&value={ToDate}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
         List<DTO.Shipping.ShippingDTO> ShippingByGetByFromDateToDate(DateTime FromDate, DateTime ToDate);
         #endregion
 
