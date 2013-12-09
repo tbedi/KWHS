@@ -166,7 +166,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        }
         #endregion
 
-        #region UsertUser
+        #region UpsertUser
 
        /// <summary>
        /// Insert And Update the User Table in One function that is Upsert.

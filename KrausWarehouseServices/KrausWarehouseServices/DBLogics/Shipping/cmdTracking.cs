@@ -13,6 +13,10 @@ namespace KrausWarehouseServices.DBLogics.Shipping
     /// </summary>
     public  class cmdTracking
     {
+        #region Get All Methods of Tracking.
+        
+        
+
         /// <summary>
         /// create Entity Object
         /// </summary>
@@ -252,6 +256,6 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             }
             return _lstracking;
         }
-
+        #endregion
     }
 }
