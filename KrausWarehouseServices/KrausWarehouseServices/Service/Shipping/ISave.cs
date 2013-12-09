@@ -115,6 +115,18 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         Boolean UserStation(List<UserStationDTO> _userstation);
 
+        /// <summary>
+        /// Upsert declaration Of ErrorLog.
+        /// </summary>
+        /// <param name="_errorlog">
+        /// Pass ErrorLog Object As parameter.
+        /// </param>
+        /// <returns>
+        /// Return Boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean ErrorLog(List<ErrorLogDTO> _errorlog);
+
         #endregion
     }
 }

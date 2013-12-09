@@ -188,5 +188,11 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
+        #region ErrorLog.
+        [OperationContract]
+        List<DTO.Shipping.ErrorLogDTO> ErrorLogAll();
+        
+        #endregion
+
     }
 }

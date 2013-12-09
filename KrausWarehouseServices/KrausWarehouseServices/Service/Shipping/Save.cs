@@ -62,6 +62,12 @@ namespace KrausWarehouseServices.Service.Shipping
         /// cmduserstation new Object.
         /// </summary>
         DBLogics.Shipping.cmdUserStation _GetUserStation = new DBLogics.Shipping.cmdUserStation();
+
+        /// <summary>
+        /// cmdErrorLog new Object.
+        /// </summary>
+        DBLogics.Shipping.cmdErrorLog _GetErrorLog = new DBLogics.Shipping.cmdErrorLog();
+
         #endregion
 
 
@@ -98,6 +104,11 @@ namespace KrausWarehouseServices.Service.Shipping
         public bool UserStation(List<DTO.Shipping.UserStationDTO> _userstation)
         {
             return _GetUserStation.UpsertUserStation(_userstation);
+        }
+
+        public bool ErrorLog(List<DTO.Shipping.ErrorLogDTO> _errorlog)
+        {
+            return _GetErrorLog.UpsertErrorLog(_errorlog);
         }
     }
 }

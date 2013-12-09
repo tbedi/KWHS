@@ -62,6 +62,12 @@ namespace KrausWarehouseServices.Service.Shipping
         /// cmduserstation new Object.
         /// </summary>
         DBLogics.Shipping.cmdUserStation _GetUserStation = new DBLogics.Shipping.cmdUserStation();
+
+        /// <summary>
+        /// cmderrorlog new Object.
+        /// </summary>
+        DBLogics.Shipping.cmdErrorLog _GetErrorlog = new DBLogics.Shipping.cmdErrorLog();
+
         #endregion
 
         #region View Get_Shipping_Data
@@ -79,13 +85,13 @@ namespace KrausWarehouseServices.Service.Shipping
         public List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByLocation(string Location)
         {
             return _GetShippingData.GeByLocation(Location);
-        } 
+        }
 
         #endregion
 
         #region Audit
-        
-        
+
+
 
         public List<DTO.Shipping.AutditDTO> AllAudit()
         {
@@ -171,7 +177,6 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
-
         #region Shipping
 
 
@@ -180,12 +185,12 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetShipping.GetAll();
         }
 
-       public List<DTO.Shipping.ShippingDTO> ShippingByShippingID(Guid ShippingID)
+        public List<DTO.Shipping.ShippingDTO> ShippingByShippingID(Guid ShippingID)
         {
             return _GetShipping.GetByShippingID(ShippingID);
         }
 
-       public List<DTO.Shipping.ShippingDTO> ShippingByShippingNum(string ShippingNum)
+        public List<DTO.Shipping.ShippingDTO> ShippingByShippingNum(string ShippingNum)
         {
             return _GetShipping.GetByShippingNum(ShippingNum);
         }
@@ -236,7 +241,7 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetStation.GetAll();
         }
 
-      public  List<DTO.Shipping.StationMasterDTO> StationMasterByStationID(Guid StaionID)
+        public List<DTO.Shipping.StationMasterDTO> StationMasterByStationID(Guid StaionID)
         {
             return _GetStation.GetByStationID(StaionID);
         }
@@ -267,12 +272,12 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetTracking.GetByTrackingID(TrackingID);
         }
 
-       public  List<DTO.Shipping.TrackingDTO> TrackingByPackingID(Guid PackingID)
+        public List<DTO.Shipping.TrackingDTO> TrackingByPackingID(Guid PackingID)
         {
             return _GetTracking.GetByPackingID(PackingID);
         }
 
-       public List<DTO.Shipping.TrackingDTO> TrackingByShippingID(Guid ShippingID)
+        public List<DTO.Shipping.TrackingDTO> TrackingByShippingID(Guid ShippingID)
         {
             return _GetTracking.GetByShippingID(ShippingID);
         }
@@ -347,11 +352,19 @@ namespace KrausWarehouseServices.Service.Shipping
         {
             return _GetUserStation.GetByUserID(UserID);
         }
-       public List<DTO.Shipping.UserStationDTO> UserStationByStationID(Guid StationID)
-       {
-           return _GetUserStation.GetByStationID(StationID);
-       }  
-        
+        public List<DTO.Shipping.UserStationDTO> UserStationByStationID(Guid StationID)
+        {
+            return _GetUserStation.GetByStationID(StationID);
+        }
+
         #endregion
+
+        #region ErrorLog
+        public List<DTO.Shipping.ErrorLogDTO> ErrorLogAll()
+        {
+            return _GetErrorlog.AllErrorLog();
+        }
+        #endregion
+
     }
 }
