@@ -89,45 +89,45 @@ namespace KrausWarehouseServices.Service.Shipping
 
         public List<DTO.Shipping.AutditDTO> AllAudit()
         {
-            throw new NotImplementedException();
+            return _GetAudit.GetUserLog();
         }
 
-        public List<DTO.Shipping.AutditDTO> ByAuditID(Guid AuditID)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<DTO.Shipping.AutditDTO> ByAuditID(Guid UserID)
+        //{
+        //    return _GetAudit.
+        //}
 
         #endregion
 
         #region Package
-        
-        
-        public List<DTO.Shipping.PackageDTO> AllPackge()
+
+
+        public List<DTO.Shipping.PackageDTO> PackageAllPackge()
         {
             return _GetPackage.GetAll();
         }
 
-        public List<DTO.Shipping.PackageDTO> ByPackageID(Guid PackageID)
+        public List<DTO.Shipping.PackageDTO> PackageByPackageID(Guid PackageID)
         {
             return _GetPackage.GetByPackageID(PackageID);
         }
 
-        public List<DTO.Shipping.PackageDTO> ByStationID(Guid StationID)
+        public List<DTO.Shipping.PackageDTO> PackageByStationID(Guid StationID)
         {
             return _GetPackage.GetByStationID(StationID);
         }
 
-        public List<DTO.Shipping.PackageDTO> ByUserID(Guid UserID)
+        public List<DTO.Shipping.PackageDTO> PackageByUserID(Guid UserID)
         {
             return _GetPackage.GetByUserID(UserID);
         }
 
-        public List<DTO.Shipping.PackageDTO> ByShippingID(Guid ShippingID)
+        public List<DTO.Shipping.PackageDTO> PackageByShippingID(Guid ShippingID)
         {
             return _GetPackage.GetByShipping(ShippingID);
         }
 
-        public List<DTO.Shipping.PackageDTO> ByShippingNum(string ShippingNum)
+        public List<DTO.Shipping.PackageDTO> PackageByShippingNum(string ShippingNum)
         {
             return _GetPackage.GetByShippingNum(ShippingNum);
         }
@@ -135,20 +135,20 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region PackageDetail
-        
-        
 
-        public List<DTO.Shipping.PackageDetailDTO> AllPackageDetail()
+
+
+        public List<DTO.Shipping.PackageDetailDTO> PackageDetailAllPackageDetail()
         {
             return _GetPackageDetail.GetAll();
         }
 
-        public List<DTO.Shipping.PackageDetailDTO> ByPackingID(Guid PackingID)
+        public List<DTO.Shipping.PackageDetailDTO> PackageDetailByPackingID(Guid PackingID)
         {
             return _GetPackageDetail.GetByPackingID(PackingID);
         }
 
-        public List<DTO.Shipping.PackageDetailDTO> ByBoxNumber(string BoxNumber)
+        public List<DTO.Shipping.PackageDetailDTO> PackageDetailByBoxNumber(string BoxNumber)
         {
             return _GetPackageDetail.GetByBoxNumber(BoxNumber);
         }
@@ -156,15 +156,15 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region Role
-        
-        
 
-        public List<DTO.Shipping.RoleDTO> AllRoles()
+
+
+        public List<DTO.Shipping.RoleDTO> RoleAllRoles()
         {
             return _GetRole.GetAll();
         }
 
-        public List<DTO.Shipping.RoleDTO> ByRoleID(Guid RoleID)
+        public List<DTO.Shipping.RoleDTO> RoleByRoleID(Guid RoleID)
         {
             return _GetRole.GetRoleByRoleID(RoleID);
         }
@@ -173,54 +173,54 @@ namespace KrausWarehouseServices.Service.Shipping
 
 
         #region Shipping
-        
-        
-        public List<DTO.Shipping.ShippingDTO> AllShipping()
+
+
+        public List<DTO.Shipping.ShippingDTO> ShippingAllShipping()
         {
             return _GetShipping.GetAll();
         }
 
-        List<DTO.Shipping.ShippingDTO> IGet.ByShippingID(Guid ShippingID)
+       public List<DTO.Shipping.ShippingDTO> ShippingByShippingID(Guid ShippingID)
         {
             return _GetShipping.GetByShippingID(ShippingID);
         }
 
-        List<DTO.Shipping.ShippingDTO> IGet.ByShippingNum(string ShippingNum)
+       public List<DTO.Shipping.ShippingDTO> ShippingByShippingNum(string ShippingNum)
         {
             return _GetShipping.GetByShippingNum(ShippingNum);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByOrderID(string OrderID)
+        public List<DTO.Shipping.ShippingDTO> ShippingByOrderID(string OrderID)
         {
             return _GetShipping.GetByOrderID(OrderID);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByCustomerPO(string CustomerPO)
+        public List<DTO.Shipping.ShippingDTO> ShippingByCustomerPO(string CustomerPO)
         {
             return _GetShipping.GetByCustomerPO(CustomerPO);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByVendorName(string VendorName)
+        public List<DTO.Shipping.ShippingDTO> ShippingByVendorName(string VendorName)
         {
             return _GetShipping.GetByVenderName(VendorName);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByVendorNum(string VendorNum)
+        public List<DTO.Shipping.ShippingDTO> ShippingByVendorNum(string VendorNum)
         {
             return _GetShipping.GetByVenderNum(VendorNum);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByCarrier(string Carrier)
+        public List<DTO.Shipping.ShippingDTO> ShippingByCarrier(string Carrier)
         {
             return _GetShipping.GetByCarrier(Carrier);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByShippingROWID(string ShippingROWID)
+        public List<DTO.Shipping.ShippingDTO> ShippingByShippingROWID(string ShippingROWID)
         {
             return _GetShipping.GetByShippingROWID(ShippingROWID);
         }
 
-        public List<DTO.Shipping.ShippingDTO> ByGetByFromDateToDate(DateTime FromDate, DateTime ToDate)
+        public List<DTO.Shipping.ShippingDTO> ShippingByGetByFromDateToDate(DateTime FromDate, DateTime ToDate)
         {
             return _GetShipping.GetByFromDateToDate(FromDate, ToDate);
         }
@@ -228,25 +228,25 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region Station
-        
-        
 
-        public List<DTO.Shipping.StationMasterDTO> AllStation()
+
+
+        public List<DTO.Shipping.StationMasterDTO> StationMasterAllStation()
         {
             return _GetStation.GetAll();
         }
 
-        List<DTO.Shipping.StationMasterDTO> IGet.ByStationID(Guid StaionID)
+      public  List<DTO.Shipping.StationMasterDTO> StationMasterByStationID(Guid StaionID)
         {
             return _GetStation.GetByStationID(StaionID);
         }
 
-        public List<DTO.Shipping.StationMasterDTO> ByStationName(string StationName)
+        public List<DTO.Shipping.StationMasterDTO> StationMasterByStationName(string StationName)
         {
             return _GetStation.GetByStattionName(StationName);
         }
 
-        public List<DTO.Shipping.StationMasterDTO> ByRequestedUserID(Guid RequestedUserID)
+        public List<DTO.Shipping.StationMasterDTO> StationMasterByRequestedUserID(Guid RequestedUserID)
         {
             return _GetStation.GetByRequestedUserID(RequestedUserID);
         }
@@ -254,45 +254,45 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region Tracking
-        
-        
 
-        public List<DTO.Shipping.TrackingDTO> All()
+
+
+        public List<DTO.Shipping.TrackingDTO> TrackingAll()
         {
             return _GetTracking.GetAll();
         }
 
-        public List<DTO.Shipping.TrackingDTO> ByTrackingID(Guid TrackingID)
+        public List<DTO.Shipping.TrackingDTO> TrackingByTrackingID(Guid TrackingID)
         {
             return _GetTracking.GetByTrackingID(TrackingID);
         }
 
-        List<DTO.Shipping.TrackingDTO> IGet.ByPackingID(Guid PackingID)
+       public  List<DTO.Shipping.TrackingDTO> TrackingByPackingID(Guid PackingID)
         {
             return _GetTracking.GetByPackingID(PackingID);
         }
 
-        List<DTO.Shipping.TrackingDTO> IGet.ByShippingID(Guid ShippingID)
+       public List<DTO.Shipping.TrackingDTO> TrackingByShippingID(Guid ShippingID)
         {
             return _GetTracking.GetByShippingID(ShippingID);
         }
 
-        public List<DTO.Shipping.TrackingDTO> ByBoxID(Guid BoxID)
+        public List<DTO.Shipping.TrackingDTO> TrackingByBoxID(Guid BoxID)
         {
             return _GetTracking.GetByBoxID(BoxID);
         }
 
-        public List<DTO.Shipping.TrackingDTO> ByTrackingNUmber(string TrackingNUmber)
+        public List<DTO.Shipping.TrackingDTO> TrackingByTrackingNUmber(string TrackingNUmber)
         {
             return _GetTracking.GetByTrackingNUmber(TrackingNUmber);
         }
 
-        public List<DTO.Shipping.TrackingDTO> ByVendorID(string VendorID)
+        public List<DTO.Shipping.TrackingDTO> TrackingByVendorID(string VendorID)
         {
             return _GetTracking.GetByVenderID(VendorID);
         }
 
-        public List<DTO.Shipping.TrackingDTO> ByBoxNum(string BoxNum)
+        public List<DTO.Shipping.TrackingDTO> TrackingByBoxNum(string BoxNum)
         {
             return _GetTracking.GetByBoxNum(BoxNum);
         }
@@ -300,30 +300,30 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region User
-        
-        
 
-        public List<DTO.Shipping.UserDTO> AllUser()
+
+
+        public List<DTO.Shipping.UserDTO> UserAllUser()
         {
             return _GetUser.GetAll();
         }
 
-        List<DTO.Shipping.UserDTO> IGet.ByUserID(Guid UserID)
+        public List<DTO.Shipping.UserDTO> UserByUserID(Guid UserID)
         {
             return _GetUser.GetByUserID(UserID);
         }
 
-        public List<DTO.Shipping.UserDTO> ByUserName(string UserName)
+        public List<DTO.Shipping.UserDTO> UserByUserName(string UserName)
         {
             return _GetUser.GetByUserName(UserName);
         }
 
-        List<DTO.Shipping.UserDTO> IGet.ByRoleID(Guid RoleID)
+        public List<DTO.Shipping.UserDTO> UserByRoleID(Guid RoleID)
         {
             return _GetUser.GetByRoleID(RoleID);
         }
 
-        public List<DTO.Shipping.UserDTO> ByRoleName(string RoleName)
+        public List<DTO.Shipping.UserDTO> UserByRoleName(string RoleName)
         {
             return _GetUser.GetByRoleName(RoleName);
         }
@@ -331,28 +331,27 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #region UserStation
 
-        
 
-        List<DTO.Shipping.UserStationDTO> IGet.AllUser()
+
+        public List<DTO.Shipping.UserStationDTO> UserStationAllUser()
         {
             return _GetUserStation.GetAll();
         }
 
-        public List<DTO.Shipping.UserStationDTO> ByUserStationID(Guid UserStationID)
+        public List<DTO.Shipping.UserStationDTO> UserStationByUserStationID(Guid UserStationID)
         {
             return _GetUserStation.GetByUserStationID(UserStationID);
         }
 
-        List<DTO.Shipping.UserStationDTO> IGet.ByUserID(Guid UserID)
+        public List<DTO.Shipping.UserStationDTO> UserStationByUserID(Guid UserID)
         {
             return _GetUserStation.GetByUserID(UserID);
         }
-
-        List<DTO.Shipping.UserStationDTO> IGet.ByStationID(Guid StationID)
-        {
-            return _GetUserStation.GetByStationID(StationID);
-        }
-
+       public List<DTO.Shipping.UserStationDTO> UserStationByStationID(Guid StationID)
+       {
+           return _GetUserStation.GetByStationID(StationID);
+       }  
+        
         #endregion
     }
 }

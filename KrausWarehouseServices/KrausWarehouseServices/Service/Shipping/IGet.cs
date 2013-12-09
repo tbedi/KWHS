@@ -28,8 +28,8 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         List<DTO.Shipping.AutditDTO> AllAudit();
 
-        [OperationContract]
-        List<DTO.Shipping.AutditDTO> ByAuditID(Guid AuditID);
+        //[OperationContract]
+        //List<DTO.Shipping.AutditDTO> ByAuditID(Guid UserID);
 
         //[OperationContract]
         //List<DTO.Shipping.
@@ -37,44 +37,44 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #region Package
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> AllPackge();
+        List<DTO.Shipping.PackageDTO> PackageAllPackge();
 
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> ByPackageID(Guid PackageID);
+        List<DTO.Shipping.PackageDTO> PackageByPackageID(Guid PackageID);
 
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> ByStationID(Guid StationID);
+        List<DTO.Shipping.PackageDTO> PackageByStationID(Guid StationID);
 
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> ByUserID(Guid UserID);
+        List<DTO.Shipping.PackageDTO> PackageByUserID(Guid UserID);
 
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> ByShippingID(Guid ShippingID);
+        List<DTO.Shipping.PackageDTO> PackageByShippingID(Guid ShippingID);
 
         [OperationContract]
-        List<DTO.Shipping.PackageDTO> ByShippingNum(String ShippingNum);
+        List<DTO.Shipping.PackageDTO> PackageByShippingNum(String ShippingNum);
 
         #endregion
 
         #region PackgeDetail
 
         [OperationContract]
-        List<DTO.Shipping.PackageDetailDTO> AllPackageDetail();
+        List<DTO.Shipping.PackageDetailDTO> PackageDetailAllPackageDetail();
 
         [OperationContract]
-        List<DTO.Shipping.PackageDetailDTO> ByPackingID(Guid PackingID);
+        List<DTO.Shipping.PackageDetailDTO> PackageDetailByPackingID(Guid PackingID);
 
         [OperationContract]
-        List<DTO.Shipping.PackageDetailDTO> ByBoxNumber(String BoxNumber);
+        List<DTO.Shipping.PackageDetailDTO> PackageDetailByBoxNumber(String BoxNumber);
 
         #endregion
 
         #region Role
         [OperationContract]
-        List<DTO.Shipping.RoleDTO> AllRoles();
+        List<DTO.Shipping.RoleDTO> RoleAllRoles();
 
         [OperationContract]
-        List<DTO.Shipping.RoleDTO> ByRoleID(Guid RoleID);
+        List<DTO.Shipping.RoleDTO> RoleByRoleID(Guid RoleID);
      
         #endregion
 
@@ -82,109 +82,109 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #region Shipping
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> AllShipping();
+        List<DTO.Shipping.ShippingDTO> ShippingAllShipping();
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByShippingID(Guid ShippingID);
+        List<DTO.Shipping.ShippingDTO> ShippingByShippingID(Guid ShippingID);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByShippingNum(String ShippingNum);
+        List<DTO.Shipping.ShippingDTO> ShippingByShippingNum(String ShippingNum);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByOrderID(String OrderID);
+        List<DTO.Shipping.ShippingDTO> ShippingByOrderID(String OrderID);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByCustomerPO(String CustomerPO);
+        List<DTO.Shipping.ShippingDTO> ShippingByCustomerPO(String CustomerPO);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByVendorName(String VendorName);
+        List<DTO.Shipping.ShippingDTO> ShippingByVendorName(String VendorName);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByVendorNum(String VendorNum);
+        List<DTO.Shipping.ShippingDTO> ShippingByVendorNum(String VendorNum);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByCarrier(String Carrier);
+        List<DTO.Shipping.ShippingDTO> ShippingByCarrier(String Carrier);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByShippingROWID(String ShippingROWID);
+        List<DTO.Shipping.ShippingDTO> ShippingByShippingROWID(String ShippingROWID);
 
         [OperationContract]
-        List<DTO.Shipping.ShippingDTO> ByGetByFromDateToDate(DateTime FromDate, DateTime ToDate);
+        List<DTO.Shipping.ShippingDTO> ShippingByGetByFromDateToDate(DateTime FromDate, DateTime ToDate);
         #endregion
 
 
         #region Station Master.
         [OperationContract]
-        List<DTO.Shipping.StationMasterDTO> AllStation();
+        List<DTO.Shipping.StationMasterDTO> StationMasterAllStation();
 
         [OperationContract]
-        List<DTO.Shipping.StationMasterDTO> ByStationID(Guid StaionID);
+        List<DTO.Shipping.StationMasterDTO> StationMasterByStationID(Guid StaionID);
 
         [OperationContract]
-        List<DTO.Shipping.StationMasterDTO> ByStationName(String StationName);
+        List<DTO.Shipping.StationMasterDTO> StationMasterByStationName(String StationName);
 
         [OperationContract]
-        List<DTO.Shipping.StationMasterDTO> ByRequestedUserID(Guid RequestedUserID);
+        List<DTO.Shipping.StationMasterDTO> StationMasterByRequestedUserID(Guid RequestedUserID);
         #endregion
 
         #region Tracking.
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> All();
+        List<DTO.Shipping.TrackingDTO> TrackingAll();
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByTrackingID(Guid TrackingID);
+        List<DTO.Shipping.TrackingDTO> TrackingByTrackingID(Guid TrackingID);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByPackingID(Guid PackingID);
+        List<DTO.Shipping.TrackingDTO> TrackingByPackingID(Guid PackingID);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByShippingID(Guid ShippingID);
+        List<DTO.Shipping.TrackingDTO> TrackingByShippingID(Guid ShippingID);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByBoxID(Guid BoxID);
+        List<DTO.Shipping.TrackingDTO> TrackingByBoxID(Guid BoxID);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByTrackingNUmber(String TrackingNUmber);
+        List<DTO.Shipping.TrackingDTO> TrackingByTrackingNUmber(String TrackingNUmber);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByVendorID(String VendorID);
+        List<DTO.Shipping.TrackingDTO> TrackingByVendorID(String VendorID);
 
         [OperationContract]
-        List<DTO.Shipping.TrackingDTO> ByBoxNum(String BoxNum);
+        List<DTO.Shipping.TrackingDTO> TrackingByBoxNum(String BoxNum);
         #endregion
 
 
 
         #region User
         [OperationContract]
-        List<DTO.Shipping.UserDTO> AllUser();
+        List<DTO.Shipping.UserDTO> UserAllUser();
 
         [OperationContract]
-        List<DTO.Shipping.UserDTO> ByUserID(Guid UserID);
+        List<DTO.Shipping.UserDTO> UserByUserID(Guid UserID);
 
         [OperationContract]
-        List<DTO.Shipping.UserDTO> ByUserName(String UserName);
+        List<DTO.Shipping.UserDTO> UserByUserName(String UserName);
 
         [OperationContract]
-        List<DTO.Shipping.UserDTO> ByRoleID(Guid RoleID);
+        List<DTO.Shipping.UserDTO> UserByRoleID(Guid RoleID);
 
         [OperationContract]
-        List<DTO.Shipping.UserDTO> ByRoleName(String RoleName);
+        List<DTO.Shipping.UserDTO> UserByRoleName(String RoleName);
 
         #endregion
 
         #region UserStation
         [OperationContract]
-        List<DTO.Shipping.UserStationDTO> AllUser();
+        List<DTO.Shipping.UserStationDTO> UserStationAllUser();
 
         [OperationContract]
-        List<DTO.Shipping.UserStationDTO> ByUserStationID(Guid UserStationID);
+        List<DTO.Shipping.UserStationDTO> UserStationByUserStationID(Guid UserStationID);
 
         [OperationContract]
-        List<DTO.Shipping.UserStationDTO> ByUserID(Guid UserID);
+        List<DTO.Shipping.UserStationDTO> UserStationByUserID(Guid UserID);
 
         [OperationContract]
-        List<DTO.Shipping.UserStationDTO> ByStationID(Guid StationID);
+        List<DTO.Shipping.UserStationDTO> UserStationByStationID(Guid StationID);
 
         #endregion
 
