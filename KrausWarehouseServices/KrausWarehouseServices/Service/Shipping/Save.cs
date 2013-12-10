@@ -68,9 +68,14 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.cmdErrorLog _GetErrorLog = new DBLogics.Shipping.cmdErrorLog();
 
+        /// <summary>
+        /// cmdboxpackage new Object.
+        /// </summary>
+        DBLogics.Shipping.cmdBoxPackage _GetBoxPackage = new DBLogics.Shipping.cmdBoxPackage();
+
         #endregion
 
-
+      
 
         public bool Package(List<DTO.Shipping.PackageDTO> _package)
         {
@@ -109,6 +114,17 @@ namespace KrausWarehouseServices.Service.Shipping
         public bool ErrorLog(List<DTO.Shipping.ErrorLogDTO> _errorlog)
         {
             return _GetErrorLog.UpsertErrorLog(_errorlog);
+        }
+
+        public bool Audit(List<DTO.Shipping.AutditDTO> _audit)
+        {
+            return _GetAudit.UpsertAuditLog(_audit);
+        }
+
+
+        public bool BoxPackage(List<DTO.Shipping.BoxPackageDTO> _boxpackage)
+        {
+            return _GetBoxPackage.UpsertBoxPackage(_boxpackage);
         }
     }
 }

@@ -20,8 +20,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// </summary>
        Connections.Shipping.Shipping_ManagerEntities1 entshipping = new Connections.Shipping.Shipping_ManagerEntities1();
 
+       #region Upsert Method For Audit
        /// <summary>
-       /// Save the UserLog in Audit table.
+       /// Upsert the UserLog in Audit table.
        /// </summary>
        /// <param name="_audit">
        /// AuditDTO parameter pass.
@@ -29,142 +30,114 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        /// <returns>
        /// Return boolean Value.
        /// </returns>
-       public Boolean SaveUserLog(List<AutditDTO> _audit)
+       public Boolean UpsertAuditLog(List<AutditDTO> _audit)
        {
-            Boolean _flag=false;
-            try 
-	        {	        
-		        if(_audit.Count>0)
-                {
-                foreach (var _UserLogitem in _audit)
-                    {
-                        Connections.Shipping.Audit _Userlog = new Connections.Shipping.Audit();
-                        _Userlog.UserLogID = Guid.NewGuid();
-                        _Userlog.UserID = _UserLogitem.UserID;
-                        _Userlog.ActionType = _UserLogitem.ActionType;
-                        _Userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
-                        _Userlog.ActionValue = _UserLogitem.ActionValue;
-                        entshipping.AddToAudits(_Userlog);
-                    }
-                    entshipping.SaveChanges();
-                    _flag = true;
-                }
-	        }
-	        catch (Exception)
-	        {
-	        }
+           Boolean _flag = false;
+           try
+           {
+               foreach (var _UserLogitem in _audit)
+               {
+                   Connections.Shipping.Audit userlog = entshipping.Audits.SingleOrDefault(re => re.UserLogID == _UserLogitem.UserLogID);
+
+                   if (userlog.UserLogID == Guid.Empty)
+                   {
+                       userlog = new Connections.Shipping.Audit();
+                       userlog.UserLogID = Guid.NewGuid();
+                       userlog.UserID = _UserLogitem.UserID;
+                       userlog.ActionType = _UserLogitem.ActionType;
+                       userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
+                       userlog.ActionValue = _UserLogitem.ActionValue;
+                       entshipping.AddToAudits(userlog);
+                   }
+                   else
+                   {
+                       userlog.UserID = _UserLogitem.UserID;
+                       userlog.ActionType = _UserLogitem.ActionType;
+                       userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
+                       userlog.ActionValue = _UserLogitem.ActionValue;
+                   }
+               }
+               entshipping.SaveChanges();
+               _flag = true;
+           }
+           catch (Exception)
+           {
+           }
            return _flag;
        }
+       #endregion
 
+       #region Get Methods for Audit
 
        /// <summary>
-       /// Update the UserLogs information
-       /// </summary>
-       /// <param name="lsUserLog">Updated User Information list </param>
-        /// <param name="UserID">User Id (Long)</param>
-       /// <returns>Boolean Value</returns>
-        public Boolean UpdateUserLog(List<AutditDTO> lsUserLog, Guid UserID)
-        {
-            Boolean _return = false;
-            try
-            {
-                if (lsUserLog.Count > 0)
-                {
-                    foreach (var _UserLogitem in lsUserLog)
-                    {
-                        Audit _Userlog = new Audit();
-                        _Userlog.UserLogID = _UserLogitem.UserLogID;
-                        _Userlog.UserID = _UserLogitem.UserID;
-                        _Userlog.ActionType = _UserLogitem.ActionType;
-                        _Userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
-                        _Userlog.ActionValue = _UserLogitem.ActionValue;
-                    }
-                    entshipping.SaveChanges();
-                    _return = true;
-                }
-            }
-            catch (Exception )
-            {
-            }
-            return _return;
-        }
-
-        /// <summary>
        /// fetch all rows from the UserLogs table and return the list
        /// </summary>
        /// <returns>list of UserLogCustom type</returns>
-        public List<AutditDTO> GetUserLog()
-        {
-            List<AutditDTO> _lsReturn = new List<AutditDTO>();
-            try
-            {
-                var UserLogsinfo = from Userl in entshipping.Audits select Userl;
-                foreach (var _UserLogitem in UserLogsinfo)
-                {
-                    _lsReturn.Add(new AutditDTO(_UserLogitem));
-                          
-                }
-            }
-            catch (Exception )
-            {
-            }
-            return _lsReturn;
-        }
-
-        /// <summary>
-        /// Fetch Selected User Information From the Userlogs table
-        /// </summary>
-        /// <param name="UserID">Long UserID </param>
-        /// <param name="CurrentDate">Date time paramenter</param>
-        /// <returns>List of UserLogs of type UserLogCustom</returns>
-        public List<AutditDTO> GetUserLog(Guid UserID,DateTime CurrentDate)
-        {
-            List<AutditDTO> _lsReturn = new List<AutditDTO>();
-            try
-            {
-                DateTime Cdate = CurrentDate.Date;
-                var UserLoginfo = from userl in entshipping.Audits
-                                  where userl.UserID == UserID
-                                  &&  EntityFunctions.TruncateTime(userl.ActionTime) == Cdate
-                                  select userl;
-                foreach (var _UserLogitem in UserLoginfo)
-                {
-                    _lsReturn.Add(new AutditDTO(_UserLogitem));
-                }
-            }
-            catch (Exception )
-            {
-            }
-            return _lsReturn;
-        }
+       public List<AutditDTO> UserLog()
+       {
+           List<AutditDTO> _lsReturn = new List<AutditDTO>();
+           try
+           {
+               var UserLogsinfo = from Userl in entshipping.Audits select Userl;
+               foreach (var _UserLogitem in UserLogsinfo)
+               {
+                   _lsReturn.Add(new AutditDTO(_UserLogitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsReturn;
+       }
 
        /// <summary>
-       /// Last User login datetime.
+       /// Fetch Selected User Information From the Userlogs table
        /// </summary>
-       /// <param name="UserID">Long UserID</param>
-       /// <returns>DateTime </returns>
-        public DateTime UserLastLogin(Guid UserID)
-        {
-            DateTime _returnDateTime = DateTime.UtcNow;
-            try
-            {
-                String datee = ActionType.Login.ToString();
-                var DatetimeLast = from _Last in entshipping.Audits
-                                   where _Last.UserID == UserID &&
-                                   _Last.ActionType == datee
-                                   group _Last by _Last.UserID into _NewLast
-                                   select new
-                                   {
-                                       Lastdate = _NewLast.Max(i => i.ActionTime)
-                                   };
-            _returnDateTime =Convert.ToDateTime( DatetimeLast.FirstOrDefault().Lastdate.ToString());
-            }
-            catch (Exception )
-            {
-            }
+       /// <param name="UserID">Long UserID </param>
+       /// <returns>List of UserLogs of type UserLogCustom</returns>
+       public List<AutditDTO> UserLogByUserID(Guid UserID)
+       {
+           List<AutditDTO> _lsReturn = new List<AutditDTO>();
+           try
+           {
+               var UserLoginfo = from userl in entshipping.Audits
+                                 where userl.UserID == UserID
+                                 select userl;
+               foreach (var _UserLogitem in UserLoginfo)
+               {
+                   _lsReturn.Add(new AutditDTO(_UserLogitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsReturn;
+       }
 
-            return _returnDateTime;
-        }
+       /// <summary>
+       /// Fetch Information From the Userlogs table by UserlogID
+       /// </summary>
+       /// <param name="UserlogID">Long UserID </param>
+       /// <returns>List of UserLogs of type UserLogCustom</returns>
+       public List<AutditDTO> UserLogByUserlogID(Guid UserlogID)
+       {
+           List<AutditDTO> _lsReturn = new List<AutditDTO>();
+           try
+           {
+               var UserLoginfo = from userl in entshipping.Audits
+                                 where userl.UserLogID == UserlogID
+                                 select userl;
+               foreach (var _UserLogitem in UserLoginfo)
+               {
+                   _lsReturn.Add(new AutditDTO(_UserLogitem));
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsReturn;
+       }
 
+       #endregion
    }
 }

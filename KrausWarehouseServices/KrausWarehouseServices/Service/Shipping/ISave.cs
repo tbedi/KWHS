@@ -12,6 +12,37 @@ namespace KrausWarehouseServices.Service.Shipping
     [ServiceContract]
     public interface ISave
     {
+        #region Audit
+        /// <summary>
+        /// Upsert Method Declaration of audit.
+        /// </summary>
+        /// <param name="_audit">
+        /// pass audit object as parameter.
+        /// </param>
+        /// <returns>
+        /// return Boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean Audit(List<AutditDTO> _audit);
+
+        #endregion
+
+        #region BoxPackage
+        /// <summary>
+        /// Upsert Method Declaration of boxpackage.
+        /// </summary>
+        /// <param name="_boxpackage">
+        /// pass boxpackage object as parameter.
+        /// </param>
+        /// <returns>
+        /// return Boolean Value.
+        /// </returns>
+        [OperationContract]
+        Boolean BoxPackage(List<BoxPackageDTO> _boxpackage);
+
+        #endregion
+
+
         #region Package
         /// <summary>
         /// Upsert Method Declaration of Package.

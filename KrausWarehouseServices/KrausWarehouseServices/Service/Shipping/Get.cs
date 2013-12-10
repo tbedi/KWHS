@@ -68,6 +68,12 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.cmdErrorLog _GetErrorlog = new DBLogics.Shipping.cmdErrorLog();
 
+        /// <summary>
+        /// cmdboxpackage new Object.
+        /// </summary>
+        DBLogics.Shipping.cmdBoxPackage _GetBoxPackage = new DBLogics.Shipping.cmdBoxPackage();
+
+
         #endregion
 
         #region View Get_Shipping_Data
@@ -90,19 +96,20 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region Audit
-
-
-
         public List<DTO.Shipping.AutditDTO> AllAudit()
         {
-            return _GetAudit.GetUserLog();
+            return _GetAudit.UserLog();
         }
 
-        //public List<DTO.Shipping.AutditDTO> ByAuditID(Guid UserID)
-        //{
-        //    return _GetAudit.
-        //}
+        public List<DTO.Shipping.AutditDTO> AuditByUserID(Guid _UserID)
+        {
+            return _GetAudit.UserLogByUserID(_UserID);
+        }
 
+        public List<DTO.Shipping.AutditDTO> AuditByUserLogID(Guid _UserLogID)
+        {
+            return _GetAudit.UserLogByUserlogID(_UserLogID);
+        }
         #endregion
 
         #region Package
@@ -366,5 +373,29 @@ namespace KrausWarehouseServices.Service.Shipping
         }
         #endregion
 
+        #region BoxPackage
+
+        public List<DTO.Shipping.BoxPackageDTO> AllBox()
+        {
+            return _GetBoxPackage.GetAll();
+        }
+
+        public DTO.Shipping.BoxPackageDTO BoxByBoxID(Guid _BoxID)
+        {
+            return _GetBoxPackage.GetSelectedByBoxID(_BoxID);
+        }
+
+        public DTO.Shipping.BoxPackageDTO BoxByBoxNumber(string _BoxNumber)
+        {
+            return _GetBoxPackage.GetSelectedByBoxNumber(_BoxNumber);
+        }
+
+        public List<DTO.Shipping.BoxPackageDTO> BoxByPackingID(Guid _PackingID)
+        {
+            return _GetBoxPackage.GetSelectedByPackingID(_PackingID);
+        }
+
+        #endregion
+        
     }
 }

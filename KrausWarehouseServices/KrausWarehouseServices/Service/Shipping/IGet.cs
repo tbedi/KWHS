@@ -29,12 +29,27 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         List<DTO.Shipping.AutditDTO> AllAudit();
 
-        //[OperationContract]
-        //List<DTO.Shipping.AutditDTO> ByAuditID(Guid UserID);
+        [OperationContract]
+        List<DTO.Shipping.AutditDTO> AuditByUserID(Guid _UserID);
 
-        //[OperationContract]
-        //List<DTO.Shipping.
+        [OperationContract]
+        List<DTO.Shipping.AutditDTO> AuditByUserLogID(Guid _UserLogID);
         #endregion
+
+        #region BoxPackage
+        [OperationContract]
+        List<DTO.Shipping.BoxPackageDTO> AllBox();
+
+        [OperationContract]
+        DTO.Shipping.BoxPackageDTO BoxByBoxID(Guid _BoxID);
+
+        [OperationContract]
+        DTO.Shipping.BoxPackageDTO BoxByBoxNumber(String _BoxNumber);
+
+        [OperationContract]
+        List<DTO.Shipping.BoxPackageDTO> BoxByPackingID(Guid _PackingID);
+        #endregion
+
 
         #region Package
         [OperationContract]
@@ -79,8 +94,6 @@ namespace KrausWarehouseServices.Service.Shipping
      
         #endregion
 
-
-
         #region Shipping
         [OperationContract]
         List<DTO.Shipping.ShippingDTO> ShippingAllShipping();
@@ -113,7 +126,6 @@ namespace KrausWarehouseServices.Service.Shipping
         [WebInvoke(Method = "GET", UriTemplate = "/ShippingByGetByFromDateToDate?ID={FromDate}&value={ToDate}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
         List<DTO.Shipping.ShippingDTO> ShippingByGetByFromDateToDate(DateTime FromDate, DateTime ToDate);
         #endregion
-
 
         #region Station Master.
         [OperationContract]
@@ -154,8 +166,6 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         List<DTO.Shipping.TrackingDTO> TrackingByBoxNum(String BoxNum);
         #endregion
-
-
 
         #region User
         [OperationContract]
