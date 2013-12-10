@@ -196,8 +196,8 @@ namespace KrausWarehouseServices.DTO.Shipping
        {
            if (_shipping.ShippingID != null) this.ShippingID = (Guid)_shipping.ShippingID;
            if (_shipping.ShippingNum != null) this.ShippingNum = (String)_shipping.ShippingNum;
-           if (_shipping.ShippingStartTime != Convert.ToDateTime("01/01/00001")) this.ShippingStartTime = (DateTime)_shipping.ShippingStartTime;
-           if (_shipping.ShippingEndTime != Convert.ToDateTime("01/01/0001")) this.ShippingEndTime = (DateTime)_shipping.ShippingEndTime;
+           if (_shipping.ShippingStartTime != null) this.ShippingStartTime = (DateTime)_shipping.ShippingStartTime;
+           if (_shipping.ShippingEndTime != null) this.ShippingEndTime = (DateTime)_shipping.ShippingEndTime;
            if (_shipping.DeliveryProvider != null) this.DeliveryProvider =(string) _shipping.DeliveryProvider;
            if (_shipping.DeliveryMode != null) this.DeliveryMode =(String) _shipping.DeliveryMode;
            if (_shipping.FromAddressLine1 != null) this.FromAddressLine1 = (String)_shipping.FromAddressLine1;
@@ -248,8 +248,8 @@ namespace KrausWarehouseServices.DTO.Shipping
            this.ROWID = (int)_shipping.ROWID;
            if (_shipping.CreatedBy != null) this.CreatedBy = (Guid)_shipping.CreatedBy;
            if (_shipping.Updatedby != null) this.Updatedby = (Guid)_shipping.Updatedby;
-           if (_shipping.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = _shipping.CreatedDateTime;
-           if (_shipping.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = _shipping.UpdatedDateTime;
+           if (_shipping.CreatedDateTime != null) this.CreatedDateTime = _shipping.CreatedDateTime;
+           if (_shipping.UpdatedDateTime != null) this.UpdatedDateTime = _shipping.UpdatedDateTime;
        }
 
 
