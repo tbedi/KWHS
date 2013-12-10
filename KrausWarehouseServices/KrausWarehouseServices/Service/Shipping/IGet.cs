@@ -123,7 +123,7 @@ namespace KrausWarehouseServices.Service.Shipping
         List<DTO.Shipping.ShippingDTO> ShippingByShippingROWID(String ShippingROWID);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "/ShippingByGetByFromDateToDate?ID={FromDate}&value={ToDate}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        [WebInvoke(Method = "GET", UriTemplate = "/ShippingByDateToDate?ID={FromDate}&value={ToDate}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
         List<DTO.Shipping.ShippingDTO> ShippingByGetByFromDateToDate(DateTime FromDate, DateTime ToDate);
         #endregion
 
