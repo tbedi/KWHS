@@ -21,6 +21,7 @@
         <AssociationConnector Association="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" />
         <AssociationConnector Association="RMASYSTEMModel.FK_Transaction_ReturnDetail" />
         <AssociationConnector Association="RMASYSTEMModel.FK_User_Roles" />
+        <EntityTypeShape EntityType="RMASYSTEMModel.sysdiagram" Width="1.5" PointX="1.4404368668051608" PointY="26.551890460099973" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
