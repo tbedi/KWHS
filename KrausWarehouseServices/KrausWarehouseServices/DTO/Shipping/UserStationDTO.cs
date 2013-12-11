@@ -45,9 +45,9 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (userStation.UserStationID != null) this.UserStationID = userStation.UserStationID;
             if (userStation.StationID != null) this.StationID = userStation.StationID;
             if (userStation.UserID != null) this.UserID = userStation.UserID;
-            if (userStation.LoginDateTime != Convert.ToDateTime("01/01/0001")) this.LoginDateTime = userStation.LoginDateTime;
-            if (userStation.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = (DateTime)userStation.CreatedDateTime;
-            if (userStation.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = (DateTime)userStation.UpdatedDateTime;
+            if (userStation.LoginDateTime != null) this.LoginDateTime = userStation.LoginDateTime;
+            if (userStation.CreatedDateTime != null) this.CreatedDateTime = (DateTime)userStation.CreatedDateTime;
+            if (userStation.UpdatedDateTime !=null) this.UpdatedDateTime = (DateTime)userStation.UpdatedDateTime;
             if (userStation.Updatedby != null) this.Updatedby = (Guid)userStation.Updatedby;
             if (userStation.CreatedBy != null) this.CreatedBy = (Guid)userStation.CreatedBy;
         }

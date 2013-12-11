@@ -68,8 +68,8 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_boxpackage.BoxLength != null) this.BoxLength = (Double)_boxpackage.BoxLength;
             if (_boxpackage.BoxHeight != null) this.BoxHeight = (Double)_boxpackage.BoxHeight;
             if (_boxpackage.BoxWidth != null) this.BoxWidth = (double)_boxpackage.BoxWidth;
-            if (_boxpackage.BoxCreatedTime != Convert.ToDateTime("01/01/0001")) this.BoxCreatedTime = (DateTime)_boxpackage.BoxCreatedTime;
-            if (_boxpackage.BoxMeasurementTime != Convert.ToDateTime("01/01/0001")) this.BoxMeasurementTime = (DateTime)_boxpackage.BoxMeasurementTime;
+            if (_boxpackage.BoxCreatedTime != null) this.BoxCreatedTime = (DateTime)_boxpackage.BoxCreatedTime;
+            if (_boxpackage.BoxMeasurementTime != null) this.BoxMeasurementTime = (DateTime)_boxpackage.BoxMeasurementTime;
             this.ROWID = _boxpackage.ROWID;
             if (_boxpackage.BOXNUM != null) this.BOXNUM = (String)_boxpackage.BOXNUM;
 

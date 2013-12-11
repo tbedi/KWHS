@@ -96,9 +96,9 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_packagedetail.TarrifCode != null) this.TarrifCode = (string)_packagedetail.TarrifCode;
             if (_packagedetail.CreatedBy != null) this.CreatedBy = (Guid)_packagedetail.CreatedBy;
             if (_packagedetail.Updatedby != null) this.UpdatedBy = (Guid)_packagedetail.Updatedby;
-            if (_packagedetail.CreatedDateTime != Convert.ToDateTime("01/01/0001")) this.CreatedDateTime = (DateTime)_packagedetail.CreatedDateTime;
-            if (_packagedetail.UpdatedDateTime != Convert.ToDateTime("01/01/0001")) this.UpdatedDateTime = (DateTime)_packagedetail.UpdatedDateTime;
-            if (_packagedetail.SKUScanDateTime != Convert.ToDateTime("01/01/0001")) this.SKUScanDateTime = (DateTime)_packagedetail.SKUScanDateTime;
+            if (_packagedetail.CreatedDateTime != null) this.CreatedDateTime = (DateTime)_packagedetail.CreatedDateTime;
+            if (_packagedetail.UpdatedDateTime != null) this.UpdatedDateTime = (DateTime)_packagedetail.UpdatedDateTime;
+            if (_packagedetail.SKUScanDateTime != null) this.SKUScanDateTime = (DateTime)_packagedetail.SKUScanDateTime;
         }
 
 
