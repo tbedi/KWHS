@@ -91,5 +91,24 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             return _lsReturn;
         }
 
+
+        internal List<DTO.Shipping.viewGet_Shipping_DataDTO> GeBySKUNameAndShippngNumber(string ShippingNumber, string SKUName)
+        {
+            List<DTO.Shipping.viewGet_Shipping_DataDTO> _lsReturn = new List<DTO.Shipping.viewGet_Shipping_DataDTO>();
+            try
+            {
+                var ShippingData = (from _ship in entShipping.Get_Shipping_Data
+                                    where _ship.SKU == SKUName && _ship.ShipmentID == ShippingNumber
+                                    select _ship).ToList();
+
+                foreach (var _xShippingitem in ShippingData)
+                {
+                    _lsReturn.Add(new DTO.Shipping.viewGet_Shipping_DataDTO(_xShippingitem));
+                }
+            }
+            catch (Exception)
+            { }
+            return _lsReturn;
+        }
     }
 }

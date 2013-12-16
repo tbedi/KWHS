@@ -21,7 +21,11 @@ namespace KrausWarehouseServices.Service.Shipping
         List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByShippingNumber(String ShippingNumber);
 
         [OperationContract]
-        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByLocation(String Location); 
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByLocation(String Location);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate="/View_Get_Shipping_DataBySKUNameAndShippngNumber?ShippingNumber={ShippingNumber}&SKUName={SKUName}",BodyStyle = WebMessageBodyStyle.Bare , ResponseFormat = WebMessageFormat.Xml, RequestFormat = WebMessageFormat.Xml) ]
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataBySKUNameAndShippngNumber(String ShippingNumber,String SKUName);
 
         #endregion
 

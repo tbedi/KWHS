@@ -93,6 +93,11 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetShippingData.GeByLocation(Location);
         }
 
+        public List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataBySKUNameAndShippngNumber(string ShippingNumber, string SKUName)
+        {
+            return _GetShippingData.GeBySKUNameAndShippngNumber(ShippingNumber, SKUName);
+        }
+
         #endregion
 
         #region Audit
@@ -396,6 +401,9 @@ namespace KrausWarehouseServices.Service.Shipping
         }
 
         #endregion
-        
+
+
+
+       
     }
 }
