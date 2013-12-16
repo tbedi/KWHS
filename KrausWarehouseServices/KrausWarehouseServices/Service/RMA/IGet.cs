@@ -125,7 +125,7 @@ namespace KrausWarehouseServices.Service.RMA
         #region Audit
 
         [OperationContract]
-        List<AuditDTO> AuditAll();
+        List<RMAAuditDTO> AuditAll();
 
         #endregion
 

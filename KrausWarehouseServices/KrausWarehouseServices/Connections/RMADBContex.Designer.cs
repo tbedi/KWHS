@@ -19,7 +19,6 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_UserLogs_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.User), "Audit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.Audit), true)]
 [assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReasonCatagory_Reasons", "Reason", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Reason), "ReasonCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReasonCategory), true)]
 [assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_Transaction_Reasons", "Reason", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(KrausWarehouseServices.Connections.Reason), "SKUReason", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.SKUReason), true)]
 [assembly: EdmRelationshipAttribute("RMASYSTEMModel", "FK_ReturnDetail_Return", "Return", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(KrausWarehouseServices.Connections.Return), "ReturnDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(KrausWarehouseServices.Connections.ReturnDetail), true)]
@@ -76,22 +75,6 @@ namespace KrausWarehouseServices.Connections
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Audit> Audits
-        {
-            get
-            {
-                if ((_Audits == null))
-                {
-                    _Audits = base.CreateObjectSet<Audit>("Audits");
-                }
-                return _Audits;
-            }
-        }
-        private ObjectSet<Audit> _Audits;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -176,6 +159,22 @@ namespace KrausWarehouseServices.Connections
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<RMAAudit> RMAAudits
+        {
+            get
+            {
+                if ((_RMAAudits == null))
+                {
+                    _RMAAudits = base.CreateObjectSet<RMAAudit>("RMAAudits");
+                }
+                return _RMAAudits;
+            }
+        }
+        private ObjectSet<RMAAudit> _RMAAudits;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Role> Roles
         {
             get
@@ -220,34 +219,10 @@ namespace KrausWarehouseServices.Connections
             }
         }
         private ObjectSet<User> _Users;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<sysdiagram> sysdiagrams
-        {
-            get
-            {
-                if ((_sysdiagrams == null))
-                {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
-                }
-                return _sysdiagrams;
-            }
-        }
-        private ObjectSet<sysdiagram> _sysdiagrams;
 
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Audits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToAudits(Audit audit)
-        {
-            base.AddObject("Audits", audit);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the ReasonCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -290,6 +265,14 @@ namespace KrausWarehouseServices.Connections
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the RMAAudits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRMAAudits(RMAAudit rMAAudit)
+        {
+            base.AddObject("RMAAudits", rMAAudit);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Roles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToRoles(Role role)
@@ -312,14 +295,6 @@ namespace KrausWarehouseServices.Connections
         {
             base.AddObject("Users", user);
         }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagram sysdiagram)
-        {
-            base.AddObject("sysdiagrams", sysdiagram);
-        }
 
         #endregion
 
@@ -328,202 +303,6 @@ namespace KrausWarehouseServices.Connections
     #endregion
 
     #region Entities
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="Audit")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Audit : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Audit object.
-        /// </summary>
-        /// <param name="userLogID">Initial value of the UserLogID property.</param>
-        /// <param name="userID">Initial value of the UserID property.</param>
-        public static Audit CreateAudit(global::System.Guid userLogID, global::System.Guid userID)
-        {
-            Audit audit = new Audit();
-            audit.UserLogID = userLogID;
-            audit.UserID = userID;
-            return audit;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid UserLogID
-        {
-            get
-            {
-                return _UserLogID;
-            }
-            set
-            {
-                if (_UserLogID != value)
-                {
-                    OnUserLogIDChanging(value);
-                    ReportPropertyChanging("UserLogID");
-                    _UserLogID = StructuralObject.SetValidValue(value, "UserLogID");
-                    ReportPropertyChanged("UserLogID");
-                    OnUserLogIDChanged();
-                }
-            }
-        }
-        private global::System.Guid _UserLogID;
-        partial void OnUserLogIDChanging(global::System.Guid value);
-        partial void OnUserLogIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid UserID
-        {
-            get
-            {
-                return _UserID;
-            }
-            set
-            {
-                OnUserIDChanging(value);
-                ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value, "UserID");
-                ReportPropertyChanged("UserID");
-                OnUserIDChanged();
-            }
-        }
-        private global::System.Guid _UserID;
-        partial void OnUserIDChanging(global::System.Guid value);
-        partial void OnUserIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ActionType
-        {
-            get
-            {
-                return _ActionType;
-            }
-            set
-            {
-                OnActionTypeChanging(value);
-                ReportPropertyChanging("ActionType");
-                _ActionType = StructuralObject.SetValidValue(value, true, "ActionType");
-                ReportPropertyChanged("ActionType");
-                OnActionTypeChanged();
-            }
-        }
-        private global::System.String _ActionType;
-        partial void OnActionTypeChanging(global::System.String value);
-        partial void OnActionTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ActionTime
-        {
-            get
-            {
-                return _ActionTime;
-            }
-            set
-            {
-                OnActionTimeChanging(value);
-                ReportPropertyChanging("ActionTime");
-                _ActionTime = StructuralObject.SetValidValue(value, "ActionTime");
-                ReportPropertyChanged("ActionTime");
-                OnActionTimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ActionTime;
-        partial void OnActionTimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnActionTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ActionValue
-        {
-            get
-            {
-                return _ActionValue;
-            }
-            set
-            {
-                OnActionValueChanging(value);
-                ReportPropertyChanging("ActionValue");
-                _ActionValue = StructuralObject.SetValidValue(value, true, "ActionValue");
-                ReportPropertyChanged("ActionValue");
-                OnActionValueChanged();
-            }
-        }
-        private global::System.String _ActionValue;
-        partial void OnActionValueChanging(global::System.String value);
-        partial void OnActionValueChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_UserLogs_User", "User")]
-        public User User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("RMASYSTEMModel.FK_UserLogs_User", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("RMASYSTEMModel.FK_UserLogs_User", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("RMASYSTEMModel.FK_UserLogs_User", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("RMASYSTEMModel.FK_UserLogs_User", "User", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -2162,6 +1941,160 @@ namespace KrausWarehouseServices.Connections
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="RMAAudit")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RMAAudit : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RMAAudit object.
+        /// </summary>
+        /// <param name="userLogID">Initial value of the UserLogID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        public static RMAAudit CreateRMAAudit(global::System.Guid userLogID, global::System.Guid userID)
+        {
+            RMAAudit rMAAudit = new RMAAudit();
+            rMAAudit.UserLogID = userLogID;
+            rMAAudit.UserID = userID;
+            return rMAAudit;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserLogID
+        {
+            get
+            {
+                return _UserLogID;
+            }
+            set
+            {
+                if (_UserLogID != value)
+                {
+                    OnUserLogIDChanging(value);
+                    ReportPropertyChanging("UserLogID");
+                    _UserLogID = StructuralObject.SetValidValue(value, "UserLogID");
+                    ReportPropertyChanged("UserLogID");
+                    OnUserLogIDChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserLogID;
+        partial void OnUserLogIDChanging(global::System.Guid value);
+        partial void OnUserLogIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.Guid _UserID;
+        partial void OnUserIDChanging(global::System.Guid value);
+        partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ActionType
+        {
+            get
+            {
+                return _ActionType;
+            }
+            set
+            {
+                OnActionTypeChanging(value);
+                ReportPropertyChanging("ActionType");
+                _ActionType = StructuralObject.SetValidValue(value, true, "ActionType");
+                ReportPropertyChanged("ActionType");
+                OnActionTypeChanged();
+            }
+        }
+        private global::System.String _ActionType;
+        partial void OnActionTypeChanging(global::System.String value);
+        partial void OnActionTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ActionTime
+        {
+            get
+            {
+                return _ActionTime;
+            }
+            set
+            {
+                OnActionTimeChanging(value);
+                ReportPropertyChanging("ActionTime");
+                _ActionTime = StructuralObject.SetValidValue(value, "ActionTime");
+                ReportPropertyChanged("ActionTime");
+                OnActionTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ActionTime;
+        partial void OnActionTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnActionTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ActionValue
+        {
+            get
+            {
+                return _ActionValue;
+            }
+            set
+            {
+                OnActionValueChanging(value);
+                ReportPropertyChanging("ActionValue");
+                _ActionValue = StructuralObject.SetValidValue(value, true, "ActionValue");
+                ReportPropertyChanged("ActionValue");
+                OnActionValueChanged();
+            }
+        }
+        private global::System.String _ActionValue;
+        partial void OnActionValueChanging(global::System.String value);
+        partial void OnActionValueChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="Role")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2572,162 +2505,6 @@ namespace KrausWarehouseServices.Connections
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="sysdiagram")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagram : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new sysdiagram object.
-        /// </summary>
-        /// <param name="name">Initial value of the name property.</param>
-        /// <param name="principal_id">Initial value of the principal_id property.</param>
-        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
-        {
-            sysdiagram sysdiagram = new sysdiagram();
-            sysdiagram.name = name;
-            sysdiagram.principal_id = principal_id;
-            sysdiagram.diagram_id = diagram_id;
-            return sysdiagram;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false, "name");
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 principal_id
-        {
-            get
-            {
-                return _principal_id;
-            }
-            set
-            {
-                Onprincipal_idChanging(value);
-                ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value, "principal_id");
-                ReportPropertyChanged("principal_id");
-                Onprincipal_idChanged();
-            }
-        }
-        private global::System.Int32 _principal_id;
-        partial void Onprincipal_idChanging(global::System.Int32 value);
-        partial void Onprincipal_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 diagram_id
-        {
-            get
-            {
-                return _diagram_id;
-            }
-            set
-            {
-                if (_diagram_id != value)
-                {
-                    Ondiagram_idChanging(value);
-                    ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value, "diagram_id");
-                    ReportPropertyChanged("diagram_id");
-                    Ondiagram_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _diagram_id;
-        partial void Ondiagram_idChanging(global::System.Int32 value);
-        partial void Ondiagram_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value, "version");
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true, "definition");
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="RMASYSTEMModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3022,28 +2799,6 @@ namespace KrausWarehouseServices.Connections
         #endregion
 
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("RMASYSTEMModel", "FK_UserLogs_User", "Audit")]
-        public EntityCollection<Audit> Audits
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Audit>("RMASYSTEMModel.FK_UserLogs_User", "Audit");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Audit>("RMASYSTEMModel.FK_UserLogs_User", "Audit", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.

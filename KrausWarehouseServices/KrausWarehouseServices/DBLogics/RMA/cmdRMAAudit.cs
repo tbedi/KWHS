@@ -10,9 +10,9 @@ namespace KrausWarehouseServices.DBLogics.RMA
 {
     /// <summary>
     /// shriram rajaram 29/11/2013 
-    /// create get,set operation on Audit table
+    /// create get,set operation on RMAAudit table
     /// </summary>
-   public  class cmdAudit
+   public  class cmdRMAAudit
     {
        /// <summary>
        /// Create Entity Object RMAEntity.
@@ -20,21 +20,21 @@ namespace KrausWarehouseServices.DBLogics.RMA
        RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
 
        /// <summary>
-       /// Get records From the Audit table.
+       /// Get records From the RMAAudit table.
        /// </summary>
        /// <returns>
-       /// Return the List of Audit.
+       /// Return the List of RMAAudit.
        /// </returns>
-       public List<AuditDTO> GetAudit()
+       public List<RMAAuditDTO> GetAudit()
        {
-           List<AuditDTO> _auditlist = new List<AuditDTO>();
+           List<RMAAuditDTO> _auditlist = new List<RMAAuditDTO>();
            try
            {
-               var aud = (from t in entRMA.Audits
+               var aud = (from t in entRMA.RMAAudits
                           select t).ToList();
                foreach (var item in aud)
                {
-                   AuditDTO au = new AuditDTO(item);
+                   RMAAuditDTO au = new RMAAuditDTO(item);
                    _auditlist.Add(au);
                }
            }
@@ -53,13 +53,13 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <returns>
        /// return the audit list.
        /// </returns>
-       public AuditDTO GetbyUserid(Guid UserID)
+       public RMAAuditDTO GetbyUserid(Guid UserID)
        {
-           AuditDTO auduserid = new AuditDTO();
+           RMAAuditDTO auduserid = new RMAAuditDTO();
            try
            {
-               var audit = entRMA.Audits.SingleOrDefault(au => au.UserID == UserID);
-               auduserid = new AuditDTO(audit);
+               var audit = entRMA.RMAAudits.SingleOrDefault(au => au.UserID == UserID);
+               auduserid = new RMAAuditDTO(audit);
            }
            catch (Exception)
            {
@@ -77,23 +77,23 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <returns>
        /// Return boolean Value when Transaction is Success.
        /// </returns>
-       public Boolean UpsertAudit(AuditDTO userlog)
+       public Boolean UpsertAudit(RMAAuditDTO userlog)
        {
            Boolean _returnflag = false;
            try
            {
-               Audit aud = new Audit();
-               aud = entRMA.Audits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID);
+               RMAAudit aud = new RMAAudit();
+               aud = entRMA.RMAAudits.SingleOrDefault(us => us.UserLogID == userlog.UserLogID);
                //insert the new record if not present
                if (aud == null)
                {
-                   aud = new Audit();
+                   aud = new RMAAudit();
                    aud.UserLogID = userlog.UserLogID;
                    aud.UserID = userlog.UserID;
                    aud.ActionType = userlog.ActionType;
                    aud.ActionTime = userlog.ActionTime;
                    aud.ActionValue = userlog.ActionValue;
-                   entRMA.AddToAudits(aud);
+                   entRMA.AddToRMAAudits(aud);
                }
                else //updating Existing Record
                {

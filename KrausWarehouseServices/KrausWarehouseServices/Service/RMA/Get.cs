@@ -34,7 +34,7 @@ namespace KrausWarehouseServices.Service.RMA
         DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
 
         //Audit commands .
-        DBLogics.RMA.cmdAudit _audit = new DBLogics.RMA.cmdAudit();
+        DBLogics.RMA.cmdRMAAudit _audit = new DBLogics.RMA.cmdRMAAudit();
 
         //sage Operations Object.
         DBLogics.RMA.cmdSage _sageOperations = new DBLogics.RMA.cmdSage();
@@ -171,7 +171,7 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
         #region Audit
-        public List<DTO.RMA.AuditDTO> AuditAll()
+        public List<DTO.RMA.RMAAuditDTO> AuditAll()
         {
             return _audit.GetAudit();
         }
