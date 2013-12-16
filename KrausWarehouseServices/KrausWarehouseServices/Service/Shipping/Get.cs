@@ -164,7 +164,7 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetPackage.GetPackingID(PCKROWID);
         }
 
-        string IGet.MaxPackingID()
+       public  string MaxPackingID()
         {
             return _GetPackage.GetMaxPackageID();
         }

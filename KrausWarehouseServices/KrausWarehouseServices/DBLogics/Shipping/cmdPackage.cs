@@ -276,11 +276,11 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             string MaxID = "";
             try
             {
-                Guid MaxGUiID = entShippling.Packages.Max(i => i.PackingId);
+                Guid MaxGUiID = entShippling.Packages.Select(i => i.PackingId).ToList().Max();
                 MaxID = entShippling.Packages.SingleOrDefault(i => i.PackingId == MaxGUiID).ShippingNum;
 
             }
-            catch (Exception Ex)
+            catch (Exception )
             {
             }
             return MaxID;

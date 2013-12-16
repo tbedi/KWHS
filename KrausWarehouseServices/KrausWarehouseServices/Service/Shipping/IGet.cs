@@ -86,6 +86,7 @@ namespace KrausWarehouseServices.Service.Shipping
         Guid PackingID(string PCKROWID);
 
         [OperationContract]
+        [WebInvoke(Method="POST")]
         string MaxPackingID();
 
         #endregion
