@@ -35,7 +35,7 @@ namespace KrausWarehouseServices.Service.RMA
         //create ReturnImage object
         DBLogics.RMA.cmdReturnImages _returnImg = new DBLogics.RMA.cmdReturnImages();
 
-        DBLogics.RMA.cmdAudit _audit = new DBLogics.RMA.cmdAudit();
+        DBLogics.RMA.cmdRMAAudit _audit = new DBLogics.RMA.cmdRMAAudit();
 
         #endregion
 
@@ -74,7 +74,7 @@ namespace KrausWarehouseServices.Service.RMA
             return _user.UpsertUser(user);
         }
 
-        public bool UpsertAudit(DTO.RMA.AuditDTO audit)
+        public bool UpsertAudit(DTO.RMA.RMAAuditDTO audit)
         {
             return _audit.UpsertAudit(audit);
         }

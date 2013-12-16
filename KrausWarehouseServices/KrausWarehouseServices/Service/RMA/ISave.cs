@@ -124,7 +124,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region Audit
         [OperationContract]
-        Boolean UpsertAudit(AuditDTO audit);
+        Boolean UpsertAudit(RMAAuditDTO audit);
 
         #endregion
 

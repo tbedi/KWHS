@@ -8,9 +8,9 @@ using KrausWarehouseServices.Connections;
 
 namespace KrausWarehouseServices.DTO.RMA
 {
-   public class AuditDTO
+   public class RMAAuditDTO
     {
-       public AuditDTO(Audit _audit)
+       public RMAAuditDTO(RMAAudit _audit)
        {
           if (_audit.UserLogID != Guid.Empty) this.UserLogID = (Guid)_audit.UserLogID;
           if(_audit.UserID!=Guid.Empty) this.UserID=(Guid)_audit.UserID;
@@ -19,7 +19,7 @@ namespace KrausWarehouseServices.DTO.RMA
           if(_audit.ActionValue!=null) this.ActionValue=_audit.ActionValue;
        }
 
-       public AuditDTO()
+       public RMAAuditDTO()
        {
  
        }

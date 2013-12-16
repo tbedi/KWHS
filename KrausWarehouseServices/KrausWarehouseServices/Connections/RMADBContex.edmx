@@ -6,13 +6,12 @@
     <edmx:StorageModels>
     <Schema Namespace="RMASYSTEMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="RMASYSTEMModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="RMASYSTEMModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Audit" EntityType="RMASYSTEMModel.Store.Audit" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="ReasonCategory" EntityType="RMASYSTEMModel.Store.ReasonCategory" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Reasons" EntityType="RMASYSTEMModel.Store.Reasons" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Return" EntityType="RMASYSTEMModel.Store.Return" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="ReturnDetail" EntityType="RMASYSTEMModel.Store.ReturnDetail" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="ReturnImages" EntityType="RMASYSTEMModel.Store.ReturnImages" store:Type="Tables" Schema="DEVELOPER" />
+          <EntitySet Name="RMAAudit" EntityType="RMASYSTEMModel.Store.RMAAudit" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="Roles" EntityType="RMASYSTEMModel.Store.Roles" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="SKUReasons" EntityType="RMASYSTEMModel.Store.SKUReasons" store:Type="Tables" Schema="DEVELOPER" />
           <EntitySet Name="User" EntityType="RMASYSTEMModel.Store.User" store:Type="Tables" Schema="DEVELOPER" />
@@ -41,26 +40,6 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Audit">
-          <Key>
-            <PropertyRef Name="UserLogID" />
-          </Key>
-          <Property Name="UserLogID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ActionType" Type="varchar(max)" />
-          <Property Name="ActionTime" Type="datetime" />
-          <Property Name="ActionValue" Type="varchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="ReasonCategory">
           <Key>
             <PropertyRef Name="ReasonCatID" />
@@ -136,6 +115,16 @@
           <Property Name="UpadatedBy" Type="uniqueidentifier" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpadatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RMAAudit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActionType" Type="varchar(max)" />
+          <Property Name="ActionTime" Type="datetime" />
+          <Property Name="ActionValue" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -250,19 +239,15 @@
     <edmx:ConceptualModels>
       <Schema Namespace="RMASYSTEMModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RMASYSTEMEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Audits" EntityType="RMASYSTEMModel.Audit" />
           <EntitySet Name="ReasonCategories" EntityType="RMASYSTEMModel.ReasonCategory" />
           <EntitySet Name="Reasons" EntityType="RMASYSTEMModel.Reason" />
           <EntitySet Name="Returns" EntityType="RMASYSTEMModel.Return" />
           <EntitySet Name="ReturnDetails" EntityType="RMASYSTEMModel.ReturnDetail" />
           <EntitySet Name="ReturnImages" EntityType="RMASYSTEMModel.ReturnImage" />
+          <EntitySet Name="RMAAudits" EntityType="RMASYSTEMModel.RMAAudit" />
           <EntitySet Name="Roles" EntityType="RMASYSTEMModel.Role" />
           <EntitySet Name="SKUReasons" EntityType="RMASYSTEMModel.SKUReason" />
           <EntitySet Name="Users" EntityType="RMASYSTEMModel.User" />
-          <AssociationSet Name="FK_UserLogs_User" Association="RMASYSTEMModel.FK_UserLogs_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Audit" EntitySet="Audits" />
-          </AssociationSet>
           <AssociationSet Name="FK_ReasonCatagory_Reasons" Association="RMASYSTEMModel.FK_ReasonCatagory_Reasons">
             <End Role="Reason" EntitySet="Reasons" />
             <End Role="ReasonCategory" EntitySet="ReasonCategories" />
@@ -287,19 +272,7 @@
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="RMASYSTEMModel.sysdiagram" />
         </EntityContainer>
-        <EntityType Name="Audit">
-          <Key>
-            <PropertyRef Name="UserLogID" />
-          </Key>
-          <Property Type="Guid" Name="UserLogID" Nullable="false" />
-          <Property Type="Guid" Name="UserID" Nullable="false" />
-          <Property Type="String" Name="ActionType" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="ActionTime" Precision="3" />
-          <Property Type="String" Name="ActionValue" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="RMASYSTEMModel.FK_UserLogs_User" FromRole="Audit" ToRole="User" />
-        </EntityType>
         <EntityType Name="ReasonCategory">
           <Key>
             <PropertyRef Name="ReasonCatID" />
@@ -384,6 +357,16 @@
           <Property Type="DateTime" Name="UpadatedDate" Precision="3" />
           <NavigationProperty Name="ReturnDetail" Relationship="RMASYSTEMModel.FK_ReturnImages_ReturnDetail" FromRole="ReturnImage" ToRole="ReturnDetail" />
         </EntityType>
+        <EntityType Name="RMAAudit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Type="Guid" Name="UserLogID" Nullable="false" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="ActionType" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ActionTime" Precision="3" />
+          <Property Type="String" Name="ActionValue" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -422,21 +405,8 @@
           <Property Type="DateTime" Name="UpdatedDateTime" Precision="3" />
           <Property Type="Guid" Name="CreatedBy" />
           <Property Type="Guid" Name="Updatedby" />
-          <NavigationProperty Name="Audits" Relationship="RMASYSTEMModel.FK_UserLogs_User" FromRole="User" ToRole="Audit" />
           <NavigationProperty Name="Role" Relationship="RMASYSTEMModel.FK_User_Roles" FromRole="User" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_UserLogs_User">
-          <End Type="RMASYSTEMModel.User" Role="User" Multiplicity="1" />
-          <End Type="RMASYSTEMModel.Audit" Role="Audit" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Audit">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ReasonCatagory_Reasons">
           <End Type="RMASYSTEMModel.Reason" Role="Reason" Multiplicity="1" />
           <End Type="RMASYSTEMModel.ReasonCategory" Role="ReasonCategory" Multiplicity="*" />
@@ -509,33 +479,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RMASYSTEMModelStoreContainer" CdmEntityContainer="RMASYSTEMEntities">
-          <EntitySetMapping Name="Audits">
-            <EntityTypeMapping TypeName="RMASYSTEMModel.Audit">
-              <MappingFragment StoreEntitySet="Audit">
-                <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
-                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
-                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ReasonCategories">
             <EntityTypeMapping TypeName="RMASYSTEMModel.ReasonCategory">
               <MappingFragment StoreEntitySet="ReasonCategory">
@@ -617,6 +566,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RMAAudits">
+            <EntityTypeMapping TypeName="RMASYSTEMModel.RMAAudit">
+              <MappingFragment StoreEntitySet="RMAAudit">
+                <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="RMASYSTEMModel.Role">
               <MappingFragment StoreEntitySet="Roles">
@@ -653,17 +613,6 @@
                 <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="RMASYSTEMModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
