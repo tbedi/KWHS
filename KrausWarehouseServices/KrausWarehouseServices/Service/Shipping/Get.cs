@@ -144,7 +144,25 @@ namespace KrausWarehouseServices.Service.Shipping
         {
             return _GetPackage.GetByShippingNum(ShippingNum);
         }
+        public List<DTO.Shipping.PackageDTO> PackageByUserIDAndDate(Guid UserID, DateTime Date)
+        {
+            return _GetPackage.GetByUserIDAndDate(UserID,Date);
+        }
 
+        public List<DTO.Shipping.PackageDTO> PackageByShippingNumAndLocation(string ShippingNum, string Location)
+        {
+            return _GetPackage.GetShippingNumAndLocation(ShippingNum, Location);
+        }
+
+        public Guid PackingID(string PCKROWID)
+        {
+            return _GetPackage.GetPackingID(PCKROWID);
+        }
+
+        string IGet.MaxPackingID()
+        {
+            return _GetPackage.GetMaxPackageID();
+        }
         #endregion
 
         #region PackageDetail
@@ -396,6 +414,12 @@ namespace KrausWarehouseServices.Service.Shipping
         }
 
         #endregion
-        
+
+
+
+
+
+
+       
     }
 }

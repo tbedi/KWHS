@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.Shipping;
+using System.Data.Objects;
 
 namespace KrausWarehouseServices.DBLogics.Shipping
 {
@@ -190,6 +191,100 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             return _lspackage;
         }
 
+        /// <summary>
+        /// Get package by userID and Date
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="Date"></param>
+        /// <returns></returns>
+        public List<PackageDTO> GetByUserIDAndDate(Guid UserID, DateTime Date)
+        {
+            List<PackageDTO> _lspackage = new List<PackageDTO>();
+
+            try
+            {
+                var userpack = (from pack in entShippling.Packages
+                                where pack.UserId==UserID && 
+                                EntityFunctions.TruncateTime(pack.EndTime.Value) == EntityFunctions.TruncateTime(Date.Date)
+                                select pack);
+
+                foreach (var item in userpack)
+                {
+                    _lspackage.Add(new PackageDTO(item));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lspackage;
+        
+        }
+
+        /// <summary>
+        /// Get package by ShippingNum and Location.
+        /// </summary>
+        /// <param name="ShippingNum"></param>
+        /// <param name="Location"></param>
+        /// <returns></returns>
+        public List<PackageDTO> GetShippingNumAndLocation(String ShippingNum, String Location)
+        {
+            List<PackageDTO> _lspackage = new List<PackageDTO>();
+            try
+            {
+                var userpack = (from pack in entShippling.Packages
+                                where pack.ShippingNum == ShippingNum &&
+                                pack.ShipmentLocation==Location
+                                select pack);
+
+                foreach (var item in userpack)
+                {
+                    _lspackage.Add(new PackageDTO(item));
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _lspackage;
+        
+        
+        }
+
+        /// <summary>
+        /// Get PackingID from PackingTable By PCKROWID
+        /// </summary>
+        /// <param name="PCKROWID"></param>
+        /// <returns></returns>
+        public Guid GetPackingID(String PCKROWID)
+        {
+            Guid _PackingID = new Guid();
+            try
+            {
+                _PackingID = entShippling.Packages.SingleOrDefault(i => i.PCKROWID == PCKROWID).PackingId;
+            }
+            catch (Exception)
+            {
+            }
+            return _PackingID;
+        }
+
+        /// <summary>
+        /// Get MaxPackingID from PackingTable 
+        /// </summary>
+        /// <returns></returns>
+        public string GetMaxPackageID()
+        {
+            string MaxID = "";
+            try
+            {
+                Guid MaxGUiID = entShippling.Packages.Max(i => i.PackingId);
+                MaxID = entShippling.Packages.SingleOrDefault(i => i.PackingId == MaxGUiID).ShippingNum;
+
+            }
+            catch (Exception Ex)
+            {
+            }
+            return MaxID;
+        }
 
         #region Upsert Method
         public Boolean UpsertPackage(List<PackageDTO> package)

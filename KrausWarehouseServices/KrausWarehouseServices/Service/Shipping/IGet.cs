@@ -70,6 +70,20 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         List<DTO.Shipping.PackageDTO> PackageByShippingNum(String ShippingNum);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/PackageByUserIDAndDate?ID={UserID}&value={Date}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        List<DTO.Shipping.PackageDTO> PackageByUserIDAndDate(Guid UserID, DateTime Date);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/PackageByShippingNumAndLocation?ID={ShippingNum}&value={Location}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        List<DTO.Shipping.PackageDTO> PackageByShippingNumAndLocation(string ShippingNum, string Location);
+
+        [OperationContract]
+        Guid PackingID(string PCKROWID);
+
+        [OperationContract]
+        string MaxPackingID();
+
         #endregion
 
         #region PackgeDetail
