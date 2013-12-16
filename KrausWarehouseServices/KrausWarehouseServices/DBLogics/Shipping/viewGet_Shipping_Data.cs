@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KrausWarehouseServices.DBLogics.Shipping
 {
-    public class cmdGetShippingData
+    public class viewGet_Shipping_Data
     {
         /// <summary>
         /// Shipping Manager Database entity Object.

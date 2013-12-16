@@ -62,8 +62,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             {
                 foreach (var errorlogitem in _errorlog)
                 {
-                    ErrorLog error = entshipping.ErrorLogs.SingleOrDefault(er => er.ErrorLogID == errorlogitem.ErrorlogID);
-                    if (errorlogitem.ErrorlogID == Guid.Empty)
+                    ErrorLog error = new ErrorLog();
+                        error = entshipping.ErrorLogs.SingleOrDefault(er => er.ErrorLogID == errorlogitem.ErrorlogID);
+                    if (errorlogitem == null)
                     {
                       error = new ErrorLog();
                       error.ErrorLogID = errorlogitem.ErrorlogID;

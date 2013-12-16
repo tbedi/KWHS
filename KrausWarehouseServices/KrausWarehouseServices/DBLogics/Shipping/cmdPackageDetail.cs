@@ -29,8 +29,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             {
                 foreach (var _PakingDetails in lsPackingOb)
                 {
-                    PackageDetail _Packing = entshipping.PackageDetails.FirstOrDefault(i => i.PackingDetailID == _PakingDetails.PackagedetailID);
-                    if (_Packing.PackingDetailID == Guid.Empty)
+                    PackageDetail _Packing = new PackageDetail();
+                        _Packing = entshipping.PackageDetails.FirstOrDefault(i => i.PackingDetailID == _PakingDetails.PackagedetailID);
+                    if (_Packing== null)
                     {
                         _Packing = new PackageDetail();
                         _Packing.PackingDetailID = _PakingDetails.PackagedetailID;

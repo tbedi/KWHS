@@ -119,9 +119,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
                foreach (var _boxitem in lsBoxpackage)
                {
-                   Connections.Shipping.BoxPackage _boxPackage;
+                   Connections.Shipping.BoxPackage _boxPackage = new Connections.Shipping.BoxPackage();
                    _boxPackage = entShipping.BoxPackages.SingleOrDefault(i => i.BoxID == _boxitem.BoxID);
-                   if (_boxPackage.BOXNUM == null)
+                   if (_boxPackage ==null)
                    {
                        _boxPackage = new Connections.Shipping.BoxPackage();
                        _boxPackage.BoxID = _boxitem.BoxID;

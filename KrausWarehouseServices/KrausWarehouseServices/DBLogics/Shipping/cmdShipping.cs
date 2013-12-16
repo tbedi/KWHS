@@ -335,9 +335,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
                foreach (var _shippingitem in _shipping)
                {
-                   Connections.Shipping.Shipping ship ;
+                   Connections.Shipping.Shipping ship = new Connections.Shipping.Shipping();
                    ship = entShipping.Shippings.SingleOrDefault(r => r.ShippingID == _shippingitem.ShippingID);
-                   if (ship.ShippingID == Guid.Empty)
+                   if (ship.ShippingID == null)
                    {
                        ship = new Connections.Shipping.Shipping();
                        ship.ShippingID = _shippingitem.ShippingID;

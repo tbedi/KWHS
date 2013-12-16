@@ -8,7 +8,7 @@ using KrausWarehouseServices.DTO.Shipping;
 
 namespace KrausWarehouseServices.DBLogics.Shipping
 {
-   public class cmdGetViewShippingDetail
+   public class cmdViewGetShippingDetail
     {
        /// <summary>
        /// Create the Object OF Shipping Entity.

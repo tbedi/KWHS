@@ -200,10 +200,10 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 foreach (var packgeitem in package)
                 {
 
-                    Package pack ;
+                    Package pack = new Package() ;
                     pack = entShippling.Packages.SingleOrDefault(re => re.PackingId == packgeitem.PackingId);
                     
-                    if (pack.PackingId == Guid.Empty)
+                    if (pack == null)
                     {
                         pack = new Package();
                         pack.PackingId = packgeitem.PackingId;

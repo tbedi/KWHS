@@ -184,8 +184,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
                foreach (var useritem in _user)
                {
-                   User user = entShipping.Users.SingleOrDefault(us => us.UserID == useritem.UserID);
-                   if (user.UserID == Guid.Empty)
+                   User user = new User(); 
+                       user = entShipping.Users.SingleOrDefault(us => us.UserID == useritem.UserID);
+                   if (user == null)
                    {
                        user = new User();
                        user.UserID = useritem.UserID;

@@ -156,7 +156,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 {
                     Station statinsave = new Station();
                     statinsave = entshipping.Stations.SingleOrDefault(re => re.StationID == stationitem.StationID);
-                    if (statinsave.StationID == Guid.Empty)
+                    if (statinsave == null)
                     {
                         statinsave = new Station();
                         statinsave.StationID = stationitem.StationID;

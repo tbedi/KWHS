@@ -78,12 +78,13 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            Boolean _flag = false;
            try
            {
-               Role role = new Role();
+              
                foreach (var item in _role)
                {
-                   var _roleID = entshipping.Roles.FirstOrDefault(r => r.RoleId == item.RoleID);
+                   Role _roleID = new Role();
+                    _roleID = entshipping.Roles.FirstOrDefault(r => r.RoleId == item.RoleID);
 
-                   if (_roleID.RoleId == Guid.Empty)
+                   if (_roleID== null)
                    {
                        _roleID = new Role();
                        _roleID.RoleId = item.RoleID;

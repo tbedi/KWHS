@@ -140,8 +140,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
                foreach (var useritem in _userstaion)
                {
-                   UserStation userstation = entShipping.UserStations.SingleOrDefault(re => re.UserStationID == useritem.UserStationID);
-                   if (userstation.UserStationID == Guid.Empty)
+                   UserStation userstation = new UserStation();
+                   userstation = entShipping.UserStations.SingleOrDefault(re => re.UserStationID == useritem.UserStationID);
+                   if (userstation == null)
                    {
                        userstation.UserStationID = useritem.UserStationID;
                        userstation.UserID = useritem.UserID;
