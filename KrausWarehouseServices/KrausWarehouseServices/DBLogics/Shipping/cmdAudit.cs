@@ -37,9 +37,20 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
                foreach (var _UserLogitem in _audit)
                {
-                   Connections.Shipping.Audit userlog = entshipping.Audits.SingleOrDefault(re => re.UserLogID == _UserLogitem.UserLogID);
+                   Connections.Shipping.Audit userlog = new Connections.Shipping.Audit();
 
-                   if (userlog.UserLogID == Guid.Empty)
+                   userlog = entshipping.Audits.SingleOrDefault(re => re.UserLogID == _UserLogitem.UserLogID);
+                   try
+                   {
+                       if (userlog != null)
+                       {
+                           userlog.UserID = _UserLogitem.UserID;
+                           userlog.ActionType = _UserLogitem.ActionType;
+                           userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
+                           userlog.ActionValue = _UserLogitem.ActionValue;
+                       }
+                   }
+                   catch (Exception)
                    {
                        userlog = new Connections.Shipping.Audit();
                        userlog.UserLogID = Guid.NewGuid();
@@ -48,13 +59,6 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                        userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
                        userlog.ActionValue = _UserLogitem.ActionValue;
                        entshipping.AddToAudits(userlog);
-                   }
-                   else
-                   {
-                       userlog.UserID = _UserLogitem.UserID;
-                       userlog.ActionType = _UserLogitem.ActionType;
-                       userlog.ActionTime = Convert.ToDateTime(_UserLogitem.ActionTime);
-                       userlog.ActionValue = _UserLogitem.ActionValue;
                    }
                }
                entshipping.SaveChanges();
