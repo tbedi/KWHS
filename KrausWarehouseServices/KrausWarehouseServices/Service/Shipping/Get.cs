@@ -73,6 +73,10 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.cmdBoxPackage _GetBoxPackage = new DBLogics.Shipping.cmdBoxPackage();
 
+        /// <summary>
+        /// Upc code To SKU Name Converter.
+        /// </summary>
+        DBLogics.Shipping.cmdUPCtoSKUandVs _UpcTOSKu = new DBLogics.Shipping.cmdUPCtoSKUandVs();
 
         #endregion
 
@@ -420,7 +424,19 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
+        #region Upc To SKU and vice versa
 
+        public String UPCtoSKUName(String UPC_Code)
+        {
+            return _UpcTOSKu.UPCCodeToSKU(UPC_Code);
+        }
+
+
+        public String SKUNameToUPCCode(String SKU_Name)
+        {
+            return _UpcTOSKu.SKUNameToUPC(SKU_Name);
+        }
+        #endregion
 
 
     }

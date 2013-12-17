@@ -225,5 +225,13 @@ namespace KrausWarehouseServices.Service.Shipping
         
         #endregion
 
+        #region Upc To SKU and vice versa
+
+        [OperationContract]
+         String UPCtoSKUName(String UPC_Code);
+
+        [OperationContract]
+        String SKUNameToUPCCode(String SKU_Name);
+        #endregion
     }
 }
