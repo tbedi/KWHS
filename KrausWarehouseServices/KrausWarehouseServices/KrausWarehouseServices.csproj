@@ -94,10 +94,8 @@
     <Compile Include="DTO\RMA\ReturnDetailsDTO.cs" />
     <Compile Include="DTO\RMA\ReturnDTO.cs" />
     <Compile Include="DTO\RMA\ReturnImagesDTO.cs" />
-    <Compile Include="DTO\RMA\RoleDTO.cs" />
     <Compile Include="DTO\RMA\RMAInfoDTO.cs" />
     <Compile Include="DTO\RMA\SKUReasonsDTO.cs" />
-    <Compile Include="DTO\RMA\UserDTO.cs" />
     <Compile Include="DTO\Shipping\ActionType.cs" />
     <Compile Include="DTO\Shipping\AutditDTO.cs" />
     <Compile Include="DTO\Shipping\BoxPackageDTO.cs" />
@@ -117,6 +115,7 @@
     <Compile Include="Service\RMA\Get.cs" />
     <Compile Include="Service\RMA\IGet.cs" />
     <Compile Include="Service\RMA\ISave.cs" />
+    <Compile Include="Service\RMA\RoleDTO.cs" />
     <Compile Include="Service\RMA\Save.cs" />
     <Compile Include="Service\Shipping\Get.cs" />
     <Compile Include="Service\Shipping\IGet.cs" />

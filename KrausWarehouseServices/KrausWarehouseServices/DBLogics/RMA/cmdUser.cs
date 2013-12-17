@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.RMA;
+using KrausWarehouseServices.DTO.Shipping;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
@@ -174,7 +175,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 {
                     user = new User();
                     user.UserID = _User.UserID;
-                    user.RoleId = _User.RoleId;
+                    user.RoleId = _User.RoleID;
                     user.UserFullName = _User.UserFullName;
                     user.UserAddress = _User.UserAddress;
                     user.UserName = _User.UserName;
@@ -188,7 +189,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 }
                 else //updating Existing Record
                 {
-                    user.RoleId = _User.RoleId;
+                    user.RoleId = _User.RoleID;
                     user.UserFullName = _User.UserFullName;
                     user.UserAddress = _User.UserAddress;
                     user.UserName = _User.UserName;

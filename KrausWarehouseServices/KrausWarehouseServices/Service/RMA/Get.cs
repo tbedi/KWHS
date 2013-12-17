@@ -42,7 +42,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region User
 
-        public List<DTO.RMA.UserDTO> XMLUserGet(string EnumGetType, string Parameters)
+        public List<DTO.Shipping.UserDTO> XMLUserGet(string EnumGetType, string Parameters)
         {
             //Convert to the Get Enum type.
             Globle_Classes.get Getid;
@@ -56,7 +56,7 @@ namespace KrausWarehouseServices.Service.RMA
                 case 1:
                     Guid UserID;
                     Guid.TryParse(Parameters, out UserID);
-                    List<DTO.RMA.UserDTO> _lsReturnDTO = new List<DTO.RMA.UserDTO>();
+                    List<DTO.Shipping.UserDTO> _lsReturnDTO = new List<DTO.Shipping.UserDTO>();
                     _lsReturnDTO.Add(this.UserByUserID(UserID));
                     return _lsReturnDTO;
 
@@ -66,32 +66,32 @@ namespace KrausWarehouseServices.Service.RMA
                     return this.UserByRoleID(RoleID);
 
                 case 3:
-                    List<DTO.RMA.UserDTO> _lsReturnDTO2 = new List<DTO.RMA.UserDTO>();
+                    List<DTO.Shipping.UserDTO> _lsReturnDTO2 = new List<DTO.Shipping.UserDTO>();
                     _lsReturnDTO2.Add(this.UserByUserName(Parameters));
                     return _lsReturnDTO2;
 
                 default:
-                    List<DTO.RMA.UserDTO> userDTO = new List<DTO.RMA.UserDTO>();
+                    List<DTO.Shipping.UserDTO> userDTO = new List<DTO.Shipping.UserDTO>();
                     return userDTO;
             }
         }
 
-        public List<DTO.RMA.UserDTO> UserAll()
+        public List<DTO.Shipping.UserDTO> UserAll()
         {
             return _user.GetUserTbl();
         }
 
-        public DTO.RMA.UserDTO UserByUserID(Guid UserID)
+        public DTO.Shipping.UserDTO UserByUserID(Guid UserID)
         {
             return _user.GetUserTbl1(UserID);
         }
 
-        public List<DTO.RMA.UserDTO> UserByRoleID(Guid RoleID)
+        public List<DTO.Shipping.UserDTO> UserByRoleID(Guid RoleID)
         {
             return _user.GetUserByRoleID(RoleID);
         }
 
-        public DTO.RMA.UserDTO UserByUserName(string UserName)
+        public DTO.Shipping.UserDTO UserByUserName(string UserName)
         {
             return _user.GetUserTbl(UserName);
         }
@@ -178,12 +178,12 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
         #region Role
-         public List<DTO.RMA.RoleDTO> RoleAll()
+         public List<DTO.Shipping.RoleDTO> RoleAll()
         {
             return _role.GetRoles();
         }
 
-        public DTO.RMA.RoleDTO RoleByRoleID(Guid RoleID)
+        public DTO.Shipping.RoleDTO RoleByRoleID(Guid RoleID)
         {
             return _role.GetRoleTblByRoleID(RoleID);
         }
