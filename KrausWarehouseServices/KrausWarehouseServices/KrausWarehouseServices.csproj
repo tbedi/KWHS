@@ -115,7 +115,6 @@
     <Compile Include="Service\RMA\Get.cs" />
     <Compile Include="Service\RMA\IGet.cs" />
     <Compile Include="Service\RMA\ISave.cs" />
-    <Compile Include="Service\RMA\RoleDTO.cs" />
     <Compile Include="Service\RMA\Save.cs" />
     <Compile Include="Service\Shipping\Get.cs" />
     <Compile Include="Service\Shipping\IGet.cs" />
