@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace KrausWarehouseServices.Service.Shipping
@@ -159,5 +160,24 @@ namespace KrausWarehouseServices.Service.Shipping
         Boolean ErrorLog(List<ErrorLogDTO> _errorlog);
 
         #endregion
+
+        #region User
+
+        /// <summary>
+        /// Update tracking By ReadyToExpert.
+        /// </summary>
+        /// <param name="ReadyToExpert">
+        /// pass boolean value.
+        /// </param>
+        /// <returns>
+        /// return boolean value.
+        /// </returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/TrackingUpdateByReadytoExpert?ID={TrackingNo}&value={BoxNumber}&bool={ReadyToExpert}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        Boolean TrackingUpdateByReadytoExpert(String TrackingNo, String BoxNumber, Boolean ReadyToExpert);
+        #endregion
+
+
+
     }
 }

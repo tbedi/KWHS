@@ -257,5 +257,29 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             return _lstracking;
         }
         #endregion
+
+
+        /// <summary>
+        /// Update tracking by readytoexpert.
+        /// </summary>
+        /// <param name="ReadyToExport"></param>
+        /// <returns></returns>
+        public Boolean UpdateTracking(String TrackingNo, String BoxNumber,Boolean ReadyToExport)
+        {
+            Boolean _flag = false;
+            try
+            {
+                Tracking tra = entshipping.Trackings.FirstOrDefault(i => i.TrackingNum == TrackingNo && i.BOXNUM == BoxNumber);
+                tra.ReadyToExport = ReadyToExport;
+                entshipping.SaveChanges();
+
+                _flag = true;
+            }
+            catch (Exception)
+            {
+            }
+            return _flag;
+        }
+
     }
 }

@@ -126,5 +126,10 @@ namespace KrausWarehouseServices.Service.Shipping
         {
             return _returnBoxPackage.UpsertBoxPackage(_boxpackage);
         }
+        
+        public bool TrackingUpdateByReadytoExpert(string TrackingNo, string BoxNumber, bool ReadyToExpert)
+        {
+            return _returnTracking.UpdateTracking(TrackingNo, BoxNumber, ReadyToExpert);
+        }
     }
 }
