@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections;
 using System.Runtime.Serialization;
+using KrausWarehouseServices.Connections.Shipping;
 
 namespace KrausWarehouseServices.DTO.RMA
 {

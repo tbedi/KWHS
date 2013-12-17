@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.RMA;
 
 
@@ -15,7 +15,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
    public class cmdReturnDetail
     {
        //Create object Of Entitity RMASYATEM
-       RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
+       Shipping_ManagerEntities1 entRMA = new Shipping_ManagerEntities1();
 
        /// <summary>
        /// Insert and update operation on the Return detail Table

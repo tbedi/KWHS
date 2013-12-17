@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.DBLogics.RMA
@@ -17,7 +17,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <summary>
        /// Create Entity Object RMAEntity.
        /// </summary>
-       RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
+       Shipping_ManagerEntities1 entRMA = new Shipping_ManagerEntities1();
 
        /// <summary>
        /// Get records From the RMAAudit table.

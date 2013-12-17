@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.Connections.Shipping;
 using System.Runtime.Serialization;
 
 

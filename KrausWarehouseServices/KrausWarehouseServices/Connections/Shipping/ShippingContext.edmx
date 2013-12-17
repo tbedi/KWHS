@@ -4,16 +4,23 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Audit" EntityType="Model.Store.Audit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BoxPackage" EntityType="Model.Store.BoxPackage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ErrorLog" EntityType="Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Package" EntityType="Model.Store.Package" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PackageDetail" EntityType="Model.Store.PackageDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReasonCategory" EntityType="Model.Store.ReasonCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reasons" EntityType="Model.Store.Reasons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Return" EntityType="Model.Store.Return" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReturnDetail" EntityType="Model.Store.ReturnDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReturnImages" EntityType="Model.Store.ReturnImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RMAAudit" EntityType="Model.Store.RMAAudit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Shipping" EntityType="Model.Store.Shipping" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SKUImages" EntityType="Model.Store.SKUImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SKUReasons" EntityType="Model.Store.SKUReasons" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Station" EntityType="Model.Store.Station" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Tracking" EntityType="Model.Store.Tracking" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="Model.Store.User" store:Type="Tables" Schema="dbo" />
@@ -111,6 +118,10 @@
             <End Role="Package" EntitySet="Package" />
             <End Role="PackageDetail" EntitySet="PackageDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="Model.Store.FK_ReturnImages_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+            <End Role="ReturnImages" EntitySet="ReturnImages" />
+          </AssociationSet>
           <AssociationSet Name="FK_Station_User" Association="Model.Store.FK_Station_User">
             <End Role="User" EntitySet="User" />
             <End Role="Station" EntitySet="Station" />
@@ -130,6 +141,14 @@
           <AssociationSet Name="FK_Tracking_Shipping" Association="Model.Store.FK_Tracking_Shipping">
             <End Role="Shipping" EntitySet="Shipping" />
             <End Role="Tracking" EntitySet="Tracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Reasons" Association="Model.Store.FK_Transaction_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="SKUReasons" EntitySet="SKUReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ReturnDetail" Association="Model.Store.FK_Transaction_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+            <End Role="SKUReasons" EntitySet="SKUReasons" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Roles" Association="Model.Store.FK_User_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -224,6 +243,92 @@
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="Updatedby" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="ReasonCategory">
+          <Key>
+            <PropertyRef Name="ReasonCatID" />
+          </Key>
+          <Property Name="ReasonCatID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Reason" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Return">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Name="ReturnID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RMANumber" Type="varchar(max)" />
+          <Property Name="ShipmentNumber" Type="varchar(max)" />
+          <Property Name="OrderNumber" Type="varchar(max)" />
+          <Property Name="PONumber" Type="varchar(max)" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="VendorNumber" Type="varchar(max)" />
+          <Property Name="VendoeName" Type="varchar(max)" />
+          <Property Name="CustomerName1" Type="varchar(max)" />
+          <Property Name="CustomerName2" Type="varchar(max)" />
+          <Property Name="Address1" Type="varchar(max)" />
+          <Property Name="Address2" Type="varchar(max)" />
+          <Property Name="Address3" Type="varchar(max)" />
+          <Property Name="ZipCode" Type="varchar(max)" />
+          <Property Name="City" Type="varchar(max)" />
+          <Property Name="State" Type="varchar(max)" />
+          <Property Name="Country" Type="varchar(max)" />
+          <Property Name="ReturnReason" Type="nvarchar(max)" />
+          <Property Name="RMAStatus" Type="tinyint" />
+          <Property Name="Decision" Type="tinyint" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReturnDetail">
+          <Key>
+            <PropertyRef Name="ReturnDetailID" />
+          </Key>
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SKUNumber" Type="varchar(max)" />
+          <Property Name="ProductName" Type="varchar(max)" />
+          <Property Name="TCLCOD_0" Type="nvarchar" MaxLength="5" />
+          <Property Name="DeliveredQty" Type="int" />
+          <Property Name="ExpectedQty" Type="int" />
+          <Property Name="ReturnQty" Type="int" />
+          <Property Name="ProductStatus" Type="int" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpadatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReturnImages">
+          <Key>
+            <PropertyRef Name="ReturnImageID" />
+          </Key>
+          <Property Name="ReturnImageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SKUImagePath" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="UpadatedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpadatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RMAAudit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActionType" Type="varchar(max)" />
+          <Property Name="ActionTime" Type="datetime" />
+          <Property Name="ActionValue" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -304,6 +409,14 @@
           <Property Name="SKU" Type="varchar(max)" Nullable="false" />
           <Property Name="SKUrl" Type="varchar(max)" Nullable="false" />
           <Property Name="BarcodeFlag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SKUReasons">
+          <Key>
+            <PropertyRef Name="SKUReasonID" />
+          </Key>
+          <Property Name="SKUReasonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReasonID" Type="uniqueidentifier" />
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
@@ -590,6 +703,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReturnImages_ReturnDetail">
+          <End Role="ReturnDetail" Type="Model.Store.ReturnDetail" Multiplicity="1" />
+          <End Role="ReturnImages" Type="Model.Store.ReturnImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnImages">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Station_User">
           <End Role="User" Type="Model.Store.User" Multiplicity="1" />
           <End Role="Station" Type="Model.Store.Station" Multiplicity="*" />
@@ -650,6 +775,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Transaction_Reasons">
+          <End Role="Reasons" Type="Model.Store.Reasons" Multiplicity="0..1" />
+          <End Role="SKUReasons" Type="Model.Store.SKUReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="SKUReasons">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ReturnDetail">
+          <End Role="ReturnDetail" Type="Model.Store.ReturnDetail" Multiplicity="0..1" />
+          <End Role="SKUReasons" Type="Model.Store.SKUReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="SKUReasons">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Roles">
           <End Role="Roles" Type="Model.Store.Roles" Multiplicity="1" />
           <End Role="User" Type="Model.Store.User" Multiplicity="*" />
@@ -686,8 +835,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -758,6 +906,25 @@
           <AssociationSet Name="FK_UserStation_User" Association="Model.FK_UserStation_User">
             <End Role="User" EntitySet="Users" />
             <End Role="UserStation" EntitySet="UserStations" />
+          </AssociationSet>
+          <EntitySet Name="ReasonCategories" EntityType="Model.ReasonCategory" />
+          <EntitySet Name="Reasons" EntityType="Model.Reason" />
+          <EntitySet Name="Returns" EntityType="Model.Return" />
+          <EntitySet Name="ReturnDetails" EntityType="Model.ReturnDetail" />
+          <EntitySet Name="ReturnImages" EntityType="Model.ReturnImage" />
+          <EntitySet Name="RMAAudits" EntityType="Model.RMAAudit" />
+          <EntitySet Name="SKUReasons" EntityType="Model.SKUReason" />
+          <AssociationSet Name="FK_Transaction_Reasons" Association="Model.FK_Transaction_Reasons">
+            <End Role="Reason" EntitySet="Reasons" />
+            <End Role="SKUReason" EntitySet="SKUReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="Model.FK_ReturnImages_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+            <End Role="ReturnImage" EntitySet="ReturnImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ReturnDetail" Association="Model.FK_Transaction_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+            <End Role="SKUReason" EntitySet="SKUReasons" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Audit">
@@ -1322,6 +1489,142 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ReasonCategory">
+          <Key>
+            <PropertyRef Name="ReasonCatID" />
+          </Key>
+          <Property Type="Guid" Name="ReasonCatID" Nullable="false" />
+          <Property Type="Guid" Name="ReasonID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reason">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Type="Guid" Name="ReasonID" Nullable="false" />
+          <Property Type="String" Name="Reason1" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SKUReasons" Relationship="Model.FK_Transaction_Reasons" FromRole="Reason" ToRole="SKUReason" />
+        </EntityType>
+        <EntityType Name="Return">
+          <Key>
+            <PropertyRef Name="ReturnID" />
+          </Key>
+          <Property Type="Guid" Name="ReturnID" Nullable="false" />
+          <Property Type="String" Name="RMANumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ShipmentNumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OrderNumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PONumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="OrderDate" Precision="3" />
+          <Property Type="DateTime" Name="DeliveryDate" Precision="3" />
+          <Property Type="DateTime" Name="ReturnDate" Precision="3" />
+          <Property Type="String" Name="VendorNumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VendoeName" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CustomerName1" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CustomerName2" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address3" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ZipCode" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReturnReason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="RMAStatus" />
+          <Property Type="Byte" Name="Decision" />
+          <Property Type="Guid" Name="CreatedBy" />
+          <Property Type="Guid" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="ReturnDetail">
+          <Key>
+            <PropertyRef Name="ReturnDetailID" />
+          </Key>
+          <Property Type="Guid" Name="ReturnDetailID" Nullable="false" />
+          <Property Type="Guid" Name="ReturnID" Nullable="false" />
+          <Property Type="String" Name="SKUNumber" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ProductName" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TCLCOD_0" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DeliveredQty" />
+          <Property Type="Int32" Name="ExpectedQty" />
+          <Property Type="Int32" Name="ReturnQty" />
+          <Property Type="Int32" Name="ProductStatus" />
+          <Property Type="Guid" Name="CreatedBy" />
+          <Property Type="Guid" Name="UpdatedBy" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="UpadatedDate" Precision="3" />
+          <NavigationProperty Name="ReturnImages" Relationship="Model.FK_ReturnImages_ReturnDetail" FromRole="ReturnDetail" ToRole="ReturnImage" />
+          <NavigationProperty Name="SKUReasons" Relationship="Model.FK_Transaction_ReturnDetail" FromRole="ReturnDetail" ToRole="SKUReason" />
+        </EntityType>
+        <EntityType Name="ReturnImage">
+          <Key>
+            <PropertyRef Name="ReturnImageID" />
+          </Key>
+          <Property Type="Guid" Name="ReturnImageID" Nullable="false" />
+          <Property Type="Guid" Name="ReturnDetailID" Nullable="false" />
+          <Property Type="String" Name="SKUImagePath" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Guid" Name="CreatedBy" />
+          <Property Type="Guid" Name="UpadatedBy" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="UpadatedDate" Precision="3" />
+          <NavigationProperty Name="ReturnDetail" Relationship="Model.FK_ReturnImages_ReturnDetail" FromRole="ReturnImage" ToRole="ReturnDetail" />
+        </EntityType>
+        <EntityType Name="RMAAudit">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Type="Guid" Name="UserLogID" Nullable="false" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="ActionType" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ActionTime" Precision="3" />
+          <Property Type="String" Name="ActionValue" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SKUReason">
+          <Key>
+            <PropertyRef Name="SKUReasonID" />
+          </Key>
+          <Property Type="Guid" Name="SKUReasonID" Nullable="false" />
+          <Property Type="Guid" Name="ReasonID" />
+          <Property Type="Guid" Name="ReturnDetailID" />
+          <NavigationProperty Name="Reason" Relationship="Model.FK_Transaction_Reasons" FromRole="SKUReason" ToRole="Reason" />
+          <NavigationProperty Name="ReturnDetail" Relationship="Model.FK_Transaction_ReturnDetail" FromRole="SKUReason" ToRole="ReturnDetail" />
+        </EntityType>
+        <Association Name="FK_Transaction_Reasons">
+          <End Type="Model.Reason" Role="Reason" Multiplicity="0..1" />
+          <End Type="Model.SKUReason" Role="SKUReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="SKUReason">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnImages_ReturnDetail">
+          <End Type="Model.ReturnDetail" Role="ReturnDetail" Multiplicity="1" />
+          <End Type="Model.ReturnImage" Role="ReturnImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnImage">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ReturnDetail">
+          <End Type="Model.ReturnDetail" Role="ReturnDetail" Multiplicity="0..1" />
+          <End Type="Model.SKUReason" Role="SKUReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="SKUReason">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1669,6 +1972,107 @@
                 <ScalarProperty Name="TPBILL_0" ColumnName="TPBILL_0" />
                 <ScalarProperty Name="CUSTBILL_0" ColumnName="CUSTBILL_0" />
                 <ScalarProperty Name="CNTFULNAM_0" ColumnName="CNTFULNAM_0" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReasonCategories">
+            <EntityTypeMapping TypeName="Model.ReasonCategory">
+              <MappingFragment StoreEntitySet="ReasonCategory">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="ReasonCatID" ColumnName="ReasonCatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reasons">
+            <EntityTypeMapping TypeName="Model.Reason">
+              <MappingFragment StoreEntitySet="Reasons">
+                <ScalarProperty Name="Reason1" ColumnName="Reason" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Returns">
+            <EntityTypeMapping TypeName="Model.Return">
+              <MappingFragment StoreEntitySet="Return">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Decision" ColumnName="Decision" />
+                <ScalarProperty Name="RMAStatus" ColumnName="RMAStatus" />
+                <ScalarProperty Name="ReturnReason" ColumnName="ReturnReason" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="CustomerName2" ColumnName="CustomerName2" />
+                <ScalarProperty Name="CustomerName1" ColumnName="CustomerName1" />
+                <ScalarProperty Name="VendoeName" ColumnName="VendoeName" />
+                <ScalarProperty Name="VendorNumber" ColumnName="VendorNumber" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="ShipmentNumber" ColumnName="ShipmentNumber" />
+                <ScalarProperty Name="RMANumber" ColumnName="RMANumber" />
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnDetails">
+            <EntityTypeMapping TypeName="Model.ReturnDetail">
+              <MappingFragment StoreEntitySet="ReturnDetail">
+                <ScalarProperty Name="UpadatedDate" ColumnName="UpadatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="ReturnQty" ColumnName="ReturnQty" />
+                <ScalarProperty Name="ExpectedQty" ColumnName="ExpectedQty" />
+                <ScalarProperty Name="DeliveredQty" ColumnName="DeliveredQty" />
+                <ScalarProperty Name="TCLCOD_0" ColumnName="TCLCOD_0" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="SKUNumber" ColumnName="SKUNumber" />
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnImages">
+            <EntityTypeMapping TypeName="Model.ReturnImage">
+              <MappingFragment StoreEntitySet="ReturnImages">
+                <ScalarProperty Name="UpadatedDate" ColumnName="UpadatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpadatedBy" ColumnName="UpadatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SKUImagePath" ColumnName="SKUImagePath" />
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="ReturnImageID" ColumnName="ReturnImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RMAAudits">
+            <EntityTypeMapping TypeName="Model.RMAAudit">
+              <MappingFragment StoreEntitySet="RMAAudit">
+                <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKUReasons">
+            <EntityTypeMapping TypeName="Model.SKUReason">
+              <MappingFragment StoreEntitySet="SKUReasons">
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="SKUReasonID" ColumnName="SKUReasonID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

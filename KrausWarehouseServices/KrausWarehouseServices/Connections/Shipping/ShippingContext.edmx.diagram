@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="77">
+      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="42">
         <EntityTypeShape EntityType="Model.Audit" Width="1.5" PointX="24.375" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BoxPackage" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ErrorLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
@@ -33,6 +33,16 @@
         <AssociationConnector Association="Model.FK_Station_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_tblUserStation_tblStationMaster" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_UserStation_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.ReasonCategory" Width="1.5" PointX="2.7979280961667783" PointY="23.634244497695121" />
+        <EntityTypeShape EntityType="Model.Reason" Width="1.5" PointX="11.6535153238352" PointY="4.1316507477926327" />
+        <EntityTypeShape EntityType="Model.Return" Width="1.5" PointX="7.5045014095979283" PointY="13.523247292974613" />
+        <EntityTypeShape EntityType="Model.ReturnDetail" Width="1.5" PointX="5.323876560350822" PointY="0.77900916374242357" />
+        <EntityTypeShape EntityType="Model.ReturnImage" Width="1.5" PointX="4.9517040555140488" PointY="15.081458411683077" />
+        <EntityTypeShape EntityType="Model.RMAAudit" Width="1.5" PointX="7.0853210962774789" PointY="1.2474293714610065" />
+        <EntityTypeShape EntityType="Model.SKUReason" Width="1.5" PointX="4.9302028366039519" PointY="24.002966102214049" />
+        <AssociationConnector Association="Model.FK_Transaction_Reasons" />
+        <AssociationConnector Association="Model.FK_ReturnImages_ReturnDetail" />
+        <AssociationConnector Association="Model.FK_Transaction_ReturnDetail" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

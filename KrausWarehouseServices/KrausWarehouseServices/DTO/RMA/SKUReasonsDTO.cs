@@ -1,4 +1,4 @@
-﻿using KrausWarehouseServices.Connections;
+﻿using KrausWarehouseServices.Connections.Shipping;
 using System;
 using System.Collections.Generic;
 using System.Linq;

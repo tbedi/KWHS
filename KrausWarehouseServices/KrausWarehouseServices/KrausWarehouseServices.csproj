@@ -55,11 +55,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connections\RMADBContex.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RMADBContex.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Connections\SageX3V6.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,13 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Connections\RMADBContex.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RMADBContex.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Connections\RMADBContex.edmx.diagram">
-      <DependentUpon>RMADBContex.edmx</DependentUpon>
-    </None>
     <EntityDeploy Include="Connections\SageX3V6.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SageX3V6.Designer.cs</LastGenOutput>

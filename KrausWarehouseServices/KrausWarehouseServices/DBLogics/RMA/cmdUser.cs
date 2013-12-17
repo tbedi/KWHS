@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.DBLogics.RMA
@@ -19,7 +19,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <summary>
         /// RMASYSTEM database object.
         /// </summary>
-        RMASYSTEMEntities entRMADB = new RMASYSTEMEntities();
+        Shipping_ManagerEntities1 entRMADB = new Shipping_ManagerEntities1();
 
         #region Get Operation for UserDTO Table.
 

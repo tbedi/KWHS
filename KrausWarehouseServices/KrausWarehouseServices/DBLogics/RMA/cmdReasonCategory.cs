@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.DTO.RMA;
-using KrausWarehouseServices.Connections;
+using KrausWarehouseServices.Connections.Shipping;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
@@ -16,7 +16,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
         /// <summary>
         /// Create  tne Entity Object.
         /// </summary>
-        RMASYSTEMEntities entRMA = new RMASYSTEMEntities();
+        Shipping_ManagerEntities1 entRMA = new Shipping_ManagerEntities1();
 
         /// <summary>
         /// Set opartion on Reason Category Table. 
