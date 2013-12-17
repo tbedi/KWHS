@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="42">
+      <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="Model.Audit" Width="1.5" PointX="24.375" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BoxPackage" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ErrorLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Package" Width="1.5" PointX="8.375" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.PackageDetail" Width="1.5" PointX="10.625" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="21.625" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Shipping" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Shipping" Width="3.125" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.SKUImage" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Station" Width="1.5" PointX="15.125" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Tracking" Width="1.5" PointX="3.875" PointY="16.875" IsExpanded="true" />
