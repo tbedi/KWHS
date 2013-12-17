@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO;
-using KrausWarehouseServices.DTO.RMA;
+using KrausWarehouseServices.DTO.Shipping;
 
 
 namespace KrausWarehouseServices.DBLogics.RMA

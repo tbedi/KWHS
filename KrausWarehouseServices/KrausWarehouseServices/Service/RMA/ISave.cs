@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using KrausWarehouseServices.DTO.Shipping;
 using KrausWarehouseServices.DTO.RMA;
 
 namespace KrausWarehouseServices.Service.RMA

@@ -69,7 +69,7 @@ namespace KrausWarehouseServices.Service.RMA
             return _SKUnumber.UpsertSKUReasons(SKU);
         }
 
-        public bool User(DTO.RMA.UserDTO user)
+        public bool User(DTO.Shipping.UserDTO user)
         {
             return _user.UpsertUser(user);
         }

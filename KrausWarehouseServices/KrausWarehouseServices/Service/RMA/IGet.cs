@@ -1,4 +1,5 @@
 ﻿using KrausWarehouseServices.DTO.RMA;
+using KrausWarehouseServices.DTO.Shipping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
