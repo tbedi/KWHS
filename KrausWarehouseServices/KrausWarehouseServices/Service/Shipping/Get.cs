@@ -78,6 +78,13 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.cmdUPCtoSKUandVs _UpcTOSKu = new DBLogics.Shipping.cmdUPCtoSKUandVs();
 
+        /// <summary>
+        /// cmdviewshippingdetail object create.
+        /// </summary>
+        DBLogics.Shipping.cmdViewGetShippingDetail _GetViewShippingDetailObject = new DBLogics.Shipping.cmdViewGetShippingDetail();
+
+
+
         #endregion
 
         #region View Get_Shipping_Data
@@ -439,5 +446,40 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
 
+
+        #region ViewGetShippingDetail
+        
+        
+        public List<DTO.Shipping.viewgetShippingDetails> ViewAllShippingDeatil()
+        {
+            return _GetViewShippingDetailObject.GetAll();
+        }
+
+        public List<DTO.Shipping.viewgetShippingDetails> ViewGetByShipmentNum(string ShipmentNumber)
+        {
+            return _GetViewShippingDetailObject.GetByShipmentNum(ShipmentNumber);
+        }
+
+        public List<DTO.Shipping.viewgetShippingDetails> ViewGetByOrderID(string _orderID)
+        {
+            return _GetViewShippingDetailObject.GetByOrderID(_orderID);
+        }
+
+        public List<DTO.Shipping.viewgetShippingDetails> ViewGetByPoNumber(string _POnumber)
+        {
+            return _GetViewShippingDetailObject.GetByPoNumber(_POnumber);
+        }
+
+        public List<DTO.Shipping.viewgetShippingDetails> ViewGetBySupplierNumber(string _SupplierNumber)
+        {
+            return _GetViewShippingDetailObject.GetBySupplierNumber(_SupplierNumber);
+        }
+
+        public List<DTO.Shipping.viewgetShippingDetails> ViewGetByVendorName(string _VenderName)
+        {
+            return _GetViewShippingDetailObject.GetByVendorName(_VenderName);
+        }
+
+        #endregion
     }
 }

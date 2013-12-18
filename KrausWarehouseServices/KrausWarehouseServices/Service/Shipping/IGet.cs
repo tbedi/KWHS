@@ -233,5 +233,27 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         String SKUNameToUPCCode(String SKU_Name);
         #endregion
+
+        #region ViewGetShippingDetail
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewAllShippingDeatil();
+
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewGetByShipmentNum(String ShipmentNumber);
+
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewGetByOrderID(String _orderID);
+
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewGetByPoNumber(String _POnumber);
+
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewGetBySupplierNumber(String _SupplierNumber);
+
+        [OperationContract]
+        List<DTO.Shipping.viewgetShippingDetails> ViewGetByVendorName(String _VenderName);
+
+        #endregion
+
     }
 }
