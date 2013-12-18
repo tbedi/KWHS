@@ -255,5 +255,15 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
+        #region SKIImages
+        [OperationContract]
+        string GetBySKUname(string SKUname);
+
+
+        [OperationContract]
+        Boolean GetByBarcode(string SKUname);
+
+        #endregion
+
     }
 }

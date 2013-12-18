@@ -84,6 +84,11 @@ namespace KrausWarehouseServices.Service.Shipping
         DBLogics.Shipping.cmdViewGetShippingDetail _GetViewShippingDetailObject = new DBLogics.Shipping.cmdViewGetShippingDetail();
 
 
+        /// <summary>
+        /// cmdSKUImage object
+        /// </summary>
+        DBLogics.Shipping.cmdSKUImage _GetSKUimage = new DBLogics.Shipping.cmdSKUImage();
+
 
         #endregion
 
@@ -480,6 +485,19 @@ namespace KrausWarehouseServices.Service.Shipping
             return _GetViewShippingDetailObject.GetByVendorName(_VenderName);
         }
 
+        #endregion
+
+
+        #region SKUimages
+        
+        public string GetBySKUname(string SKUname)
+        {
+            return _GetSKUimage.GetSKUurlByName(SKUname);
+        }
+        public bool GetByBarcode(string SKUname)
+        {
+            return _GetSKUimage.getBarcodeShowFlag(SKUname);
+        }
         #endregion
     }
 }
