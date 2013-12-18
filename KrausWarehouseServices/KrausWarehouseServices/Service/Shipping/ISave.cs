@@ -131,7 +131,27 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </returns>
         [OperationContract]
         Boolean User(List<UserDTO> _user);
+   
+
+        /// <summary>
+        /// Update UserBy UserID. 
+        /// </summary>
+        /// <param name="lsuser">
+        /// pass userDTO object as parameter.
+        /// </param>
+        /// /// <param name="userID">
+        /// pass userID object as parameter.
+        /// </param>
+        /// <returns>
+        /// return boolean value.
+        /// </returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate="/Any", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        Boolean UpdateByUser(List<UserDTO> _user,Guid UserID);
+
         #endregion
+
+
 
         #region UserStation
 

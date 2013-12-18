@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO.Shipping;
+using KrausWarehouseServices.Globle_Classes;
 
 
 namespace KrausWarehouseServices.DBLogics.Shipping
@@ -225,6 +226,45 @@ namespace KrausWarehouseServices.DBLogics.Shipping
            {
            }
            return _flag;
+       }
+
+
+       /// <summary>
+       /// update usermaster by User Id
+       /// </summary>
+       /// <param name="lsuser"></param>
+       /// <param name="UserID"></param>
+       /// <returns></returns>
+       public Boolean UserMasterByUserID(List<UserDTO> lsuser, Guid UserID)
+       {
+            Boolean _flag = false;
+           try
+           {
+               User _user = entShipping.Users.SingleOrDefault(i => i.UserID == UserID);
+
+               foreach (var useritem in lsuser)
+               {
+                   _user.UserName = useritem.UserName;
+                   _user.UserAddress = useritem.UserAddress;
+                   _user.UserPassword = useritem.UserPassword;
+                   _user.UserJoiningDate = useritem.UserJoiningDate;
+                   _user.UserFullName = useritem.UserFullName;
+                   _user.RoleId = useritem.RoleID;
+                   _user.UpdatedDateTime = DateTime.UtcNow;
+                   _user.Updatedby = useritem.UserID;
+                   if (useritem.RoleID == Guid.Empty)
+                   {
+                       _user.RoleId = entShipping.Users.SingleOrDefault(i => i.UserID == UserID).RoleId;
+                   }
+               }
+               entShipping.SaveChanges();
+               _flag = true;
+           }
+           catch (Exception)
+           {
+           }
+           return _flag;
+       
        }
 
         #endregion

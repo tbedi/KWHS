@@ -131,5 +131,11 @@ namespace KrausWarehouseServices.Service.Shipping
         {
             return _returnTracking.UpdateTracking(TrackingNo, BoxNumber, ReadyToExpert);
         }
+
+
+        public bool UpdateByUser(List<DTO.Shipping.UserDTO> _user, Guid UserID)
+        {
+            return _returnUser.UserMasterByUserID(_user,UserID);
+        }
     }
 }
