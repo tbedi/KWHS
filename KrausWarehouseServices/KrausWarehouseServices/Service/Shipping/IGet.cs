@@ -265,5 +265,10 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
+        #region Sage Operations
+        [OperationContract]
+        String getBPNameFromBPNUM(string BPNUM_0);
+        #endregion
+
     }
 }

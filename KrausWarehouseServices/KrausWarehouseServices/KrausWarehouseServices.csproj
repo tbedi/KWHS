@@ -71,6 +71,7 @@
     <Compile Include="DBLogics\RMA\cmdReturnImages.cs" />
     <Compile Include="DBLogics\RMA\cmdSage.cs" />
     <Compile Include="DBLogics\RMA\cmdSKUReasons.cs" />
+    <Compile Include="DBLogics\Shipping\cmdSageOperations.cs" />
     <Compile Include="DBLogics\Shipping\cmdSKUImage.cs" />
     <Compile Include="DBLogics\Shipping\cmdUPCtoSKUandVs.cs" />
     <Compile Include="DBLogics\RMA\cmdUser.cs" />

@@ -89,6 +89,10 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.cmdSKUImage _GetSKUimage = new DBLogics.Shipping.cmdSKUImage();
 
+        /// <summary>
+        /// Sage Operations.
+        /// </summary>
+        DBLogics.Shipping.cmdSageOperations _SageOperations = new DBLogics.Shipping.cmdSageOperations();
 
         #endregion
 
@@ -450,8 +454,6 @@ namespace KrausWarehouseServices.Service.Shipping
         }
         #endregion
 
-
-
         #region ViewGetShippingDetail
         
         
@@ -487,7 +489,6 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
-
         #region SKUimages
         
         public string GetBySKUname(string SKUname)
@@ -497,6 +498,14 @@ namespace KrausWarehouseServices.Service.Shipping
         public bool GetByBarcode(string SKUname)
         {
             return _GetSKUimage.getBarcodeShowFlag(SKUname);
+        }
+        #endregion
+
+        #region Sage Operations
+
+        public String getBPNameFromBPNUM(string BPNUM_0)
+        {
+            return _SageOperations.getBPNameFromBPNUM(BPNUM_0);
         }
         #endregion
     }
