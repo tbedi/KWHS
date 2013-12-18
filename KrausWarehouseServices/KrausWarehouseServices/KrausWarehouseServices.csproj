@@ -119,7 +119,9 @@
     <Compile Include="Service\RMA\IGet.cs" />
     <Compile Include="Service\RMA\ISave.cs" />
     <Compile Include="Service\RMA\Save.cs" />
+    <Compile Include="Service\Shipping\Delete.cs" />
     <Compile Include="Service\Shipping\Get.cs" />
+    <Compile Include="Service\Shipping\IDelete.cs" />
     <Compile Include="Service\Shipping\IGet.cs" />
     <Compile Include="Service\Shipping\ISave.cs" />
     <Compile Include="Service\Shipping\Save.cs" />

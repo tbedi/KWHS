@@ -470,5 +470,37 @@ namespace KrausWarehouseServices.DBLogics.Shipping
        }
        #endregion
 
+
+       #region Delete Functions
+      
+       public Boolean DeleteShipment(Guid PackingID)
+       {
+           Boolean _return = false;
+           try
+           {
+               //Delete from Packing Detail table first.
+               var _PackingDetails = from _PckDetails in entShipping.PackageDetails
+                                     where _PckDetails.PackingId == PackingID
+                                     select _PckDetails;
+
+               foreach (var _PackingDetailsitem in _PackingDetails)
+               {
+                   PackageDetail _packDetails = entShipping.PackageDetails.SingleOrDefault(i => i.PackingDetailID == _PackingDetailsitem.PackingDetailID);
+                   entShipping.PackageDetails.DeleteObject(_packDetails);
+               }
+               entShipping.SaveChanges();
+               // delete from the Packing table
+               Package _packing = entShipping.Packages.SingleOrDefault(i => i.PackingId == PackingID);
+               entShipping.Packages.DeleteObject(_packing);
+               entShipping.SaveChanges();
+
+               _return = true;
+           }
+           catch (Exception )
+           {}
+           return _return;
+       }
+       #endregion
+
     }
 }

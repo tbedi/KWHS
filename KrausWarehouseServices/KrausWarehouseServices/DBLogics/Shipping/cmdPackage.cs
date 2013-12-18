@@ -65,16 +65,16 @@ namespace KrausWarehouseServices.DBLogics.Shipping
 
                 foreach (var packageitem in package)
                 {
-                    _lspackage.Add(new PackageDTO(packageitem));    
+                    _lspackage.Add(new PackageDTO(packageitem));
                 }
-                
+
             }
             catch (Exception)
             {
             }
             return _lspackage;
         }
-        #endregion
+
 
         /// <summary>
         /// Get All Data from The Package table By stationID.
@@ -96,7 +96,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
 
                 foreach (var packageitem in pack)
                 {
-                    _lspackage.Add(new PackageDTO(packageitem));    
+                    _lspackage.Add(new PackageDTO(packageitem));
                 }
             }
             catch (Exception)
@@ -204,7 +204,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             try
             {
                 var userpack = (from pack in entShippling.Packages
-                                where pack.UserId==UserID && 
+                                where pack.UserId == UserID &&
                                 EntityFunctions.TruncateTime(pack.EndTime.Value) == EntityFunctions.TruncateTime(Date.Date)
                                 select pack);
 
@@ -217,7 +217,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             {
             }
             return _lspackage;
-        
+
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             {
                 var userpack = (from pack in entShippling.Packages
                                 where pack.ShippingNum == ShippingNum &&
-                                pack.ShipmentLocation==Location
+                                pack.ShipmentLocation == Location
                                 select pack);
 
                 foreach (var item in userpack)
@@ -245,8 +245,8 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             {
             }
             return _lspackage;
-        
-        
+
+
         }
 
         /// <summary>
@@ -280,11 +280,12 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 MaxID = entShippling.Packages.SingleOrDefault(i => i.PackingId == MaxGUiID).ShippingNum;
 
             }
-            catch (Exception )
+            catch (Exception)
             {
             }
             return MaxID;
         }
+        #endregion
 
         #region Upsert Method
         public Boolean UpsertPackage(List<PackageDTO> package)
@@ -295,9 +296,9 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                 foreach (var packgeitem in package)
                 {
 
-                    Package pack = new Package() ;
+                    Package pack = new Package();
                     pack = entShippling.Packages.SingleOrDefault(re => re.PackingId == packgeitem.PackingId);
-                    
+
                     if (pack == null)
                     {
                         pack = new Package();
@@ -310,7 +311,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                         pack.PackingStatus = packgeitem.PackingStatus;
                         pack.ShippingID = packgeitem.ShippingID;
                         pack.ShipmentLocation = packgeitem.ShipmentLocation;
-                        pack.ManagerOverride=packgeitem.MangerOverride;
+                        pack.ManagerOverride = packgeitem.MangerOverride;
                         pack.PCKROWID = packgeitem.PCKROWID;
                         pack.ROWID = packgeitem.ROWID;
                         pack.CreatedBy = packgeitem.CreatedBy;
@@ -329,7 +330,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                         pack.PackingStatus = packgeitem.PackingStatus;
                         pack.ShippingID = packgeitem.ShippingID;
                         pack.ShipmentLocation = packgeitem.ShipmentLocation;
-                        pack.ManagerOverride=packgeitem.MangerOverride;
+                        pack.ManagerOverride = packgeitem.MangerOverride;
                         pack.PCKROWID = packgeitem.PCKROWID;
                         pack.ROWID = packgeitem.ROWID;
                         pack.CreatedBy = packgeitem.CreatedBy;
@@ -339,12 +340,35 @@ namespace KrausWarehouseServices.DBLogics.Shipping
                     }
                 }
                 entShippling.SaveChanges();
-               _flag=true;
-              }
+                _flag = true;
+            }
             catch (Exception)
             {
             }
             return _flag;
+        }
+        #endregion
+
+        #region Delete 
+        /// <summary>
+        /// Roll Back Transaction Operations that delete the entry from the table Paking.
+        /// For shipment ID
+        /// </summary>
+        /// <param name="ShipmentNum">Roll back entry from Shipment</param>
+        /// <returns>Boolean if Transacetion Seccess else False</returns>
+        public Boolean DeleteByShipmentNum(String ShipmentNum)
+        {
+            Boolean _return = false;
+            try
+            {
+                Package _Packing = entShippling.Packages.SingleOrDefault(i => i.ShippingNum == ShipmentNum);
+                entShippling.DeleteObject(_Packing);
+                entShippling.SaveChanges();
+                _return = true;
+            }
+            catch (Exception )
+            {}
+            return _return;
         }
         #endregion
 
