@@ -268,6 +268,11 @@ namespace KrausWarehouseServices.Service.Shipping
         #region Sage Operations
         [OperationContract]
         String getBPNameFromBPNUM(string BPNUM_0);
+
+
+        [OperationContract]
+
+
         #endregion
 
     }
