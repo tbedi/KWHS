@@ -81,6 +81,13 @@
     <Compile Include="DBLogics\Shipping\cmdAudit.cs" />
     <Compile Include="DBLogics\Shipping\cmdBoxPackage.cs" />
     <Compile Include="DBLogics\Shipping\cmdErrorLog.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdBPNameShippingNum.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdPackingTimeAndQuantity.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdShippinNumStatus.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdStationTotalPacked.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdUserCurrentStationAndDeviceID.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\cmdUserShipmentCount.cs" />
+    <Compile Include="DBLogics\Shipping\ReportCommand\GetTotalShipmentPackedToday.cs" />
     <Compile Include="DBLogics\Shipping\viewGet_Shipping_Data.cs" />
     <Compile Include="DBLogics\Shipping\cmdViewGetShippingDetail.cs" />
     <Compile Include="DBLogics\Shipping\cmdPackage.cs" />

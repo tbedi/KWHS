@@ -132,9 +132,7 @@ namespace KrausWarehouseServices.DBLogics.Shipping
             return _lsstation;
         }
 
-
         #endregion
-
 
         #region Upsert Method
 
