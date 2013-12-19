@@ -512,12 +512,125 @@ namespace KrausWarehouseServices.Service.Shipping
         #region Report Commands
 
         #region cmdBPNameShippingNum
-        
+
+        #endregion
+
+        #region Packing Time and Quantity
+
+        #endregion
+
+        #region cmdShippinNumStatus
+
+
+        #endregion
+
+        #region Shipping Number Status
+
+        #endregion
+
+        #region cmdUserCurrentStationAndDeviceID
+        #endregion
+
+        #region cmdUserShipmentCount
+
+        #endregion
+
+        #region GetTotalShipmentPackedToday
+
         #endregion
 
         #endregion
 
 
 
+        public List<DTO.Shipping.ReportEntity.ShippingInfoBPNameDTO> GetBpinfoOFShippingNum()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(int PackingStatus, bool PackingStaus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, int PackingStatus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.ShipmentNumStatusDTO> GetStaus(string ShippingNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked(DateTime DateReport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.DashBoardStionDTO> GetStationByReport(DateTime DateReport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int PackedTodayByStationID(string StationName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UnderPackingID(string StationName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.UserCurrentStationAndDeviceIDDTO> LastLoginStationAllUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.UserShipmentCountDTO> GetAllShipmentCountByUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DTO.Shipping.ReportEntity.ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

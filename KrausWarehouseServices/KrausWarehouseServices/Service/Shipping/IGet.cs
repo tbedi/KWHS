@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KrausWarehouseServices.DTO.Shipping.ReportEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -24,8 +25,8 @@ namespace KrausWarehouseServices.Service.Shipping
         List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataByLocation(String Location);
 
         [OperationContract]
-        [WebInvoke(UriTemplate="/View_Get_Shipping_DataBySKUNameAndShippngNumber?ShippingNumber={ShippingNumber}&SKUName={SKUName}",BodyStyle = WebMessageBodyStyle.Bare , ResponseFormat = WebMessageFormat.Xml, RequestFormat = WebMessageFormat.Xml) ]
-        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataBySKUNameAndShippngNumber(String ShippingNumber,String SKUName);
+        [WebInvoke(UriTemplate = "/View_Get_Shipping_DataBySKUNameAndShippngNumber?ShippingNumber={ShippingNumber}&SKUName={SKUName}", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Xml, RequestFormat = WebMessageFormat.Xml)]
+        List<DTO.Shipping.viewGet_Shipping_DataDTO> View_Get_Shipping_DataBySKUNameAndShippngNumber(String ShippingNumber, String SKUName);
 
         #endregion
 
@@ -86,7 +87,7 @@ namespace KrausWarehouseServices.Service.Shipping
         Guid PackingID(string PCKROWID);
 
         [OperationContract]
-        [WebInvoke(Method="POST")]
+        [WebInvoke(Method = "POST")]
         string MaxPackingID();
 
         #endregion
@@ -110,7 +111,7 @@ namespace KrausWarehouseServices.Service.Shipping
 
         [OperationContract]
         List<DTO.Shipping.RoleDTO> RoleByRoleID(Guid RoleID);
-     
+
         #endregion
 
         #region Shipping
@@ -222,13 +223,13 @@ namespace KrausWarehouseServices.Service.Shipping
         #region ErrorLog.
         [OperationContract]
         List<DTO.Shipping.ErrorLogDTO> ErrorLogAll();
-        
+
         #endregion
 
         #region Upc To SKU and vice versa
 
         [OperationContract]
-         String UPCtoSKUName(String UPC_Code);
+        String UPCtoSKUName(String UPC_Code);
 
         [OperationContract]
         String SKUNameToUPCCode(String SKU_Name);
@@ -265,22 +266,90 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
-        #region Sage Operations
-        [OperationContract]
-        String getBPNameFromBPNUM(string BPNUM_0);
-
-
-        #endregion
-
-
         #region Report Commands
 
         #region cmdBPNameShippingNum
+        [OperationContract]
+        List<ShippingInfoBPNameDTO> GetBpinfoOFShippingNum();
+
+        [OperationContract]
+        string getBPNameFromBPNUM(string BPNUM_0);
+        #endregion
+
+        #region Packing Time and Quantity
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity();
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(int PackingStatus, Boolean PackingStaus);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, int PackingStatus);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus);
 
         #endregion
 
+        #region cmdShippinNumStatus
+
+        [OperationContract]
+        List<ShipmentNumStatusDTO> GetStaus(String ShippingNumber);
+
         #endregion
 
+        #region Shipping Number Status
 
+        [OperationContract]
+        List<StationToatlPackedDTO> GetEachStationPacked();
+
+        [OperationContract]
+        List<StationToatlPackedDTO> GetEachStationPacked(DateTime DateReport);
+
+        [OperationContract]
+        List<DashBoardStionDTO> GetStationByReport(DateTime DateReport);
+
+        [OperationContract]
+        int PackedTodayByStationID(string StationName);
+
+        [OperationContract]
+        String UnderPackingID(String StationName);
+
+        #endregion
+
+        #region cmdUserCurrentStationAndDeviceID
+
+        [OperationContract]
+        List<UserCurrentStationAndDeviceIDDTO> LastLoginStationAllUsers();
+
+        #endregion
+
+        #region cmdUserShipmentCount
+
+        [OperationContract]
+        List<UserShipmentCountDTO> GetAllShipmentCountByUser();
+
+        #endregion
+
+        #region GetTotalShipmentPackedToday
+        
+        [OperationContract]
+        List<ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime();
+        
+        #endregion
+
+        #endregion
     }
 }
