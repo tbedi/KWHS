@@ -22,6 +22,27 @@ namespace KrausWarehouseServices.DBLogics.Shipping
         /// </summary>
         Shipping_ManagerEntities1 entshipping = new Shipping_ManagerEntities1();
 
+        /// <summary>
+        /// Check tracking Number is Present For given box Number. 
+        /// if present then Reaturn the Tracking Number string
+        /// </summary>
+        /// <param name="BoxNum">
+        /// String Box Number
+        /// </param>
+        /// <returns>
+        /// string Tracking Number.
+        /// </returns>
+        public String IschecckTrackingNumberPresent(String BoxNum)
+        {
+            String _return = "";
+            try
+            {
+                _return = entshipping.Trackings.FirstOrDefault(i => i.BOXNUM == BoxNum).TrackingNum;
+            }
+            catch (Exception)
+            { }
+            return _return;
+        }
 
         /// <summary>
         /// Get all records from tracking Table.
