@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using KrausWarehouseServices.DBLogics.Shipping.ReportCommand;
+
 
 namespace KrausWarehouseServices.Service.Shipping
 {
@@ -93,6 +95,43 @@ namespace KrausWarehouseServices.Service.Shipping
         /// Sage Operations.
         /// </summary>
         DBLogics.Shipping.cmdSageOperations _SageOperations = new DBLogics.Shipping.cmdSageOperations();
+
+        /// <summary>
+        /// cmdBPNameShippingNum create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdBPNameShippingNum _cmdBPNameShippingNum = new DBLogics.Shipping.ReportCommand.cmdBPNameShippingNum();
+
+
+        /// <summary>
+        /// cmdPackingTimeAndQuantity create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdPackingTimeAndQuantity _cmdPackingTimeAndQuantity = new DBLogics.Shipping.ReportCommand.cmdPackingTimeAndQuantity();
+
+        /// <summary>
+        /// cmdShippinNumStatus create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdShippinNumStatus _cmdShippinNumStatus = new DBLogics.Shipping.ReportCommand.cmdShippinNumStatus();
+
+        /// <summary>
+        /// cmdStationTotalPacked create Object
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdStationTotalPacked _cmdStationTotalPacked = new DBLogics.Shipping.ReportCommand.cmdStationTotalPacked();
+
+        /// <summary>
+        /// cmdUserCurrentStationAndDeviceID create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdUserCurrentStationAndDeviceID _cmdUserCurrentStationAndDeviceID = new DBLogics.Shipping.ReportCommand.cmdUserCurrentStationAndDeviceID();
+
+        /// <summary>
+        /// cmdUserShipmentCount create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.cmdUserShipmentCount _cmdUserShipmentCount = new DBLogics.Shipping.ReportCommand.cmdUserShipmentCount();
+
+        /// <summary>
+        /// GetTotalShipmentPackedToday create object.
+        /// </summary>
+        DBLogics.Shipping.ReportCommand.GetTotalShipmentPackedToday _GetTotalShipmentPackedToday = new DBLogics.Shipping.ReportCommand.GetTotalShipmentPackedToday();
+
 
         #endregion
 
@@ -514,49 +553,49 @@ namespace KrausWarehouseServices.Service.Shipping
         #region cmdBPNameShippingNum
         public List<DTO.Shipping.ReportEntity.ShippingInfoBPNameDTO> GetBpinfoOFShippingNum()
         {
-            throw new NotImplementedException();
+            return _cmdBPNameShippingNum.GetBpinfoOFShippingNum();
         }
         #endregion
 
         #region Packing Time and Quantity
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity()
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity();
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(Fromdate, Todate);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, Fromdate, Todate);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(int PackingStatus, bool PackingStaus)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(PackingStatus, PackingStaus);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, int PackingStatus)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, PackingStatus);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(Fromdate, Todate, PackingStatus);
         }
 
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus)
         {
-            throw new NotImplementedException();
+            return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, Fromdate, Todate, PackingStatus);
         }
 
         #endregion
@@ -565,34 +604,34 @@ namespace KrausWarehouseServices.Service.Shipping
 
         public List<DTO.Shipping.ReportEntity.ShipmentNumStatusDTO> GetStaus(string ShippingNumber)
         {
-            throw new NotImplementedException();
+            return _cmdShippinNumStatus.GetStaus(ShippingNumber);
         }
         #endregion
 
         #region Shipping Number Status
         public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked()
         {
-            throw new NotImplementedException();
+            return _cmdStationTotalPacked.GetEachStationPacked();
         }
 
         public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked(DateTime DateReport)
         {
-            throw new NotImplementedException();
+            return _cmdStationTotalPacked.GetEachStationPacked(DateReport);
         }
 
         public List<DTO.Shipping.ReportEntity.DashBoardStionDTO> GetStationByReport(DateTime DateReport)
         {
-            throw new NotImplementedException();
+            return _cmdStationTotalPacked.GetStationByReport(DateReport);
         }
 
         public int PackedTodayByStationID(string StationName)
         {
-            throw new NotImplementedException();
+            return _cmdStationTotalPacked.PackedTodayByStationID(StationName);
         }
 
         public string UnderPackingID(string StationName)
         {
-            throw new NotImplementedException();
+            return _cmdStationTotalPacked.UnderPackingID(StationName);
         }
 
        
@@ -601,21 +640,21 @@ namespace KrausWarehouseServices.Service.Shipping
         #region cmdUserCurrentStationAndDeviceID 
         public List<DTO.Shipping.ReportEntity.UserCurrentStationAndDeviceIDDTO> LastLoginStationAllUsers()
         {
-            throw new NotImplementedException();
+            return _cmdUserCurrentStationAndDeviceID.LastLoginStationAllUsers();
         }
         #endregion
 
         #region cmdUserShipmentCount
- public List<DTO.Shipping.ReportEntity.UserShipmentCountDTO> GetAllShipmentCountByUser()
+        public List<DTO.Shipping.ReportEntity.UserShipmentCountDTO> GetAllShipmentCountByUser()
         {
-            throw new NotImplementedException();
+            return _cmdUserShipmentCount.GetAllShipmentCountByUser();
         }
         #endregion
 
         #region GetTotalShipmentPackedToday
- public List<DTO.Shipping.ReportEntity.ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime()
+        public List<DTO.Shipping.ReportEntity.ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime()
         {
-            throw new NotImplementedException();
+            return _GetTotalShipmentPackedToday.GetTotalShipmentPackedTime();
         }
         #endregion
 
