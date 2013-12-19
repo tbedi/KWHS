@@ -270,9 +270,6 @@ namespace KrausWarehouseServices.Service.Shipping
         String getBPNameFromBPNUM(string BPNUM_0);
 
 
-        [OperationContract]
-
-
         #endregion
 
     }
