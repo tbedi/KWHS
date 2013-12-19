@@ -278,52 +278,52 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #region Packing Time and Quantity
         [OperationContract]
-        List<PackingTimeDTO> GetPackingTimeAndQantity();
+        List<PackingTimeDTO> GetPackingTimeAndQantity1();
 
         [OperationContract]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID);
+        List<PackingTimeDTO> GetPackingTimeAndQantity2(Guid UserID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity2?FDate={Fromdate}&TDatee={Todate}", 
             BodyStyle = WebMessageBodyStyle.Bare, 
             ResponseFormat = WebMessageFormat.Xml, 
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate);
+        List<PackingTimeDTO> GetPackingTimeAndQantity3(DateTime Fromdate, DateTime Todate);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity3?User={UserID}&FDate={Fromdate}&TDatee={Todate}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate);
+        List<PackingTimeDTO> GetPackingTimeAndQantity4(Guid UserID, DateTime Fromdate, DateTime Todate);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity4?PStatus={PackingStatus}&BoolStatus={PackingStaus}",
+        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity4?PStatus={PackingStatus}&BoolStatus={PackingStaus1}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(int PackingStatus, Boolean PackingStaus);
+        List<PackingTimeDTO> GetPackingTimeAndQantity5(int PackingStatus, Boolean PackingStaus1);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity5?user={UserID}&PStatus={PackingStatus}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, int PackingStatus);
+        List<PackingTimeDTO> GetPackingTimeAndQantity6(Guid UserID, int PackingStatus);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity6?PStatus={PackingStatus}&FDate={Fromdate}&TDatee={Todate}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus);
+        List<PackingTimeDTO> GetPackingTimeAndQantity7(DateTime Fromdate, DateTime Todate, int PackingStatus);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity6?PStatus={PackingStatus}&FDate={Fromdate}&TDatee={Todate}",
+        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity7?UserI={UserID}&PStatus={PackingStatus}&FDate={Fromdate}&TDatee={Todate}",
            BodyStyle = WebMessageBodyStyle.Bare,
            ResponseFormat = WebMessageFormat.Xml,
            RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus);
+        List<PackingTimeDTO> GetPackingTimeAndQantity8(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus);
 
 
 
@@ -331,56 +331,56 @@ namespace KrausWarehouseServices.Service.Shipping
         
         [OperationContract]
 
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation21(Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity21?User={UserID}&Station={StationID}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation22(Guid UserID, Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity22?FDate={Fromdate}&TDatee={Todate}&Station={StationID}",
             BodyStyle = WebMessageBodyStyle.Bare,
             ResponseFormat = WebMessageFormat.Xml,
             RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation23(DateTime Fromdate, DateTime Todate, Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity23?FDate={Fromdate}&TDatee={Todate}&Station={StationID}&User={UserID}",
            BodyStyle = WebMessageBodyStyle.Bare,
            ResponseFormat = WebMessageFormat.Xml,
            RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation24(Guid UserID, DateTime Fromdate, DateTime Todate, Guid StationID);
 
         [OperationContract]
-        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity24?PackingStat={PackingStatus}&PackingSt={PackingStatus}&Station={StationID}",
+        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity24?PackingStat={PackingStatus}&PackingSt={PackingStaus1}&Station={StationID}",
            BodyStyle = WebMessageBodyStyle.Bare,
            ResponseFormat = WebMessageFormat.Xml,
            RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(int PackingStatus, Boolean PackingStaus, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation25(int PackingStatus, Boolean PackingStaus1, Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity25?User={UserID}&PackingSt={PackingStatus}&Station={StationID}",
            BodyStyle = WebMessageBodyStyle.Bare,
            ResponseFormat = WebMessageFormat.Xml,
            RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, int PackingStatus, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation26(Guid UserID, int PackingStatus, Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity26?Fromdat={Fromdate}&Todat={Todate}&PackingStat={PackingStatus}&Station={StationID}",
            BodyStyle = WebMessageBodyStyle.Bare,
            ResponseFormat = WebMessageFormat.Xml,
            RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation27(DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity27?UserI={UserID}&Fromdat={Fromdate}&Todat={Todate}&PackingStat={PackingStatus}&Station={StationID}",
           BodyStyle = WebMessageBodyStyle.Bare,
           ResponseFormat = WebMessageFormat.Xml,
           RequestFormat = WebMessageFormat.Xml)]
-        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation28(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
 
         #endregion
 
@@ -400,7 +400,7 @@ namespace KrausWarehouseServices.Service.Shipping
         List<StationToatlPackedDTO> GetEachStationPacked();
 
         [OperationContract]
-        List<StationToatlPackedDTO> GetEachStationPacked(DateTime DateReport);
+        List<StationToatlPackedDTO> GetEachStationPacked1(DateTime DateReport);
 
         [OperationContract]
         List<DashBoardStionDTO> GetStationByReport(DateTime DateReport);

@@ -558,42 +558,42 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #region Packing Time and Quantity
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity()
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity1()
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity();
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity2(Guid UserID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity3(DateTime Fromdate, DateTime Todate)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(Fromdate, Todate);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity4(Guid UserID, DateTime Fromdate, DateTime Todate)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, Fromdate, Todate);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(int PackingStatus, bool PackingStaus)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity5(int PackingStatus, bool PackingStaus)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(PackingStatus, PackingStaus);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, int PackingStatus)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity6(Guid UserID, int PackingStatus)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, PackingStatus);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity7(DateTime Fromdate, DateTime Todate, int PackingStatus)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(Fromdate, Todate, PackingStatus);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity8(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantity(UserID, Fromdate, Todate, PackingStatus);
         }
@@ -606,42 +606,42 @@ namespace KrausWarehouseServices.Service.Shipping
         
 
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation21(Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation22(Guid UserID, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation23(DateTime Fromdate, DateTime Todate, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(Fromdate, Todate, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation24(Guid UserID, DateTime Fromdate, DateTime Todate, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID, Fromdate, Todate, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(int PackingStatus, bool PackingStaus, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation25(int PackingStatus, bool PackingStaus, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(PackingStatus, PackingStaus, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, int PackingStatus, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation26(Guid UserID, int PackingStatus, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID, PackingStatus, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation27(DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(Fromdate, Todate, PackingStatus, StationID);
         }
 
-        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID)
+        public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantityByStation28(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID)
         {
             return _cmdPackingTimeAndQuantity.GetPackingTimeAndQantityByStation(UserID, Fromdate, Todate, PackingStatus, StationID);
         }
@@ -666,7 +666,7 @@ namespace KrausWarehouseServices.Service.Shipping
             return _cmdStationTotalPacked.GetEachStationPacked();
         }
 
-        public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked(DateTime DateReport)
+        public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked1(DateTime DateReport)
         {
             return _cmdStationTotalPacked.GetEachStationPacked(DateReport);
         }
