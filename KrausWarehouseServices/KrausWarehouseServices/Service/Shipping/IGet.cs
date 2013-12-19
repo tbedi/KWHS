@@ -319,6 +319,10 @@ namespace KrausWarehouseServices.Service.Shipping
         List<PackingTimeDTO> GetPackingTimeAndQantity(DateTime Fromdate, DateTime Todate, int PackingStatus);
 
         [OperationContract]
+        [WebInvoke(UriTemplate = "/GetPackingTimeAndQantity6?PStatus={PackingStatus}&FDate={Fromdate}&TDatee={Todate}",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           ResponseFormat = WebMessageFormat.Xml,
+           RequestFormat = WebMessageFormat.Xml)]
         List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus);
 
 
