@@ -132,6 +132,7 @@ namespace KrausWarehouseServices.Service.Shipping
         /// </summary>
         DBLogics.Shipping.ReportCommand.GetTotalShipmentPackedToday _GetTotalShipmentPackedToday = new DBLogics.Shipping.ReportCommand.GetTotalShipmentPackedToday();
 
+        DBLogics.Shipping.cmdGetAverageTime _AvgPackingTime = new DBLogics.Shipping.cmdGetAverageTime();
 
         #endregion
 
@@ -712,7 +713,14 @@ namespace KrausWarehouseServices.Service.Shipping
 
         #endregion
 
+        #region Get Avarag packing time
 
-       
+         public List<KeyValuePair<string, float>> Execute(Guid UserID)
+        {
+            return _AvgPackingTime.Execute(UserID);
+        }
+
+        #endregion
+
     }
 }

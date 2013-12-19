@@ -435,5 +435,10 @@ namespace KrausWarehouseServices.Service.Shipping
         #endregion
 
         #endregion
+
+        #region Avg packing Time
+        [OperationContract]
+        List<KeyValuePair<string, float>> Execute(Guid UserID);
+        #endregion
     }
 }
