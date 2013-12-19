@@ -512,42 +512,13 @@ namespace KrausWarehouseServices.Service.Shipping
         #region Report Commands
 
         #region cmdBPNameShippingNum
-
-        #endregion
-
-        #region Packing Time and Quantity
-
-        #endregion
-
-        #region cmdShippinNumStatus
-
-
-        #endregion
-
-        #region Shipping Number Status
-
-        #endregion
-
-        #region cmdUserCurrentStationAndDeviceID
-        #endregion
-
-        #region cmdUserShipmentCount
-
-        #endregion
-
-        #region GetTotalShipmentPackedToday
-
-        #endregion
-
-        #endregion
-
-
-
         public List<DTO.Shipping.ReportEntity.ShippingInfoBPNameDTO> GetBpinfoOFShippingNum()
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Packing Time and Quantity
         public List<DTO.Shipping.ReportEntity.PackingTimeDTO> GetPackingTimeAndQantity()
         {
             throw new NotImplementedException();
@@ -588,11 +559,17 @@ namespace KrausWarehouseServices.Service.Shipping
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region cmdShippinNumStatus
+
         public List<DTO.Shipping.ReportEntity.ShipmentNumStatusDTO> GetStaus(string ShippingNumber)
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Shipping Number Status
         public List<DTO.Shipping.ReportEntity.StationToatlPackedDTO> GetEachStationPacked()
         {
             throw new NotImplementedException();
@@ -618,19 +595,30 @@ namespace KrausWarehouseServices.Service.Shipping
             throw new NotImplementedException();
         }
 
+       
+        #endregion
+
+        #region cmdUserCurrentStationAndDeviceID 
         public List<DTO.Shipping.ReportEntity.UserCurrentStationAndDeviceIDDTO> LastLoginStationAllUsers()
         {
             throw new NotImplementedException();
         }
+        #endregion
 
-        public List<DTO.Shipping.ReportEntity.UserShipmentCountDTO> GetAllShipmentCountByUser()
+        #region cmdUserShipmentCount
+ public List<DTO.Shipping.ReportEntity.UserShipmentCountDTO> GetAllShipmentCountByUser()
         {
             throw new NotImplementedException();
         }
+        #endregion
 
-        public List<DTO.Shipping.ReportEntity.ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime()
+        #region GetTotalShipmentPackedToday
+ public List<DTO.Shipping.ReportEntity.ShipmentPackedTodayAndAvgTimeDTO> GetTotalShipmentPackedTime()
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #endregion
     }
 }
