@@ -321,6 +321,37 @@ namespace KrausWarehouseServices.Service.Shipping
         [OperationContract]
         List<PackingTimeDTO> GetPackingTimeAndQantity(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus);
 
+
+
+        #region By Station ID
+        
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(int PackingStatus, Boolean PackingStaus, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, int PackingStatus, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
+
+        [OperationContract]
+        List<PackingTimeDTO> GetPackingTimeAndQantityByStation(Guid UserID, DateTime Fromdate, DateTime Todate, int PackingStatus, Guid StationID);
+
+        #endregion
+
+
         #endregion
 
         #region cmdShippinNumStatus
