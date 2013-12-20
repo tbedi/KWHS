@@ -288,12 +288,11 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
 
-
-
-
-
-
-
-
+        #region ReturnImage.
+        public string ImagePath(Guid ReturnImageID)
+        {
+            throw new NotImplementedException();
+        } 
+        #endregion
     }
 }

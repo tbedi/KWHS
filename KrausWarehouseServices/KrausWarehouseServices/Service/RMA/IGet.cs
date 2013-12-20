@@ -188,6 +188,11 @@ namespace KrausWarehouseServices.Service.RMA
 
         #endregion
 
+        #region image return
+        [OperationContract]
+        string ImagePath(Guid ReturnImageID);
+        #endregion
+
 
     }
 }

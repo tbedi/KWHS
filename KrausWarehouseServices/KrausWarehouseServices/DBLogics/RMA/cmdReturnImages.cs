@@ -66,5 +66,31 @@ namespace KrausWarehouseServices.DBLogics.RMA
            return _flag;
        }
 
+        #region Get methods for Return Images.
+
+       /// <summary>
+       /// Get image from Returnimage table. 
+       /// </summary>
+       /// <param name="ReturnImageID">
+       /// pass ReturnImageID as parameter.
+       /// </param>
+       /// <returns>
+       /// return String.
+       /// </returns>
+       public string PathImage(Guid ReturnImageID)
+       {
+           string path = "";
+           try
+           {
+               path = entRMA.ReturnImages.SingleOrDefault(r => r.ReturnDetailID == ReturnImageID).ToString();
+           }
+           catch (Exception)
+           {
+           }
+           return path;
+       }
+        
+        #endregion
+
     }
 }
