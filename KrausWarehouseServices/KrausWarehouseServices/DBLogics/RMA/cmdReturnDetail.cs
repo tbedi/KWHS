@@ -109,5 +109,69 @@ namespace KrausWarehouseServices.DBLogics.RMA
        
        }
 
+       /// <summary>
+       /// Get all information of Return detail By RGADROWID.
+       /// </summary>
+       /// <param name="RGADROWID">
+       /// RGADROWID pass as parameter.
+       /// </param>
+       /// <returns>
+       /// return list.
+       /// </returns>
+       public List<ReturnDetailsDTO> GetreturnDetailByRGADROWID(String RGADROWID)
+       {
+           List<ReturnDetailsDTO> _lsreturn = new List<ReturnDetailsDTO>();
+           try
+           {
+               var redetail = (from _returnfdetail in entRMA.ReturnDetails
+                               where _returnfdetail.RGADROWID == RGADROWID
+                               select _returnfdetail).ToList();
+
+               foreach (var item in redetail)
+               {
+                   ReturnDetailsDTO returndetail = new ReturnDetailsDTO(item);
+                   _lsreturn.Add(returndetail);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsreturn;
+       }
+
+       /// <summary>
+       /// Get all information of Return detail By RGAROWID.
+       /// </summary>
+       /// <param name="RGAROWID">
+       /// RGAROWID pass as parameter.
+       /// </param>
+       /// <returns>
+       /// return list.
+       /// </returns>
+       public List<ReturnDetailsDTO> GetreturnDetailByRGAROWID(String RGAROWID)
+       {
+           List<ReturnDetailsDTO> _lsreturn = new List<ReturnDetailsDTO>();
+           try
+           {
+               var redetail = (from _returnfdetail in entRMA.ReturnDetails
+                               join _return in entRMA.Returns
+                               on _returnfdetail.ReturnID equals _return.ReturnID
+                               where _return.RGAROWID == RGAROWID
+                               select _returnfdetail).ToList();
+
+               foreach (var item in redetail)
+               {
+                   ReturnDetailsDTO returndetail = new ReturnDetailsDTO(item);
+                   _lsreturn.Add(returndetail);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsreturn;
+       }
+
+
+
     }
 }

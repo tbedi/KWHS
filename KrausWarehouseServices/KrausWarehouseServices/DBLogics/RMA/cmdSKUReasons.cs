@@ -58,5 +58,42 @@ namespace KrausWarehouseServices.DBLogics.RMA
            }
            return _flag;
        }
+
+
+       public string ListOfReasons(Guid ReturnDetailID)
+       {
+           string List = "";
+           try
+           {
+               var lsreason = (from sku in entRMA.SKUReasons
+                               join reson in entRMA.Reasons
+                                   on sku.ReasonID equals reson.ReasonID
+                               where sku.ReturnDetailID == ReturnDetailID
+                               select sku).ToList();
+
+               if (lsreason.Count>0)
+               {
+                   if (lsreason.Count == 1)
+                   {
+                       foreach (var item in lsreason)
+                       {
+                           List += item.Reason.Reason1.ToString();
+                       }
+                   }
+                   else
+                   {
+                       foreach (var item in lsreason)
+                       {
+                           List += "," + item.Reason.Reason1.ToString();
+                       }
+                   }
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return List;
+       }
+
     }
 }

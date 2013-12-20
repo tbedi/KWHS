@@ -136,6 +136,9 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         List<ReasonsDTO> ReasonByCategoryName(String CategoryName);
 
+        [OperationContract]
+        String ListOfReasons(Guid ReturnDetail);
+
         #endregion
 
         #region Audit

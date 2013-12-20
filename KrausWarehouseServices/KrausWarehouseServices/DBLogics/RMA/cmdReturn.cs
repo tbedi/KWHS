@@ -250,6 +250,71 @@ namespace KrausWarehouseServices.DBLogics.RMA
             }
             return _return;
         }
+
+        /// <summary>
+        /// Get inforamation from return table By RGAROWID.
+        /// </summary>
+        /// <param name="RGAROWID">
+        /// pass parameter as RGAROWID.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByRGAROWID(string RGAROWID)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where _retun.RGAROWID == RGAROWID
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+        }
+
+
+        /// <summary>
+        /// Get inforamation from return table By RGADROWID.
+        /// </summary>
+        /// <param name="RGADROWID">
+        /// pass parameter as RGADROWID.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByRGADROWID(string RGADROWID)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           join _returndetail in entRMA.ReturnDetails
+                           on _retun.ReturnID equals _returndetail.ReturnID
+                           where _returndetail.RGADROWID == RGADROWID
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+        }
+
+
         #endregion
 
         #region Set Method

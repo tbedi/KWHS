@@ -26,6 +26,7 @@ namespace KrausWarehouseServices.DTO.RMA
             if (ReturnDetails.UpdatedBy != Guid.Empty) this.UpdatedBy = (Guid)ReturnDetails.UpdatedBy;
             if (ReturnDetails.CreatedDate != null) this.CreatedDate = (DateTime)ReturnDetails.CreatedDate;
             if (ReturnDetails.UpadatedDate != null) this.UpadatedDate = (DateTime)ReturnDetails.UpadatedDate;
+            if (ReturnDetails.RGADROWID != null) this.RGADROWID = ReturnDetails.RGADROWID;
         }
 
         public ReturnDetailsDTO()
@@ -71,6 +72,9 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public DateTime UpadatedDate { get; set; }
+
+        [DataMember]
+        public string RGADROWID { get; set; }
     }
 
 }

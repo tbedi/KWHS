@@ -194,6 +194,12 @@ namespace KrausWarehouseServices.Service.RMA
             return _reason.GetReasonByCategoryName(CategoryName);
         }
 
+        public string ListOfReasons(Guid ReturnDetailID)
+        {
+            return _SKUnumber.ListOfReasons(ReturnDetailID);
+        }
+
+
         #endregion
 
         #region Audit
@@ -249,6 +255,9 @@ namespace KrausWarehouseServices.Service.RMA
 
 
 
-        
+
+
+
+       
     }
 }

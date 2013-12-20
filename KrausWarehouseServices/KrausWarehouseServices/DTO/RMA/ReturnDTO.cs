@@ -41,6 +41,8 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_return.UpdatedBy != null) this.UpdatedBy = _return.UpdatedBy;
             if (_return.CreatedDate != null) this.CreatesDate = (DateTime)_return.CreatedDate;
             if (_return.UpdatedDate != null) this.UpdatedDate = (DateTime)_return.UpdatedDate;
+            if (_return.RGAROWID != null) this.RGAROWID = _return.RGAROWID;
+
         }
         public ReturnDTO()
         { }
@@ -122,5 +124,8 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public DateTime UpdatedDate { get; set; }
+
+        [DataMember]
+        public string RGAROWID { get; set; }
     }
 }

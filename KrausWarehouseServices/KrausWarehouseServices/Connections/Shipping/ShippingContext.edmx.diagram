@@ -43,6 +43,7 @@
         <AssociationConnector Association="Model.FK_Transaction_Reasons" />
         <AssociationConnector Association="Model.FK_ReturnImages_ReturnDetail" />
         <AssociationConnector Association="Model.FK_Transaction_ReturnDetail" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="3.5284852942118818" PointY="23.486295576899451" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
