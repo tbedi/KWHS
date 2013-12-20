@@ -266,22 +266,26 @@ namespace KrausWarehouseServices.Service.RMA
 
 
         #region Return Detail
-        public List<DTO.RMA.ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID)
+        public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailAll()
+        {
+            return _returnDetail.GetRetrunDetailsAll();
+        }
+
+        public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailByretrnID(Guid RetunID)
         {
             return _returnDetail.GetreturnDetailByretrnID(RetunID);
         }
-
-        public List<DTO.RMA.ReturnDetailsDTO> GetreturnDetailByRetundetailID(Guid RetundetailID)
+        public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailByRetundetailID(Guid RetundetailID)
         {
             return _returnDetail.GetreturnDetailByRetunDetailID(RetundetailID);
         }
 
-        public List<DTO.RMA.ReturnDetailsDTO> GetreturnDetailByRGADROWID(string RGADROWID)
+        public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailByRGADROWID(string RGADROWID)
         {
             return _returnDetail.GetreturnDetailByRGADROWID(RGADROWID);
         }
 
-        public List<DTO.RMA.ReturnDetailsDTO> GetreturnDetailByRGAROWID(string RGAROWID)
+        public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailByRGAROWID(string RGAROWID)
         {
             return _returnDetail.GetreturnDetailByRGAROWID(RGAROWID);
         }
@@ -294,5 +298,8 @@ namespace KrausWarehouseServices.Service.RMA
             throw new NotImplementedException();
         } 
         #endregion
+
+
+       
     }
 }

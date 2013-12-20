@@ -130,17 +130,20 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region Return Details.
         [OperationContract]
-        List<ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID);
+        List<ReturnDetailsDTO> ReturnDetailAll();
+
+        [OperationContract]
+        List<ReturnDetailsDTO> ReturnDetailByretrnID(Guid RetunID);
 
 
         [OperationContract]
-        List<ReturnDetailsDTO> GetreturnDetailByRetundetailID(Guid RetundetailID);
+        List<ReturnDetailsDTO> ReturnDetailByRetundetailID(Guid RetundetailID);
 
         [OperationContract]
-        List<ReturnDetailsDTO> GetreturnDetailByRGADROWID(String RGADROWID);
+        List<ReturnDetailsDTO> ReturnDetailByRGADROWID(String RGADROWID);
 
         [OperationContract]
-        List<ReturnDetailsDTO> GetreturnDetailByRGAROWID(String RGAROWID);
+        List<ReturnDetailsDTO> ReturnDetailByRGAROWID(String RGAROWID);
         #endregion
 
         #region Reason

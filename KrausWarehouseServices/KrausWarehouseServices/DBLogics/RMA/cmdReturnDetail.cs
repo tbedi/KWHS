@@ -142,6 +142,30 @@ namespace KrausWarehouseServices.DBLogics.RMA
 
        }
 
+      
+
+       public List<ReturnDetailsDTO> GetRetrunDetailsAll()
+       {
+           List<ReturnDetailsDTO> _lsreturn = new List<ReturnDetailsDTO>();
+           try
+           {
+               var redetail = (from _returnfdetail in entRMA.ReturnDetails
+                               select _returnfdetail).ToList();
+
+               foreach (var item in redetail)
+               {
+                   ReturnDetailsDTO returndetail = new ReturnDetailsDTO(item);
+                   _lsreturn.Add(returndetail);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsreturn;
+
+       }
+
+
 
        /// <summary>
        /// Get all information of Return detail By RGADROWID.
