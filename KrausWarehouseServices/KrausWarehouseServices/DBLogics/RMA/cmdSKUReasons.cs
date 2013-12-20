@@ -84,7 +84,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                    {
                        foreach (var item in lsreason)
                        {
-                           List += "," + item.Reason.Reason1.ToString();
+                           List += item.Reason.Reason1.ToString() + ",";
                        }
                    }
                }
