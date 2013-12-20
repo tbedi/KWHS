@@ -292,10 +292,24 @@ namespace KrausWarehouseServices.Service.RMA
 
 
         #region ReturnImage.
-        public List<DTO.RMA.ReturnImagesDTO> ImagePath(Guid ReturnDetailID)
+        public List<DTO.RMA.ReturnImagesDTO> ImagePathTable(Guid ReturnDetailID)
         {
             return _returnimages.PathImage(ReturnDetailID);
         }
+
+        public List<String> ImagePathStringList(Guid ReturnDetailID)
+        {
+            return _returnimages.PathImageStringList(ReturnDetailID);
+        }
+
         #endregion
+
+
+        public List<DTO.RMA.ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID)
+        {
+            return null;
+        }
+
+
     }
 }

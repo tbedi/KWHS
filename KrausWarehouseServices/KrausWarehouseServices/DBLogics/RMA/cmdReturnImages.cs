@@ -98,7 +98,30 @@ namespace KrausWarehouseServices.DBLogics.RMA
            }
            return _lsimage;
        }
+
+
+       public List<String> PathImageStringList(Guid ReturnDetailID)
+       {
+           List<String> _lsimage = new List<String>();
+           try
+           {
+               // path = entRMA.ReturnImages.SingleOrDefault(r => r.ReturnDetailID == ReturnImageID).ToString();
+               var image = (from img in entRMA.ReturnImages
+                            where img.ReturnDetailID == ReturnDetailID
+                            select img).ToList();
+
+               foreach (var item in image)
+               {
+                   _lsimage.Add(item.SKUImagePath.ToString());
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsimage;
+       }
         
+
         #endregion
 
     }

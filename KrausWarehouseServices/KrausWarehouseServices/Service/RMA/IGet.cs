@@ -194,7 +194,11 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region image return
         [OperationContract]
-        List<ReturnImagesDTO> ImagePath(Guid ReturnDetailID);
+        List<ReturnImagesDTO> ImagePathTable(Guid ReturnDetailID);
+
+
+        [OperationContract]
+        List<String> ImagePathStringList(Guid ReturnDetailID);
         #endregion
 
 
