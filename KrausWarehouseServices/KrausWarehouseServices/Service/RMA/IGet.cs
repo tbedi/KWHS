@@ -126,6 +126,10 @@ namespace KrausWarehouseServices.Service.RMA
 
         [OperationContract]
         List<ReturnDTO> ReturnByRGADROWID(String RGADROWID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/ReturnByFromDateToDate?ID={FromDate}&value={ToDate}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        List<ReturnDTO> ReturnByFromDateToDate(DateTime FromDate,DateTime ToDate);
         #endregion
 
         #region Return Details.
