@@ -148,11 +148,6 @@ namespace KrausWarehouseServices.Service.RMA
             return _return.GetReturnTblByReturnID(ReturnID);
         }
 
-        public List<DTO.RMA.ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID)
-        {
-            return null;
-        }
-
         public DTO.RMA.ReturnDTO ReturnByRMANumber(string RMANumber)
         {
             return _return.GetReturnTblByRMANumber(RMANumber);
