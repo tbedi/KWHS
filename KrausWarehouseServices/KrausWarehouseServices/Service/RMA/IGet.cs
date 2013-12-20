@@ -190,7 +190,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region image return
         [OperationContract]
-        string ImagePath(Guid ReturnImageID);
+        List<ReturnImagesDTO> ImagePath(Guid ReturnDetailID);
         #endregion
 
 
