@@ -96,6 +96,160 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _returnOb;
         }
 
+
+        /// <summary>
+        /// Pass Order Number and get All information from the Return table.
+        /// </summary>
+        /// <param name="OrderNum">
+        /// pass parameter ordernum 
+        /// </param>
+        /// <returns>
+        /// list return.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByOrderNumber(String OrderNum)
+        {
+            List<ReturnDTO> _returnob = new List<ReturnDTO>();
+            try
+            {
+                var retur = (from _return in entRMA.Returns
+                             where _return.OrderNumber == OrderNum
+                             select _return).ToList();
+
+                foreach (var item in retur)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _returnob.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _returnob;
+        }
+
+
+        /// <summary>
+        /// Get inforamation from return table By VenderNum.
+        /// </summary>
+        /// <param name="VenderNumber">
+        /// pass parameter as VenderNum.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByVenderNumber(string VenderNumber)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where _retun.VendorNumber == VenderNumber
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+        
+        }
+
+        /// <summary>
+        /// Get inforamation from return table By VenderName.
+        /// </summary>
+        /// <param name="VenderName">
+        /// pass parameter as VenderName.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByVenderName(string VenderName)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where _retun.VendoeName == VenderName
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+
+        }
+
+        /// <summary>
+        /// Get inforamation from return table By ShipmentNum.
+        /// </summary>
+        /// <param name="ShipmentNumber">
+        /// pass parameter as ShipmentNum.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByShipmentNumber(string ShipmentNum)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where _retun.ShipmentNumber == ShipmentNum
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+
+        }
+
+        /// <summary>
+        /// Get inforamation from return table By PONumber.
+        /// </summary>
+        /// <param name="ShipmentNumber">
+        /// pass parameter as POnumber.
+        /// </param>
+        /// <returns>
+        /// return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnTblByPONumber(string PONumber)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where _retun.PONumber == PONumber
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+        }
         #endregion
 
         #region Set Method

@@ -77,5 +77,37 @@ namespace KrausWarehouseServices.DBLogics.RMA
            return _flag;
        }
 
+
+       /// <summary>
+       /// Get all information of Return detail By ReturnID.
+       /// </summary>
+       /// <param name="RetunID">
+       /// returnID pass as parameter.
+       /// </param>
+       /// <returns>
+       /// return list.
+       /// </returns>
+       public List<ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID)
+       {
+           List<ReturnDetailsDTO> _lsreturn =new List<ReturnDetailsDTO>();
+           try
+           {
+               var redetail = (from _returnfdetail in entRMA.ReturnDetails
+                               where _returnfdetail.ReturnID == RetunID
+                               select _returnfdetail).ToList();
+
+               foreach (var item in redetail)
+               {
+                   ReturnDetailsDTO returndetail = new ReturnDetailsDTO(item);
+                   _lsreturn.Add(returndetail);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsreturn;
+       
+       }
+
     }
 }

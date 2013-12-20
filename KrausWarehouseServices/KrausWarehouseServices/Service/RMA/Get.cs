@@ -154,6 +154,32 @@ namespace KrausWarehouseServices.Service.RMA
             return _return.GetReturnTblByRMANumber(RMANumber);
         }
 
+        public List<DTO.RMA.ReturnDTO> ReturnByOrderNum(string OrderNum)
+        {
+            return _return.GetReturnTblByOrderNumber(OrderNum);
+        }
+
+        public List<DTO.RMA.ReturnDTO> ReturnByVendoeNum(string VendorNumber)
+        {
+            return _return.GetReturnTblByVenderNumber(VendorNumber);
+        }
+
+        public List<DTO.RMA.ReturnDTO> ReturnByVendorName(string VendorName)
+        {
+            return _return.GetReturnTblByVenderName(VendorName);
+        }
+
+        public List<DTO.RMA.ReturnDTO> ReturnByShipmentNumber(string ShipmentNumber)
+        {
+            return _return.GetReturnTblByShipmentNumber(ShipmentNumber);
+        }
+
+        public List<DTO.RMA.ReturnDTO> ReturnByPONumber(string PONumber)
+        {
+            return _return.GetReturnTblByPONumber(PONumber);
+        }
+
+
         #endregion
 
         #region Reason
@@ -221,5 +247,8 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
 
+
+
+        
     }
 }

@@ -106,6 +106,21 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         ReturnDTO ReturnByRMANumber(String RMANumber);
 
+        [OperationContract]
+        List<ReturnDTO> ReturnByOrderNum(String OrderNum);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByVendoeNum(String VendorNumber);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByVendorName(String VendorName);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByShipmentNumber(String ShipmentNumber);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByPONumber(String PONumber);
+       
         #endregion
 
         #region Return Details.
