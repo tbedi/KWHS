@@ -225,7 +225,7 @@ namespace KrausWarehouseServices.Service.RMA
         #endregion
 
         #region Role
-         public List<DTO.Shipping.RoleDTO> RoleAll()
+        public List<DTO.Shipping.RoleDTO> RoleAll()
         {
             return _role.GetRoles();
         }
@@ -300,10 +300,7 @@ namespace KrausWarehouseServices.Service.RMA
         public List<DTO.RMA.ReturnImagesDTO> ImagePath(Guid ReturnDetailID)
         {
             return _returnimages.PathImage(ReturnDetailID);
-        } 
+        }
         #endregion
-
-
-       
     }
 }
