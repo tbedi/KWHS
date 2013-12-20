@@ -38,6 +38,10 @@ namespace KrausWarehouseServices.Service.RMA
 
         //sage Operations Object.
         DBLogics.RMA.cmdSage _sageOperations = new DBLogics.RMA.cmdSage();
+
+
+        //returnimages Object.
+        DBLogics.RMA.cmdReturnImages _returnimages = new DBLogics.RMA.cmdReturnImages();
         #endregion
 
         #region User
@@ -293,9 +297,9 @@ namespace KrausWarehouseServices.Service.RMA
 
 
         #region ReturnImage.
-        public string ImagePath(Guid ReturnImageID)
+        public List<DTO.RMA.ReturnImagesDTO> ImagePath(Guid ReturnDetailID)
         {
-            throw new NotImplementedException();
+            return _returnimages.PathImage(ReturnDetailID);
         } 
         #endregion
 

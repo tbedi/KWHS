@@ -71,23 +71,32 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// <summary>
        /// Get image from Returnimage table. 
        /// </summary>
-       /// <param name="ReturnImageID">
-       /// pass ReturnImageID as parameter.
+       /// <param name="ReturnDetailID">
+       /// pass ReturnDetailID as parameter.
        /// </param>
        /// <returns>
        /// return String.
        /// </returns>
-       public string PathImage(Guid ReturnImageID)
+       public List<ReturnImagesDTO> PathImage(Guid ReturnDetailID)
        {
-           string path = "";
+           List<ReturnImagesDTO> _lsimage = new List<ReturnImagesDTO>();
            try
            {
-               path = entRMA.ReturnImages.SingleOrDefault(r => r.ReturnDetailID == ReturnImageID).ToString();
+              // path = entRMA.ReturnImages.SingleOrDefault(r => r.ReturnDetailID == ReturnImageID).ToString();
+               var image = (from img in entRMA.ReturnImages
+                            where img.ReturnDetailID == ReturnDetailID
+                            select img).ToList();
+
+               foreach (var item in image)
+               {
+                   ReturnImagesDTO imagepath = new ReturnImagesDTO(item);
+                   _lsimage.Add(imagepath);
+               }
            }
            catch (Exception)
            {
            }
-           return path;
+           return _lsimage;
        }
         
         #endregion

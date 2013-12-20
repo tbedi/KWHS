@@ -130,20 +130,17 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region Return Details.
         [OperationContract]
-        List<ReturnDetailsDTO> ReturnDetailAll();
-
-        [OperationContract]
-        List<ReturnDetailsDTO> ReturnDetailByretrnID(Guid RetunID);
+        List<ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID);
 
 
         [OperationContract]
-        List<ReturnDetailsDTO> ReturnDetailByRetundetailID(Guid RetundetailID);
+        List<ReturnDetailsDTO> GetreturnDetailByRetundetailID(Guid RetundetailID);
 
         [OperationContract]
-        List<ReturnDetailsDTO> ReturnDetailByRGADROWID(String RGADROWID);
+        List<ReturnDetailsDTO> GetreturnDetailByRGADROWID(String RGADROWID);
 
         [OperationContract]
-        List<ReturnDetailsDTO> ReturnDetailByRGAROWID(String RGAROWID);
+        List<ReturnDetailsDTO> GetreturnDetailByRGAROWID(String RGAROWID);
         #endregion
 
         #region Reason
@@ -193,7 +190,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region image return
         [OperationContract]
-        string ImagePath(Guid ReturnImageID);
+        List<ReturnImagesDTO> ImagePath(Guid ReturnDetailID);
         #endregion
 
 
