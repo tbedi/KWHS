@@ -120,12 +120,27 @@ namespace KrausWarehouseServices.Service.RMA
 
         [OperationContract]
         List<ReturnDTO> ReturnByPONumber(String PONumber);
-       
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByRGAROWID(String RGAROWID);
+
+        [OperationContract]
+        List<ReturnDTO> ReturnByRGADROWID(String RGADROWID);
         #endregion
 
         #region Return Details.
+        [OperationContract]
+        List<ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID);
 
 
+        [OperationContract]
+        List<ReturnDetailsDTO> GetreturnDetailByRetundetailID(Guid RetundetailID);
+
+        [OperationContract]
+        List<ReturnDetailsDTO> GetreturnDetailByRGADROWID(String RGADROWID);
+
+        [OperationContract]
+        List<ReturnDetailsDTO> GetreturnDetailByRGAROWID(String RGAROWID);
         #endregion
 
         #region Reason

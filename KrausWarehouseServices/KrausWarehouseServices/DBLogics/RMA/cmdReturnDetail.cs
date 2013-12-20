@@ -77,6 +77,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
            return _flag;
        }
 
+       #region Get Methods of Return detail.
 
        /// <summary>
        /// Get all information of Return detail By ReturnID.
@@ -89,7 +90,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
        /// </returns>
        public List<ReturnDetailsDTO> GetreturnDetailByretrnID(Guid RetunID)
        {
-           List<ReturnDetailsDTO> _lsreturn =new List<ReturnDetailsDTO>();
+           List<ReturnDetailsDTO> _lsreturn = new List<ReturnDetailsDTO>();
            try
            {
                var redetail = (from _returnfdetail in entRMA.ReturnDetails
@@ -106,8 +107,41 @@ namespace KrausWarehouseServices.DBLogics.RMA
            {
            }
            return _lsreturn;
-       
+
        }
+
+
+       /// <summary>
+       /// Get all information of Return detail By RetunDetailID.
+       /// </summary>
+       /// <param name="RetunDetailID">
+       /// RetunDetailID pass as parameter.
+       /// </param>
+       /// <returns>
+       /// return list.
+       /// </returns>
+       public List<ReturnDetailsDTO> GetreturnDetailByRetunDetailID(Guid RetunDetailID)
+       {
+           List<ReturnDetailsDTO> _lsreturn = new List<ReturnDetailsDTO>();
+           try
+           {
+               var redetail = (from _returnfdetail in entRMA.ReturnDetails
+                               where _returnfdetail.ReturnDetailID == RetunDetailID
+                               select _returnfdetail).ToList();
+
+               foreach (var item in redetail)
+               {
+                   ReturnDetailsDTO returndetail = new ReturnDetailsDTO(item);
+                   _lsreturn.Add(returndetail);
+               }
+           }
+           catch (Exception)
+           {
+           }
+           return _lsreturn;
+
+       }
+
 
        /// <summary>
        /// Get all information of Return detail By RGADROWID.
@@ -169,7 +203,8 @@ namespace KrausWarehouseServices.DBLogics.RMA
            {
            }
            return _lsreturn;
-       }
+       } 
+       #endregion
 
 
 
