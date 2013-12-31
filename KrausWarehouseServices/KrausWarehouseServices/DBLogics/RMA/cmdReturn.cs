@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using KrausWarehouseServices.Connections.Shipping;
 using KrausWarehouseServices.DTO;
 using KrausWarehouseServices.DTO.RMA;
+using System.Data.Objects;
 
 namespace KrausWarehouseServices.DBLogics.RMA
 {
@@ -314,6 +315,40 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _return;
         }
 
+
+        /// <summary>
+        /// get Data from the return Table between date.
+        /// </summary>
+        /// <param name="FromDate">
+        /// pass fromdate as datetime parameter. 
+        /// </param>
+        /// <param name="ToDate">
+        /// pass todate as todate parameter.
+        /// </param>
+        /// <returns>
+        /// Return List.
+        /// </returns>
+        public List<ReturnDTO> GetReturnFromDateToDate(DateTime FromDate,DateTime ToDate)
+        {
+            List<ReturnDTO> _return = new List<ReturnDTO>();
+            try
+            {
+                var ret = (from _retun in entRMA.Returns
+                           where EntityFunctions.TruncateTime(_retun.CreatedDate.Value) >= EntityFunctions.TruncateTime(FromDate)
+                                 && EntityFunctions.TruncateTime(_retun.CreatedDate) <= EntityFunctions.TruncateTime(ToDate)
+                           select _retun).ToList();
+
+                foreach (var item in ret)
+                {
+                    ReturnDTO ls = new ReturnDTO(item);
+                    _return.Add(ls);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+        }
 
         #endregion
 

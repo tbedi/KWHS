@@ -194,6 +194,10 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
 
+        public List<DTO.RMA.ReturnDTO> ReturnByFromDateToDate(DateTime FromDate, DateTime ToDate)
+        {
+            return _return.GetReturnFromDateToDate(FromDate, ToDate);
+        }
 
         #endregion
 
@@ -314,7 +318,6 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return null;
         }
-
 
         #region Version Released for RGA
 
