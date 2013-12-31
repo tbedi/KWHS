@@ -39,9 +39,14 @@ namespace KrausWarehouseServices.Service.RMA
         //sage Operations Object.
         DBLogics.RMA.cmdSage _sageOperations = new DBLogics.RMA.cmdSage();
 
-
         //returnimages Object.
         DBLogics.RMA.cmdReturnImages _returnimages = new DBLogics.RMA.cmdReturnImages();
+
+        /// <summary>
+        /// VersionReleased table commnads.
+        /// </summary>
+        DBLogics.RMA.cmdVersionReleased _VersionReleased = new DBLogics.RMA.cmdVersionReleased();
+
         #endregion
 
         #region User
@@ -311,5 +316,13 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
 
+        #region Version Released for RGA
+
+        public string GetRMALatestVersionNumber()
+        {
+            return _VersionReleased.GetNewVersionNumber();
+        }
+
+        #endregion
     }
 }

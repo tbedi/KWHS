@@ -26,6 +26,7 @@
           <EntitySet Name="Tracking" EntityType="Model.Store.Tracking" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="Model.Store.User" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserStation" EntityType="Model.Store.UserStation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VersionRelease_RGA" EntityType="Model.Store.VersionRelease_RGA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VersionReleased" EntityType="Model.Store.VersionReleased" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Get_Shipping_Data" EntityType="Model.Store.Get_Shipping_Data" store:Type="Views" store:Schema="dbo" store:Name="Get_Shipping_Data">
             <DefiningQuery>SELECT 
@@ -519,6 +520,14 @@
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="Updatedby" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="VersionRelease_RGA">
+          <Key>
+            <PropertyRef Name="VesionID" />
+          </Key>
+          <Property Name="VesionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VersionNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateReleased" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="VersionReleased">
           <Key>
             <PropertyRef Name="VersionID" />
@@ -942,6 +951,7 @@
             <End Role="SKUReason" EntitySet="SKUReasons" />
           </AssociationSet>
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagram" />
+          <EntitySet Name="VersionRelease_RGA" EntityType="Model.VersionRelease_RGA" />
         </EntityContainer>
         <EntityType Name="Audit">
           <Key>
@@ -1655,6 +1665,14 @@
           <Property Type="Int32" Name="version" />
           <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="VersionRelease_RGA">
+          <Key>
+            <PropertyRef Name="VesionID" />
+          </Key>
+          <Property Type="Guid" Name="VesionID" Nullable="false" />
+          <Property Type="String" Name="VersionNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateReleased" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2118,6 +2136,15 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VersionRelease_RGA">
+            <EntityTypeMapping TypeName="Model.VersionRelease_RGA">
+              <MappingFragment StoreEntitySet="VersionRelease_RGA">
+                <ScalarProperty Name="DateReleased" ColumnName="DateReleased" />
+                <ScalarProperty Name="VersionNumber" ColumnName="VersionNumber" />
+                <ScalarProperty Name="VesionID" ColumnName="VesionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

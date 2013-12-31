@@ -453,6 +453,22 @@ namespace KrausWarehouseServices.Connections.Shipping
             }
         }
         private ObjectSet<sysdiagram> _sysdiagrams;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<VersionRelease_RGA> VersionRelease_RGA
+        {
+            get
+            {
+                if ((_VersionRelease_RGA == null))
+                {
+                    _VersionRelease_RGA = base.CreateObjectSet<VersionRelease_RGA>("VersionRelease_RGA");
+                }
+                return _VersionRelease_RGA;
+            }
+        }
+        private ObjectSet<VersionRelease_RGA> _VersionRelease_RGA;
 
         #endregion
 
@@ -640,6 +656,14 @@ namespace KrausWarehouseServices.Connections.Shipping
         public void AddTosysdiagrams(sysdiagram sysdiagram)
         {
             base.AddObject("sysdiagrams", sysdiagram);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the VersionRelease_RGA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToVersionRelease_RGA(VersionRelease_RGA versionRelease_RGA)
+        {
+            base.AddObject("VersionRelease_RGA", versionRelease_RGA);
         }
 
         #endregion
@@ -10334,6 +10358,114 @@ namespace KrausWarehouseServices.Connections.Shipping
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="VersionRelease_RGA")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class VersionRelease_RGA : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new VersionRelease_RGA object.
+        /// </summary>
+        /// <param name="vesionID">Initial value of the VesionID property.</param>
+        /// <param name="versionNumber">Initial value of the VersionNumber property.</param>
+        /// <param name="dateReleased">Initial value of the DateReleased property.</param>
+        public static VersionRelease_RGA CreateVersionRelease_RGA(global::System.Guid vesionID, global::System.String versionNumber, global::System.DateTime dateReleased)
+        {
+            VersionRelease_RGA versionRelease_RGA = new VersionRelease_RGA();
+            versionRelease_RGA.VesionID = vesionID;
+            versionRelease_RGA.VersionNumber = versionNumber;
+            versionRelease_RGA.DateReleased = dateReleased;
+            return versionRelease_RGA;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid VesionID
+        {
+            get
+            {
+                return _VesionID;
+            }
+            set
+            {
+                if (_VesionID != value)
+                {
+                    OnVesionIDChanging(value);
+                    ReportPropertyChanging("VesionID");
+                    _VesionID = StructuralObject.SetValidValue(value, "VesionID");
+                    ReportPropertyChanged("VesionID");
+                    OnVesionIDChanged();
+                }
+            }
+        }
+        private global::System.Guid _VesionID;
+        partial void OnVesionIDChanging(global::System.Guid value);
+        partial void OnVesionIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String VersionNumber
+        {
+            get
+            {
+                return _VersionNumber;
+            }
+            set
+            {
+                OnVersionNumberChanging(value);
+                ReportPropertyChanging("VersionNumber");
+                _VersionNumber = StructuralObject.SetValidValue(value, false, "VersionNumber");
+                ReportPropertyChanged("VersionNumber");
+                OnVersionNumberChanged();
+            }
+        }
+        private global::System.String _VersionNumber;
+        partial void OnVersionNumberChanging(global::System.String value);
+        partial void OnVersionNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateReleased
+        {
+            get
+            {
+                return _DateReleased;
+            }
+            set
+            {
+                OnDateReleasedChanging(value);
+                ReportPropertyChanging("DateReleased");
+                _DateReleased = StructuralObject.SetValidValue(value, "DateReleased");
+                ReportPropertyChanged("DateReleased");
+                OnDateReleasedChanged();
+            }
+        }
+        private global::System.DateTime _DateReleased;
+        partial void OnDateReleasedChanging(global::System.DateTime value);
+        partial void OnDateReleasedChanged();
 
         #endregion
 

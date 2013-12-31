@@ -29,7 +29,7 @@ namespace KrausWarehouseServices.DTO.Shipping
             if (_SkuImage.RowID != null) this.RowID = _SkuImage.RowID;
             if (_SkuImage.SKUrl != null) this.SKUrl = _SkuImage.SKUrl;
             if (_SkuImage.SKU != null) this.SKU = _SkuImage.SKU;
-            if (_SkuImage.BarcodeFlag != null) this.BarcodeFlag = _SkuImage.BarcodeFlag;
+           this.BarcodeFlag = _SkuImage.BarcodeFlag;
         }
 
         public int BarcodeFlag { get; set; }

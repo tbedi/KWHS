@@ -201,6 +201,12 @@ namespace KrausWarehouseServices.Service.RMA
         List<String> ImagePathStringList(Guid ReturnDetailID);
         #endregion
 
+        #region Version Released for RGA
 
+        [OperationContract]
+        String GetRMALatestVersionNumber();
+        
+
+        #endregion
     }
 }
