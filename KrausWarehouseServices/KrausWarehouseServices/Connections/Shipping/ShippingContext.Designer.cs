@@ -699,7 +699,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -718,7 +718,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUserLogIDChanging(value);
                     ReportPropertyChanging("UserLogID");
-                    _UserLogID = StructuralObject.SetValidValue(value, "UserLogID");
+                    _UserLogID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("UserLogID");
                     OnUserLogIDChanged();
                 }
@@ -743,7 +743,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserIDChanging(value);
                 ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                _UserID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserID");
                 OnUserIDChanged();
             }
@@ -767,7 +767,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionTypeChanging(value);
                 ReportPropertyChanging("ActionType");
-                _ActionType = StructuralObject.SetValidValue(value, true, "ActionType");
+                _ActionType = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ActionType");
                 OnActionTypeChanged();
             }
@@ -791,7 +791,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionTimeChanging(value);
                 ReportPropertyChanging("ActionTime");
-                _ActionTime = StructuralObject.SetValidValue(value, "ActionTime");
+                _ActionTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ActionTime");
                 OnActionTimeChanged();
             }
@@ -815,7 +815,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionValueChanging(value);
                 ReportPropertyChanging("ActionValue");
-                _ActionValue = StructuralObject.SetValidValue(value, true, "ActionValue");
+                _ActionValue = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ActionValue");
                 OnActionValueChanged();
             }
@@ -826,6 +826,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -897,7 +898,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -916,7 +917,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnBoxIDChanging(value);
                     ReportPropertyChanging("BoxID");
-                    _BoxID = StructuralObject.SetValidValue(value, "BoxID");
+                    _BoxID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("BoxID");
                     OnBoxIDChanged();
                 }
@@ -941,7 +942,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPackingIDChanging(value);
                 ReportPropertyChanging("PackingID");
-                _PackingID = StructuralObject.SetValidValue(value, "PackingID");
+                _PackingID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PackingID");
                 OnPackingIDChanged();
             }
@@ -965,7 +966,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxTypeChanging(value);
                 ReportPropertyChanging("BoxType");
-                _BoxType = StructuralObject.SetValidValue(value, true, "BoxType");
+                _BoxType = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BoxType");
                 OnBoxTypeChanged();
             }
@@ -989,7 +990,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxWeightChanging(value);
                 ReportPropertyChanging("BoxWeight");
-                _BoxWeight = StructuralObject.SetValidValue(value, "BoxWeight");
+                _BoxWeight = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxWeight");
                 OnBoxWeightChanged();
             }
@@ -1013,7 +1014,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxLengthChanging(value);
                 ReportPropertyChanging("BoxLength");
-                _BoxLength = StructuralObject.SetValidValue(value, "BoxLength");
+                _BoxLength = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxLength");
                 OnBoxLengthChanged();
             }
@@ -1037,7 +1038,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxHeightChanging(value);
                 ReportPropertyChanging("BoxHeight");
-                _BoxHeight = StructuralObject.SetValidValue(value, "BoxHeight");
+                _BoxHeight = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxHeight");
                 OnBoxHeightChanged();
             }
@@ -1061,7 +1062,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxWidthChanging(value);
                 ReportPropertyChanging("BoxWidth");
-                _BoxWidth = StructuralObject.SetValidValue(value, "BoxWidth");
+                _BoxWidth = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxWidth");
                 OnBoxWidthChanged();
             }
@@ -1085,7 +1086,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxCreatedTimeChanging(value);
                 ReportPropertyChanging("BoxCreatedTime");
-                _BoxCreatedTime = StructuralObject.SetValidValue(value, "BoxCreatedTime");
+                _BoxCreatedTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxCreatedTime");
                 OnBoxCreatedTimeChanged();
             }
@@ -1109,7 +1110,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxMeasurementTimeChanging(value);
                 ReportPropertyChanging("BoxMeasurementTime");
-                _BoxMeasurementTime = StructuralObject.SetValidValue(value, "BoxMeasurementTime");
+                _BoxMeasurementTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxMeasurementTime");
                 OnBoxMeasurementTimeChanged();
             }
@@ -1133,7 +1134,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnROWIDChanging(value);
                 ReportPropertyChanging("ROWID");
-                _ROWID = StructuralObject.SetValidValue(value, "ROWID");
+                _ROWID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ROWID");
                 OnROWIDChanged();
             }
@@ -1157,7 +1158,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBOXNUMChanging(value);
                 ReportPropertyChanging("BOXNUM");
-                _BOXNUM = StructuralObject.SetValidValue(value, true, "BOXNUM");
+                _BOXNUM = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BOXNUM");
                 OnBOXNUMChanged();
             }
@@ -1168,6 +1169,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -1257,7 +1259,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1276,7 +1278,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnErrorLogIDChanging(value);
                     ReportPropertyChanging("ErrorLogID");
-                    _ErrorLogID = StructuralObject.SetValidValue(value, "ErrorLogID");
+                    _ErrorLogID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ErrorLogID");
                     OnErrorLogIDChanged();
                 }
@@ -1301,7 +1303,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserIDChanging(value);
                 ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                _UserID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserID");
                 OnUserIDChanged();
             }
@@ -1325,7 +1327,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnErrorLocationChanging(value);
                 ReportPropertyChanging("ErrorLocation");
-                _ErrorLocation = StructuralObject.SetValidValue(value, true, "ErrorLocation");
+                _ErrorLocation = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ErrorLocation");
                 OnErrorLocationChanged();
             }
@@ -1349,7 +1351,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnErrorDescChanging(value);
                 ReportPropertyChanging("ErrorDesc");
-                _ErrorDesc = StructuralObject.SetValidValue(value, true, "ErrorDesc");
+                _ErrorDesc = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ErrorDesc");
                 OnErrorDescChanged();
             }
@@ -1373,7 +1375,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnErrorTimeChanging(value);
                 ReportPropertyChanging("ErrorTime");
-                _ErrorTime = StructuralObject.SetValidValue(value, "ErrorTime");
+                _ErrorTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ErrorTime");
                 OnErrorTimeChanged();
             }
@@ -1384,6 +1386,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -1425,7 +1428,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1442,7 +1445,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRow_NumberChanging(value);
                 ReportPropertyChanging("Row_Number");
-                _Row_Number = StructuralObject.SetValidValue(value, "Row_Number");
+                _Row_Number = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Row_Number");
                 OnRow_NumberChanged();
             }
@@ -1468,7 +1471,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnShipmentIDChanging(value);
                     ReportPropertyChanging("ShipmentID");
-                    _ShipmentID = StructuralObject.SetValidValue(value, false, "ShipmentID");
+                    _ShipmentID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ShipmentID");
                     OnShipmentIDChanged();
                 }
@@ -1493,7 +1496,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUChanging(value);
                 ReportPropertyChanging("SKU");
-                _SKU = StructuralObject.SetValidValue(value, true, "SKU");
+                _SKU = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SKU");
                 OnSKUChanged();
             }
@@ -1517,7 +1520,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnItemNameChanging(value);
                 ReportPropertyChanging("ItemName");
-                _ItemName = StructuralObject.SetValidValue(value, true, "ItemName");
+                _ItemName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ItemName");
                 OnItemNameChanged();
             }
@@ -1543,7 +1546,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnProductNameChanging(value);
                     ReportPropertyChanging("ProductName");
-                    _ProductName = StructuralObject.SetValidValue(value, false, "ProductName");
+                    _ProductName = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ProductName");
                     OnProductNameChanged();
                 }
@@ -1568,7 +1571,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnQuantityChanging(value);
                 ReportPropertyChanging("Quantity");
-                _Quantity = StructuralObject.SetValidValue(value, "Quantity");
+                _Quantity = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Quantity");
                 OnQuantityChanged();
             }
@@ -1594,7 +1597,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnItemWeightChanging(value);
                     ReportPropertyChanging("ItemWeight");
-                    _ItemWeight = StructuralObject.SetValidValue(value, "ItemWeight");
+                    _ItemWeight = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ItemWeight");
                     OnItemWeightChanged();
                 }
@@ -1621,7 +1624,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUnitOfMeasureChanging(value);
                     ReportPropertyChanging("UnitOfMeasure");
-                    _UnitOfMeasure = StructuralObject.SetValidValue(value, false, "UnitOfMeasure");
+                    _UnitOfMeasure = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("UnitOfMeasure");
                     OnUnitOfMeasureChanged();
                 }
@@ -1646,7 +1649,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnLineTypeChanging(value);
                 ReportPropertyChanging("LineType");
-                _LineType = StructuralObject.SetValidValue(value, "LineType");
+                _LineType = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("LineType");
                 OnLineTypeChanged();
             }
@@ -1672,7 +1675,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUPCCodeChanging(value);
                     ReportPropertyChanging("UPCCode");
-                    _UPCCode = StructuralObject.SetValidValue(value, false, "UPCCode");
+                    _UPCCode = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("UPCCode");
                     OnUPCCodeChanged();
                 }
@@ -1699,7 +1702,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCountryOfOriginChanging(value);
                     ReportPropertyChanging("CountryOfOrigin");
-                    _CountryOfOrigin = StructuralObject.SetValidValue(value, false, "CountryOfOrigin");
+                    _CountryOfOrigin = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CountryOfOrigin");
                     OnCountryOfOriginChanged();
                 }
@@ -1724,7 +1727,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnMAP_PriceChanging(value);
                 ReportPropertyChanging("MAP_Price");
-                _MAP_Price = StructuralObject.SetValidValue(value, "MAP_Price");
+                _MAP_Price = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("MAP_Price");
                 OnMAP_PriceChanged();
             }
@@ -1750,7 +1753,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnTCLCOD_0Changing(value);
                     ReportPropertyChanging("TCLCOD_0");
-                    _TCLCOD_0 = StructuralObject.SetValidValue(value, false, "TCLCOD_0");
+                    _TCLCOD_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("TCLCOD_0");
                     OnTCLCOD_0Changed();
                 }
@@ -1775,7 +1778,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTarrifCodeChanging(value);
                 ReportPropertyChanging("TarrifCode");
-                _TarrifCode = StructuralObject.SetValidValue(value, true, "TarrifCode");
+                _TarrifCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TarrifCode");
                 OnTarrifCodeChanged();
             }
@@ -1801,7 +1804,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnValidationFLGChanging(value);
                     ReportPropertyChanging("ValidationFLG");
-                    _ValidationFLG = StructuralObject.SetValidValue(value, "ValidationFLG");
+                    _ValidationFLG = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ValidationFLG");
                     OnValidationFLGChanged();
                 }
@@ -1828,7 +1831,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnAllocationLocationChanging(value);
                     ReportPropertyChanging("AllocationLocation");
-                    _AllocationLocation = StructuralObject.SetValidValue(value, false, "AllocationLocation");
+                    _AllocationLocation = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("AllocationLocation");
                     OnAllocationLocationChanged();
                 }
@@ -1853,7 +1856,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingLocationChanging(value);
                 ReportPropertyChanging("ShippingLocation");
-                _ShippingLocation = StructuralObject.SetValidValue(value, true, "ShippingLocation");
+                _ShippingLocation = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShippingLocation");
                 OnShippingLocationChanged();
             }
@@ -1877,7 +1880,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnLocationCombinedChanging(value);
                 ReportPropertyChanging("LocationCombined");
-                _LocationCombined = StructuralObject.SetValidValue(value, true, "LocationCombined");
+                _LocationCombined = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("LocationCombined");
                 OnLocationCombinedChanged();
             }
@@ -1888,6 +1891,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -1999,7 +2003,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2018,7 +2022,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnShippingNumChanging(value);
                     ReportPropertyChanging("ShippingNum");
-                    _ShippingNum = StructuralObject.SetValidValue(value, false, "ShippingNum");
+                    _ShippingNum = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ShippingNum");
                     OnShippingNumChanged();
                 }
@@ -2045,7 +2049,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnDeliveryProviderChanging(value);
                     ReportPropertyChanging("DeliveryProvider");
-                    _DeliveryProvider = StructuralObject.SetValidValue(value, false, "DeliveryProvider");
+                    _DeliveryProvider = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("DeliveryProvider");
                     OnDeliveryProviderChanged();
                 }
@@ -2070,7 +2074,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveryModeChanging(value);
                 ReportPropertyChanging("DeliveryMode");
-                _DeliveryMode = StructuralObject.SetValidValue(value, true, "DeliveryMode");
+                _DeliveryMode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DeliveryMode");
                 OnDeliveryModeChanged();
             }
@@ -2096,7 +2100,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressLine1Changing(value);
                     ReportPropertyChanging("FromAddressLine1");
-                    _FromAddressLine1 = StructuralObject.SetValidValue(value, false, "FromAddressLine1");
+                    _FromAddressLine1 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressLine1");
                     OnFromAddressLine1Changed();
                 }
@@ -2123,7 +2127,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressLine2Changing(value);
                     ReportPropertyChanging("FromAddressLine2");
-                    _FromAddressLine2 = StructuralObject.SetValidValue(value, false, "FromAddressLine2");
+                    _FromAddressLine2 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressLine2");
                     OnFromAddressLine2Changed();
                 }
@@ -2150,7 +2154,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressLine3Changing(value);
                     ReportPropertyChanging("FromAddressLine3");
-                    _FromAddressLine3 = StructuralObject.SetValidValue(value, false, "FromAddressLine3");
+                    _FromAddressLine3 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressLine3");
                     OnFromAddressLine3Changed();
                 }
@@ -2177,7 +2181,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressCityChanging(value);
                     ReportPropertyChanging("FromAddressCity");
-                    _FromAddressCity = StructuralObject.SetValidValue(value, false, "FromAddressCity");
+                    _FromAddressCity = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressCity");
                     OnFromAddressCityChanged();
                 }
@@ -2204,7 +2208,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressStateChanging(value);
                     ReportPropertyChanging("FromAddressState");
-                    _FromAddressState = StructuralObject.SetValidValue(value, false, "FromAddressState");
+                    _FromAddressState = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressState");
                     OnFromAddressStateChanged();
                 }
@@ -2231,7 +2235,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressCountryChanging(value);
                     ReportPropertyChanging("FromAddressCountry");
-                    _FromAddressCountry = StructuralObject.SetValidValue(value, false, "FromAddressCountry");
+                    _FromAddressCountry = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressCountry");
                     OnFromAddressCountryChanged();
                 }
@@ -2258,7 +2262,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFromAddressZipCodeChanging(value);
                     ReportPropertyChanging("FromAddressZipCode");
-                    _FromAddressZipCode = StructuralObject.SetValidValue(value, false, "FromAddressZipCode");
+                    _FromAddressZipCode = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FromAddressZipCode");
                     OnFromAddressZipCodeChanged();
                 }
@@ -2285,7 +2289,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressLine1Changing(value);
                     ReportPropertyChanging("ToAddressLine1");
-                    _ToAddressLine1 = StructuralObject.SetValidValue(value, false, "ToAddressLine1");
+                    _ToAddressLine1 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressLine1");
                     OnToAddressLine1Changed();
                 }
@@ -2312,7 +2316,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressLine2Changing(value);
                     ReportPropertyChanging("ToAddressLine2");
-                    _ToAddressLine2 = StructuralObject.SetValidValue(value, false, "ToAddressLine2");
+                    _ToAddressLine2 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressLine2");
                     OnToAddressLine2Changed();
                 }
@@ -2339,7 +2343,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressLine3Changing(value);
                     ReportPropertyChanging("ToAddressLine3");
-                    _ToAddressLine3 = StructuralObject.SetValidValue(value, false, "ToAddressLine3");
+                    _ToAddressLine3 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressLine3");
                     OnToAddressLine3Changed();
                 }
@@ -2366,7 +2370,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressCityChanging(value);
                     ReportPropertyChanging("ToAddressCity");
-                    _ToAddressCity = StructuralObject.SetValidValue(value, false, "ToAddressCity");
+                    _ToAddressCity = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressCity");
                     OnToAddressCityChanged();
                 }
@@ -2393,7 +2397,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressStateChanging(value);
                     ReportPropertyChanging("ToAddressState");
-                    _ToAddressState = StructuralObject.SetValidValue(value, false, "ToAddressState");
+                    _ToAddressState = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressState");
                     OnToAddressStateChanged();
                 }
@@ -2420,7 +2424,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressCountryChanging(value);
                     ReportPropertyChanging("ToAddressCountry");
-                    _ToAddressCountry = StructuralObject.SetValidValue(value, false, "ToAddressCountry");
+                    _ToAddressCountry = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressCountry");
                     OnToAddressCountryChanged();
                 }
@@ -2447,7 +2451,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnToAddressZipCodeChanging(value);
                     ReportPropertyChanging("ToAddressZipCode");
-                    _ToAddressZipCode = StructuralObject.SetValidValue(value, false, "ToAddressZipCode");
+                    _ToAddressZipCode = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ToAddressZipCode");
                     OnToAddressZipCodeChanged();
                 }
@@ -2474,7 +2478,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnShipmentStatusChanging(value);
                     ReportPropertyChanging("ShipmentStatus");
-                    _ShipmentStatus = StructuralObject.SetValidValue(value, false, "ShipmentStatus");
+                    _ShipmentStatus = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ShipmentStatus");
                     OnShipmentStatusChanged();
                 }
@@ -2501,7 +2505,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnOrderIDChanging(value);
                     ReportPropertyChanging("OrderID");
-                    _OrderID = StructuralObject.SetValidValue(value, false, "OrderID");
+                    _OrderID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("OrderID");
                     OnOrderIDChanged();
                 }
@@ -2528,7 +2532,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCustomerPOChanging(value);
                     ReportPropertyChanging("CustomerPO");
-                    _CustomerPO = StructuralObject.SetValidValue(value, false, "CustomerPO");
+                    _CustomerPO = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CustomerPO");
                     OnCustomerPOChanged();
                 }
@@ -2555,7 +2559,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnShipToAddressChanging(value);
                     ReportPropertyChanging("ShipToAddress");
-                    _ShipToAddress = StructuralObject.SetValidValue(value, false, "ShipToAddress");
+                    _ShipToAddress = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("ShipToAddress");
                     OnShipToAddressChanged();
                 }
@@ -2582,7 +2586,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnOurSupplierNoChanging(value);
                     ReportPropertyChanging("OurSupplierNo");
-                    _OurSupplierNo = StructuralObject.SetValidValue(value, false, "OurSupplierNo");
+                    _OurSupplierNo = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("OurSupplierNo");
                     OnOurSupplierNoChanged();
                 }
@@ -2609,7 +2613,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCustomerName1Changing(value);
                     ReportPropertyChanging("CustomerName1");
-                    _CustomerName1 = StructuralObject.SetValidValue(value, false, "CustomerName1");
+                    _CustomerName1 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CustomerName1");
                     OnCustomerName1Changed();
                 }
@@ -2636,7 +2640,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCustomerName2Changing(value);
                     ReportPropertyChanging("CustomerName2");
-                    _CustomerName2 = StructuralObject.SetValidValue(value, false, "CustomerName2");
+                    _CustomerName2 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CustomerName2");
                     OnCustomerName2Changed();
                 }
@@ -2663,7 +2667,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnWebAddressChanging(value);
                     ReportPropertyChanging("WebAddress");
-                    _WebAddress = StructuralObject.SetValidValue(value, false, "WebAddress");
+                    _WebAddress = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("WebAddress");
                     OnWebAddressChanged();
                 }
@@ -2690,7 +2694,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFreightTermsChanging(value);
                     ReportPropertyChanging("FreightTerms");
-                    _FreightTerms = StructuralObject.SetValidValue(value, false, "FreightTerms");
+                    _FreightTerms = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("FreightTerms");
                     OnFreightTermsChanged();
                 }
@@ -2717,7 +2721,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCarrierChanging(value);
                     ReportPropertyChanging("Carrier");
-                    _Carrier = StructuralObject.SetValidValue(value, false, "Carrier");
+                    _Carrier = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Carrier");
                     OnCarrierChanged();
                 }
@@ -2744,7 +2748,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnDeliveryContactChanging(value);
                     ReportPropertyChanging("DeliveryContact");
-                    _DeliveryContact = StructuralObject.SetValidValue(value, false, "DeliveryContact");
+                    _DeliveryContact = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("DeliveryContact");
                     OnDeliveryContactChanged();
                 }
@@ -2771,7 +2775,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnIndexcodeChanging(value);
                     ReportPropertyChanging("Indexcode");
-                    _Indexcode = StructuralObject.SetValidValue(value, "Indexcode");
+                    _Indexcode = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("Indexcode");
                     OnIndexcodeChanged();
                 }
@@ -2798,7 +2802,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnContactChanging(value);
                     ReportPropertyChanging("Contact");
-                    _Contact = StructuralObject.SetValidValue(value, false, "Contact");
+                    _Contact = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Contact");
                     OnContactChanged();
                 }
@@ -2825,7 +2829,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnPaymentTermsChanging(value);
                     ReportPropertyChanging("PaymentTerms");
-                    _PaymentTerms = StructuralObject.SetValidValue(value, false, "PaymentTerms");
+                    _PaymentTerms = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("PaymentTerms");
                     OnPaymentTermsChanged();
                 }
@@ -2852,7 +2856,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnTotalPackagesChanging(value);
                     ReportPropertyChanging("TotalPackages");
-                    _TotalPackages = StructuralObject.SetValidValue(value, "TotalPackages");
+                    _TotalPackages = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("TotalPackages");
                     OnTotalPackagesChanged();
                 }
@@ -2879,7 +2883,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnFaxChanging(value);
                     ReportPropertyChanging("Fax");
-                    _Fax = StructuralObject.SetValidValue(value, false, "Fax");
+                    _Fax = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Fax");
                     OnFaxChanged();
                 }
@@ -2906,7 +2910,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnVendorNameChanging(value);
                     ReportPropertyChanging("VendorName");
-                    _VendorName = StructuralObject.SetValidValue(value, false, "VendorName");
+                    _VendorName = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("VendorName");
                     OnVendorNameChanged();
                 }
@@ -2931,7 +2935,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingModeChanging(value);
                 ReportPropertyChanging("ShippingMode");
-                _ShippingMode = StructuralObject.SetValidValue(value, true, "ShippingMode");
+                _ShippingMode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShippingMode");
                 OnShippingModeChanged();
             }
@@ -2957,7 +2961,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnXB_RESFLG_0Changing(value);
                     ReportPropertyChanging("XB_RESFLG_0");
-                    _XB_RESFLG_0 = StructuralObject.SetValidValue(value, "XB_RESFLG_0");
+                    _XB_RESFLG_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("XB_RESFLG_0");
                     OnXB_RESFLG_0Changed();
                 }
@@ -2984,7 +2988,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCODCHG_0Changing(value);
                     ReportPropertyChanging("CODCHG_0");
-                    _CODCHG_0 = StructuralObject.SetValidValue(value, false, "CODCHG_0");
+                    _CODCHG_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CODCHG_0");
                     OnCODCHG_0Changed();
                 }
@@ -3011,7 +3015,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnINSVAL_0Changing(value);
                     ReportPropertyChanging("INSVAL_0");
-                    _INSVAL_0 = StructuralObject.SetValidValue(value, "INSVAL_0");
+                    _INSVAL_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("INSVAL_0");
                     OnINSVAL_0Changed();
                 }
@@ -3038,7 +3042,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnADDCODFRT_0Changing(value);
                     ReportPropertyChanging("ADDCODFRT_0");
-                    _ADDCODFRT_0 = StructuralObject.SetValidValue(value, "ADDCODFRT_0");
+                    _ADDCODFRT_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ADDCODFRT_0");
                     OnADDCODFRT_0Changed();
                 }
@@ -3065,7 +3069,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnBILLOPT_0Changing(value);
                     ReportPropertyChanging("BILLOPT_0");
-                    _BILLOPT_0 = StructuralObject.SetValidValue(value, false, "BILLOPT_0");
+                    _BILLOPT_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("BILLOPT_0");
                     OnBILLOPT_0Changed();
                 }
@@ -3092,7 +3096,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnHDLCHG_0Changing(value);
                     ReportPropertyChanging("HDLCHG_0");
-                    _HDLCHG_0 = StructuralObject.SetValidValue(value, false, "HDLCHG_0");
+                    _HDLCHG_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("HDLCHG_0");
                     OnHDLCHG_0Changed();
                 }
@@ -3119,7 +3123,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnDOWNFLG_0Changing(value);
                     ReportPropertyChanging("DOWNFLG_0");
-                    _DOWNFLG_0 = StructuralObject.SetValidValue(value, "DOWNFLG_0");
+                    _DOWNFLG_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("DOWNFLG_0");
                     OnDOWNFLG_0Changed();
                 }
@@ -3146,7 +3150,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnBACCT_0Changing(value);
                     ReportPropertyChanging("BACCT_0");
-                    _BACCT_0 = StructuralObject.SetValidValue(value, false, "BACCT_0");
+                    _BACCT_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("BACCT_0");
                     OnBACCT_0Changed();
                 }
@@ -3173,7 +3177,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnTPBILL_0Changing(value);
                     ReportPropertyChanging("TPBILL_0");
-                    _TPBILL_0 = StructuralObject.SetValidValue(value, "TPBILL_0");
+                    _TPBILL_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("TPBILL_0");
                     OnTPBILL_0Changed();
                 }
@@ -3200,7 +3204,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCUSTBILL_0Changing(value);
                     ReportPropertyChanging("CUSTBILL_0");
-                    _CUSTBILL_0 = StructuralObject.SetValidValue(value, "CUSTBILL_0");
+                    _CUSTBILL_0 = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("CUSTBILL_0");
                     OnCUSTBILL_0Changed();
                 }
@@ -3227,7 +3231,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnCNTFULNAM_0Changing(value);
                     ReportPropertyChanging("CNTFULNAM_0");
-                    _CNTFULNAM_0 = StructuralObject.SetValidValue(value, false, "CNTFULNAM_0");
+                    _CNTFULNAM_0 = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("CNTFULNAM_0");
                     OnCNTFULNAM_0Changed();
                 }
@@ -3239,6 +3243,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -3270,7 +3275,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3289,7 +3294,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnPackingIdChanging(value);
                     ReportPropertyChanging("PackingId");
-                    _PackingId = StructuralObject.SetValidValue(value, "PackingId");
+                    _PackingId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("PackingId");
                     OnPackingIdChanged();
                 }
@@ -3314,7 +3319,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserIdChanging(value);
                 ReportPropertyChanging("UserId");
-                _UserId = StructuralObject.SetValidValue(value, "UserId");
+                _UserId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserId");
                 OnUserIdChanged();
             }
@@ -3338,7 +3343,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStationIDChanging(value);
                 ReportPropertyChanging("StationID");
-                _StationID = StructuralObject.SetValidValue(value, "StationID");
+                _StationID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StationID");
                 OnStationIDChanged();
             }
@@ -3362,7 +3367,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingIDChanging(value);
                 ReportPropertyChanging("ShippingID");
-                _ShippingID = StructuralObject.SetValidValue(value, "ShippingID");
+                _ShippingID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ShippingID");
                 OnShippingIDChanged();
             }
@@ -3386,7 +3391,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingNumChanging(value);
                 ReportPropertyChanging("ShippingNum");
-                _ShippingNum = StructuralObject.SetValidValue(value, false, "ShippingNum");
+                _ShippingNum = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("ShippingNum");
                 OnShippingNumChanged();
             }
@@ -3410,7 +3415,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStartTimeChanging(value);
                 ReportPropertyChanging("StartTime");
-                _StartTime = StructuralObject.SetValidValue(value, "StartTime");
+                _StartTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StartTime");
                 OnStartTimeChanged();
             }
@@ -3434,7 +3439,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnEndTimeChanging(value);
                 ReportPropertyChanging("EndTime");
-                _EndTime = StructuralObject.SetValidValue(value, "EndTime");
+                _EndTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("EndTime");
                 OnEndTimeChanged();
             }
@@ -3458,7 +3463,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShipmentLocationChanging(value);
                 ReportPropertyChanging("ShipmentLocation");
-                _ShipmentLocation = StructuralObject.SetValidValue(value, true, "ShipmentLocation");
+                _ShipmentLocation = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShipmentLocation");
                 OnShipmentLocationChanged();
             }
@@ -3482,7 +3487,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPackingStatusChanging(value);
                 ReportPropertyChanging("PackingStatus");
-                _PackingStatus = StructuralObject.SetValidValue(value, "PackingStatus");
+                _PackingStatus = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PackingStatus");
                 OnPackingStatusChanged();
             }
@@ -3506,7 +3511,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnManagerOverrideChanging(value);
                 ReportPropertyChanging("ManagerOverride");
-                _ManagerOverride = StructuralObject.SetValidValue(value, "ManagerOverride");
+                _ManagerOverride = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ManagerOverride");
                 OnManagerOverrideChanged();
             }
@@ -3530,7 +3535,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -3554,7 +3559,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -3578,7 +3583,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -3602,7 +3607,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -3626,7 +3631,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnROWIDChanging(value);
                 ReportPropertyChanging("ROWID");
-                _ROWID = StructuralObject.SetValidValue(value, "ROWID");
+                _ROWID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ROWID");
                 OnROWIDChanged();
             }
@@ -3650,7 +3655,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPCKROWIDChanging(value);
                 ReportPropertyChanging("PCKROWID");
-                _PCKROWID = StructuralObject.SetValidValue(value, true, "PCKROWID");
+                _PCKROWID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PCKROWID");
                 OnPCKROWIDChanged();
             }
@@ -3661,6 +3666,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -3872,7 +3878,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3891,7 +3897,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnPackingDetailIDChanging(value);
                     ReportPropertyChanging("PackingDetailID");
-                    _PackingDetailID = StructuralObject.SetValidValue(value, "PackingDetailID");
+                    _PackingDetailID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("PackingDetailID");
                     OnPackingDetailIDChanged();
                 }
@@ -3916,7 +3922,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPackingIdChanging(value);
                 ReportPropertyChanging("PackingId");
-                _PackingId = StructuralObject.SetValidValue(value, "PackingId");
+                _PackingId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PackingId");
                 OnPackingIdChanged();
             }
@@ -3940,7 +3946,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUNumberChanging(value);
                 ReportPropertyChanging("SKUNumber");
-                _SKUNumber = StructuralObject.SetValidValue(value, true, "SKUNumber");
+                _SKUNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SKUNumber");
                 OnSKUNumberChanged();
             }
@@ -3964,7 +3970,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUQuantityChanging(value);
                 ReportPropertyChanging("SKUQuantity");
-                _SKUQuantity = StructuralObject.SetValidValue(value, "SKUQuantity");
+                _SKUQuantity = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("SKUQuantity");
                 OnSKUQuantityChanged();
             }
@@ -3988,7 +3994,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUScanDateTimeChanging(value);
                 ReportPropertyChanging("SKUScanDateTime");
-                _SKUScanDateTime = StructuralObject.SetValidValue(value, "SKUScanDateTime");
+                _SKUScanDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("SKUScanDateTime");
                 OnSKUScanDateTimeChanged();
             }
@@ -4012,7 +4018,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxNumberChanging(value);
                 ReportPropertyChanging("BoxNumber");
-                _BoxNumber = StructuralObject.SetValidValue(value, true, "BoxNumber");
+                _BoxNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BoxNumber");
                 OnBoxNumberChanged();
             }
@@ -4036,7 +4042,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShipmentLocationChanging(value);
                 ReportPropertyChanging("ShipmentLocation");
-                _ShipmentLocation = StructuralObject.SetValidValue(value, true, "ShipmentLocation");
+                _ShipmentLocation = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShipmentLocation");
                 OnShipmentLocationChanged();
             }
@@ -4060,7 +4066,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnItemNameChanging(value);
                 ReportPropertyChanging("ItemName");
-                _ItemName = StructuralObject.SetValidValue(value, true, "ItemName");
+                _ItemName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ItemName");
                 OnItemNameChanged();
             }
@@ -4084,7 +4090,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnProductNameChanging(value);
                 ReportPropertyChanging("ProductName");
-                _ProductName = StructuralObject.SetValidValue(value, true, "ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ProductName");
                 OnProductNameChanged();
             }
@@ -4108,7 +4114,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUnitOfMeasureChanging(value);
                 ReportPropertyChanging("UnitOfMeasure");
-                _UnitOfMeasure = StructuralObject.SetValidValue(value, true, "UnitOfMeasure");
+                _UnitOfMeasure = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("UnitOfMeasure");
                 OnUnitOfMeasureChanged();
             }
@@ -4132,7 +4138,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCountryOfOriginChanging(value);
                 ReportPropertyChanging("CountryOfOrigin");
-                _CountryOfOrigin = StructuralObject.SetValidValue(value, true, "CountryOfOrigin");
+                _CountryOfOrigin = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CountryOfOrigin");
                 OnCountryOfOriginChanged();
             }
@@ -4156,7 +4162,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnMAP_PriceChanging(value);
                 ReportPropertyChanging("MAP_Price");
-                _MAP_Price = StructuralObject.SetValidValue(value, "MAP_Price");
+                _MAP_Price = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("MAP_Price");
                 OnMAP_PriceChanged();
             }
@@ -4180,7 +4186,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTCLCOD_0Changing(value);
                 ReportPropertyChanging("TCLCOD_0");
-                _TCLCOD_0 = StructuralObject.SetValidValue(value, true, "TCLCOD_0");
+                _TCLCOD_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TCLCOD_0");
                 OnTCLCOD_0Changed();
             }
@@ -4204,7 +4210,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTarrifCodeChanging(value);
                 ReportPropertyChanging("TarrifCode");
-                _TarrifCode = StructuralObject.SetValidValue(value, true, "TarrifCode");
+                _TarrifCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TarrifCode");
                 OnTarrifCodeChanged();
             }
@@ -4228,7 +4234,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -4252,7 +4258,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -4276,7 +4282,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -4300,7 +4306,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -4311,6 +4317,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -4378,7 +4385,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4397,7 +4404,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnReasonIDChanging(value);
                     ReportPropertyChanging("ReasonID");
-                    _ReasonID = StructuralObject.SetValidValue(value, "ReasonID");
+                    _ReasonID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ReasonID");
                     OnReasonIDChanged();
                 }
@@ -4422,7 +4429,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReason1Changing(value);
                 ReportPropertyChanging("Reason1");
-                _Reason1 = StructuralObject.SetValidValue(value, true, "Reason1");
+                _Reason1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Reason1");
                 OnReason1Changed();
             }
@@ -4433,6 +4440,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -4486,7 +4494,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4505,7 +4513,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnReasonCatIDChanging(value);
                     ReportPropertyChanging("ReasonCatID");
-                    _ReasonCatID = StructuralObject.SetValidValue(value, "ReasonCatID");
+                    _ReasonCatID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ReasonCatID");
                     OnReasonCatIDChanged();
                 }
@@ -4530,7 +4538,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReasonIDChanging(value);
                 ReportPropertyChanging("ReasonID");
-                _ReasonID = StructuralObject.SetValidValue(value, "ReasonID");
+                _ReasonID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReasonID");
                 OnReasonIDChanged();
             }
@@ -4554,7 +4562,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCategoryNameChanging(value);
                 ReportPropertyChanging("CategoryName");
-                _CategoryName = StructuralObject.SetValidValue(value, true, "CategoryName");
+                _CategoryName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CategoryName");
                 OnCategoryNameChanged();
             }
@@ -4565,6 +4573,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -4592,7 +4601,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4611,7 +4620,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnReturnIDChanging(value);
                     ReportPropertyChanging("ReturnID");
-                    _ReturnID = StructuralObject.SetValidValue(value, "ReturnID");
+                    _ReturnID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ReturnID");
                     OnReturnIDChanged();
                 }
@@ -4636,7 +4645,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRMANumberChanging(value);
                 ReportPropertyChanging("RMANumber");
-                _RMANumber = StructuralObject.SetValidValue(value, true, "RMANumber");
+                _RMANumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("RMANumber");
                 OnRMANumberChanged();
             }
@@ -4660,7 +4669,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShipmentNumberChanging(value);
                 ReportPropertyChanging("ShipmentNumber");
-                _ShipmentNumber = StructuralObject.SetValidValue(value, true, "ShipmentNumber");
+                _ShipmentNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShipmentNumber");
                 OnShipmentNumberChanged();
             }
@@ -4684,7 +4693,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnOrderNumberChanging(value);
                 ReportPropertyChanging("OrderNumber");
-                _OrderNumber = StructuralObject.SetValidValue(value, true, "OrderNumber");
+                _OrderNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("OrderNumber");
                 OnOrderNumberChanged();
             }
@@ -4708,7 +4717,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPONumberChanging(value);
                 ReportPropertyChanging("PONumber");
-                _PONumber = StructuralObject.SetValidValue(value, true, "PONumber");
+                _PONumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PONumber");
                 OnPONumberChanged();
             }
@@ -4732,7 +4741,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnOrderDateChanging(value);
                 ReportPropertyChanging("OrderDate");
-                _OrderDate = StructuralObject.SetValidValue(value, "OrderDate");
+                _OrderDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("OrderDate");
                 OnOrderDateChanged();
             }
@@ -4756,7 +4765,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveryDateChanging(value);
                 ReportPropertyChanging("DeliveryDate");
-                _DeliveryDate = StructuralObject.SetValidValue(value, "DeliveryDate");
+                _DeliveryDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DeliveryDate");
                 OnDeliveryDateChanged();
             }
@@ -4780,7 +4789,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnDateChanging(value);
                 ReportPropertyChanging("ReturnDate");
-                _ReturnDate = StructuralObject.SetValidValue(value, "ReturnDate");
+                _ReturnDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReturnDate");
                 OnReturnDateChanged();
             }
@@ -4804,7 +4813,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVendorNumberChanging(value);
                 ReportPropertyChanging("VendorNumber");
-                _VendorNumber = StructuralObject.SetValidValue(value, true, "VendorNumber");
+                _VendorNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("VendorNumber");
                 OnVendorNumberChanged();
             }
@@ -4828,7 +4837,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVendoeNameChanging(value);
                 ReportPropertyChanging("VendoeName");
-                _VendoeName = StructuralObject.SetValidValue(value, true, "VendoeName");
+                _VendoeName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("VendoeName");
                 OnVendoeNameChanged();
             }
@@ -4852,7 +4861,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerName1Changing(value);
                 ReportPropertyChanging("CustomerName1");
-                _CustomerName1 = StructuralObject.SetValidValue(value, true, "CustomerName1");
+                _CustomerName1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerName1");
                 OnCustomerName1Changed();
             }
@@ -4876,7 +4885,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerName2Changing(value);
                 ReportPropertyChanging("CustomerName2");
-                _CustomerName2 = StructuralObject.SetValidValue(value, true, "CustomerName2");
+                _CustomerName2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerName2");
                 OnCustomerName2Changed();
             }
@@ -4900,7 +4909,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnAddress1Changing(value);
                 ReportPropertyChanging("Address1");
-                _Address1 = StructuralObject.SetValidValue(value, true, "Address1");
+                _Address1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Address1");
                 OnAddress1Changed();
             }
@@ -4924,7 +4933,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnAddress2Changing(value);
                 ReportPropertyChanging("Address2");
-                _Address2 = StructuralObject.SetValidValue(value, true, "Address2");
+                _Address2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Address2");
                 OnAddress2Changed();
             }
@@ -4948,7 +4957,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnAddress3Changing(value);
                 ReportPropertyChanging("Address3");
-                _Address3 = StructuralObject.SetValidValue(value, true, "Address3");
+                _Address3 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Address3");
                 OnAddress3Changed();
             }
@@ -4972,7 +4981,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnZipCodeChanging(value);
                 ReportPropertyChanging("ZipCode");
-                _ZipCode = StructuralObject.SetValidValue(value, true, "ZipCode");
+                _ZipCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ZipCode");
                 OnZipCodeChanged();
             }
@@ -4996,7 +5005,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
-                _City = StructuralObject.SetValidValue(value, true, "City");
+                _City = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }
@@ -5020,7 +5029,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStateChanging(value);
                 ReportPropertyChanging("State");
-                _State = StructuralObject.SetValidValue(value, true, "State");
+                _State = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("State");
                 OnStateChanged();
             }
@@ -5044,7 +5053,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCountryChanging(value);
                 ReportPropertyChanging("Country");
-                _Country = StructuralObject.SetValidValue(value, true, "Country");
+                _Country = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Country");
                 OnCountryChanged();
             }
@@ -5068,7 +5077,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnReasonChanging(value);
                 ReportPropertyChanging("ReturnReason");
-                _ReturnReason = StructuralObject.SetValidValue(value, true, "ReturnReason");
+                _ReturnReason = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ReturnReason");
                 OnReturnReasonChanged();
             }
@@ -5092,7 +5101,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRMAStatusChanging(value);
                 ReportPropertyChanging("RMAStatus");
-                _RMAStatus = StructuralObject.SetValidValue(value, "RMAStatus");
+                _RMAStatus = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RMAStatus");
                 OnRMAStatusChanged();
             }
@@ -5116,7 +5125,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDecisionChanging(value);
                 ReportPropertyChanging("Decision");
-                _Decision = StructuralObject.SetValidValue(value, "Decision");
+                _Decision = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Decision");
                 OnDecisionChanged();
             }
@@ -5140,7 +5149,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -5164,7 +5173,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedByChanging(value);
                 ReportPropertyChanging("UpdatedBy");
-                _UpdatedBy = StructuralObject.SetValidValue(value, "UpdatedBy");
+                _UpdatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedBy");
                 OnUpdatedByChanged();
             }
@@ -5188,7 +5197,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateChanging(value);
                 ReportPropertyChanging("CreatedDate");
-                _CreatedDate = StructuralObject.SetValidValue(value, "CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDate");
                 OnCreatedDateChanged();
             }
@@ -5212,7 +5221,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateChanging(value);
                 ReportPropertyChanging("UpdatedDate");
-                _UpdatedDate = StructuralObject.SetValidValue(value, "UpdatedDate");
+                _UpdatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDate");
                 OnUpdatedDateChanged();
             }
@@ -5236,7 +5245,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnROWIDChanging(value);
                 ReportPropertyChanging("ROWID");
-                _ROWID = StructuralObject.SetValidValue(value, "ROWID");
+                _ROWID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ROWID");
                 OnROWIDChanged();
             }
@@ -5260,7 +5269,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRGAROWIDChanging(value);
                 ReportPropertyChanging("RGAROWID");
-                _RGAROWID = StructuralObject.SetValidValue(value, true, "RGAROWID");
+                _RGAROWID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("RGAROWID");
                 OnRGAROWIDChanged();
             }
@@ -5271,6 +5280,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -5300,7 +5310,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5319,7 +5329,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnReturnDetailIDChanging(value);
                     ReportPropertyChanging("ReturnDetailID");
-                    _ReturnDetailID = StructuralObject.SetValidValue(value, "ReturnDetailID");
+                    _ReturnDetailID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ReturnDetailID");
                     OnReturnDetailIDChanged();
                 }
@@ -5344,7 +5354,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnIDChanging(value);
                 ReportPropertyChanging("ReturnID");
-                _ReturnID = StructuralObject.SetValidValue(value, "ReturnID");
+                _ReturnID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReturnID");
                 OnReturnIDChanged();
             }
@@ -5368,7 +5378,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUNumberChanging(value);
                 ReportPropertyChanging("SKUNumber");
-                _SKUNumber = StructuralObject.SetValidValue(value, true, "SKUNumber");
+                _SKUNumber = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SKUNumber");
                 OnSKUNumberChanged();
             }
@@ -5392,7 +5402,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnProductNameChanging(value);
                 ReportPropertyChanging("ProductName");
-                _ProductName = StructuralObject.SetValidValue(value, true, "ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ProductName");
                 OnProductNameChanged();
             }
@@ -5416,7 +5426,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTCLCOD_0Changing(value);
                 ReportPropertyChanging("TCLCOD_0");
-                _TCLCOD_0 = StructuralObject.SetValidValue(value, true, "TCLCOD_0");
+                _TCLCOD_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TCLCOD_0");
                 OnTCLCOD_0Changed();
             }
@@ -5440,7 +5450,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveredQtyChanging(value);
                 ReportPropertyChanging("DeliveredQty");
-                _DeliveredQty = StructuralObject.SetValidValue(value, "DeliveredQty");
+                _DeliveredQty = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DeliveredQty");
                 OnDeliveredQtyChanged();
             }
@@ -5464,7 +5474,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnExpectedQtyChanging(value);
                 ReportPropertyChanging("ExpectedQty");
-                _ExpectedQty = StructuralObject.SetValidValue(value, "ExpectedQty");
+                _ExpectedQty = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ExpectedQty");
                 OnExpectedQtyChanged();
             }
@@ -5488,7 +5498,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnQtyChanging(value);
                 ReportPropertyChanging("ReturnQty");
-                _ReturnQty = StructuralObject.SetValidValue(value, "ReturnQty");
+                _ReturnQty = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReturnQty");
                 OnReturnQtyChanged();
             }
@@ -5512,7 +5522,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnProductStatusChanging(value);
                 ReportPropertyChanging("ProductStatus");
-                _ProductStatus = StructuralObject.SetValidValue(value, "ProductStatus");
+                _ProductStatus = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ProductStatus");
                 OnProductStatusChanged();
             }
@@ -5536,7 +5546,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -5560,7 +5570,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedByChanging(value);
                 ReportPropertyChanging("UpdatedBy");
-                _UpdatedBy = StructuralObject.SetValidValue(value, "UpdatedBy");
+                _UpdatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedBy");
                 OnUpdatedByChanged();
             }
@@ -5584,7 +5594,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateChanging(value);
                 ReportPropertyChanging("CreatedDate");
-                _CreatedDate = StructuralObject.SetValidValue(value, "CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDate");
                 OnCreatedDateChanged();
             }
@@ -5608,7 +5618,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpadatedDateChanging(value);
                 ReportPropertyChanging("UpadatedDate");
-                _UpadatedDate = StructuralObject.SetValidValue(value, "UpadatedDate");
+                _UpadatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpadatedDate");
                 OnUpadatedDateChanged();
             }
@@ -5632,7 +5642,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnROWIDChanging(value);
                 ReportPropertyChanging("ROWID");
-                _ROWID = StructuralObject.SetValidValue(value, "ROWID");
+                _ROWID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ROWID");
                 OnROWIDChanged();
             }
@@ -5656,7 +5666,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRGADROWIDChanging(value);
                 ReportPropertyChanging("RGADROWID");
-                _RGADROWID = StructuralObject.SetValidValue(value, true, "RGADROWID");
+                _RGADROWID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("RGADROWID");
                 OnRGADROWIDChanged();
             }
@@ -5667,6 +5677,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -5742,7 +5753,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5761,7 +5772,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnReturnImageIDChanging(value);
                     ReportPropertyChanging("ReturnImageID");
-                    _ReturnImageID = StructuralObject.SetValidValue(value, "ReturnImageID");
+                    _ReturnImageID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ReturnImageID");
                     OnReturnImageIDChanged();
                 }
@@ -5786,7 +5797,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnDetailIDChanging(value);
                 ReportPropertyChanging("ReturnDetailID");
-                _ReturnDetailID = StructuralObject.SetValidValue(value, "ReturnDetailID");
+                _ReturnDetailID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReturnDetailID");
                 OnReturnDetailIDChanged();
             }
@@ -5810,7 +5821,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUImagePathChanging(value);
                 ReportPropertyChanging("SKUImagePath");
-                _SKUImagePath = StructuralObject.SetValidValue(value, true, "SKUImagePath");
+                _SKUImagePath = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SKUImagePath");
                 OnSKUImagePathChanged();
             }
@@ -5834,7 +5845,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -5858,7 +5869,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpadatedByChanging(value);
                 ReportPropertyChanging("UpadatedBy");
-                _UpadatedBy = StructuralObject.SetValidValue(value, "UpadatedBy");
+                _UpadatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpadatedBy");
                 OnUpadatedByChanged();
             }
@@ -5882,7 +5893,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateChanging(value);
                 ReportPropertyChanging("CreatedDate");
-                _CreatedDate = StructuralObject.SetValidValue(value, "CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDate");
                 OnCreatedDateChanged();
             }
@@ -5906,7 +5917,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpadatedDateChanging(value);
                 ReportPropertyChanging("UpadatedDate");
-                _UpadatedDate = StructuralObject.SetValidValue(value, "UpadatedDate");
+                _UpadatedDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpadatedDate");
                 OnUpadatedDateChanged();
             }
@@ -5917,6 +5928,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -5986,7 +5998,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6005,7 +6017,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUserLogIDChanging(value);
                     ReportPropertyChanging("UserLogID");
-                    _UserLogID = StructuralObject.SetValidValue(value, "UserLogID");
+                    _UserLogID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("UserLogID");
                     OnUserLogIDChanged();
                 }
@@ -6030,7 +6042,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserIDChanging(value);
                 ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                _UserID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserID");
                 OnUserIDChanged();
             }
@@ -6054,7 +6066,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionTypeChanging(value);
                 ReportPropertyChanging("ActionType");
-                _ActionType = StructuralObject.SetValidValue(value, true, "ActionType");
+                _ActionType = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ActionType");
                 OnActionTypeChanged();
             }
@@ -6078,7 +6090,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionTimeChanging(value);
                 ReportPropertyChanging("ActionTime");
-                _ActionTime = StructuralObject.SetValidValue(value, "ActionTime");
+                _ActionTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ActionTime");
                 OnActionTimeChanged();
             }
@@ -6102,7 +6114,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionValueChanging(value);
                 ReportPropertyChanging("ActionValue");
-                _ActionValue = StructuralObject.SetValidValue(value, true, "ActionValue");
+                _ActionValue = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ActionValue");
                 OnActionValueChanged();
             }
@@ -6113,6 +6125,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -6138,7 +6151,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6157,7 +6170,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnRoleIdChanging(value);
                     ReportPropertyChanging("RoleId");
-                    _RoleId = StructuralObject.SetValidValue(value, "RoleId");
+                    _RoleId = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("RoleId");
                     OnRoleIdChanged();
                 }
@@ -6182,7 +6195,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, true, "Name");
+                _Name = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -6206,7 +6219,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnActionChanging(value);
                 ReportPropertyChanging("Action");
-                _Action = StructuralObject.SetValidValue(value, true, "Action");
+                _Action = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Action");
                 OnActionChanged();
             }
@@ -6230,7 +6243,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -6254,7 +6267,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -6278,7 +6291,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -6302,7 +6315,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -6313,6 +6326,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -6368,7 +6382,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6387,7 +6401,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnShippingIDChanging(value);
                     ReportPropertyChanging("ShippingID");
-                    _ShippingID = StructuralObject.SetValidValue(value, "ShippingID");
+                    _ShippingID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("ShippingID");
                     OnShippingIDChanged();
                 }
@@ -6412,7 +6426,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingNumChanging(value);
                 ReportPropertyChanging("ShippingNum");
-                _ShippingNum = StructuralObject.SetValidValue(value, false, "ShippingNum");
+                _ShippingNum = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("ShippingNum");
                 OnShippingNumChanged();
             }
@@ -6436,7 +6450,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingStartTimeChanging(value);
                 ReportPropertyChanging("ShippingStartTime");
-                _ShippingStartTime = StructuralObject.SetValidValue(value, "ShippingStartTime");
+                _ShippingStartTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ShippingStartTime");
                 OnShippingStartTimeChanged();
             }
@@ -6460,7 +6474,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingEndTimeChanging(value);
                 ReportPropertyChanging("ShippingEndTime");
-                _ShippingEndTime = StructuralObject.SetValidValue(value, "ShippingEndTime");
+                _ShippingEndTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ShippingEndTime");
                 OnShippingEndTimeChanged();
             }
@@ -6484,7 +6498,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveryProviderChanging(value);
                 ReportPropertyChanging("DeliveryProvider");
-                _DeliveryProvider = StructuralObject.SetValidValue(value, true, "DeliveryProvider");
+                _DeliveryProvider = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DeliveryProvider");
                 OnDeliveryProviderChanged();
             }
@@ -6508,7 +6522,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveryModeChanging(value);
                 ReportPropertyChanging("DeliveryMode");
-                _DeliveryMode = StructuralObject.SetValidValue(value, true, "DeliveryMode");
+                _DeliveryMode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DeliveryMode");
                 OnDeliveryModeChanged();
             }
@@ -6532,7 +6546,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressLine1Changing(value);
                 ReportPropertyChanging("FromAddressLine1");
-                _FromAddressLine1 = StructuralObject.SetValidValue(value, true, "FromAddressLine1");
+                _FromAddressLine1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressLine1");
                 OnFromAddressLine1Changed();
             }
@@ -6556,7 +6570,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressLine2Changing(value);
                 ReportPropertyChanging("FromAddressLine2");
-                _FromAddressLine2 = StructuralObject.SetValidValue(value, true, "FromAddressLine2");
+                _FromAddressLine2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressLine2");
                 OnFromAddressLine2Changed();
             }
@@ -6580,7 +6594,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressLine3Changing(value);
                 ReportPropertyChanging("FromAddressLine3");
-                _FromAddressLine3 = StructuralObject.SetValidValue(value, true, "FromAddressLine3");
+                _FromAddressLine3 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressLine3");
                 OnFromAddressLine3Changed();
             }
@@ -6604,7 +6618,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressCityChanging(value);
                 ReportPropertyChanging("FromAddressCity");
-                _FromAddressCity = StructuralObject.SetValidValue(value, true, "FromAddressCity");
+                _FromAddressCity = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressCity");
                 OnFromAddressCityChanged();
             }
@@ -6628,7 +6642,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressStateChanging(value);
                 ReportPropertyChanging("FromAddressState");
-                _FromAddressState = StructuralObject.SetValidValue(value, true, "FromAddressState");
+                _FromAddressState = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressState");
                 OnFromAddressStateChanged();
             }
@@ -6652,7 +6666,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressCountryChanging(value);
                 ReportPropertyChanging("FromAddressCountry");
-                _FromAddressCountry = StructuralObject.SetValidValue(value, true, "FromAddressCountry");
+                _FromAddressCountry = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressCountry");
                 OnFromAddressCountryChanged();
             }
@@ -6676,7 +6690,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFromAddressZipCodeChanging(value);
                 ReportPropertyChanging("FromAddressZipCode");
-                _FromAddressZipCode = StructuralObject.SetValidValue(value, true, "FromAddressZipCode");
+                _FromAddressZipCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FromAddressZipCode");
                 OnFromAddressZipCodeChanged();
             }
@@ -6700,7 +6714,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressLine1Changing(value);
                 ReportPropertyChanging("ToAddressLine1");
-                _ToAddressLine1 = StructuralObject.SetValidValue(value, true, "ToAddressLine1");
+                _ToAddressLine1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressLine1");
                 OnToAddressLine1Changed();
             }
@@ -6724,7 +6738,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressLine2Changing(value);
                 ReportPropertyChanging("ToAddressLine2");
-                _ToAddressLine2 = StructuralObject.SetValidValue(value, true, "ToAddressLine2");
+                _ToAddressLine2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressLine2");
                 OnToAddressLine2Changed();
             }
@@ -6748,7 +6762,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressLine3Changing(value);
                 ReportPropertyChanging("ToAddressLine3");
-                _ToAddressLine3 = StructuralObject.SetValidValue(value, true, "ToAddressLine3");
+                _ToAddressLine3 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressLine3");
                 OnToAddressLine3Changed();
             }
@@ -6772,7 +6786,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressCityChanging(value);
                 ReportPropertyChanging("ToAddressCity");
-                _ToAddressCity = StructuralObject.SetValidValue(value, true, "ToAddressCity");
+                _ToAddressCity = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressCity");
                 OnToAddressCityChanged();
             }
@@ -6796,7 +6810,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressStateChanging(value);
                 ReportPropertyChanging("ToAddressState");
-                _ToAddressState = StructuralObject.SetValidValue(value, true, "ToAddressState");
+                _ToAddressState = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressState");
                 OnToAddressStateChanged();
             }
@@ -6820,7 +6834,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressCountryChanging(value);
                 ReportPropertyChanging("ToAddressCountry");
-                _ToAddressCountry = StructuralObject.SetValidValue(value, true, "ToAddressCountry");
+                _ToAddressCountry = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressCountry");
                 OnToAddressCountryChanged();
             }
@@ -6844,7 +6858,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnToAddressZipCodeChanging(value);
                 ReportPropertyChanging("ToAddressZipCode");
-                _ToAddressZipCode = StructuralObject.SetValidValue(value, true, "ToAddressZipCode");
+                _ToAddressZipCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ToAddressZipCode");
                 OnToAddressZipCodeChanged();
             }
@@ -6868,7 +6882,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShipmentStatusChanging(value);
                 ReportPropertyChanging("ShipmentStatus");
-                _ShipmentStatus = StructuralObject.SetValidValue(value, true, "ShipmentStatus");
+                _ShipmentStatus = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShipmentStatus");
                 OnShipmentStatusChanged();
             }
@@ -6892,7 +6906,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnOrderIDChanging(value);
                 ReportPropertyChanging("OrderID");
-                _OrderID = StructuralObject.SetValidValue(value, true, "OrderID");
+                _OrderID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("OrderID");
                 OnOrderIDChanged();
             }
@@ -6916,7 +6930,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerPOChanging(value);
                 ReportPropertyChanging("CustomerPO");
-                _CustomerPO = StructuralObject.SetValidValue(value, true, "CustomerPO");
+                _CustomerPO = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerPO");
                 OnCustomerPOChanged();
             }
@@ -6940,7 +6954,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShipToAddressChanging(value);
                 ReportPropertyChanging("ShipToAddress");
-                _ShipToAddress = StructuralObject.SetValidValue(value, true, "ShipToAddress");
+                _ShipToAddress = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ShipToAddress");
                 OnShipToAddressChanged();
             }
@@ -6964,7 +6978,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnOurSupplierNoChanging(value);
                 ReportPropertyChanging("OurSupplierNo");
-                _OurSupplierNo = StructuralObject.SetValidValue(value, true, "OurSupplierNo");
+                _OurSupplierNo = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("OurSupplierNo");
                 OnOurSupplierNoChanged();
             }
@@ -6988,7 +7002,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerName1Changing(value);
                 ReportPropertyChanging("CustomerName1");
-                _CustomerName1 = StructuralObject.SetValidValue(value, true, "CustomerName1");
+                _CustomerName1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerName1");
                 OnCustomerName1Changed();
             }
@@ -7012,7 +7026,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerName2Changing(value);
                 ReportPropertyChanging("CustomerName2");
-                _CustomerName2 = StructuralObject.SetValidValue(value, true, "CustomerName2");
+                _CustomerName2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerName2");
                 OnCustomerName2Changed();
             }
@@ -7036,7 +7050,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnWebAddressChanging(value);
                 ReportPropertyChanging("WebAddress");
-                _WebAddress = StructuralObject.SetValidValue(value, true, "WebAddress");
+                _WebAddress = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("WebAddress");
                 OnWebAddressChanged();
             }
@@ -7060,7 +7074,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFreightTermsChanging(value);
                 ReportPropertyChanging("FreightTerms");
-                _FreightTerms = StructuralObject.SetValidValue(value, true, "FreightTerms");
+                _FreightTerms = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FreightTerms");
                 OnFreightTermsChanged();
             }
@@ -7084,7 +7098,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCarrierChanging(value);
                 ReportPropertyChanging("Carrier");
-                _Carrier = StructuralObject.SetValidValue(value, true, "Carrier");
+                _Carrier = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Carrier");
                 OnCarrierChanged();
             }
@@ -7108,7 +7122,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeliveryContactChanging(value);
                 ReportPropertyChanging("DeliveryContact");
-                _DeliveryContact = StructuralObject.SetValidValue(value, true, "DeliveryContact");
+                _DeliveryContact = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DeliveryContact");
                 OnDeliveryContactChanged();
             }
@@ -7132,7 +7146,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnIndexcodeChanging(value);
                 ReportPropertyChanging("Indexcode");
-                _Indexcode = StructuralObject.SetValidValue(value, "Indexcode");
+                _Indexcode = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Indexcode");
                 OnIndexcodeChanged();
             }
@@ -7156,7 +7170,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnContactChanging(value);
                 ReportPropertyChanging("Contact");
-                _Contact = StructuralObject.SetValidValue(value, true, "Contact");
+                _Contact = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Contact");
                 OnContactChanged();
             }
@@ -7180,7 +7194,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPaymentTermsChanging(value);
                 ReportPropertyChanging("PaymentTerms");
-                _PaymentTerms = StructuralObject.SetValidValue(value, true, "PaymentTerms");
+                _PaymentTerms = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PaymentTerms");
                 OnPaymentTermsChanged();
             }
@@ -7204,7 +7218,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTotalPackagesChanging(value);
                 ReportPropertyChanging("TotalPackages");
-                _TotalPackages = StructuralObject.SetValidValue(value, "TotalPackages");
+                _TotalPackages = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TotalPackages");
                 OnTotalPackagesChanged();
             }
@@ -7228,7 +7242,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnFaxChanging(value);
                 ReportPropertyChanging("Fax");
-                _Fax = StructuralObject.SetValidValue(value, true, "Fax");
+                _Fax = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Fax");
                 OnFaxChanged();
             }
@@ -7252,7 +7266,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVendorNameChanging(value);
                 ReportPropertyChanging("VendorName");
-                _VendorName = StructuralObject.SetValidValue(value, true, "VendorName");
+                _VendorName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("VendorName");
                 OnVendorNameChanged();
             }
@@ -7276,7 +7290,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnMDL_0Changing(value);
                 ReportPropertyChanging("MDL_0");
-                _MDL_0 = StructuralObject.SetValidValue(value, true, "MDL_0");
+                _MDL_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("MDL_0");
                 OnMDL_0Changed();
             }
@@ -7300,7 +7314,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnXB_RESFLG_0Changing(value);
                 ReportPropertyChanging("XB_RESFLG_0");
-                _XB_RESFLG_0 = StructuralObject.SetValidValue(value, "XB_RESFLG_0");
+                _XB_RESFLG_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("XB_RESFLG_0");
                 OnXB_RESFLG_0Changed();
             }
@@ -7324,7 +7338,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCODCHG_0Changing(value);
                 ReportPropertyChanging("CODCHG_0");
-                _CODCHG_0 = StructuralObject.SetValidValue(value, true, "CODCHG_0");
+                _CODCHG_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CODCHG_0");
                 OnCODCHG_0Changed();
             }
@@ -7348,7 +7362,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnINSVAL_0Changing(value);
                 ReportPropertyChanging("INSVAL_0");
-                _INSVAL_0 = StructuralObject.SetValidValue(value, "INSVAL_0");
+                _INSVAL_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("INSVAL_0");
                 OnINSVAL_0Changed();
             }
@@ -7372,7 +7386,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnADDCODFRT_0Changing(value);
                 ReportPropertyChanging("ADDCODFRT_0");
-                _ADDCODFRT_0 = StructuralObject.SetValidValue(value, "ADDCODFRT_0");
+                _ADDCODFRT_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ADDCODFRT_0");
                 OnADDCODFRT_0Changed();
             }
@@ -7396,7 +7410,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBILLOPT_0Changing(value);
                 ReportPropertyChanging("BILLOPT_0");
-                _BILLOPT_0 = StructuralObject.SetValidValue(value, true, "BILLOPT_0");
+                _BILLOPT_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BILLOPT_0");
                 OnBILLOPT_0Changed();
             }
@@ -7420,7 +7434,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnHDLCHG_0Changing(value);
                 ReportPropertyChanging("HDLCHG_0");
-                _HDLCHG_0 = StructuralObject.SetValidValue(value, true, "HDLCHG_0");
+                _HDLCHG_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("HDLCHG_0");
                 OnHDLCHG_0Changed();
             }
@@ -7444,7 +7458,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDOWNFLG_0Changing(value);
                 ReportPropertyChanging("DOWNFLG_0");
-                _DOWNFLG_0 = StructuralObject.SetValidValue(value, "DOWNFLG_0");
+                _DOWNFLG_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DOWNFLG_0");
                 OnDOWNFLG_0Changed();
             }
@@ -7468,7 +7482,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBACCT_0Changing(value);
                 ReportPropertyChanging("BACCT_0");
-                _BACCT_0 = StructuralObject.SetValidValue(value, true, "BACCT_0");
+                _BACCT_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BACCT_0");
                 OnBACCT_0Changed();
             }
@@ -7492,7 +7506,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTPBILL_0Changing(value);
                 ReportPropertyChanging("TPBILL_0");
-                _TPBILL_0 = StructuralObject.SetValidValue(value, "TPBILL_0");
+                _TPBILL_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TPBILL_0");
                 OnTPBILL_0Changed();
             }
@@ -7516,7 +7530,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCUSTBILL_0Changing(value);
                 ReportPropertyChanging("CUSTBILL_0");
-                _CUSTBILL_0 = StructuralObject.SetValidValue(value, "CUSTBILL_0");
+                _CUSTBILL_0 = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CUSTBILL_0");
                 OnCUSTBILL_0Changed();
             }
@@ -7540,7 +7554,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCNTFULNAM_0Changing(value);
                 ReportPropertyChanging("CNTFULNAM_0");
-                _CNTFULNAM_0 = StructuralObject.SetValidValue(value, true, "CNTFULNAM_0");
+                _CNTFULNAM_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CNTFULNAM_0");
                 OnCNTFULNAM_0Changed();
             }
@@ -7564,7 +7578,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -7588,7 +7602,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -7612,7 +7626,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -7636,7 +7650,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -7660,7 +7674,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnROWIDChanging(value);
                 ReportPropertyChanging("ROWID");
-                _ROWID = StructuralObject.SetValidValue(value, "ROWID");
+                _ROWID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ROWID");
                 OnROWIDChanged();
             }
@@ -7684,7 +7698,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSHIPPINGROWIDChanging(value);
                 ReportPropertyChanging("SHIPPINGROWID");
-                _SHIPPINGROWID = StructuralObject.SetValidValue(value, true, "SHIPPINGROWID");
+                _SHIPPINGROWID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SHIPPINGROWID");
                 OnSHIPPINGROWIDChanged();
             }
@@ -7695,6 +7709,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -7774,7 +7789,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7793,7 +7808,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnRowIDChanging(value);
                     ReportPropertyChanging("RowID");
-                    _RowID = StructuralObject.SetValidValue(value, "RowID");
+                    _RowID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("RowID");
                     OnRowIDChanged();
                 }
@@ -7818,7 +7833,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUChanging(value);
                 ReportPropertyChanging("SKU");
-                _SKU = StructuralObject.SetValidValue(value, false, "SKU");
+                _SKU = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("SKU");
                 OnSKUChanged();
             }
@@ -7842,7 +7857,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSKUrlChanging(value);
                 ReportPropertyChanging("SKUrl");
-                _SKUrl = StructuralObject.SetValidValue(value, false, "SKUrl");
+                _SKUrl = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("SKUrl");
                 OnSKUrlChanged();
             }
@@ -7866,7 +7881,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBarcodeFlagChanging(value);
                 ReportPropertyChanging("BarcodeFlag");
-                _BarcodeFlag = StructuralObject.SetValidValue(value, "BarcodeFlag");
+                _BarcodeFlag = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BarcodeFlag");
                 OnBarcodeFlagChanged();
             }
@@ -7877,6 +7892,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -7902,7 +7918,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7921,7 +7937,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnSKUReasonIDChanging(value);
                     ReportPropertyChanging("SKUReasonID");
-                    _SKUReasonID = StructuralObject.SetValidValue(value, "SKUReasonID");
+                    _SKUReasonID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("SKUReasonID");
                     OnSKUReasonIDChanged();
                 }
@@ -7946,7 +7962,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReasonIDChanging(value);
                 ReportPropertyChanging("ReasonID");
-                _ReasonID = StructuralObject.SetValidValue(value, "ReasonID");
+                _ReasonID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReasonID");
                 OnReasonIDChanged();
             }
@@ -7970,7 +7986,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReturnDetailIDChanging(value);
                 ReportPropertyChanging("ReturnDetailID");
-                _ReturnDetailID = StructuralObject.SetValidValue(value, "ReturnDetailID");
+                _ReturnDetailID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReturnDetailID");
                 OnReturnDetailIDChanged();
             }
@@ -7981,6 +7997,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -8096,7 +8113,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8115,7 +8132,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnStationIDChanging(value);
                     ReportPropertyChanging("StationID");
-                    _StationID = StructuralObject.SetValidValue(value, "StationID");
+                    _StationID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("StationID");
                     OnStationIDChanged();
                 }
@@ -8140,7 +8157,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRequestedUserIDChanging(value);
                 ReportPropertyChanging("RequestedUserID");
-                _RequestedUserID = StructuralObject.SetValidValue(value, "RequestedUserID");
+                _RequestedUserID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RequestedUserID");
                 OnRequestedUserIDChanged();
             }
@@ -8164,7 +8181,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStationNameChanging(value);
                 ReportPropertyChanging("StationName");
-                _StationName = StructuralObject.SetValidValue(value, false, "StationName");
+                _StationName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("StationName");
                 OnStationNameChanged();
             }
@@ -8188,7 +8205,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDeviceNumberChanging(value);
                 ReportPropertyChanging("DeviceNumber");
-                _DeviceNumber = StructuralObject.SetValidValue(value, false, "DeviceNumber");
+                _DeviceNumber = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("DeviceNumber");
                 OnDeviceNumberChanged();
             }
@@ -8212,7 +8229,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStationAliveChanging(value);
                 ReportPropertyChanging("StationAlive");
-                _StationAlive = StructuralObject.SetValidValue(value, "StationAlive");
+                _StationAlive = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StationAlive");
                 OnStationAliveChanged();
             }
@@ -8236,7 +8253,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRegistrationDateChanging(value);
                 ReportPropertyChanging("RegistrationDate");
-                _RegistrationDate = StructuralObject.SetValidValue(value, "RegistrationDate");
+                _RegistrationDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RegistrationDate");
                 OnRegistrationDateChanged();
             }
@@ -8260,7 +8277,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStationLocationChanging(value);
                 ReportPropertyChanging("StationLocation");
-                _StationLocation = StructuralObject.SetValidValue(value, true, "StationLocation");
+                _StationLocation = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("StationLocation");
                 OnStationLocationChanged();
             }
@@ -8284,7 +8301,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -8308,7 +8325,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -8332,7 +8349,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -8356,7 +8373,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -8367,6 +8384,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -8482,7 +8500,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8499,7 +8517,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnnameChanging(value);
                 ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false, "name");
+                _name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("name");
                 OnnameChanged();
             }
@@ -8523,7 +8541,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 Onprincipal_idChanging(value);
                 ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value, "principal_id");
+                _principal_id = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("principal_id");
                 Onprincipal_idChanged();
             }
@@ -8549,7 +8567,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     Ondiagram_idChanging(value);
                     ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value, "diagram_id");
+                    _diagram_id = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("diagram_id");
                     Ondiagram_idChanged();
                 }
@@ -8574,7 +8592,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnversionChanging(value);
                 ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value, "version");
+                _version = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("version");
                 OnversionChanged();
             }
@@ -8598,7 +8616,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OndefinitionChanging(value);
                 ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true, "definition");
+                _definition = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("definition");
                 OndefinitionChanged();
             }
@@ -8609,6 +8627,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -8634,7 +8653,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8653,7 +8672,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnTrackingIDChanging(value);
                     ReportPropertyChanging("TrackingID");
-                    _TrackingID = StructuralObject.SetValidValue(value, "TrackingID");
+                    _TrackingID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("TrackingID");
                     OnTrackingIDChanged();
                 }
@@ -8678,7 +8697,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPackingIDChanging(value);
                 ReportPropertyChanging("PackingID");
-                _PackingID = StructuralObject.SetValidValue(value, "PackingID");
+                _PackingID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PackingID");
                 OnPackingIDChanged();
             }
@@ -8702,7 +8721,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnShippingIDChanging(value);
                 ReportPropertyChanging("ShippingID");
-                _ShippingID = StructuralObject.SetValidValue(value, "ShippingID");
+                _ShippingID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ShippingID");
                 OnShippingIDChanged();
             }
@@ -8726,7 +8745,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBoxIDChanging(value);
                 ReportPropertyChanging("BoxID");
-                _BoxID = StructuralObject.SetValidValue(value, "BoxID");
+                _BoxID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("BoxID");
                 OnBoxIDChanged();
             }
@@ -8750,7 +8769,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSHIP_REF1Changing(value);
                 ReportPropertyChanging("SHIP_REF1");
-                _SHIP_REF1 = StructuralObject.SetValidValue(value, true, "SHIP_REF1");
+                _SHIP_REF1 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SHIP_REF1");
                 OnSHIP_REF1Changed();
             }
@@ -8774,7 +8793,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTrackingNumChanging(value);
                 ReportPropertyChanging("TrackingNum");
-                _TrackingNum = StructuralObject.SetValidValue(value, true, "TrackingNum");
+                _TrackingNum = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TrackingNum");
                 OnTrackingNumChanged();
             }
@@ -8798,7 +8817,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTrackingNum_FEDEXChanging(value);
                 ReportPropertyChanging("TrackingNum_FEDEX");
-                _TrackingNum_FEDEX = StructuralObject.SetValidValue(value, true, "TrackingNum_FEDEX");
+                _TrackingNum_FEDEX = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TrackingNum_FEDEX");
                 OnTrackingNum_FEDEXChanged();
             }
@@ -8822,7 +8841,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTrackingNum_UPSChanging(value);
                 ReportPropertyChanging("TrackingNum_UPS");
-                _TrackingNum_UPS = StructuralObject.SetValidValue(value, true, "TrackingNum_UPS");
+                _TrackingNum_UPS = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TrackingNum_UPS");
                 OnTrackingNum_UPSChanged();
             }
@@ -8846,7 +8865,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCODCHGChanging(value);
                 ReportPropertyChanging("CODCHG");
-                _CODCHG = StructuralObject.SetValidValue(value, true, "CODCHG");
+                _CODCHG = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CODCHG");
                 OnCODCHGChanged();
             }
@@ -8870,7 +8889,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPCKCHGChanging(value);
                 ReportPropertyChanging("PCKCHG");
-                _PCKCHG = StructuralObject.SetValidValue(value, true, "PCKCHG");
+                _PCKCHG = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PCKCHG");
                 OnPCKCHGChanged();
             }
@@ -8894,7 +8913,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnHeightChanging(value);
                 ReportPropertyChanging("Height");
-                _Height = StructuralObject.SetValidValue(value, true, "Height");
+                _Height = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Height");
                 OnHeightChanged();
             }
@@ -8918,7 +8937,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnLengthChanging(value);
                 ReportPropertyChanging("Length");
-                _Length = StructuralObject.SetValidValue(value, true, "Length");
+                _Length = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Length");
                 OnLengthChanged();
             }
@@ -8942,7 +8961,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnWidthChanging(value);
                 ReportPropertyChanging("Width");
-                _Width = StructuralObject.SetValidValue(value, true, "Width");
+                _Width = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Width");
                 OnWidthChanged();
             }
@@ -8966,7 +8985,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnBOXNUMChanging(value);
                 ReportPropertyChanging("BOXNUM");
-                _BOXNUM = StructuralObject.SetValidValue(value, true, "BOXNUM");
+                _BOXNUM = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("BOXNUM");
                 OnBOXNUMChanged();
             }
@@ -8990,7 +9009,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCODOPTChanging(value);
                 ReportPropertyChanging("CODOPT");
-                _CODOPT = StructuralObject.SetValidValue(value, true, "CODOPT");
+                _CODOPT = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CODOPT");
                 OnCODOPTChanged();
             }
@@ -9014,7 +9033,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnHDLCHGChanging(value);
                 ReportPropertyChanging("HDLCHG");
-                _HDLCHG = StructuralObject.SetValidValue(value, true, "HDLCHG");
+                _HDLCHG = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("HDLCHG");
                 OnHDLCHGChanged();
             }
@@ -9038,7 +9057,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnINSVALChanging(value);
                 ReportPropertyChanging("INSVAL");
-                _INSVAL = StructuralObject.SetValidValue(value, true, "INSVAL");
+                _INSVAL = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("INSVAL");
                 OnINSVALChanged();
             }
@@ -9062,7 +9081,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPCKTYPChanging(value);
                 ReportPropertyChanging("PCKTYP");
-                _PCKTYP = StructuralObject.SetValidValue(value, true, "PCKTYP");
+                _PCKTYP = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PCKTYP");
                 OnPCKTYPChanged();
             }
@@ -9086,7 +9105,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTOTWEIChanging(value);
                 ReportPropertyChanging("TOTWEI");
-                _TOTWEI = StructuralObject.SetValidValue(value, true, "TOTWEI");
+                _TOTWEI = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TOTWEI");
                 OnTOTWEIChanged();
             }
@@ -9110,7 +9129,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTOTPKGChanging(value);
                 ReportPropertyChanging("TOTPKG");
-                _TOTPKG = StructuralObject.SetValidValue(value, true, "TOTPKG");
+                _TOTPKG = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TOTPKG");
                 OnTOTPKGChanged();
             }
@@ -9134,7 +9153,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTOTSHPChanging(value);
                 ReportPropertyChanging("TOTSHP");
-                _TOTSHP = StructuralObject.SetValidValue(value, true, "TOTSHP");
+                _TOTSHP = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TOTSHP");
                 OnTOTSHPChanged();
             }
@@ -9158,7 +9177,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnXWAREHOUSEChanging(value);
                 ReportPropertyChanging("XWAREHOUSE");
-                _XWAREHOUSE = StructuralObject.SetValidValue(value, true, "XWAREHOUSE");
+                _XWAREHOUSE = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("XWAREHOUSE");
                 OnXWAREHOUSEChanged();
             }
@@ -9182,7 +9201,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCustomerPOChanging(value);
                 ReportPropertyChanging("CustomerPO");
-                _CustomerPO = StructuralObject.SetValidValue(value, true, "CustomerPO");
+                _CustomerPO = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("CustomerPO");
                 OnCustomerPOChanged();
             }
@@ -9206,7 +9225,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSRVTYPChanging(value);
                 ReportPropertyChanging("SRVTYP");
-                _SRVTYP = StructuralObject.SetValidValue(value, true, "SRVTYP");
+                _SRVTYP = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SRVTYP");
                 OnSRVTYPChanged();
             }
@@ -9230,7 +9249,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnPKUDATChanging(value);
                 ReportPropertyChanging("PKUDAT");
-                _PKUDAT = StructuralObject.SetValidValue(value, true, "PKUDAT");
+                _PKUDAT = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PKUDAT");
                 OnPKUDATChanged();
             }
@@ -9254,7 +9273,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnSHIDATChanging(value);
                 ReportPropertyChanging("SHIDAT");
-                _SHIDAT = StructuralObject.SetValidValue(value, true, "SHIDAT");
+                _SHIDAT = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SHIDAT");
                 OnSHIDATChanged();
             }
@@ -9278,7 +9297,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnWeightChanging(value);
                 ReportPropertyChanging("Weight");
-                _Weight = StructuralObject.SetValidValue(value, true, "Weight");
+                _Weight = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Weight");
                 OnWeightChanged();
             }
@@ -9302,7 +9321,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnXSPECHG_0Changing(value);
                 ReportPropertyChanging("XSPECHG_0");
-                _XSPECHG_0 = StructuralObject.SetValidValue(value, true, "XSPECHG_0");
+                _XSPECHG_0 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("XSPECHG_0");
                 OnXSPECHG_0Changed();
             }
@@ -9326,7 +9345,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVOIINDChanging(value);
                 ReportPropertyChanging("VOIIND");
-                _VOIIND = StructuralObject.SetValidValue(value, true, "VOIIND");
+                _VOIIND = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("VOIIND");
                 OnVOIINDChanged();
             }
@@ -9350,7 +9369,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnTrackingDateChanging(value);
                 ReportPropertyChanging("TrackingDate");
-                _TrackingDate = StructuralObject.SetValidValue(value, "TrackingDate");
+                _TrackingDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TrackingDate");
                 OnTrackingDateChanged();
             }
@@ -9374,7 +9393,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -9398,7 +9417,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -9422,7 +9441,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -9446,7 +9465,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -9470,7 +9489,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReadyToExportChanging(value);
                 ReportPropertyChanging("ReadyToExport");
-                _ReadyToExport = StructuralObject.SetValidValue(value, "ReadyToExport");
+                _ReadyToExport = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ReadyToExport");
                 OnReadyToExportChanged();
             }
@@ -9494,7 +9513,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnExportedChanging(value);
                 ReportPropertyChanging("Exported");
-                _Exported = StructuralObject.SetValidValue(value, "Exported");
+                _Exported = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Exported");
                 OnExportedChanged();
             }
@@ -9505,6 +9524,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -9650,7 +9670,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9669,7 +9689,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUserIDChanging(value);
                     ReportPropertyChanging("UserID");
-                    _UserID = StructuralObject.SetValidValue(value, "UserID");
+                    _UserID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("UserID");
                     OnUserIDChanged();
                 }
@@ -9694,7 +9714,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnRoleIdChanging(value);
                 ReportPropertyChanging("RoleId");
-                _RoleId = StructuralObject.SetValidValue(value, "RoleId");
+                _RoleId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("RoleId");
                 OnRoleIdChanged();
             }
@@ -9718,7 +9738,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserFullNameChanging(value);
                 ReportPropertyChanging("UserFullName");
-                _UserFullName = StructuralObject.SetValidValue(value, true, "UserFullName");
+                _UserFullName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("UserFullName");
                 OnUserFullNameChanged();
             }
@@ -9742,7 +9762,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserNameChanging(value);
                 ReportPropertyChanging("UserName");
-                _UserName = StructuralObject.SetValidValue(value, true, "UserName");
+                _UserName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("UserName");
                 OnUserNameChanged();
             }
@@ -9766,7 +9786,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserAddressChanging(value);
                 ReportPropertyChanging("UserAddress");
-                _UserAddress = StructuralObject.SetValidValue(value, true, "UserAddress");
+                _UserAddress = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("UserAddress");
                 OnUserAddressChanged();
             }
@@ -9790,7 +9810,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserJoiningDateChanging(value);
                 ReportPropertyChanging("UserJoiningDate");
-                _UserJoiningDate = StructuralObject.SetValidValue(value, "UserJoiningDate");
+                _UserJoiningDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserJoiningDate");
                 OnUserJoiningDateChanged();
             }
@@ -9814,7 +9834,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserPasswordChanging(value);
                 ReportPropertyChanging("UserPassword");
-                _UserPassword = StructuralObject.SetValidValue(value, true, "UserPassword");
+                _UserPassword = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("UserPassword");
                 OnUserPasswordChanged();
             }
@@ -9838,7 +9858,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -9862,7 +9882,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -9886,7 +9906,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -9910,7 +9930,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -9921,6 +9941,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -10082,7 +10103,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10101,7 +10122,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnUserStationIDChanging(value);
                     ReportPropertyChanging("UserStationID");
-                    _UserStationID = StructuralObject.SetValidValue(value, "UserStationID");
+                    _UserStationID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("UserStationID");
                     OnUserStationIDChanged();
                 }
@@ -10126,7 +10147,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnStationIDChanging(value);
                 ReportPropertyChanging("StationID");
-                _StationID = StructuralObject.SetValidValue(value, "StationID");
+                _StationID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StationID");
                 OnStationIDChanged();
             }
@@ -10150,7 +10171,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUserIDChanging(value);
                 ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                _UserID = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserID");
                 OnUserIDChanged();
             }
@@ -10174,7 +10195,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnLoginDateTimeChanging(value);
                 ReportPropertyChanging("LoginDateTime");
-                _LoginDateTime = StructuralObject.SetValidValue(value, "LoginDateTime");
+                _LoginDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("LoginDateTime");
                 OnLoginDateTimeChanged();
             }
@@ -10198,7 +10219,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedDateTimeChanging(value);
                 ReportPropertyChanging("CreatedDateTime");
-                _CreatedDateTime = StructuralObject.SetValidValue(value, "CreatedDateTime");
+                _CreatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedDateTime");
                 OnCreatedDateTimeChanged();
             }
@@ -10222,7 +10243,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedDateTimeChanging(value);
                 ReportPropertyChanging("UpdatedDateTime");
-                _UpdatedDateTime = StructuralObject.SetValidValue(value, "UpdatedDateTime");
+                _UpdatedDateTime = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UpdatedDateTime");
                 OnUpdatedDateTimeChanged();
             }
@@ -10246,7 +10267,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -10270,7 +10291,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnUpdatedbyChanging(value);
                 ReportPropertyChanging("Updatedby");
-                _Updatedby = StructuralObject.SetValidValue(value, "Updatedby");
+                _Updatedby = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Updatedby");
                 OnUpdatedbyChanged();
             }
@@ -10281,6 +10302,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
         #region Navigation Properties
     
         /// <summary>
@@ -10390,7 +10412,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10409,7 +10431,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnVesionIDChanging(value);
                     ReportPropertyChanging("VesionID");
-                    _VesionID = StructuralObject.SetValidValue(value, "VesionID");
+                    _VesionID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("VesionID");
                     OnVesionIDChanged();
                 }
@@ -10434,7 +10456,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVersionNumberChanging(value);
                 ReportPropertyChanging("VersionNumber");
-                _VersionNumber = StructuralObject.SetValidValue(value, false, "VersionNumber");
+                _VersionNumber = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("VersionNumber");
                 OnVersionNumberChanged();
             }
@@ -10458,7 +10480,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnDateReleasedChanging(value);
                 ReportPropertyChanging("DateReleased");
-                _DateReleased = StructuralObject.SetValidValue(value, "DateReleased");
+                _DateReleased = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DateReleased");
                 OnDateReleasedChanged();
             }
@@ -10469,6 +10491,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
     
     /// <summary>
@@ -10496,7 +10519,7 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
-        #region Simple Properties
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10515,7 +10538,7 @@ namespace KrausWarehouseServices.Connections.Shipping
                 {
                     OnVersionIDChanging(value);
                     ReportPropertyChanging("VersionID");
-                    _VersionID = StructuralObject.SetValidValue(value, "VersionID");
+                    _VersionID = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("VersionID");
                     OnVersionIDChanged();
                 }
@@ -10540,7 +10563,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnVersionNumberChanging(value);
                 ReportPropertyChanging("VersionNumber");
-                _VersionNumber = StructuralObject.SetValidValue(value, false, "VersionNumber");
+                _VersionNumber = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("VersionNumber");
                 OnVersionNumberChanged();
             }
@@ -10564,7 +10587,7 @@ namespace KrausWarehouseServices.Connections.Shipping
             {
                 OnReleaseChanging(value);
                 ReportPropertyChanging("Release");
-                _Release = StructuralObject.SetValidValue(value, "Release");
+                _Release = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Release");
                 OnReleaseChanged();
             }
@@ -10575,8 +10598,10 @@ namespace KrausWarehouseServices.Connections.Shipping
 
         #endregion
 
+    
     }
 
     #endregion
 
+    
 }
