@@ -240,7 +240,6 @@ namespace KrausWarehouseServices.Service.RMA
         }
         #endregion
 
-
         #region Sage Operations
 
 
@@ -271,8 +270,6 @@ namespace KrausWarehouseServices.Service.RMA
 
         #endregion
 
-
-
         #region Return Detail
         public List<DTO.RMA.ReturnDetailsDTO> ReturnDetailAll()
         {
@@ -299,7 +296,6 @@ namespace KrausWarehouseServices.Service.RMA
         }
         #endregion
 
-
         #region ReturnImage.
         public List<DTO.RMA.ReturnImagesDTO> ImagePathTable(Guid ReturnDetailID)
         {
@@ -312,7 +308,6 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
         #endregion
-
 
         public List<DTO.RMA.ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID)
         {
@@ -327,5 +322,6 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
         #endregion
+
     }
 }
