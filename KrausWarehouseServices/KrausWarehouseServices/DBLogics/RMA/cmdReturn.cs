@@ -369,7 +369,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
             try
             {
                 Return _returnObj = new Return();
-                _returnObj = entRMA.Returns.SingleOrDefault(ret => ret.ReturnID == returnDTO.ReturnID);
+                _returnObj = entRMA.Returns.SingleOrDefault(ret => ret.RMANumber == returnDTO.RMANumber);
 
                 //If return object is null then Save records
                 if (_returnObj == null)

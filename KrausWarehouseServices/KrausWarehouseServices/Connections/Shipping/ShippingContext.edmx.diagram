@@ -5,21 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f16c2a40e124491e8331f87c933b9600" Name="Diagram1" ZoomLevel="59">
-        <EntityTypeShape EntityType="Model.Audit" Width="1.5" PointX="24.375" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.BoxPackage" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ErrorLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Package" Width="1.5" PointX="8.375" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PackageDetail" Width="1.5" PointX="10.625" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="21.625" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Shipping" Width="3.125" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.SKUImage" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Station" Width="1.5" PointX="15.125" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Tracking" Width="1.5" PointX="3.875" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="22.625" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.UserStation" Width="1.5" PointX="18" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.VersionReleased" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Audit" Width="1.5" PointX="14.875" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BoxPackage" Width="1.5" PointX="4.125" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ErrorLog" Width="1.5" PointX="3.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Package" Width="1.5" PointX="7.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PackageDetail" Width="1.5" PointX="8.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="15.375" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Shipping" Width="3.125" PointX="0.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SKUImage" Width="1.5" PointX="14.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Station" Width="1.5" PointX="10.875" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tracking" Width="1.5" PointX="17.875" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="12.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserStation" Width="1.5" PointX="11.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VersionReleased" Width="1.5" PointX="11.875" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Get_Shipping_Data" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.getShippingDetail" Width="1.5" PointX="31" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.getShippingDetail" Width="1.5" PointX="19.875" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_UserLogs_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_BoxPackage_Package" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Tracking_BoxPackage" ManuallyRouted="false" />
@@ -33,18 +33,18 @@
         <AssociationConnector Association="Model.FK_Station_User" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_tblUserStation_tblStationMaster" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_UserStation_User" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.ReasonCategory" Width="1.5" PointX="2.7979280961667783" PointY="23.634244497695121" />
-        <EntityTypeShape EntityType="Model.Reason" Width="1.5" PointX="11.6535153238352" PointY="4.1316507477926327" />
-        <EntityTypeShape EntityType="Model.Return" Width="1.5" PointX="7.5045014095979283" PointY="13.523247292974613" />
+        <EntityTypeShape EntityType="Model.ReasonCategory" Width="1.5" PointX="13.875" PointY="15.5" />
+        <EntityTypeShape EntityType="Model.Reason" Width="1.5" PointX="15.75" PointY="17.75" />
+        <EntityTypeShape EntityType="Model.Return" Width="1.5" PointX="16.5" PointY="0.875" />
         <EntityTypeShape EntityType="Model.ReturnDetail" Width="1.5" PointX="5.323876560350822" PointY="0.77900916374242357" />
-        <EntityTypeShape EntityType="Model.ReturnImage" Width="1.5" PointX="4.9517040555140488" PointY="15.081458411683077" />
+        <EntityTypeShape EntityType="Model.ReturnImage" Width="1.5" PointX="5.625" PointY="14.375" />
         <EntityTypeShape EntityType="Model.RMAAudit" Width="1.5" PointX="7.0853210962774789" PointY="1.2474293714610065" />
-        <EntityTypeShape EntityType="Model.SKUReason" Width="1.5" PointX="4.9302028366039519" PointY="24.002966102214049" />
+        <EntityTypeShape EntityType="Model.SKUReason" Width="1.5" PointX="9.375" PointY="17.5" />
         <AssociationConnector Association="Model.FK_Transaction_Reasons" />
         <AssociationConnector Association="Model.FK_ReturnImages_ReturnDetail" />
         <AssociationConnector Association="Model.FK_Transaction_ReturnDetail" />
-        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="3.5284852942118818" PointY="23.486295576899451" />
-        <EntityTypeShape EntityType="Model.VersionRelease_RGA" Width="1.5" PointX="0.94679721861462918" PointY="24.423824947524736" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="3.75" PointY="15.25" />
+        <EntityTypeShape EntityType="Model.VersionRelease_RGA" Width="1.5" PointX="1.625" PointY="15.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

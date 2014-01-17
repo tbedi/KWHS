@@ -167,7 +167,9 @@
     <None Include="Connections\Shipping\ShippingContext.edmx.diagram">
       <DependentUpon>ShippingContext.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
