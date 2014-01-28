@@ -268,6 +268,11 @@ namespace KrausWarehouseServices.Service.RMA
             return _sageOperations.GetRMAInfoBySRNumber(SRNumber);
         }
 
+        public List<string> ProductMachingNameCat(string Chars)
+        {
+            return _sageOperations.GetNewRMAInfo(Chars);
+        }
+
         #endregion
 
         #region Return Detail
@@ -323,5 +328,8 @@ namespace KrausWarehouseServices.Service.RMA
 
         #endregion
 
+
+
+       
     }
 }

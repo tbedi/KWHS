@@ -185,6 +185,9 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         List<RMAInfoDTO> RMAInfoBySRNumber(String SRNumber);
 
+        [OperationContract]
+        List<string> ProductMachingNameCat(string Chars);
+
         #endregion
 
         #region Role
