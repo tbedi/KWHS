@@ -31,7 +31,7 @@ namespace KrausWarehouseServices.Service.RMA
         DBLogics.RMA.cmdRoles _role = new DBLogics.RMA.cmdRoles();
 
         //create SKUNumber object
-        DBLogics.RMA.cmdSKUReasons _SKUnumber = new DBLogics.RMA.cmdSKUReasons();
+        DBLogics.RMA.cmdSKUReasons _SKUreasons = new DBLogics.RMA.cmdSKUReasons();
 
         //Audit commands .
         DBLogics.RMA.cmdRMAAudit _audit = new DBLogics.RMA.cmdRMAAudit();
@@ -215,7 +215,7 @@ namespace KrausWarehouseServices.Service.RMA
 
         public string ListOfReasons(Guid ReturnDetailID)
         {
-            return _SKUnumber.ListOfReasons(ReturnDetailID);
+            return _SKUreasons.ListOfReasons(ReturnDetailID);
         }
 
 
@@ -328,8 +328,13 @@ namespace KrausWarehouseServices.Service.RMA
 
         #endregion
 
-
-
-       
+        #region SKUReasons
+        
+        public List<DTO.RMA.SKUReasonsDTO> GetSKUImagesByReturnDetailID(Guid ReturnDetailID)
+        {
+          return  _SKUreasons.GetSKUReasonsByReturnDetailsID(ReturnDetailID);
+        }
+ 
+        #endregion
     }
 }

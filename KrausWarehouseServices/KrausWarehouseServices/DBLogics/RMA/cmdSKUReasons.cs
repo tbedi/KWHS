@@ -95,5 +95,24 @@ namespace KrausWarehouseServices.DBLogics.RMA
            return List;
        }
 
+       public List<SKUReasonsDTO> GetSKUReasonsByReturnDetailsID(Guid ReturnDetailID)
+       {
+           List<SKUReasonsDTO> _lsReturn = new List<SKUReasonsDTO>();
+           try
+           {
+               var lsreason = (from sku in entRMA.SKUReasons
+                               where sku.ReturnDetailID == ReturnDetailID
+                               select sku).ToList();
+               foreach (var skureason in lsreason)
+               {
+
+                   _lsReturn.Add(new SKUReasonsDTO(skureason));
+               }
+           }
+           catch (Exception)
+           {}
+           return _lsReturn;
+       }
+
     }
 }

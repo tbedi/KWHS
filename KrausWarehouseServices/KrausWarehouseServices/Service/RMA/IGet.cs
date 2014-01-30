@@ -215,5 +215,12 @@ namespace KrausWarehouseServices.Service.RMA
         
 
         #endregion
+
+        #region SKUImages
+
+        [OperationContract]
+        List<SKUReasonsDTO> GetSKUImagesByReturnDetailID(Guid ReturnDetailID);
+
+        #endregion
     }
 }
