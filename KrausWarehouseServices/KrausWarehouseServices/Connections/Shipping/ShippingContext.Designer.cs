@@ -4437,6 +4437,30 @@ namespace KrausWarehouseServices.Connections.Shipping
         private global::System.String _Reason1;
         partial void OnReason1Changing(global::System.String value);
         partial void OnReason1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ReasonPoints
+        {
+            get
+            {
+                return _ReasonPoints;
+            }
+            set
+            {
+                OnReasonPointsChanging(value);
+                ReportPropertyChanging("ReasonPoints");
+                _ReasonPoints = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReasonPoints");
+                OnReasonPointsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ReasonPoints;
+        partial void OnReasonPointsChanging(Nullable<global::System.Int32> value);
+        partial void OnReasonPointsChanged();
 
         #endregion
 

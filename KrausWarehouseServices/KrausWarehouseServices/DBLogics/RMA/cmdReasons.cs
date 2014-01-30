@@ -94,6 +94,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                     _Reasons = new Reason();
                     _Reasons.ReasonID = DTOReason.ReasonID;
                     _Reasons.Reason1 = DTOReason.Reason;
+                    _Reasons.ReasonPoints = DTOReason.ReasonPoints;
                     entRMA.AddToReasons(_Reasons);
                 }
                 else

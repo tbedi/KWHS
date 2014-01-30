@@ -4,31 +4,31 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="Audit" EntityType="Model.Store.Audit" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="BoxPackage" EntityType="Model.Store.BoxPackage" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ErrorLog" EntityType="Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Package" EntityType="Model.Store.Package" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="PackageDetail" EntityType="Model.Store.PackageDetail" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ReasonCategory" EntityType="Model.Store.ReasonCategory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Reasons" EntityType="Model.Store.Reasons" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Return" EntityType="Model.Store.Return" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ReturnDetail" EntityType="Model.Store.ReturnDetail" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="ReturnImages" EntityType="Model.Store.ReturnImages" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="RMAAudit" EntityType="Model.Store.RMAAudit" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Shipping" EntityType="Model.Store.Shipping" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="SKUImages" EntityType="Model.Store.SKUImages" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="SKUReasons" EntityType="Model.Store.SKUReasons" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Station" EntityType="Model.Store.Station" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="sysdiagrams" EntityType="Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Tracking" EntityType="Model.Store.Tracking" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="User" EntityType="Model.Store.User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="UserStation" EntityType="Model.Store.UserStation" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="VersionRelease_RGA" EntityType="Model.Store.VersionRelease_RGA" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="VersionReleased" EntityType="Model.Store.VersionReleased" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Get_Shipping_Data" EntityType="Model.Store.Get_Shipping_Data" store:Type="Views" store:Schema="dbo" store:Name="Get_Shipping_Data" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Audit" EntityType="Model.Store.Audit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BoxPackage" EntityType="Model.Store.BoxPackage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ErrorLog" EntityType="Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Package" EntityType="Model.Store.Package" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PackageDetail" EntityType="Model.Store.PackageDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReasonCategory" EntityType="Model.Store.ReasonCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reasons" EntityType="Model.Store.Reasons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Return" EntityType="Model.Store.Return" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReturnDetail" EntityType="Model.Store.ReturnDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReturnImages" EntityType="Model.Store.ReturnImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RMAAudit" EntityType="Model.Store.RMAAudit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shipping" EntityType="Model.Store.Shipping" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SKUImages" EntityType="Model.Store.SKUImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SKUReasons" EntityType="Model.Store.SKUReasons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Station" EntityType="Model.Store.Station" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tracking" EntityType="Model.Store.Tracking" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="Model.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserStation" EntityType="Model.Store.UserStation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VersionRelease_RGA" EntityType="Model.Store.VersionRelease_RGA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VersionReleased" EntityType="Model.Store.VersionReleased" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Get_Shipping_Data" EntityType="Model.Store.Get_Shipping_Data" store:Type="Views" store:Schema="dbo" store:Name="Get_Shipping_Data">
             <DefiningQuery>SELECT 
       [Get_Shipping_Data].[Row_Number] AS [Row_Number], 
       [Get_Shipping_Data].[ShipmentID] AS [ShipmentID], 
@@ -50,7 +50,7 @@
       [Get_Shipping_Data].[LocationCombined] AS [LocationCombined]
       FROM [dbo].[Get_Shipping_Data] AS [Get_Shipping_Data]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="getShippingDetails" EntityType="Model.Store.getShippingDetails" store:Type="Views" store:Schema="dbo" store:Name="getShippingDetails" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="getShippingDetails" EntityType="Model.Store.getShippingDetails" store:Type="Views" store:Schema="dbo" store:Name="getShippingDetails">
             <DefiningQuery>SELECT 
       [getShippingDetails].[ShippingNum] AS [ShippingNum], 
       [getShippingDetails].[DeliveryProvider] AS [DeliveryProvider], 
@@ -259,6 +259,7 @@
           </Key>
           <Property Name="ReasonID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Reason" Type="varchar(max)" />
+          <Property Name="ReasonPoints" Type="int" />
         </EntityType>
         <EntityType Name="Return">
           <Key>
@@ -1530,6 +1531,7 @@
           <Property Type="Guid" Name="ReasonID" Nullable="false" />
           <Property Type="String" Name="Reason1" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SKUReasons" Relationship="Model.FK_Transaction_Reasons" FromRole="Reason" ToRole="SKUReason" />
+          <Property Type="Int32" Name="ReasonPoints" />
         </EntityType>
         <EntityType Name="Return">
           <Key>
@@ -2035,6 +2037,7 @@
           <EntitySetMapping Name="Reasons">
             <EntityTypeMapping TypeName="Model.Reason">
               <MappingFragment StoreEntitySet="Reasons">
+                <ScalarProperty Name="ReasonPoints" ColumnName="ReasonPoints" />
                 <ScalarProperty Name="Reason1" ColumnName="Reason" />
                 <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
               </MappingFragment>

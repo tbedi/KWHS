@@ -107,7 +107,6 @@
     <Compile Include="DBLogics\Shipping\cmdTracking.cs" />
     <Compile Include="DBLogics\Shipping\cmdUser.cs" />
     <Compile Include="DBLogics\Shipping\cmdUserStation.cs" />
-    <Compile Include="DTO\RMA\Class1.cs" />
     <Compile Include="DTO\RMA\RMAAuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />

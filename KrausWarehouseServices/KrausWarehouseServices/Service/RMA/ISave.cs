@@ -128,8 +128,7 @@ namespace KrausWarehouseServices.Service.RMA
         Boolean UpsertAudit(RMAAuditDTO audit);
 
 
-        [OperationContract]
-        String SetTest(Class1 cls);
+     
         #endregion
 
     }

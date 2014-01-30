@@ -79,10 +79,5 @@ namespace KrausWarehouseServices.Service.RMA
             return _audit.UpsertAudit(audit);
         }
 
-
-        public String SetTest(DTO.RMA.Class1 cls)
-        {
-            return "Data Recevied :" + cls.Test.ToString();
-        }
     }
 }
