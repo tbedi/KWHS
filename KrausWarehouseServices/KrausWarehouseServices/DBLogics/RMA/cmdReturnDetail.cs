@@ -230,7 +230,50 @@ namespace KrausWarehouseServices.DBLogics.RMA
        } 
        #endregion
 
+        #region Delete
 
+       /// <summary>
+       /// Delete Return Details Table with all its foreign key relation tables also.
+       /// </summary>
+       /// <param name="ReturnDetailsID">
+       /// Return Details Table foreign Key.
+       /// </param>
+       /// <returns>
+       /// Boooleand Value indicating where the all tables are deleted or not.
+       /// </returns>
+       public Boolean DeleteAllForeignKeyTables(Guid ReturnDetailsID)
+       {
+           Boolean _returnFlag = false;
+           try
+           {
+               List<ReturnImage> SKUImages = (from Ls in entRMA.ReturnImages
+                                              where Ls.ReturnDetailID == ReturnDetailsID
+                                              select Ls).ToList();
+               List<SKUReason> SKUResons = (from Ls in entRMA.SKUReasons
+                                            where Ls.ReturnDetailID == ReturnDetailsID
+                                            select Ls).ToList();
+               ReturnDetail ReturnDetails = entRMA.ReturnDetails.SingleOrDefault(i => i.ReturnDetailID == ReturnDetailsID);
+
+               foreach (ReturnImage  imagesID in SKUImages)
+               {
+                   entRMA.DeleteObject(imagesID);
+               }
+               entRMA.SaveChanges();
+               foreach (SKUReason Reasonitem in SKUResons)
+               {
+                entRMA.DeleteObject(Reasonitem);
+               }
+               entRMA.SaveChanges();
+               entRMA.DeleteObject(ReturnDetails);
+               entRMA.SaveChanges();
+               _returnFlag = true;
+           }
+           catch (Exception)
+           {}
+           return _returnFlag;
+       }
+
+        #endregion
 
     }
 }

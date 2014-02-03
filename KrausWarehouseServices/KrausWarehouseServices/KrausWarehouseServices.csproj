@@ -140,7 +140,9 @@
     <Compile Include="DTO\Shipping\viewGet_Shipping_DataDTO.cs" />
     <Compile Include="Globle Classes\get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\RMA\Delete.cs" />
     <Compile Include="Service\RMA\Get.cs" />
+    <Compile Include="Service\RMA\IDelete.cs" />
     <Compile Include="Service\RMA\IGet.cs" />
     <Compile Include="Service\RMA\ISave.cs" />
     <Compile Include="Service\RMA\Save.cs" />
@@ -152,7 +154,9 @@
     <Compile Include="Service\Shipping\Save.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Connections\SageX3V6.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SageX3V6.Designer.cs</LastGenOutput>
