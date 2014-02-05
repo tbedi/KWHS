@@ -11,7 +11,16 @@ namespace KrausWarehouseServices.Service.RMA
     [ServiceContract]
     public interface IDelete
     {
+        #region ReturnDetails
+
         [OperationContract]
-        bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID);
+        bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID); 
+
+        #endregion
+
+        #region Reason
+        [OperationContract]
+        Boolean ReasonCategoryByReasonID(Guid ReasonID);
+        #endregion
     }
 }
