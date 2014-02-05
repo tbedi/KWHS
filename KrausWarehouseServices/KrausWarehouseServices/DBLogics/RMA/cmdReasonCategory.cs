@@ -54,6 +54,40 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _flag;
         }
 
+        #region Get
+        public List<ReasonCategoryDTO> All()
+        {
+            List<ReasonCategoryDTO> _lsReturn = new List<ReasonCategoryDTO>();
+            try
+            {
+                var reasonC = (from ls in entRMA.ReasonCategories select ls).ToList();
+                foreach (var item in reasonC)
+                {
+                    _lsReturn.Add(new ReasonCategoryDTO(item));
+                }
+            }
+            catch (Exception)
+            {}
+            return _lsReturn;
+        }
 
+        public List<ReasonCategoryDTO> ByReasonID(Guid ReasonID)
+        {
+            List<ReasonCategoryDTO> _lsReturn = new List<ReasonCategoryDTO>();
+            try
+            {
+                var reasonC = (from ls in entRMA.ReasonCategories
+                               where ls.ReasonID == ReasonID
+                               select ls).ToList();
+                foreach (var item in reasonC)
+                {
+                    _lsReturn.Add(new ReasonCategoryDTO(item));
+                }
+            }
+            catch (Exception)
+            { }
+            return _lsReturn;
+        }
+        #endregion
     }
 }

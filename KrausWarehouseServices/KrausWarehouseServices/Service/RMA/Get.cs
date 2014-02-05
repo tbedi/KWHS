@@ -218,6 +218,7 @@ namespace KrausWarehouseServices.Service.RMA
             return _SKUreasons.ListOfReasons(ReturnDetailID);
         }
 
+        
 
         #endregion
 
@@ -336,5 +337,14 @@ namespace KrausWarehouseServices.Service.RMA
         }
  
         #endregion
+        public List<DTO.RMA.ReasonCategoryDTO> CategotyReasonNameByReasonID(Guid ReasonID)
+        {
+            return _reasonCat.ByReasonID(ReasonID);
+        }
+
+        public List<DTO.RMA.ReasonCategoryDTO> CategotyReasonAll()
+        {
+            return _reasonCat.All();
+        }
     }
 }
