@@ -100,6 +100,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 else
                 {
                     _Reasons.Reason1 = DTOReason.Reason;
+                    _Reasons.ReasonPoints = DTOReason.ReasonPoints;
                 }
                 entRMA.SaveChanges();
                 status = true;

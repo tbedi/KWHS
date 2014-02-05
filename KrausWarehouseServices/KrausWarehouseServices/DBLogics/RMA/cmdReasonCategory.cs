@@ -89,5 +89,29 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _lsReturn;
         }
         #endregion
+
+        #region Delete 
+
+        public Boolean DeleteByReasonID(Guid ReasonID)
+        {
+            Boolean _flag = false;
+            try
+            {
+                var reasonC = (from ls in entRMA.ReasonCategories
+                               where ls.ReasonID == ReasonID
+                               select ls).ToList();
+                foreach (var item in reasonC)
+                {
+                    ReasonCategory reasnCat = (ReasonCategory)item;
+                    entRMA.DeleteObject(reasnCat);
+                }
+                entRMA.SaveChanges();
+            }
+            catch (Exception)
+            {}
+            return _flag;
+        }
+
+        #endregion
     }
 }
