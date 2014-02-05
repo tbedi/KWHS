@@ -356,7 +356,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
             List<String> lsNEWRMAInfo = new List<String>();
             try
             {
-                var NewRMAdetailsInfo = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 ITMDES1_0 + '#' + ITMDES2_0 + '#' + TCLCOD_0 FROM PRODUCTION.ITMMASTER WHERE ITMDES1_0 LIKE '" + Chars.ToUpper() + "%';").ToList();
+                var NewRMAdetailsInfo = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 ITMDES1_0 + '#' + ITMDES2_0 + '#' + TCLCOD_0 FROM PRODUCTION.ITMMASTER WHERE ITMDES1_0 LIKE '" + Chars + "%';").ToList();
                 if (NewRMAdetailsInfo.Count() > 0)
                 {
                     foreach (var RMAitem in NewRMAdetailsInfo)
