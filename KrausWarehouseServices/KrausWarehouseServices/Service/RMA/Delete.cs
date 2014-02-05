@@ -18,19 +18,12 @@ namespace KrausWarehouseServices.Service.RMA
         /// Return Deails Table Object.
         /// </summary>
         cmdReturnDetail _cReturnDetails = new cmdReturnDetail();
-
-        cmdReasonCategory _cReasonCategory = new cmdReasonCategory();
+        
         #endregion
 
         public bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID)
         {
            return _cReturnDetails.DeleteAllForeignKeyTables(ReturnDetailID);
-        }
-
-
-        public bool ReasonCategoryByReasonID(Guid ReasonID)
-        {
-            return _cReasonCategory.DeleteByReasonID(ReasonID);
         }
     }
 }
