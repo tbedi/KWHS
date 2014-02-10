@@ -34,7 +34,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             so.ORDDAT_0 OrderDate, sdh.DLVDAT_0 DeliveryDate,
                                                                             sr.RTNDAT_0 ReturnDate, sr.BPCORD_0 VendorNumber,
                                                                             bpc.BPCNAM_0 VendorName, srd.ITMDES1_0 SKUNumber,
-                                                                            itm.ITMDES2_0 ProductName, CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
+                                                                            itm.ITMDES2_0 ProductName,CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
                                                                             CAST(srd.EXTQTY_0 AS INT) ExpectedQty, CAST(srd.QTY_0 AS INT) ReturnedQty,
                                                                             CASE WHEN sr.BPDNAM_0 = '' THEN
                                                                             (ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
@@ -371,6 +371,28 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return lsNEWRMAInfo;
         }
 
+        public String GetEANCodeByProductName(String Chars)
+        {
+            String StrEANCode = "";
+            try
+            {
+                StrEANCode = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 1 EANCOD_0 FROM PRODUCTION.ITMMASTER WHERE ITMDES1_0 ='" + Chars + "';").SingleOrDefault();
+            }
+            catch (Exception)
+            { }
+            return StrEANCode;
+        }
 
+        public String GetProductNameByEANCode(String Chars)
+        {
+            String StrProductName = "";
+            try
+            {
+                StrProductName = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 1 ITMDES1_0 FROM PRODUCTION.ITMMASTER WHERE EANCOD_0 ='" + Chars + "';").SingleOrDefault();
+            }
+            catch (Exception)
+            { }
+            return StrProductName;
+        }
     }
 }

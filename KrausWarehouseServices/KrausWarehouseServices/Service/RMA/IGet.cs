@@ -188,6 +188,11 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         List<string> ProductMachingNameCat(string Chars);
 
+        [OperationContract]
+        string GetEANCode(string Chars);
+
+        [OperationContract]
+        string GetProductName(string CharEAN);
         #endregion
 
         #region Role

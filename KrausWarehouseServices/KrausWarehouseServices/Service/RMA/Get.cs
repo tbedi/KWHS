@@ -274,6 +274,16 @@ namespace KrausWarehouseServices.Service.RMA
             return _sageOperations.GetNewRMAInfo(Chars);
         }
 
+        public string GetEANCode(string Chars)
+        {
+            return _sageOperations.GetEANCodeByProductName(Chars);
+        }
+
+        public string GetProductName(string Char)
+        {
+            return _sageOperations.GetProductNameByEANCode(Char);
+        }
+
         #endregion
 
         #region Return Detail
