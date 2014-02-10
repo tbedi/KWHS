@@ -40,7 +40,30 @@ namespace KrausWarehouseServices.DBLogics.RMA
             }
             return _reasonlist;
         }
+        public List<ReasonsDTO> ListOfReasonsByReasonDetaailID(Guid ReturnDetailID)
+        {
+            List<ReasonsDTO> List = new List<ReasonsDTO>();
+            try
+            {
+                var lsreason = (from sku in entRMA.SKUReasons
+                                join reson in entRMA.Reasons
+                                    on sku.ReasonID equals reson.ReasonID
+                                where sku.ReturnDetailID == ReturnDetailID
+                                select reson).ToList();
 
+                if (lsreason.Count > 0)
+                {
+                    foreach (var item in lsreason)
+                    {
+                        List.Add(new ReasonsDTO(item));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return List;
+        }
         /// <summary>
         /// get category wise reasons from reason Table
         /// </summary>

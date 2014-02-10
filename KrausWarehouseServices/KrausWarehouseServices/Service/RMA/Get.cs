@@ -218,6 +218,10 @@ namespace KrausWarehouseServices.Service.RMA
             return _SKUreasons.ListOfReasons(ReturnDetailID);
         }
 
+        public List<DTO.RMA.ReasonsDTO> ReasonsByReturnDetailID(Guid ReaturnDetailsID)
+        {
+            return _reason.ListOfReasonsByReasonDetaailID(ReaturnDetailsID);
+        }
         
 
         #endregion
