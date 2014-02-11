@@ -115,5 +115,23 @@ namespace KrausWarehouseServices.DBLogics.RMA
            return _lsReturn;
        }
 
+
+       public Boolean DeleteByReturnDetailsID(Guid ReturnDetailID)
+       {
+           Boolean _Flag = false;
+           try
+           {
+               var vCollection = (from ls in entRMA.SKUReasons where ls.ReturnDetailID == ReturnDetailID select ls).ToList();
+               foreach (var item in vCollection)
+               {
+                   entRMA.DeleteObject(item);
+               }
+               entRMA.SaveChanges();
+               _Flag = true;
+           }
+           catch (Exception)
+           {}
+           return _Flag;
+       }
     }
 }

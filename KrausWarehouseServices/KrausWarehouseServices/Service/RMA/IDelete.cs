@@ -14,13 +14,19 @@ namespace KrausWarehouseServices.Service.RMA
         #region ReturnDetails
 
         [OperationContract]
-        bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID); 
+        bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID);
 
         #endregion
 
         #region Reason
         [OperationContract]
         Boolean ReasonCategoryByReasonID(Guid ReasonID);
+        #endregion
+
+
+        #region SKUReasons
+        [OperationContract]
+        Boolean SKUReasonsByReturnDetailsID(Guid ReturnDetailID);
         #endregion
     }
 }
