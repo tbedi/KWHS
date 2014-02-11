@@ -287,7 +287,10 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _sageOperations.GetProductNameByEANCode(Char);
         }
-
+        public string GetPrintReasonFromSage(string SRnumber, string SKUNumber)
+        {
+            return _sageOperations.GetSageReasons(SRnumber, SKUNumber);
+        }
         #endregion
 
         #region Return Detail
@@ -360,5 +363,8 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _reasonCat.All();
         }
+
+
+       
     }
 }

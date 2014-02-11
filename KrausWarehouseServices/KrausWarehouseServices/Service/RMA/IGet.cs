@@ -196,6 +196,10 @@ namespace KrausWarehouseServices.Service.RMA
 
         [OperationContract]
         string GetProductName(string CharEAN);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetPrintReasonFromSage?ID={SRnumber}&value={SKUNumber}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
+        string GetPrintReasonFromSage(string SRnumber, String SKUNumber);
         #endregion
 
         #region Role

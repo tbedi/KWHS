@@ -394,5 +394,19 @@ namespace KrausWarehouseServices.DBLogics.RMA
             { }
             return StrProductName;
         }
+
+        public String GetSageReasons(String SRNmunber,string SKUNumber)
+        {
+            String StrReason = "";
+            try
+            {
+                StrReason = entX3V6.ExecuteStoreQuery<String>(@"SELECT RTNREN_0 FROM PRODUCTION.SRETURND WHERE SRHNUM_0 ='" + SRNmunber + "' AND ITMDES1_0 ='" + SKUNumber + "';").SingleOrDefault();
+            }
+            catch (Exception)
+            { }
+            return StrReason;
+        }
+
+
     }
 }
