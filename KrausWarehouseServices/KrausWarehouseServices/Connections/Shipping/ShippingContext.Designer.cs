@@ -5301,6 +5301,54 @@ namespace KrausWarehouseServices.Connections.Shipping
         private global::System.String _RGAROWID;
         partial void OnRGAROWIDChanging(global::System.String value);
         partial void OnRGAROWIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ScannedDate
+        {
+            get
+            {
+                return _ScannedDate;
+            }
+            set
+            {
+                OnScannedDateChanging(value);
+                ReportPropertyChanging("ScannedDate");
+                _ScannedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ScannedDate");
+                OnScannedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ScannedDate;
+        partial void OnScannedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnScannedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ExpirationDate
+        {
+            get
+            {
+                return _ExpirationDate;
+            }
+            set
+            {
+                OnExpirationDateChanging(value);
+                ReportPropertyChanging("ExpirationDate");
+                _ExpirationDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ExpirationDate");
+                OnExpirationDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ExpirationDate;
+        partial void OnExpirationDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnExpirationDateChanged();
 
         #endregion
 

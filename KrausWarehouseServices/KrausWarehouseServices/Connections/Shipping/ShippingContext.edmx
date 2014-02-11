@@ -273,6 +273,8 @@
           <Property Name="OrderDate" Type="datetime" />
           <Property Name="DeliveryDate" Type="datetime" />
           <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="ScannedDate" Type="datetime" />
+          <Property Name="ExpirationDate" Type="datetime" />
           <Property Name="VendorNumber" Type="varchar(max)" />
           <Property Name="VendoeName" Type="varchar(max)" />
           <Property Name="CustomerName1" Type="varchar(max)" />
@@ -1565,6 +1567,8 @@
           <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
           <Property Type="Int32" Name="ROWID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="RGAROWID" MaxLength="8000" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="DateTime" Name="ScannedDate" Precision="3" />
+          <Property Type="DateTime" Name="ExpirationDate" Precision="3" />
         </EntityType>
         <EntityType Name="ReturnDetail">
           <Key>
@@ -2046,6 +2050,8 @@
           <EntitySetMapping Name="Returns">
             <EntityTypeMapping TypeName="Model.Return">
               <MappingFragment StoreEntitySet="Return">
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="ScannedDate" ColumnName="ScannedDate" />
                 <ScalarProperty Name="RGAROWID" ColumnName="RGAROWID" />
                 <ScalarProperty Name="ROWID" ColumnName="ROWID" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
