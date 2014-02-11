@@ -23,6 +23,8 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_return.OrderDate != null) this.OrderDate = (DateTime)_return.OrderDate;
             if (_return.DeliveryDate != null) this.DeliveryDat = (DateTime)_return.DeliveryDate;
             if (_return.ReturnDate != null) this.ReturnDate = (DateTime)_return.ReturnDate;
+            if (_return.ScannedDate != null) this.ScannedDate = (DateTime)_return.ScannedDate;
+            if (_return.ExpirationDate != null) this.ExpirationDate = (DateTime)_return.ExpirationDate;
             if (_return.ReturnDate != null) this.VendorNumber = _return.VendorNumber;
             if (_return.VendoeName != null) this.VendoeName = _return.VendoeName;
             if (_return.CustomerName1 != null) this.CustomerName1 = _return.CustomerName1;
@@ -127,5 +129,11 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public string RGAROWID { get; set; }
+
+        [DataMember]
+        public DateTime ScannedDate { get; set; }
+
+        [DataMember]
+        public DateTime ExpirationDate { get; set; }
     }
 }

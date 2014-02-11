@@ -383,6 +383,8 @@ namespace KrausWarehouseServices.DBLogics.RMA
                     _returnObj.OrderDate = returnDTO.OrderDate;
                     _returnObj.DeliveryDate = returnDTO.DeliveryDat;
                     _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.ScannedDate = returnDTO.ScannedDate;
+                    _returnObj.ExpirationDate = returnDTO.ExpirationDate;
                     _returnObj.VendorNumber = returnDTO.VendorNumber;
                     _returnObj.VendoeName = returnDTO.VendoeName;
                     _returnObj.CustomerName1 = returnDTO.CustomerName1;
@@ -412,6 +414,8 @@ namespace KrausWarehouseServices.DBLogics.RMA
                     _returnObj.OrderDate = returnDTO.OrderDate;
                     _returnObj.DeliveryDate = returnDTO.DeliveryDat;
                     _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.ScannedDate= returnDTO.ScannedDate;
+                    _returnObj.ExpirationDate = returnDTO.ExpirationDate;
                     _returnObj.VendorNumber = returnDTO.VendorNumber;
                     _returnObj.VendoeName = returnDTO.VendoeName;
                     _returnObj.CustomerName1 = returnDTO.CustomerName1;
