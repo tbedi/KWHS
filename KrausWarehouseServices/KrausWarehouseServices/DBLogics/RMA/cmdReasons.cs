@@ -132,5 +132,25 @@ namespace KrausWarehouseServices.DBLogics.RMA
             { }
             return status;
         }
+
+
+        #region Delete
+
+        public Boolean DeleteByResonID(Guid ReasonID)
+        {
+            Boolean _return = false;
+            try
+            {
+                Reason reasn = entRMA.Reasons.SingleOrDefault(i => i.ReasonID == ReasonID);
+                entRMA.DeleteObject(reasn);
+                entRMA.SaveChanges();
+                _return = true;
+            }
+            catch (Exception)
+            {}
+            return _return;
+        }
+        
+        #endregion
     }
 }

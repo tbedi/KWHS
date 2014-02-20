@@ -22,6 +22,8 @@ namespace KrausWarehouseServices.Service.RMA
         cmdReasonCategory _cReasonCategory = new cmdReasonCategory();
 
         cmdSKUReasons _cSKUReasons = new cmdSKUReasons();
+
+        cmdReasons _cReasons = new cmdReasons();
         #endregion
 
         public bool ReturnDetailsallForeignKeyTables(Guid ReturnDetailID)
@@ -42,7 +44,15 @@ namespace KrausWarehouseServices.Service.RMA
             return _cSKUReasons.DeleteByReturnDetailsID(ReturnDetailID);
         }
 
+        public bool ReasonsByReasonID(Guid ReasonID)
+        {
+            return _cReasons.DeleteByResonID(ReasonID);
+        }
+
         #endregion
 
+
+
+       
     }
 }

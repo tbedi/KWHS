@@ -27,6 +27,11 @@ namespace KrausWarehouseServices.Service.RMA
         #region SKUReasons
         [OperationContract]
         Boolean SKUReasonsByReturnDetailsID(Guid ReturnDetailID);
+
+        [OperationContract]
+        bool ReasonsByReasonID(Guid ReasonID);
         #endregion
+
+
     }
 }
