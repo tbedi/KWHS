@@ -291,6 +291,18 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _sageOperations.GetSageReasons(SRnumber, SKUNumber);
         }
+
+        public List<DTO.RMA.RMAInfoDTO> GetCustomerByPOnumber(string POnumber)
+        {
+            return _sageOperations.GetCustomerByPONumber(POnumber);
+        }
+
+        public List<string> GetPOnumber(string chars)
+        {
+            return _sageOperations.GetPOnumber(chars);
+        }
+
+
         #endregion
 
         #region Return Detail
@@ -365,6 +377,12 @@ namespace KrausWarehouseServices.Service.RMA
         }
 
 
-       
+
+
+
+
+
+
+        
     }
 }

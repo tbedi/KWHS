@@ -407,6 +407,97 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return StrReason;
         }
 
+        public List<RMAInfoDTO> GetCustomerByPONumber(string POnumber)
+        {
+            List<RMAInfoDTO> lsInfo = new List<RMAInfoDTO>();
+            try
+            {
+                var RMAdetailsInfo = entX3V6.ExecuteStoreQuery<RMAInfoDTO>(@"SELECT DISTINCT so.BPCORD_0,so.SOHNUM_0, ORDDAT_0,sdh.SDHNUM_0,
+                                                                              so.CUSORDREF_0 PONumber,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
+CASE WHEN so.BPCNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCNAM_0 END,
+CASE WHEN so.BPINAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPINAM_0 END),'')) CustomerName1,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDNAM_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_1 END,
+CASE WHEN so.BPCNAM_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCNAM_1 END,
+CASE WHEN so.BPINAM_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPINAM_1 END),''))  CustomerName2,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDADDLIG_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_0 END,
+CASE WHEN so.BPCADDLIG_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCADDLIG_0 END,
+CASE WHEN so.BPIADDLIG_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPIADDLIG_0 END),'')) Address1,
+CASE WHEN sr.BPDADDLIG_1 = '' THEN
+(ISNULL(COALESCE(CASE WHEN so.BPDADDLIG_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_1 END,
+CASE WHEN so.BPDADDLIG_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_1 END,
+CASE WHEN so.BPDADDLIG_1 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_1 END),'')) ELSE sr.BPDADDLIG_1 END Address2,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDADDLIG_2 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_2 END,
+CASE WHEN so.BPDADDLIG_2 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_2 END,
+CASE WHEN so.BPDADDLIG_2 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDADDLIG_2 END),'')) Address3,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDPOSCOD_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDPOSCOD_0 END,
+CASE WHEN so.BPCPOSCOD_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCPOSCOD_0 END,
+CASE WHEN so.BPIPOSCOD_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPIPOSCOD_0 END),'')) ZipCode,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDCTY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCTY_0 END,
+CASE WHEN so.BPCCTY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCTY_0 END,
+CASE WHEN so.BPICTY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICTY_0 END),'')) City,
+
+(ISNULL(COALESCE(CASE WHEN so.BPDSAT_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDSAT_0 END,
+CASE WHEN so.BPCSAT_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCSAT_0 END,
+CASE WHEN so.BPISAT_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPISAT_0 END),'')) State,
+
+(CASE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
+CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
+CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') WHEN 'UNI' THEN 'US' WHEN 'USA' THEN 'US' WHEN 'CAN' THEN 'CA'
+ELSE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
+CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
+CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') END ) Country
+FROM PRODUCTION.SORDER so 
+LEFT JOIN PRODUCTION.SDELIVERY sdh
+ON so.SOHNUM_0 = sdh.SOHNUM_0
+LEFT JOIN
+PRODUCTION.SRETURN sr
+INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
+ ON sdh.SDHNUM_0 = srd.SDHNUM_0
+
+WHERE CUSORDREF_0 ='" + POnumber + "';").ToList();
+                if (RMAdetailsInfo.Count() > 0)
+                {
+                    foreach (var RMAitem in RMAdetailsInfo)
+                    {
+                        RMAInfoDTO rmaInfo = (RMAInfoDTO)RMAitem;
+                        lsInfo.Add(rmaInfo);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return lsInfo;
+        
+        }
+
+        public List<String> GetPOnumber(String Chars)
+        {
+            List<String> lsPOnumber = new List<String>();
+            try
+            {
+                var ponumbers = entX3V6.ExecuteStoreQuery<String>(@"select TOP 10 CUSORDREF_0 FROM PRODUCTION.SORDER WHERE CUSORDREF_0 LIKE'" + Chars + "%';").ToList();
+                if (ponumbers.Count() > 0)
+                {
+                    foreach (var RMAitem in ponumbers)
+                    {
+                        String rmaInfo = (String)RMAitem;
+                        lsPOnumber.Add(rmaInfo);
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+            return lsPOnumber;
+        }
+
 
     }
 }

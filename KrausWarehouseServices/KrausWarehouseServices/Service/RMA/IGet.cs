@@ -200,6 +200,14 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "/GetPrintReasonFromSage?ID={SRnumber}&value={SKUNumber}", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Bare)]
         string GetPrintReasonFromSage(string SRnumber, String SKUNumber);
+
+
+        [OperationContract]
+        List<RMAInfoDTO> GetCustomerByPOnumber(string POnumber);
+
+
+        [OperationContract]
+        List<string> GetPOnumber(string chars);
         #endregion
 
         #region Role
