@@ -498,6 +498,67 @@ WHERE CUSORDREF_0 ='" + POnumber + "';").ToList();
             return lsPOnumber;
         }
 
+        public List<String> GetVendorName(String Chars)
+        {
+            List<String> lsVendorName = new List<String>();
+            try
+            {
+                var VanderName = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNAM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNAM_0 LIKE '" + Chars + "%';").ToList();
+                if (VanderName.Count() > 0)
+                {
+                    foreach (var RMAitem in VanderName)
+                    {
+                        String rmaInfo = (String)RMAitem;
+                        lsVendorName.Add(rmaInfo);
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+            return lsVendorName;
+        }
 
+        public List<String> GetVendorNumber(String Chars)
+        {
+            List<String> lsVendorNumber = new List<String>();
+            try
+            {
+                var VendorNumber = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNUM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNAM_0 LIKE '" + Chars + "%';").ToList();
+                if (VendorNumber.Count() > 0)
+                {
+                    foreach (var RMAitem in VendorNumber)
+                    {
+                        String rmaInfo = (String)RMAitem;
+                        lsVendorNumber.Add(rmaInfo);
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+            return lsVendorNumber;
+        }
+        public String GetVendorNumberByVenderName(String VenderName)
+        {
+            String StrEANCode = "";
+            try
+            {
+                StrEANCode = entX3V6.ExecuteStoreQuery<String>(@"SELECT BPCNUM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNAM_0='" + VenderName + "';").SingleOrDefault();
+            }
+            catch (Exception)
+            { }
+            return StrEANCode;
+        }
+
+        public String GetVenderNameByVendorNumber(String VenderNumber)
+        {
+            String StrEANCode = "";
+            try
+            {
+                StrEANCode = entX3V6.ExecuteStoreQuery<String>(@"SELECT BPCNAM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNUM_0='" + VenderNumber + "';").SingleOrDefault();
+            }
+            catch (Exception)
+            { }
+            return StrEANCode;
+        }
     }
 }

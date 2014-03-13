@@ -302,6 +302,25 @@ namespace KrausWarehouseServices.Service.RMA
             return _sageOperations.GetPOnumber(chars);
         }
 
+        public List<String> GetVenderName(String chars)
+        {
+            return _sageOperations.GetVendorName(chars);
+        }
+
+        
+        public List<string> GetGetVenderNumber(string number)
+        {
+            return _sageOperations.GetVendorNumber(number);
+        }
+        public string GetVenderNameByVenderNumber(String VenderNumber)
+        {
+            return _sageOperations.GetVenderNameByVendorNumber(VenderNumber);
+        }
+        public string GetVenderNumberByVenderName(string VenderName)
+        {
+            return _sageOperations.GetVendorNumberByVenderName(VenderName);
+        }
+            
 
         #endregion
 
@@ -383,6 +402,8 @@ namespace KrausWarehouseServices.Service.RMA
 
 
 
-        
+
+
+
     }
 }

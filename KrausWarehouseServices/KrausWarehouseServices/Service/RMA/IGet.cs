@@ -208,6 +208,19 @@ namespace KrausWarehouseServices.Service.RMA
 
         [OperationContract]
         List<string> GetPOnumber(string chars);
+
+        [OperationContract]
+        List<string> GetVenderName(String chars);
+
+        [OperationContract]
+        List<string> GetGetVenderNumber(string number);
+
+        [OperationContract]
+        string GetVenderNameByVenderNumber(string vendernumber);
+
+        [OperationContract]
+        string GetVenderNumberByVenderName(string vendername);
+
         #endregion
 
         #region Role
