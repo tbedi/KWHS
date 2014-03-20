@@ -483,7 +483,7 @@ WHERE CUSORDREF_0 ='" + POnumber + "';").ToList();
             List<String> lsPOnumber = new List<String>();
             try
             {
-                var ponumbers = entX3V6.ExecuteStoreQuery<String>(@"select TOP 10 CUSORDREF_0 FROM PRODUCTION.SORDER WHERE CUSORDREF_0 LIKE'" + Chars + "%';").ToList();
+                var ponumbers = entX3V6.ExecuteStoreQuery<String>(@"select TOP 10 CUSORDREF_0 FROM PRODUCTION.SORDER WHERE CUSORDREF_0 LIKE'%" + Chars + "%';").ToList();
                 if (ponumbers.Count() > 0)
                 {
                     foreach (var RMAitem in ponumbers)
@@ -503,7 +503,7 @@ WHERE CUSORDREF_0 ='" + POnumber + "';").ToList();
             List<String> lsVendorName = new List<String>();
             try
             {
-                var VanderName = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNAM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNAM_0 LIKE '" + Chars + "%';").ToList();
+                var VanderName = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNAM_0 FROM PRODUCTION.BPCUSTOMER WHERE Upper(BPCNAM_0) LIKE '%" + Chars + "%';").ToList();
                 if (VanderName.Count() > 0)
                 {
                     foreach (var RMAitem in VanderName)
@@ -523,7 +523,7 @@ WHERE CUSORDREF_0 ='" + POnumber + "';").ToList();
             List<String> lsVendorNumber = new List<String>();
             try
             {
-                var VendorNumber = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNUM_0 FROM PRODUCTION.BPCUSTOMER WHERE BPCNAM_0 LIKE '" + Chars + "%';").ToList();
+                var VendorNumber = entX3V6.ExecuteStoreQuery<String>(@"SELECT TOP 10 BPCNUM_0 FROM PRODUCTION.BPCUSTOMER WHERE Upper(BPCNUM_0) LIKE '%" + Chars + "%';").ToList();
                 if (VendorNumber.Count() > 0)
                 {
                     foreach (var RMAitem in VendorNumber)
