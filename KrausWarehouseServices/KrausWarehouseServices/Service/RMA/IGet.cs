@@ -186,6 +186,10 @@ namespace KrausWarehouseServices.Service.RMA
         List<RMAInfoDTO> RMAInfoByPONumber(String PONumber);
 
         [OperationContract]
+        List<RMAInfoDTO> NewRMAInfoByOnlyPONumber(String PONumber);
+
+
+        [OperationContract]
         List<RMAInfoDTO> RMAInfoBySRNumber(String SRNumber);
 
         [OperationContract]

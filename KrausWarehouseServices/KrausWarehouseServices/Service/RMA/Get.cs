@@ -247,11 +247,6 @@ namespace KrausWarehouseServices.Service.RMA
 
         #region Sage Operations
 
-
-
-
-
-
         public List<DTO.RMA.RMAInfoDTO> RMAInfoByShippingNumber(string ShippingNumber)
         {
             return _sageOperations.GetRMAInfoByShipmentNumber(ShippingNumber);
@@ -267,6 +262,13 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _sageOperations.GetRMAInfoByPONumber(PONumber);
         }
+
+        public List<DTO.RMA.RMAInfoDTO> NewRMAInfoByOnlyPONumber(string PONumber)
+        {
+            return _sageOperations.GetNewRMAInfoByOnlyPONumber(PONumber);
+        }
+
+
 
         public List<DTO.RMA.RMAInfoDTO> RMAInfoBySRNumber(string SRNumber)
         {

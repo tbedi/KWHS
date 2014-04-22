@@ -34,7 +34,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             so.ORDDAT_0 OrderDate, sdh.DLVDAT_0 DeliveryDate,
                                                                             sr.RTNDAT_0 ReturnDate, sr.BPCORD_0 VendorNumber,
                                                                             bpc.BPCNAM_0 VendorName, srd.ITMDES1_0 SKUNumber,
-                                                                            itm.ITMDES2_0 ProductName,CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
+                                                                            itm.ITMDES2_0 ProductName,CAST(sdd.QTY_0 AS INT) DeliveredQty,
                                                                             CAST(srd.EXTQTY_0 AS INT) ExpectedQty, CAST(srd.QTY_0 AS INT) ReturnedQty,
                                                                             CASE WHEN sr.BPDNAM_0 = '' THEN
                                                                             (ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
@@ -79,7 +79,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
-                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SRDLIN_0 AND sdd.LINTYP_0 <> 6
+                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SDDLIN_0 AND sdd.LINTYP_0 <> 6
                                                                             LEFT JOIN PRODUCTION.SORDER so ON so.SOHNUM_0 = sdh.SOHNUM_0
                                                                             LEFT JOIN PRODUCTION.BPCUSTOMER bpc ON sr.BPCORD_0 = bpc.BPCNUM_0
                                                                             LEFT JOIN PRODUCTION.ITMMASTER itm
@@ -118,7 +118,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             so.ORDDAT_0 OrderDate, sdh.DLVDAT_0 DeliveryDate,
                                                                             sr.RTNDAT_0 ReturnDate, sr.BPCORD_0 VendorNumber,
                                                                             bpc.BPCNAM_0 VendorName, srd.ITMDES1_0 SKUNumber,
-                                                                            itm.ITMDES2_0 ProductName, CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
+                                                                            itm.ITMDES2_0 ProductName, CAST(sdd.QTY_0 AS INT) DeliveredQty,
                                                                             CAST(srd.EXTQTY_0 AS INT) ExpectedQty, CAST(srd.QTY_0 AS INT) ReturnedQty,
                                                                             CASE WHEN sr.BPDNAM_0 = '' THEN
                                                                             (ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
@@ -163,7 +163,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
-                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SRDLIN_0 AND sdd.LINTYP_0 <> 6
+                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SDDLIN_0 AND sdd.LINTYP_0 <> 6
                                                                             LEFT JOIN PRODUCTION.SORDER so ON so.SOHNUM_0 = sdh.SOHNUM_0
                                                                             LEFT JOIN PRODUCTION.BPCUSTOMER bpc ON sr.BPCORD_0 = bpc.BPCNUM_0
                                                                             LEFT JOIN PRODUCTION.ITMMASTER itm
@@ -202,7 +202,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                                 so.ORDDAT_0 OrderDate, sdh.DLVDAT_0 DeliveryDate,
                                                                                 sr.RTNDAT_0 ReturnDate, sr.BPCORD_0 VendorNumber,
                                                                                 bpc.BPCNAM_0 VendorName, srd.ITMDES1_0 SKUNumber,
-                                                                                itm.ITMDES2_0 ProductName, CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
+                                                                                itm.ITMDES2_0 ProductName, CAST(sdd.QTY_0 AS INT) DeliveredQty,
                                                                                 CAST(srd.EXTQTY_0 AS INT) ExpectedQty, CAST(srd.QTY_0 AS INT) ReturnedQty,
                                                                                 CASE WHEN sr.BPDNAM_0 = '' THEN
                                                                                 (ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
@@ -247,7 +247,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                                 FROM PRODUCTION.SRETURN sr
                                                                                 INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                                 LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
-                                                                                INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SRDLIN_0 AND sdd.LINTYP_0 <> 6
+                                                                                INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SDDLIN_0 AND sdd.LINTYP_0 <> 6
                                                                                 LEFT JOIN PRODUCTION.SORDER so ON so.SOHNUM_0 = sdh.SOHNUM_0
                                                                                 LEFT JOIN PRODUCTION.BPCUSTOMER bpc ON sr.BPCORD_0 = bpc.BPCNUM_0
                                                                                 LEFT JOIN PRODUCTION.ITMMASTER itm
@@ -286,7 +286,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             so.ORDDAT_0 OrderDate, sdh.DLVDAT_0 DeliveryDate,
                                                                             sr.RTNDAT_0 ReturnDate, sr.BPCORD_0 VendorNumber,
                                                                             bpc.BPCNAM_0 VendorName, srd.ITMDES1_0 SKUNumber,
-                                                                            itm.ITMDES2_0 ProductName, CAST(srd.DLVQTY_0 AS INT) DeliveredQty,
+                                                                            itm.ITMDES2_0 ProductName, CAST(sdd.QTY_0 AS INT) DeliveredQty,
                                                                             CAST(srd.EXTQTY_0 AS INT) ExpectedQty, CAST(srd.QTY_0 AS INT) ReturnedQty,
                                                                             CASE WHEN sr.BPDNAM_0 = '' THEN
                                                                             (ISNULL(COALESCE(CASE WHEN so.BPDNAM_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDNAM_0 END,
@@ -331,12 +331,72 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
-                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SRDLIN_0 AND sdd.LINTYP_0 <> 6
+                                                                            INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.SDDLIN_0 = srd.SDDLIN_0 AND sdd.LINTYP_0 <> 6
                                                                             LEFT JOIN PRODUCTION.SORDER so ON so.SOHNUM_0 = sdh.SOHNUM_0
                                                                             LEFT JOIN PRODUCTION.BPCUSTOMER bpc ON sr.BPCORD_0 = bpc.BPCNUM_0
                                                                             LEFT JOIN PRODUCTION.ITMMASTER itm
                                                                             ON itm.ITMREF_0 = srd.ITMREF_0
                                                                                     WHERE srd.SDHNUM_0 ='" + ShipmentNumber + "';").ToList();
+                if (RMAdetailsInfo.Count() > 0)
+                {
+                    foreach (var RMAitem in RMAdetailsInfo)
+                    {
+                        RMAInfoDTO rmaInfo = (RMAInfoDTO)RMAitem;
+                        lsRMAInfo.Add(rmaInfo);
+                    }
+                }
+            }
+            catch (Exception)
+            { }
+            return lsRMAInfo;
+        }
+
+        /// <summary>
+        /// Get RMA details from the sage by PO Number.Don't have RMA number.
+        /// </summary>
+        /// <param name="PONumber">
+        /// String PO Number.
+        /// </param>
+        /// <returns>
+        /// list of RMAInfoDTO class related to entered PONumber.
+        /// </returns>
+        public List<RMAInfoDTO> GetNewRMAInfoByOnlyPONumber(String PONumber)
+        {
+            List<RMAInfoDTO> lsRMAInfo = new List<RMAInfoDTO>();
+            try
+            {
+                var RMAdetailsInfo = entX3V6.ExecuteStoreQuery<RMAInfoDTO>(@"SELECT CAST(NULL AS NVARCHAR) RMANumber,
+                                                                                    sdh.SDHNUM_0 ShipmentNumber,
+                                                                                    so.SOHNUM_0 OrderNumber,
+                                                                                    so.CUSORDREF_0 PONumber,
+                                                                                    so.ORDDAT_0 OrderDate,
+                                                                                    sdh.DLVDAT_0 DeliveryDate,
+                                                                                    CAST(0 AS DATETIME) ReturnDate,
+                                                                                    so.BPCORD_0 VendorNumber,
+                                                                                    bpc.BPCNAM_0 VendorName, 
+                                                                                    sdd.ITMDES1_0 SKUNumber, 
+                                                                                    itm.ITMDES2_0 ProductName,
+                                                                                    CAST(sdd.QTY_0 AS INT) DeliveredQty,
+                                                                                    CAST(0 AS INT) ExpectedQty, 
+                                                                                    CAST(0 AS INT) ReturnedQty,
+                                                                                    so.BPDNAM_0  CustomerName1,
+                                                                                    so.BPDNAM_1  CustomerName2,
+                                                                                    so.BPDADDLIG_0  Address1,
+                                                                                    so.BPDADDLIG_1  Address2,
+                                                                                    so.BPDADDLIG_2  Address3,
+                                                                                    so.BPDPOSCOD_0  ZipCode,
+                                                                                    so.BPDCTY_0  City,
+                                                                                    so.BPDSAT_0  State,
+                                                                                    CASE so.BPDCRY_0 WHEN 'UNI' THEN 'US' WHEN 'USA' THEN 'US' WHEN 'CAN' THEN 'CA'
+                                                                                    ELSE so.BPDCRY_0 END Country
+                                                                                    ,itm.TCLCOD_0
+                                                                                    FROM
+                                                                                    PRODUCTION.SORDER so
+                                                                                    INNER JOIN PRODUCTION.SDELIVERY sdh ON so.SOHNUM_0 = sdh.SOHNUM_0
+                                                                                    INNER JOIN PRODUCTION.SDELIVERYD sdd ON sdh.SDHNUM_0 = sdd.SDHNUM_0 AND sdd.LINTYP_0 <> 6
+                                                                                    LEFT JOIN PRODUCTION.BPCUSTOMER bpc ON so.BPCORD_0 = bpc.BPCNUM_0
+                                                                                    LEFT JOIN PRODUCTION.ITMMASTER itm ON itm.ITMREF_0 = sdd.ITMREF_0
+                                                                                    WHERE so.CUSORDREF_0 ='" + PONumber + "';").ToList();
                 if (RMAdetailsInfo.Count() > 0)
                 {
                     foreach (var RMAitem in RMAdetailsInfo)
