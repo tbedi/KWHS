@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShippingContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DBLogics\RMA\cmdReturnedSKUPoints.cs" />
     <Compile Include="DBLogics\RMA\cmdRMAAudit.cs" />
     <Compile Include="DBLogics\RMA\cmdReasonCategory.cs" />
     <Compile Include="DBLogics\RMA\cmdReturnDetail.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="DBLogics\Shipping\cmdTracking.cs" />
     <Compile Include="DBLogics\Shipping\cmdUser.cs" />
     <Compile Include="DBLogics\Shipping\cmdUserStation.cs" />
+    <Compile Include="DTO\RMA\ReturnedSKUReasonPointsDTO.cs" />
     <Compile Include="DTO\RMA\RMAAuditDTO.cs" />
     <Compile Include="DTO\RMA\ReasonCategoryDTO.cs" />
     <Compile Include="DTO\RMA\ReasonsDTO.cs" />

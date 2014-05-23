@@ -37,6 +37,9 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_sage.State != null) this.State = (string)_sage.State;
             if (_sage.Country != null) this.Country = (string)_sage.Country;
             if (_sage.TCLCOD_0 != null) this.TCLCOD_0 = (string)_sage.TCLCOD_0;
+            this.SKU_Sequence = (int)_sage.SKU_Sequence;
+            this.SKU_Qty_Seq = (int)_sage.SKU_Qty_Seq;
+
         }
 
         public RMAInfoDTO()
@@ -114,6 +117,12 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public string TCLCOD_0 { get; set; }
+
+        [DataMember]
+        public int SKU_Sequence { get; set; }
+
+        [DataMember]
+        public int SKU_Qty_Seq { get; set; }
 
     }
 }

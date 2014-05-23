@@ -75,7 +75,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             ELSE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
                                                                             CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
                                                                             CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') END ) ELSE sr.BPDCRY_0 END Country
-                                                                            ,itm.TCLCOD_0
+                                                                            ,itm.TCLCOD_0, CAST(1 AS INT) as SKU_Sequence, CAST(0 AS INT) AS SKU_Qty_Seq
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
@@ -159,7 +159,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             ELSE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
                                                                             CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
                                                                             CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') END ) ELSE sr.BPDCRY_0 END Country
-                                                                            ,itm.TCLCOD_0
+                                                                            ,itm.TCLCOD_0, CAST(1 AS INT) as SKU_Sequence, CAST(0 AS INT) AS SKU_Qty_Seq
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
@@ -243,7 +243,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                                 ELSE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
                                                                                 CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
                                                                                 CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') END ) ELSE sr.BPDCRY_0 END Country
-                                                                                ,itm.TCLCOD_0
+                                                                                ,itm.TCLCOD_0, CAST(1 AS INT) as SKU_Sequence, CAST(0 AS INT) AS SKU_Qty_Seq
                                                                                 FROM PRODUCTION.SRETURN sr
                                                                                 INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                                 LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
@@ -327,7 +327,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                             ELSE ISNULL(COALESCE(CASE WHEN so.BPDCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPDCRY_0 END,
                                                                             CASE WHEN so.BPCCRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPCCRY_0 END,
                                                                             CASE WHEN so.BPICRY_0 = '' THEN CAST(NULL AS CHAR) ELSE so.BPICRY_0 END),'') END ) ELSE sr.BPDCRY_0 END Country
-                                                                            ,itm.TCLCOD_0
+                                                                            ,itm.TCLCOD_0, CAST(1 AS INT) as SKU_Sequence, CAST(0 AS INT) AS SKU_Qty_Seq
                                                                             FROM PRODUCTION.SRETURN sr
                                                                             INNER JOIN PRODUCTION.SRETURND srd ON sr.SRHNUM_0 = srd.SRHNUM_0
                                                                             LEFT JOIN PRODUCTION.SDELIVERY sdh ON sdh.SDHNUM_0 = srd.SDHNUM_0
@@ -389,7 +389,7 @@ namespace KrausWarehouseServices.DBLogics.RMA
                                                                                     so.BPDSAT_0  State,
                                                                                     CASE so.BPDCRY_0 WHEN 'UNI' THEN 'US' WHEN 'USA' THEN 'US' WHEN 'CAN' THEN 'CA'
                                                                                     ELSE so.BPDCRY_0 END Country
-                                                                                    ,itm.TCLCOD_0
+                                                                                    ,itm.TCLCOD_0, CAST(1 AS INT) as SKU_Sequence, CAST(0 AS INT) AS SKU_Qty_Seq
                                                                                     FROM
                                                                                     PRODUCTION.SORDER so
                                                                                     INNER JOIN PRODUCTION.SDELIVERY sdh ON so.SOHNUM_0 = sdh.SOHNUM_0

@@ -350,6 +350,93 @@ namespace KrausWarehouseServices.DBLogics.RMA
             return _return;
         }
 
+        public List<ReturnedSKUReasonPointsDTO> GetSKUandPointsByReturnID(Guid ReturnID)
+        {
+            List<ReturnedSKUReasonPointsDTO> _return = new List<ReturnedSKUReasonPointsDTO>();
+
+            try
+            {
+                var re = (from sk in entRMA.ReturnedSKU_Reason_Points
+                          where sk.ReturnID == ReturnID
+                          select new
+                          {
+                              sk.ID,
+                              sk.Points,
+                              sk.Reason,
+                              sk.Reason_Value,
+                              sk.ReturnID,
+                              sk.ReturnDetailID,
+                              sk.SKU,
+                              sk.SkuSequence,
+
+                          }).ToList();
+
+                foreach (var item in re)
+                {
+                    ReturnedSKUReasonPointsDTO redto = new ReturnedSKUReasonPointsDTO();
+
+                    redto.ID = item.ID;
+                    redto.Points = item.Points;
+                    redto.Reason = item.Reason;
+                    redto.Reason_Value = item.Reason_Value;
+                    redto.SKU = item.SKU;
+                    redto.ReturnDetailID = item.ReturnDetailID;
+                    redto.ReturnID = item.ReturnID;
+                    redto.SkuSequence = item.SkuSequence;
+                    _return.Add(redto);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+
+        }
+        public List<ReturnedSKUReasonPointsDTO> GetSKUandPointsByReturnDetailID(Guid ReturnDetailID)
+        {
+            List<ReturnedSKUReasonPointsDTO> _return = new List<ReturnedSKUReasonPointsDTO>();
+
+            try
+            {
+                var re = (from sk in entRMA.ReturnedSKU_Reason_Points
+                          where sk.ReturnDetailID == ReturnDetailID
+                          select new
+                          {
+                              sk.ID,
+                              sk.Points,
+                              sk.Reason,
+                              sk.Reason_Value,
+                              sk.ReturnID,
+                              sk.ReturnDetailID,
+                              sk.SKU,
+                              sk.SkuSequence,
+
+                          }).ToList();
+
+                foreach (var item in re)
+                {
+                    ReturnedSKUReasonPointsDTO redto = new ReturnedSKUReasonPointsDTO();
+
+                    redto.ID = item.ID;
+                    redto.Points = item.Points;
+                    redto.Reason = item.Reason;
+                    redto.Reason_Value = item.Reason_Value;
+                    redto.SKU = item.SKU;
+                    redto.ReturnDetailID = item.ReturnDetailID;
+                    redto.ReturnID = item.ReturnID;
+                    redto.SkuSequence = item.SkuSequence;
+                    _return.Add(redto);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return _return;
+
+        }
+
+
+
         #endregion
 
         #region Set Method
@@ -401,6 +488,12 @@ namespace KrausWarehouseServices.DBLogics.RMA
                     _returnObj.Decision = returnDTO.Decision;
                     _returnObj.CreatedBy = returnDTO.CreatedBy;
                     _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+
+                    _returnObj.Wrong_RMA_Flg = returnDTO.Wrong_RMA_Flg;
+                    _returnObj.Warranty_STA = returnDTO.Warranty_STA;
+                    _returnObj.Setting_Wty_Days = returnDTO.Setting_Wty_Days;
+                    _returnObj.ShipDate_ScanDate_Days_Diff = returnDTO.ShipDate_ScanDate_Days_Diff;
+
                     _returnObj.CreatedDate = returnDTO.CreatesDate;
                     _returnObj.UpdatedDate = returnDTO.UpdatedDate;
                     entRMA.AddToReturns(_returnObj);
@@ -432,6 +525,110 @@ namespace KrausWarehouseServices.DBLogics.RMA
                     _returnObj.Decision = returnDTO.Decision;
                     _returnObj.CreatedBy = returnDTO.CreatedBy;
                     _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+
+                    _returnObj.Wrong_RMA_Flg = returnDTO.Wrong_RMA_Flg;
+                    _returnObj.Warranty_STA = returnDTO.Warranty_STA;
+                    _returnObj.Setting_Wty_Days = returnDTO.Setting_Wty_Days;
+                    _returnObj.ShipDate_ScanDate_Days_Diff = returnDTO.ShipDate_ScanDate_Days_Diff;
+
+
+                    _returnObj.CreatedDate = returnDTO.CreatesDate;
+                    _returnObj.UpdatedDate = returnDTO.UpdatedDate;
+                }
+                entRMA.SaveChanges();
+                _status = true;
+            }
+            catch (Exception)
+            {
+            }
+            return _status;
+        }
+
+
+
+        public Boolean UpsertReturnTblByPOnumber(ReturnDTO returnDTO)
+        {
+            Boolean _status = false;
+
+            try
+            {
+                Return _returnObj = new Return();
+                _returnObj = entRMA.Returns.SingleOrDefault(ret => ret.PONumber == returnDTO.PONumber);
+
+                //If return object is null then Save records
+                if (_returnObj == null)
+                {
+                    _returnObj = new Return();
+                    _returnObj.ReturnID = returnDTO.ReturnID;
+                    _returnObj.RMANumber = returnDTO.RMANumber;
+                    _returnObj.ShipmentNumber = returnDTO.ShipmentNumber;
+                    _returnObj.OrderNumber = returnDTO.OrderNumber;
+                    _returnObj.PONumber = returnDTO.PONumber;
+                    _returnObj.OrderDate = returnDTO.OrderDate;
+                    _returnObj.DeliveryDate = returnDTO.DeliveryDat;
+                    _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.ScannedDate = returnDTO.ScannedDate;
+                    _returnObj.ExpirationDate = returnDTO.ExpirationDate;
+                    _returnObj.VendorNumber = returnDTO.VendorNumber;
+                    _returnObj.VendoeName = returnDTO.VendoeName;
+                    _returnObj.CustomerName1 = returnDTO.CustomerName1;
+                    _returnObj.CustomerName2 = returnDTO.CustomerName2;
+                    _returnObj.Address1 = returnDTO.Address1;
+                    _returnObj.Address2 = returnDTO.Address2;
+                    _returnObj.Address3 = returnDTO.Address3;
+                    _returnObj.ZipCode = returnDTO.ZipCode;
+                    _returnObj.City = returnDTO.City;
+                    _returnObj.State = returnDTO.State;
+                    _returnObj.Country = returnDTO.Country;
+                    _returnObj.ReturnReason = returnDTO.ReturnReason;
+                    _returnObj.RMAStatus = returnDTO.RMAStatus;
+                    _returnObj.Decision = returnDTO.Decision;
+                    _returnObj.CreatedBy = returnDTO.CreatedBy;
+                    _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+
+                    _returnObj.Wrong_RMA_Flg = returnDTO.Wrong_RMA_Flg;
+                    _returnObj.Warranty_STA = returnDTO.Warranty_STA;
+                    _returnObj.Setting_Wty_Days = returnDTO.Setting_Wty_Days;
+                    _returnObj.ShipDate_ScanDate_Days_Diff = returnDTO.ShipDate_ScanDate_Days_Diff;
+
+                    _returnObj.CreatedDate = returnDTO.CreatesDate;
+                    _returnObj.UpdatedDate = returnDTO.UpdatedDate;
+                    entRMA.AddToReturns(_returnObj);
+                }
+                else//update Return table
+                {
+                    _returnObj.RMANumber = returnDTO.RMANumber;
+                    _returnObj.ShipmentNumber = returnDTO.ShipmentNumber;
+                    _returnObj.OrderNumber = returnDTO.OrderNumber;
+                    _returnObj.PONumber = returnDTO.PONumber;
+                    _returnObj.OrderDate = returnDTO.OrderDate;
+                    _returnObj.DeliveryDate = returnDTO.DeliveryDat;
+                    _returnObj.ReturnDate = returnDTO.ReturnDate;
+                    _returnObj.ScannedDate = returnDTO.ScannedDate;
+                    _returnObj.ExpirationDate = returnDTO.ExpirationDate;
+                    _returnObj.VendorNumber = returnDTO.VendorNumber;
+                    _returnObj.VendoeName = returnDTO.VendoeName;
+                    _returnObj.CustomerName1 = returnDTO.CustomerName1;
+                    _returnObj.CustomerName2 = returnDTO.CustomerName2;
+                    _returnObj.Address1 = returnDTO.Address1;
+                    _returnObj.Address2 = returnDTO.Address2;
+                    _returnObj.Address3 = returnDTO.Address3;
+                    _returnObj.ZipCode = returnDTO.ZipCode;
+                    _returnObj.City = returnDTO.City;
+                    _returnObj.State = returnDTO.State;
+                    _returnObj.Country = returnDTO.Country;
+                    _returnObj.ReturnReason = returnDTO.ReturnReason;
+                    _returnObj.RMAStatus = returnDTO.RMAStatus;
+                    _returnObj.Decision = returnDTO.Decision;
+                    _returnObj.CreatedBy = returnDTO.CreatedBy;
+                    _returnObj.UpdatedBy = returnDTO.UpdatedBy;
+
+                    _returnObj.Wrong_RMA_Flg = returnDTO.Wrong_RMA_Flg;
+                    _returnObj.Warranty_STA = returnDTO.Warranty_STA;
+                    _returnObj.Setting_Wty_Days = returnDTO.Setting_Wty_Days;
+                    _returnObj.ShipDate_ScanDate_Days_Diff = returnDTO.ShipDate_ScanDate_Days_Diff;
+
+
                     _returnObj.CreatedDate = returnDTO.CreatesDate;
                     _returnObj.UpdatedDate = returnDTO.UpdatedDate;
                 }

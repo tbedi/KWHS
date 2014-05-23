@@ -59,6 +59,9 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         Boolean Return(ReturnDTO _return);
 
+        [OperationContract]
+        Boolean ReturnByPOnmber(ReturnDTO _return);
+
         #endregion
 
         #region ReturnDetail 
@@ -129,6 +132,23 @@ namespace KrausWarehouseServices.Service.RMA
 
 
      
+        #endregion
+
+
+
+        #region ReturnedSKUPoint
+
+        /// <summary>
+        /// Save and update operation in ReturnedSKUpoints Table.
+        /// </summary>
+        /// <param name="_return">
+        /// pass the  object.
+        /// </param>
+        /// <returns>
+        /// Return boolean value.
+        /// </returns>
+        [OperationContract]
+        Boolean ReturnedSKUPoints(ReturnedSKUReasonPointsDTO _returnedSkuPoints);
         #endregion
 
     }

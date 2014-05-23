@@ -199,6 +199,17 @@ namespace KrausWarehouseServices.Service.RMA
             return _return.GetReturnFromDateToDate(FromDate, ToDate);
         }
 
+        public List<DTO.RMA.ReturnedSKUReasonPointsDTO> GetSKUReasonandPointsByReturnID(Guid ReturnID)
+        {
+            return _return.GetSKUandPointsByReturnID(ReturnID);
+        }
+
+        public List<DTO.RMA.ReturnedSKUReasonPointsDTO> GetSKUReasonandPointsByReturnDetailID(Guid ReturnDetailID)
+        {
+            return _return.GetSKUandPointsByReturnDetailID(ReturnDetailID);
+        }
+
+
         #endregion
 
         #region Reason
@@ -407,5 +418,11 @@ namespace KrausWarehouseServices.Service.RMA
 
 
 
+
+
+
+
+
+      
     }
 }

@@ -41,6 +41,12 @@ namespace KrausWarehouseServices.DTO.RMA
             if (_return.Decision != null) this.Decision = _return.Decision;
             if (_return.CreatedBy != null) this.CreatedBy = _return.CreatedBy;
             if (_return.UpdatedBy != null) this.UpdatedBy = _return.UpdatedBy;
+            
+            if (_return.Wrong_RMA_Flg != null) this.Wrong_RMA_Flg = _return.Wrong_RMA_Flg;
+            if (_return.Warranty_STA != null) this.Warranty_STA = _return.Warranty_STA;
+            if (_return.Setting_Wty_Days != null) this.Setting_Wty_Days =(int)_return.Setting_Wty_Days;
+            if (_return.ShipDate_ScanDate_Days_Diff != null) this.ShipDate_ScanDate_Days_Diff = (int)_return.ShipDate_ScanDate_Days_Diff;
+
             if (_return.CreatedDate != null) this.CreatesDate = (DateTime)_return.CreatedDate;
             if (_return.UpdatedDate != null) this.UpdatedDate = (DateTime)_return.UpdatedDate;
             if (_return.RGAROWID != null) this.RGAROWID = _return.RGAROWID;
@@ -135,5 +141,17 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public DateTime ExpirationDate { get; set; }
+
+        [DataMember]
+        public string Wrong_RMA_Flg { get; set; }
+
+        [DataMember]
+        public string Warranty_STA { get; set; }
+
+        [DataMember]
+        public int Setting_Wty_Days { get; set; }
+
+        [DataMember]
+        public int ShipDate_ScanDate_Days_Diff { get; set; }
     }
 }

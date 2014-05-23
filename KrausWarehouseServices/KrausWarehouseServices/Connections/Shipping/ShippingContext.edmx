@@ -8,6 +8,7 @@
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Audit" EntityType="Model.Store.Audit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="BoxPackage" EntityType="Model.Store.BoxPackage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CartonInfo" EntityType="Model.Store.CartonInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ErrorLog" EntityType="Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Package" EntityType="Model.Store.Package" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PackageDetail" EntityType="Model.Store.PackageDetail" store:Type="Tables" Schema="dbo" />
@@ -15,6 +16,7 @@
           <EntitySet Name="Reasons" EntityType="Model.Store.Reasons" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Return" EntityType="Model.Store.Return" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ReturnDetail" EntityType="Model.Store.ReturnDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReturnedSKU_Reason_Points" EntityType="Model.Store.ReturnedSKU_Reason_Points" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ReturnImages" EntityType="Model.Store.ReturnImages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RMAAudit" EntityType="Model.Store.RMAAudit" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roles" EntityType="Model.Store.Roles" store:Type="Tables" Schema="dbo" />
@@ -120,6 +122,14 @@
             <End Role="Package" EntitySet="Package" />
             <End Role="PackageDetail" EntitySet="PackageDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_ReturnedSKU_Reason_Points_Return" Association="Model.Store.FK_ReturnedSKU_Reason_Points_Return">
+            <End Role="Return" EntitySet="Return" />
+            <End Role="ReturnedSKU_Reason_Points" EntitySet="ReturnedSKU_Reason_Points" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnedSKU_Reason_Points_ReturnDetail" Association="Model.Store.FK_ReturnedSKU_Reason_Points_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+            <End Role="ReturnedSKU_Reason_Points" EntitySet="ReturnedSKU_Reason_Points" />
+          </AssociationSet>
           <AssociationSet Name="FK_ReturnImages_ReturnDetail" Association="Model.Store.FK_ReturnImages_ReturnDetail">
             <End Role="ReturnDetail" EntitySet="ReturnDetail" />
             <End Role="ReturnImages" EntitySet="ReturnImages" />
@@ -191,6 +201,16 @@
           <Property Name="ROWID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BOXNUM" Type="varchar" StoreGeneratedPattern="Computed" />
         </EntityType>
+        <EntityType Name="CartonInfo">
+          <Key>
+            <PropertyRef Name="CartonID" />
+          </Key>
+          <Property Name="CartonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BOXNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShipmentNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CartonNumber" Type="int" Nullable="false" />
+          <Property Name="Printed" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ErrorLog">
           <Key>
             <PropertyRef Name="ErrorLogID" />
@@ -237,7 +257,7 @@
           <Property Name="ProductName" Type="varchar(max)" />
           <Property Name="UnitOfMeasure" Type="varchar(max)" />
           <Property Name="CountryOfOrigin" Type="varchar(max)" />
-          <Property Name="MAP_Price" Type="numeric" Precision="2" Scale="2" />
+          <Property Name="MAP_Price" Type="numeric" Precision="19" Scale="5" />
           <Property Name="TCLCOD_0" Type="varchar(max)" />
           <Property Name="TarrifCode" Type="varchar(max)" />
           <Property Name="CreatedDateTime" Type="datetime" />
@@ -293,6 +313,10 @@
           <Property Name="UpdatedBy" Type="uniqueidentifier" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Wrong_RMA_Flg" Type="nvarchar(max)" />
+          <Property Name="Warranty_STA" Type="nvarchar(max)" />
+          <Property Name="Setting_Wty_Days" Type="int" />
+          <Property Name="ShipDate_ScanDate_Days_Diff" Type="int" />
           <Property Name="ROWID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RGAROWID" Type="varchar" StoreGeneratedPattern="Computed" />
         </EntityType>
@@ -309,12 +333,31 @@
           <Property Name="ExpectedQty" Type="int" />
           <Property Name="ReturnQty" Type="int" />
           <Property Name="ProductStatus" Type="int" />
+          <Property Name="SKU_Qty_Seq" Type="int" />
+          <Property Name="SKU_Sequence" Type="int" />
+          <Property Name="IsSkuScanned" Type="int" />
+          <Property Name="IsManuallyAdded" Type="int" />
           <Property Name="CreatedBy" Type="uniqueidentifier" />
           <Property Name="UpdatedBy" Type="uniqueidentifier" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpadatedDate" Type="datetime" />
+          <Property Name="SKU_Status" Type="nvarchar(max)" />
+          <Property Name="SKU_Reason_Total_Points" Type="int" />
           <Property Name="ROWID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="RGADROWID" Type="varchar" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="ReturnedSKU_Reason_Points">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReturnID" Type="uniqueidentifier" />
+          <Property Name="ReturnDetailID" Type="uniqueidentifier" />
+          <Property Name="SKU" Type="nvarchar(max)" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="Reason_Value" Type="nvarchar(max)" />
+          <Property Name="Points" Type="int" />
+          <Property Name="SkuSequence" Type="int" />
         </EntityType>
         <EntityType Name="ReturnImages">
           <Key>
@@ -545,6 +588,7 @@
         <EntityType Name="Get_Shipping_Data">
           <Key>
             <PropertyRef Name="ShipmentID" />
+            
             <PropertyRef Name="ProductName" />
             <PropertyRef Name="ItemWeight" />
             <PropertyRef Name="UnitOfMeasure" />
@@ -556,7 +600,7 @@
           </Key>
           <Property Name="Row_Number" Type="int" />
           <Property Name="ShipmentID" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="SKU" Type="nvarchar" MaxLength="30" />
+          <Property Name="SKU" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="ItemName" Type="nvarchar" MaxLength="20" />
           <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="Quantity" Type="int" />
@@ -730,6 +774,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReturnedSKU_Reason_Points_Return">
+          <End Role="Return" Type="Model.Store.Return" Multiplicity="0..1" />
+          <End Role="ReturnedSKU_Reason_Points" Type="Model.Store.ReturnedSKU_Reason_Points" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Return">
+              <PropertyRef Name="ReturnID" />
+            </Principal>
+            <Dependent Role="ReturnedSKU_Reason_Points">
+              <PropertyRef Name="ReturnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnedSKU_Reason_Points_ReturnDetail">
+          <End Role="ReturnDetail" Type="Model.Store.ReturnDetail" Multiplicity="0..1" />
+          <End Role="ReturnedSKU_Reason_Points" Type="Model.Store.ReturnedSKU_Reason_Points" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnedSKU_Reason_Points">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ReturnImages_ReturnDetail">
           <End Role="ReturnDetail" Type="Model.Store.ReturnDetail" Multiplicity="1" />
           <End Role="ReturnImages" Type="Model.Store.ReturnImages" Multiplicity="*" />
@@ -862,6 +930,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_Shipping_Data_Procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ship_ID" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Update_Exported_Rows" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TRKNUM" Type="char" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -955,6 +1060,52 @@
           </AssociationSet>
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagram" />
           <EntitySet Name="VersionRelease_RGA" EntityType="Model.VersionRelease_RGA" />
+          <EntitySet Name="CartonInfoes" EntityType="Model.CartonInfo" />
+          <EntitySet Name="ReturnedSKU_Reason_Points" EntityType="Model.ReturnedSKU_Reason_Points" />
+          <AssociationSet Name="FK_ReturnedSKU_Reason_Points_Return" Association="Model.FK_ReturnedSKU_Reason_Points_Return">
+            <End Role="Return" EntitySet="Returns" />
+            <End Role="ReturnedSKU_Reason_Points" EntitySet="ReturnedSKU_Reason_Points" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReturnedSKU_Reason_Points_ReturnDetail" Association="Model.FK_ReturnedSKU_Reason_Points_ReturnDetail">
+            <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+            <End Role="ReturnedSKU_Reason_Points" EntitySet="ReturnedSKU_Reason_Points" />
+          </AssociationSet>
+          <FunctionImport Name="Get_Shipping_Data_Procedure" ReturnType="Collection(Model.Get_Shipping_Data_Procedure_Result)">
+          <Parameter Name="Ship_ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="Update_Exported_Rows">
+          <Parameter Name="TRKNUM" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Audit">
           <Key>
@@ -1037,7 +1188,7 @@
           <Property Name="ProductName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="UnitOfMeasure" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="CountryOfOrigin" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="MAP_Price" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="MAP_Price" Type="Decimal" Precision="19" Scale="5" />
           <Property Name="TCLCOD_0" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="TarrifCode" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
@@ -1251,7 +1402,7 @@
           </Key>
           <Property Name="Row_Number" Type="Int32" />
           <Property Name="ShipmentID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="SKU" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="SKU" Type="String" MaxLength="30" Unicode="true" FixedLength="false" Nullable="false" />
           <Property Name="ItemName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="Quantity" Type="Int32" />
@@ -1569,6 +1720,11 @@
           <Property Type="String" Name="RGAROWID" MaxLength="8000" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="DateTime" Name="ScannedDate" Precision="3" />
           <Property Type="DateTime" Name="ExpirationDate" Precision="3" />
+          <Property Type="String" Name="Wrong_RMA_Flg" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Warranty_STA" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Setting_Wty_Days" />
+          <Property Type="Int32" Name="ShipDate_ScanDate_Days_Diff" />
+          <NavigationProperty Name="ReturnedSKU_Reason_Points" Relationship="Model.FK_ReturnedSKU_Reason_Points_Return" FromRole="Return" ToRole="ReturnedSKU_Reason_Points" />
         </EntityType>
         <EntityType Name="ReturnDetail">
           <Key>
@@ -1591,6 +1747,13 @@
           <NavigationProperty Name="SKUReasons" Relationship="Model.FK_Transaction_ReturnDetail" FromRole="ReturnDetail" ToRole="SKUReason" />
           <Property Type="Int32" Name="ROWID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="RGADROWID" MaxLength="8000" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="SKU_Status" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SKU_Reason_Total_Points" />
+          <NavigationProperty Name="ReturnedSKU_Reason_Points" Relationship="Model.FK_ReturnedSKU_Reason_Points_ReturnDetail" FromRole="ReturnDetail" ToRole="ReturnedSKU_Reason_Points" />
+          <Property Type="Int32" Name="IsSkuScanned" />
+          <Property Type="Int32" Name="IsManuallyAdded" />
+          <Property Type="Int32" Name="SKU_Qty_Seq" />
+          <Property Type="Int32" Name="SKU_Sequence" />
         </EntityType>
         <EntityType Name="ReturnImage">
           <Key>
@@ -1679,6 +1842,86 @@
           <Property Type="String" Name="VersionNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="DateReleased" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="CartonInfo">
+          <Key>
+            <PropertyRef Name="CartonID" />
+          </Key>
+          <Property Type="Guid" Name="CartonID" Nullable="false" />
+          <Property Type="String" Name="BOXNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ShipmentNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CartonNumber" Nullable="false" />
+          <Property Type="Int32" Name="Printed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnedSKU_Reason_Points">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="Guid" Name="ReturnID" />
+          <Property Type="Guid" Name="ReturnDetailID" />
+          <Property Type="String" Name="SKU" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Reason_Value" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Points" />
+          <NavigationProperty Name="Return" Relationship="Model.FK_ReturnedSKU_Reason_Points_Return" FromRole="ReturnedSKU_Reason_Points" ToRole="Return" />
+          <NavigationProperty Name="ReturnDetail" Relationship="Model.FK_ReturnedSKU_Reason_Points_ReturnDetail" FromRole="ReturnedSKU_Reason_Points" ToRole="ReturnDetail" />
+          <Property Type="Int32" Name="SkuSequence" />
+        </EntityType>
+        <Association Name="FK_ReturnedSKU_Reason_Points_Return">
+          <End Type="Model.Return" Role="Return" Multiplicity="0..1" />
+          <End Type="Model.ReturnedSKU_Reason_Points" Role="ReturnedSKU_Reason_Points" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Return">
+              <PropertyRef Name="ReturnID" />
+            </Principal>
+            <Dependent Role="ReturnedSKU_Reason_Points">
+              <PropertyRef Name="ReturnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReturnedSKU_Reason_Points_ReturnDetail">
+          <End Type="Model.ReturnDetail" Role="ReturnDetail" Multiplicity="0..1" />
+          <End Type="Model.ReturnedSKU_Reason_Points" Role="ReturnedSKU_Reason_Points" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReturnDetail">
+              <PropertyRef Name="ReturnDetailID" />
+            </Principal>
+            <Dependent Role="ReturnedSKU_Reason_Points">
+              <PropertyRef Name="ReturnDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Get_Shipping_Data_Procedure_Result">
+          <Property Type="Int32" Name="Row_Number" Nullable="true" />
+          <Property Type="String" Name="ShipmentID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SKU" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="ItemWeight" Nullable="false" Precision="13" Scale="4" />
+          <Property Type="String" Name="UnitOfMeasure" Nullable="false" MaxLength="3" />
+          <Property Type="Byte" Name="LineType" Nullable="true" />
+          <Property Type="String" Name="UPCCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CountryOfOrigin" Nullable="false" MaxLength="2" />
+          <Property Type="Decimal" Name="MAP_Price" Nullable="false" Precision="2" Scale="2" />
+          <Property Type="String" Name="TCLCOD_0" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="TarrifCode" Nullable="true" MaxLength="12" />
+          <Property Type="Byte" Name="ValidationFLG" Nullable="false" />
+          <Property Type="String" Name="AllocationLocation" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ShippingLocation" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LocationCombined" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2050,6 +2293,10 @@
           <EntitySetMapping Name="Returns">
             <EntityTypeMapping TypeName="Model.Return">
               <MappingFragment StoreEntitySet="Return">
+                <ScalarProperty Name="ShipDate_ScanDate_Days_Diff" ColumnName="ShipDate_ScanDate_Days_Diff" />
+                <ScalarProperty Name="Setting_Wty_Days" ColumnName="Setting_Wty_Days" />
+                <ScalarProperty Name="Warranty_STA" ColumnName="Warranty_STA" />
+                <ScalarProperty Name="Wrong_RMA_Flg" ColumnName="Wrong_RMA_Flg" />
                 <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
                 <ScalarProperty Name="ScannedDate" ColumnName="ScannedDate" />
                 <ScalarProperty Name="RGAROWID" ColumnName="RGAROWID" />
@@ -2086,6 +2333,12 @@
           <EntitySetMapping Name="ReturnDetails">
             <EntityTypeMapping TypeName="Model.ReturnDetail">
               <MappingFragment StoreEntitySet="ReturnDetail">
+                <ScalarProperty Name="SKU_Sequence" ColumnName="SKU_Sequence" />
+                <ScalarProperty Name="SKU_Qty_Seq" ColumnName="SKU_Qty_Seq" />
+                <ScalarProperty Name="IsManuallyAdded" ColumnName="IsManuallyAdded" />
+                <ScalarProperty Name="IsSkuScanned" ColumnName="IsSkuScanned" />
+                <ScalarProperty Name="SKU_Reason_Total_Points" ColumnName="SKU_Reason_Total_Points" />
+                <ScalarProperty Name="SKU_Status" ColumnName="SKU_Status" />
                 <ScalarProperty Name="RGADROWID" ColumnName="RGADROWID" />
                 <ScalarProperty Name="ROWID" ColumnName="ROWID" />
                 <ScalarProperty Name="UpadatedDate" ColumnName="UpadatedDate" />
@@ -2157,6 +2410,80 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CartonInfoes">
+            <EntityTypeMapping TypeName="Model.CartonInfo">
+              <MappingFragment StoreEntitySet="CartonInfo">
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="CartonNumber" ColumnName="CartonNumber" />
+                <ScalarProperty Name="ShipmentNumber" ColumnName="ShipmentNumber" />
+                <ScalarProperty Name="BOXNumber" ColumnName="BOXNumber" />
+                <ScalarProperty Name="CartonID" ColumnName="CartonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnedSKU_Reason_Points">
+            <EntityTypeMapping TypeName="Model.ReturnedSKU_Reason_Points">
+              <MappingFragment StoreEntitySet="ReturnedSKU_Reason_Points">
+                <ScalarProperty Name="SkuSequence" ColumnName="SkuSequence" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="Reason_Value" ColumnName="Reason_Value" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ReturnDetailID" ColumnName="ReturnDetailID" />
+                <ScalarProperty Name="ReturnID" ColumnName="ReturnID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Shipping_Data_Procedure" FunctionName="Model.Store.Get_Shipping_Data_Procedure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.Get_Shipping_Data_Procedure_Result">
+                <ScalarProperty Name="Row_Number" ColumnName="Row_Number" />
+                <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemWeight" ColumnName="ItemWeight" />
+                <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+                <ScalarProperty Name="UPCCode" ColumnName="UPCCode" />
+                <ScalarProperty Name="CountryOfOrigin" ColumnName="CountryOfOrigin" />
+                <ScalarProperty Name="MAP_Price" ColumnName="MAP_Price" />
+                <ScalarProperty Name="TCLCOD_0" ColumnName="TCLCOD_0" />
+                <ScalarProperty Name="TarrifCode" ColumnName="TarrifCode" />
+                <ScalarProperty Name="ValidationFLG" ColumnName="ValidationFLG" />
+                <ScalarProperty Name="AllocationLocation" ColumnName="AllocationLocation" />
+                <ScalarProperty Name="ShippingLocation" ColumnName="ShippingLocation" />
+                <ScalarProperty Name="LocationCombined" ColumnName="LocationCombined" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Model.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="Update_Exported_Rows" FunctionName="Model.Store.Update_Exported_Rows" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

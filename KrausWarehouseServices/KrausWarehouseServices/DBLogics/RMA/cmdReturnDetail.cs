@@ -49,6 +49,17 @@ namespace KrausWarehouseServices.DBLogics.RMA
                    _ReturnDetail.ProductStatus = ReturnsDetail.ProductStatus;
                    _ReturnDetail.CreatedBy = ReturnsDetail.CreatedBy;
                    _ReturnDetail.UpdatedBy = ReturnsDetail.UpdatedBy;
+
+                   _ReturnDetail.SKU_Status = ReturnsDetail.SKU_Status;
+                   _ReturnDetail.SKU_Reason_Total_Points = ReturnsDetail.SKU_Reason_Total_Points;
+                   _ReturnDetail.IsSkuScanned = ReturnsDetail.IsSkuScanned;
+                   _ReturnDetail.IsManuallyAdded = ReturnsDetail.IsManuallyAdded;
+
+                   _ReturnDetail.SKU_Sequence = ReturnsDetail.SKU_Sequence;
+
+                   _ReturnDetail.SKU_Qty_Seq = ReturnsDetail.SKU_Qty_Seq;
+
+
                    _ReturnDetail.CreatedDate = ReturnsDetail.CreatedDate;
                    _ReturnDetail.UpadatedDate = ReturnsDetail.UpadatedDate;
                    entRMA.AddToReturnDetails(_ReturnDetail);
@@ -65,6 +76,17 @@ namespace KrausWarehouseServices.DBLogics.RMA
                    _ReturnDetail.ProductStatus = ReturnsDetail.ProductStatus;
                    _ReturnDetail.CreatedBy = ReturnsDetail.CreatedBy;
                    _ReturnDetail.UpdatedBy = ReturnsDetail.UpdatedBy;
+
+                   _ReturnDetail.SKU_Sequence = ReturnsDetail.SKU_Sequence;
+
+                   _ReturnDetail.SKU_Qty_Seq = ReturnsDetail.SKU_Qty_Seq;
+
+
+                   _ReturnDetail.SKU_Status = ReturnsDetail.SKU_Status;
+                   _ReturnDetail.SKU_Reason_Total_Points = ReturnsDetail.SKU_Reason_Total_Points;
+                   _ReturnDetail.IsSkuScanned = ReturnsDetail.IsSkuScanned;
+                   _ReturnDetail.IsManuallyAdded = ReturnsDetail.IsManuallyAdded;
+
                    _ReturnDetail.CreatedDate = ReturnsDetail.CreatedDate;
                    _ReturnDetail.UpadatedDate = ReturnsDetail.UpadatedDate;
                }
@@ -252,7 +274,15 @@ namespace KrausWarehouseServices.DBLogics.RMA
                List<SKUReason> SKUResons = (from Ls in entRMA.SKUReasons
                                             where Ls.ReturnDetailID == ReturnDetailsID
                                             select Ls).ToList();
-               ReturnDetail ReturnDetails = entRMA.ReturnDetails.SingleOrDefault(i => i.ReturnDetailID == ReturnDetailsID);
+
+               List<ReturnedSKU_Reason_Points> SKUpoints = (from Ls in entRMA.ReturnedSKU_Reason_Points
+                                            where Ls.ReturnDetailID == ReturnDetailsID
+                                            select Ls).ToList();
+
+
+             List<ReturnDetail> ReturnDetails = (from Ls in entRMA.ReturnDetails
+                                             where Ls.ReturnDetailID == ReturnDetailsID
+                                             select Ls).ToList(); //entRMA.ReturnDetails.SingleOrDefault(i => i.ReturnDetailID == ReturnDetailsID);
 
                foreach (ReturnImage  imagesID in SKUImages)
                {
@@ -264,7 +294,21 @@ namespace KrausWarehouseServices.DBLogics.RMA
                 entRMA.DeleteObject(Reasonitem);
                }
                entRMA.SaveChanges();
-               entRMA.DeleteObject(ReturnDetails);
+               foreach (ReturnedSKU_Reason_Points skupointsitem in SKUpoints)
+               {
+                   entRMA.Attach(skupointsitem);
+                   entRMA.DeleteObject(skupointsitem);
+               }
+
+               entRMA.SaveChanges();
+
+               foreach (ReturnDetail returndetail in ReturnDetails)
+               {
+                   entRMA.Attach(returndetail);
+                   entRMA.DeleteObject(returndetail);
+               }
+
+              
                entRMA.SaveChanges();
                _returnFlag = true;
            }

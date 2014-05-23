@@ -37,6 +37,8 @@ namespace KrausWarehouseServices.Service.RMA
 
         DBLogics.RMA.cmdRMAAudit _audit = new DBLogics.RMA.cmdRMAAudit();
 
+        DBLogics.RMA.cmdReturnedSKUPoints _returnedSKU = new DBLogics.RMA.cmdReturnedSKUPoints();
+
         #endregion
 
         public bool ReasonCategory(DTO.RMA.ReasonCategoryDTO reasonCat)
@@ -52,6 +54,11 @@ namespace KrausWarehouseServices.Service.RMA
         public bool Return(DTO.RMA.ReturnDTO _return)
         {
             return _returnobj.UpsertReturnTbl(_return);
+        }
+
+        public bool ReturnByPOnmber(DTO.RMA.ReturnDTO _return)
+        {
+            return _returnobj.UpsertReturnTblByPOnumber(_return);
         }
 
         public bool ReturnDetails(DTO.RMA.ReturnDetailsDTO returndetail)
@@ -78,6 +85,9 @@ namespace KrausWarehouseServices.Service.RMA
         {
             return _audit.UpsertAudit(audit);
         }
-
+        public bool ReturnedSKUPoints(DTO.RMA.ReturnedSKUReasonPointsDTO _returnedSkuPoints)
+        {
+            return _returnedSKU.UpsertReturnedSKUPoints(_returnedSkuPoints);
+        }
     }
 }

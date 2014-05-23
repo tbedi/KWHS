@@ -24,6 +24,16 @@ namespace KrausWarehouseServices.DTO.RMA
             if (ReturnDetails.ProductStatus != null) this.ProductStatus = (int)ReturnDetails.ProductStatus;
             if (ReturnDetails.CreatedBy != Guid.Empty) this.CreatedBy = (Guid)ReturnDetails.CreatedBy;
             if (ReturnDetails.UpdatedBy != Guid.Empty) this.UpdatedBy = (Guid)ReturnDetails.UpdatedBy;
+
+            if (ReturnDetails.SKU_Status != null) this.SKU_Status = ReturnDetails.SKU_Status;
+            if (ReturnDetails.SKU_Reason_Total_Points != null) this.SKU_Reason_Total_Points = (int)ReturnDetails.SKU_Reason_Total_Points;
+            if (ReturnDetails.IsSkuScanned != null) this.IsSkuScanned = (int)ReturnDetails.IsSkuScanned;
+            if (ReturnDetails.IsManuallyAdded != null) this.IsManuallyAdded = (int)ReturnDetails.IsManuallyAdded;
+
+            if (ReturnDetails.SKU_Sequence != null) this.SKU_Sequence = (int)ReturnDetails.SKU_Sequence;
+            if (ReturnDetails.SKU_Qty_Seq != null) this.SKU_Qty_Seq = (int)ReturnDetails.SKU_Qty_Seq;
+
+
             if (ReturnDetails.CreatedDate != null) this.CreatedDate = (DateTime)ReturnDetails.CreatedDate;
             if (ReturnDetails.UpadatedDate != null) this.UpadatedDate = (DateTime)ReturnDetails.UpadatedDate;
             if (ReturnDetails.RGADROWID != null) this.RGADROWID = ReturnDetails.RGADROWID;
@@ -33,6 +43,8 @@ namespace KrausWarehouseServices.DTO.RMA
         {
 
         }
+
+      
 
         [DataMember]
         public Guid ReturnDetailID { get; set; }
@@ -75,6 +87,24 @@ namespace KrausWarehouseServices.DTO.RMA
 
         [DataMember]
         public string RGADROWID { get; set; }
+
+        [DataMember]
+        public string SKU_Status { get; set; }
+
+        [DataMember]
+        public int SKU_Reason_Total_Points { get; set; }
+
+        [DataMember]
+        public int IsSkuScanned { get; set; }
+
+        [DataMember]
+        public int IsManuallyAdded { get; set; }
+
+        [DataMember]
+        public int SKU_Sequence { get; set; }
+
+        [DataMember]
+        public int SKU_Qty_Seq { get; set; }
     }
 
 }

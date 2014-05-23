@@ -45,6 +45,10 @@
         <AssociationConnector Association="Model.FK_Transaction_ReturnDetail" />
         <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="3.75" PointY="15.25" />
         <EntityTypeShape EntityType="Model.VersionRelease_RGA" Width="1.5" PointX="1.625" PointY="15.5" />
+        <EntityTypeShape EntityType="Model.CartonInfo" Width="1.5" PointX="0.7645318958743158" PointY="3.3893004373597448" />
+        <EntityTypeShape EntityType="Model.ReturnedSKU_Reason_Points" Width="1.5" PointX="3.9489680658788275" PointY="13.892810634287452" />
+        <AssociationConnector Association="Model.FK_ReturnedSKU_Reason_Points_Return" />
+        <AssociationConnector Association="Model.FK_ReturnedSKU_Reason_Points_ReturnDetail" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

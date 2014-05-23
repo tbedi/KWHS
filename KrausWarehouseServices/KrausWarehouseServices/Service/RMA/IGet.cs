@@ -100,6 +100,14 @@ namespace KrausWarehouseServices.Service.RMA
         [OperationContract]
         ReturnDTO ReturnByReturnID(Guid ReturnID);
 
+
+        [OperationContract]
+        List<ReturnedSKUReasonPointsDTO> GetSKUReasonandPointsByReturnID(Guid ReturnID);
+
+        [OperationContract]
+        List<ReturnedSKUReasonPointsDTO> GetSKUReasonandPointsByReturnDetailID(Guid ReturnDetailID);
+
+
         [OperationContract]
         List<ReturnDTO> ReturnByReturnDetailID(Guid ReturnDetailsID);
 
